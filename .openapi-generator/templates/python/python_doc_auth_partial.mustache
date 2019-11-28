@@ -1,0 +1,39 @@
+{{#hasAuthMethods}}
+{{#authMethods}}
+configuration = {{{packageName}}}.Configuration()
+{{#isBasic}}
+{{^isBasicBearer}}
+# Configure HTTP basic authorization: {{{name}}}
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+{{/isBasicBearer}}
+{{#isBasicBearer}}
+
+# Retrieve a temporary Acces Token (JWT) using your API key id and secret
+API_KEY_ID = 'some-long-id'
+API_KEY_SECRET = 'some-long-secret'
+
+auth = pollination_sdk.AuthenticationApi()
+api_token = pollination_sdk.Token(
+  id=API_KEY_ID,
+  secret=API_KEY_SECRET
+)
+
+auth_response = auth.login(token)
+
+# Configure Bearer authorization{{#bearerFormat}} ({{{.}}}){{/bearerFormat}}: {{{name}}}
+configuration.access_token = auth_response.access_token
+{{/isBasicBearer}}
+{{/isBasic}}
+{{#isApiKey}}
+# Configure API key authorization: {{{name}}}
+configuration.api_key['{{{keyParamName}}}'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['{{{keyParamName}}}'] = 'Bearer'
+{{/isApiKey}}
+{{#isOAuth}}
+# Configure OAuth2 access token for authorization: {{{name}}}
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+{{/isOAuth}}
+{{/authMethods}}
+{{/hasAuthMethods}}
