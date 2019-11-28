@@ -28,6 +28,7 @@ REQUIRES.append("tornado>=4.2,<5")
 setup(
     name="{{{projectName}}}",
     use_scm_version = True,
+    setup_requires=['setuptools_scm'],
     description="{{appName}}",
     author="Pollination Solutions",
     author_email="pollination@solutions.cloud",

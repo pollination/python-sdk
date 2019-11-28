@@ -27,6 +27,7 @@ REQUIRES = ["urllib3 >= 1.15", "six >= 1.10", "certifi", "python-dateutil"]
 setup(
     name="pollination-sdk",
     use_scm_version = True,
+    setup_requires=['setuptools_scm'],
     description="pollination.cloud",
     author="Pollination Solutions",
     author_email="pollination@solutions.cloud",
