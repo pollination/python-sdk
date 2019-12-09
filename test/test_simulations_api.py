@@ -42,6 +42,20 @@ class TestSimulationsApi(unittest.TestCase):
         """
         pass
 
+    def test_get_simulation_logs(self):
+        """Test case for get_simulation_logs
+
+        Get simulation logs  # noqa: E501
+        """
+        pass
+
+    def test_get_task_logs(self):
+        """Test case for get_task_logs
+
+        Get a simulation task's logs  # noqa: E501
+        """
+        pass
+
     def test_list(self):
         """Test case for list
 

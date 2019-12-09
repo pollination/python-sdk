@@ -35,12 +35,12 @@ class WorkflowListItem(object):
     openapi_types = {
         'id': 'str',
         'workflow_ref': 'ReferenceWorkflow',
-        'inputs': 'QueenbeeSchemaArgumentsArguments',
+        'inputs': 'Arguments',
         'phase': 'str',
         'completed': 'bool',
         'started_at': 'datetime',
         'self_link': 'str',
-        'status': 'Status',
+        'status': 'ArgoStatus',
         'finished_at': 'datetime'
     }
 
@@ -137,7 +137,7 @@ class WorkflowListItem(object):
 
 
         :return: The inputs of this WorkflowListItem.  # noqa: E501
-        :rtype: QueenbeeSchemaArgumentsArguments
+        :rtype: Arguments
         """
         return self._inputs
 
@@ -147,7 +147,7 @@ class WorkflowListItem(object):
 
 
         :param inputs: The inputs of this WorkflowListItem.  # noqa: E501
-        :type: QueenbeeSchemaArgumentsArguments
+        :type: Arguments
         """
         if self.local_vars_configuration.client_side_validation and inputs is None:  # noqa: E501
             raise ValueError("Invalid value for `inputs`, must not be `None`")  # noqa: E501
@@ -252,7 +252,7 @@ class WorkflowListItem(object):
 
 
         :return: The status of this WorkflowListItem.  # noqa: E501
-        :rtype: Status
+        :rtype: ArgoStatus
         """
         return self._status
 
@@ -262,7 +262,7 @@ class WorkflowListItem(object):
 
 
         :param status: The status of this WorkflowListItem.  # noqa: E501
-        :type: Status
+        :type: ArgoStatus
         """
 
         self._status = status

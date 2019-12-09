@@ -1,10 +1,10 @@
-# SubmitSimulation
+# ArgoStep
 
+An argo template step
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**workflow** | **str** |  | 
-**inputs** | [**Arguments**](Arguments.md) |  | [optional] 
+**steps** | [**list[ArgoWorkflowStep]**](ArgoWorkflowStep.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
