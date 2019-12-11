@@ -34,15 +34,17 @@ class ArgoParameter(object):
     """
     openapi_types = {
         'name': 'str',
-        'value': 'object'
+        'value': 'object',
+        'value_from': 'object'
     }
 
     attribute_map = {
         'name': 'name',
-        'value': 'value'
+        'value': 'value',
+        'value_from': 'valueFrom'
     }
 
-    def __init__(self, name=None, value=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, name=None, value=None, value_from=None, local_vars_configuration=None):  # noqa: E501
         """ArgoParameter - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -50,11 +52,14 @@ class ArgoParameter(object):
 
         self._name = None
         self._value = None
+        self._value_from = None
         self.discriminator = None
 
         self.name = name
         if value is not None:
             self.value = value
+        if value_from is not None:
+            self.value_from = value_from
 
     @property
     def name(self):
@@ -103,6 +108,29 @@ class ArgoParameter(object):
         """
 
         self._value = value
+
+    @property
+    def value_from(self):
+        """Gets the value_from of this ArgoParameter.  # noqa: E501
+
+        Pull the value of this parameter from another parameter or file.  # noqa: E501
+
+        :return: The value_from of this ArgoParameter.  # noqa: E501
+        :rtype: object
+        """
+        return self._value_from
+
+    @value_from.setter
+    def value_from(self, value_from):
+        """Sets the value_from of this ArgoParameter.
+
+        Pull the value of this parameter from another parameter or file.  # noqa: E501
+
+        :param value_from: The value_from of this ArgoParameter.  # noqa: E501
+        :type: object
+        """
+
+        self._value_from = value_from
 
     def to_dict(self):
         """Returns the model properties as a dict"""

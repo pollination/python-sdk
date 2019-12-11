@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** | Name is the parameter name. must be unique within a task&#39;s inputs / outputs. | 
 **value** | **object** | Default value to use for an input parameter if a value was not supplied. | [optional] 
+**value_from** | **object** | Pull the value of this parameter from another parameter or file. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

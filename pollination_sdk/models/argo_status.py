@@ -33,47 +33,46 @@ class ArgoStatus(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'stored_templates': 'dict(str, ArgoTemplate)',
         'phase': 'str',
         'started_at': 'datetime',
         'finished_at': 'datetime',
         'message': 'str',
         'compressed_nodes': 'str',
         'nodes': 'dict(str, ArgoNodeStatus)',
+        'stored_templates': 'dict(str, ArgoTemplate)',
         'persistent_volume_claims': 'list[object]',
         'outputs': 'ArgoOutputs'
     }
 
     attribute_map = {
-        'stored_templates': 'storedTemplates',
         'phase': 'phase',
         'started_at': 'startedAt',
         'finished_at': 'finishedAt',
         'message': 'message',
         'compressed_nodes': 'compressedNodes',
         'nodes': 'nodes',
+        'stored_templates': 'storedTemplates',
         'persistent_volume_claims': 'persistentVolumeClaims',
         'outputs': 'outputs'
     }
 
-    def __init__(self, stored_templates=None, phase=None, started_at=None, finished_at=None, message=None, compressed_nodes=None, nodes=None, persistent_volume_claims=[], outputs=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, phase=None, started_at=None, finished_at=None, message=None, compressed_nodes=None, nodes=None, stored_templates=None, persistent_volume_claims=[], outputs=None, local_vars_configuration=None):  # noqa: E501
         """ArgoStatus - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._stored_templates = None
         self._phase = None
         self._started_at = None
         self._finished_at = None
         self._message = None
         self._compressed_nodes = None
         self._nodes = None
+        self._stored_templates = None
         self._persistent_volume_claims = None
         self._outputs = None
         self.discriminator = None
 
-        self.stored_templates = stored_templates
         if phase is not None:
             self.phase = phase
         if started_at is not None:
@@ -86,33 +85,12 @@ class ArgoStatus(object):
             self.compressed_nodes = compressed_nodes
         if nodes is not None:
             self.nodes = nodes
+        if stored_templates is not None:
+            self.stored_templates = stored_templates
         if persistent_volume_claims is not None:
             self.persistent_volume_claims = persistent_volume_claims
         if outputs is not None:
             self.outputs = outputs
-
-    @property
-    def stored_templates(self):
-        """Gets the stored_templates of this ArgoStatus.  # noqa: E501
-
-
-        :return: The stored_templates of this ArgoStatus.  # noqa: E501
-        :rtype: dict(str, ArgoTemplate)
-        """
-        return self._stored_templates
-
-    @stored_templates.setter
-    def stored_templates(self, stored_templates):
-        """Sets the stored_templates of this ArgoStatus.
-
-
-        :param stored_templates: The stored_templates of this ArgoStatus.  # noqa: E501
-        :type: dict(str, ArgoTemplate)
-        """
-        if self.local_vars_configuration.client_side_validation and stored_templates is None:  # noqa: E501
-            raise ValueError("Invalid value for `stored_templates`, must not be `None`")  # noqa: E501
-
-        self._stored_templates = stored_templates
 
     @property
     def phase(self):
@@ -239,6 +217,27 @@ class ArgoStatus(object):
         """
 
         self._nodes = nodes
+
+    @property
+    def stored_templates(self):
+        """Gets the stored_templates of this ArgoStatus.  # noqa: E501
+
+
+        :return: The stored_templates of this ArgoStatus.  # noqa: E501
+        :rtype: dict(str, ArgoTemplate)
+        """
+        return self._stored_templates
+
+    @stored_templates.setter
+    def stored_templates(self, stored_templates):
+        """Sets the stored_templates of this ArgoStatus.
+
+
+        :param stored_templates: The stored_templates of this ArgoStatus.  # noqa: E501
+        :type: dict(str, ArgoTemplate)
+        """
+
+        self._stored_templates = stored_templates
 
     @property
     def persistent_volume_claims(self):

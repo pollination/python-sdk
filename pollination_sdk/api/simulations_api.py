@@ -256,18 +256,17 @@ class SimulationsApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_simulation_logs(self, id, template_name, **kwargs):  # noqa: E501
+    def get_simulation_logs(self, id, **kwargs):  # noqa: E501
         """Get simulation logs  # noqa: E501
 
         get simulation logs  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_simulation_logs(id, template_name, async_req=True)
+        >>> thread = api.get_simulation_logs(id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param str id: (required)
-        :param str template_name: Name of a simulation task template. (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -280,20 +279,19 @@ class SimulationsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.get_simulation_logs_with_http_info(id, template_name, **kwargs)  # noqa: E501
+        return self.get_simulation_logs_with_http_info(id, **kwargs)  # noqa: E501
 
-    def get_simulation_logs_with_http_info(self, id, template_name, **kwargs):  # noqa: E501
+    def get_simulation_logs_with_http_info(self, id, **kwargs):  # noqa: E501
         """Get simulation logs  # noqa: E501
 
         get simulation logs  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_simulation_logs_with_http_info(id, template_name, async_req=True)
+        >>> thread = api.get_simulation_logs_with_http_info(id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param str id: (required)
-        :param str template_name: Name of a simulation task template. (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -310,7 +308,7 @@ class SimulationsApi(object):
 
         local_var_params = locals()
 
-        all_params = ['id', 'template_name']  # noqa: E501
+        all_params = ['id']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -328,10 +326,6 @@ class SimulationsApi(object):
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id` when calling `get_simulation_logs`")  # noqa: E501
-        # verify the required parameter 'template_name' is set
-        if self.api_client.client_side_validation and ('template_name' not in local_var_params or  # noqa: E501
-                                                        local_var_params['template_name'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `template_name` when calling `get_simulation_logs`")  # noqa: E501
 
         collection_formats = {}
 
@@ -340,8 +334,6 @@ class SimulationsApi(object):
             path_params['id'] = local_var_params['id']  # noqa: E501
 
         query_params = []
-        if 'template_name' in local_var_params and local_var_params['template_name'] is not None:  # noqa: E501
-            query_params.append(('template_name', local_var_params['template_name']))  # noqa: E501
 
         header_params = {}
 

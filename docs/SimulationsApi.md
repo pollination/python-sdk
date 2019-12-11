@@ -167,7 +167,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_simulation_logs**
-> list[WorkflowTaskLog] get_simulation_logs(id, template_name)
+> list[WorkflowTaskLog] get_simulation_logs(id)
 
 Get simulation logs
 
@@ -204,11 +204,10 @@ configuration.host = "https://api.pollination.cloud"
 # Create an instance of the API class
 api_instance = pollination_sdk.SimulationsApi(pollination_sdk.ApiClient(configuration))
 id = 'id_example' # str | 
-template_name = 'template_name_example' # str | Name of a simulation task template.
 
 try:
     # Get simulation logs
-    api_response = api_instance.get_simulation_logs(id, template_name)
+    api_response = api_instance.get_simulation_logs(id)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling SimulationsApi->get_simulation_logs: %s\n" % e)
@@ -219,7 +218,6 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | [**str**](.md)|  | 
- **template_name** | **str**| Name of a simulation task template. | 
 
 ### Return type
 
