@@ -33,23 +33,27 @@ class S3UploadRequest(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'url': 'str'
+        'url': 'str',
+        'fields': 'dict(str, str)'
     }
 
     attribute_map = {
-        'url': 'url'
+        'url': 'url',
+        'fields': 'fields'
     }
 
-    def __init__(self, url=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, url=None, fields=None, local_vars_configuration=None):  # noqa: E501
         """S3UploadRequest - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._url = None
+        self._fields = None
         self.discriminator = None
 
         self.url = url
+        self.fields = fields
 
     @property
     def url(self):
@@ -73,6 +77,29 @@ class S3UploadRequest(object):
             raise ValueError("Invalid value for `url`, must not be `None`")  # noqa: E501
 
         self._url = url
+
+    @property
+    def fields(self):
+        """Gets the fields of this S3UploadRequest.  # noqa: E501
+
+
+        :return: The fields of this S3UploadRequest.  # noqa: E501
+        :rtype: dict(str, str)
+        """
+        return self._fields
+
+    @fields.setter
+    def fields(self, fields):
+        """Sets the fields of this S3UploadRequest.
+
+
+        :param fields: The fields of this S3UploadRequest.  # noqa: E501
+        :type: dict(str, str)
+        """
+        if self.local_vars_configuration.client_side_validation and fields is None:  # noqa: E501
+            raise ValueError("Invalid value for `fields`, must not be `None`")  # noqa: E501
+
+        self._fields = fields
 
     def to_dict(self):
         """Returns the model properties as a dict"""
