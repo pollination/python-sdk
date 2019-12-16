@@ -97,6 +97,8 @@ All URIs are relative to *https://api.pollination.cloud*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*ArtifactsApi* | [**create**](https://github.com/pollination/python-sdk/blob/master/docs/ArtifactsApi.md#create) | **POST** /artifacts | Get an Artifact upload link.
+*ArtifactsApi* | [**list**](https://github.com/pollination/python-sdk/blob/master/docs/ArtifactsApi.md#list) | **GET** /artifacts | List artifacts in user folder
 *AuthenticationApi* | [**create_api_token**](https://github.com/pollination/python-sdk/blob/master/docs/AuthenticationApi.md#create_api_token) | **POST** /auth/api-token | Create an API Token
 *AuthenticationApi* | [**delete_api_token**](https://github.com/pollination/python-sdk/blob/master/docs/AuthenticationApi.md#delete_api_token) | **DELETE** /auth/api-token | Delete an API Token
 *AuthenticationApi* | [**get_api_token**](https://github.com/pollination/python-sdk/blob/master/docs/AuthenticationApi.md#get_api_token) | **GET** /auth/api-token | Get your API Token ID
@@ -157,11 +159,13 @@ Class | Method | HTTP request | Description
  - [DAG](https://github.com/pollination/python-sdk/blob/master/docs/DAG.md)
  - [DAGTask](https://github.com/pollination/python-sdk/blob/master/docs/DAGTask.md)
  - [Face](https://github.com/pollination/python-sdk/blob/master/docs/Face.md)
+ - [FileMeta](https://github.com/pollination/python-sdk/blob/master/docs/FileMeta.md)
  - [Function](https://github.com/pollination/python-sdk/blob/master/docs/Function.md)
  - [Glass](https://github.com/pollination/python-sdk/blob/master/docs/Glass.md)
  - [HTTPLocation](https://github.com/pollination/python-sdk/blob/master/docs/HTTPLocation.md)
  - [HTTPValidationError](https://github.com/pollination/python-sdk/blob/master/docs/HTTPValidationError.md)
  - [InputFolderLocation](https://github.com/pollination/python-sdk/blob/master/docs/InputFolderLocation.md)
+ - [KeyRequest](https://github.com/pollination/python-sdk/blob/master/docs/KeyRequest.md)
  - [KeySecret](https://github.com/pollination/python-sdk/blob/master/docs/KeySecret.md)
  - [Language](https://github.com/pollination/python-sdk/blob/master/docs/Language.md)
  - [LocalRequirements](https://github.com/pollination/python-sdk/blob/master/docs/LocalRequirements.md)
@@ -179,6 +183,7 @@ Class | Method | HTTP request | Description
  - [ReferenceWorkflow](https://github.com/pollination/python-sdk/blob/master/docs/ReferenceWorkflow.md)
  - [RunFolderLocation](https://github.com/pollination/python-sdk/blob/master/docs/RunFolderLocation.md)
  - [S3Location](https://github.com/pollination/python-sdk/blob/master/docs/S3Location.md)
+ - [S3UploadRequest](https://github.com/pollination/python-sdk/blob/master/docs/S3UploadRequest.md)
  - [Sensor](https://github.com/pollination/python-sdk/blob/master/docs/Sensor.md)
  - [SensorGridIn](https://github.com/pollination/python-sdk/blob/master/docs/SensorGridIn.md)
  - [SensorGridIn1](https://github.com/pollination/python-sdk/blob/master/docs/SensorGridIn1.md)

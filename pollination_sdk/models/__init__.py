@@ -39,11 +39,13 @@ from pollination_sdk.models.created_content import CreatedContent
 from pollination_sdk.models.dag import DAG
 from pollination_sdk.models.dag_task import DAGTask
 from pollination_sdk.models.face import Face
+from pollination_sdk.models.file_meta import FileMeta
 from pollination_sdk.models.function import Function
 from pollination_sdk.models.glass import Glass
 from pollination_sdk.models.http_location import HTTPLocation
 from pollination_sdk.models.http_validation_error import HTTPValidationError
 from pollination_sdk.models.input_folder_location import InputFolderLocation
+from pollination_sdk.models.key_request import KeyRequest
 from pollination_sdk.models.key_secret import KeySecret
 from pollination_sdk.models.language import Language
 from pollination_sdk.models.local_requirements import LocalRequirements
@@ -61,6 +63,7 @@ from pollination_sdk.models.plastic import Plastic
 from pollination_sdk.models.reference_workflow import ReferenceWorkflow
 from pollination_sdk.models.run_folder_location import RunFolderLocation
 from pollination_sdk.models.s3_location import S3Location
+from pollination_sdk.models.s3_upload_request import S3UploadRequest
 from pollination_sdk.models.sensor import Sensor
 from pollination_sdk.models.sensor_grid_in import SensorGridIn
 from pollination_sdk.models.sensor_grid_in1 import SensorGridIn1
