@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** | name of the artifact. must be unique within a task&#39;s inputs / outputs. | 
 **path** | **str** | Path the artifact should be copied to in the temporary task folder. | [optional] 
-**archive** | [**object**](.md) |  | [optional] 
+**archive** | **dict(str, object)** | Artifact storage strategy to use when uploading to persistent location. | [optional] 
 **s3** | [**ArgoS3Location**](ArgoS3Location.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

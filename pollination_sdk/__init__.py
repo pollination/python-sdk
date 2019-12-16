@@ -45,14 +45,11 @@ from pollination_sdk.models.argo_outputs import ArgoOutputs
 from pollination_sdk.models.argo_parameter import ArgoParameter
 from pollination_sdk.models.argo_retry_strategy import ArgoRetryStrategy
 from pollination_sdk.models.argo_s3_location import ArgoS3Location
-from pollination_sdk.models.argo_sequence import ArgoSequence
 from pollination_sdk.models.argo_status import ArgoStatus
-from pollination_sdk.models.argo_step import ArgoStep
 from pollination_sdk.models.argo_suspend import ArgoSuspend
 from pollination_sdk.models.argo_task_container import ArgoTaskContainer
 from pollination_sdk.models.argo_template import ArgoTemplate
 from pollination_sdk.models.argo_template_ref import ArgoTemplateRef
-from pollination_sdk.models.argo_workflow_step import ArgoWorkflowStep
 from pollination_sdk.models.arguments import Arguments
 from pollination_sdk.models.artifact import Artifact
 from pollination_sdk.models.auth0_token_response import Auth0TokenResponse
@@ -64,9 +61,9 @@ from pollination_sdk.models.function import Function
 from pollination_sdk.models.glass import Glass
 from pollination_sdk.models.http_location import HTTPLocation
 from pollination_sdk.models.http_validation_error import HTTPValidationError
+from pollination_sdk.models.input_folder_location import InputFolderLocation
 from pollination_sdk.models.key_secret import KeySecret
 from pollination_sdk.models.language import Language
-from pollination_sdk.models.local_location import LocalLocation
 from pollination_sdk.models.local_requirements import LocalRequirements
 from pollination_sdk.models.loop_control import LoopControl
 from pollination_sdk.models.model import Model
@@ -80,6 +77,7 @@ from pollination_sdk.models.parameter import Parameter
 from pollination_sdk.models.parent import Parent
 from pollination_sdk.models.plastic import Plastic
 from pollination_sdk.models.reference_workflow import ReferenceWorkflow
+from pollination_sdk.models.run_folder_location import RunFolderLocation
 from pollination_sdk.models.s3_location import S3Location
 from pollination_sdk.models.sensor import Sensor
 from pollination_sdk.models.sensor_grid_in import SensorGridIn
@@ -93,5 +91,4 @@ from pollination_sdk.models.validation_error import ValidationError
 from pollination_sdk.models.vertex import Vertex
 from pollination_sdk.models.workflow import Workflow
 from pollination_sdk.models.workflow_list_item import WorkflowListItem
-from pollination_sdk.models.workflow_task_log import WorkflowTaskLog
 

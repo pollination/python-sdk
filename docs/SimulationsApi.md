@@ -6,7 +6,9 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create**](SimulationsApi.md#create) | **POST** /simulations | Schedule a simulation
 [**get**](SimulationsApi.md#get) | **GET** /simulations/{id} | Get a Simulation
+[**get_simulation_inputs**](SimulationsApi.md#get_simulation_inputs) | **GET** /simulations/{id}/inputs | Get simulation inputs
 [**get_simulation_logs**](SimulationsApi.md#get_simulation_logs) | **GET** /simulations/{id}/logs | Get simulation logs
+[**get_simulation_outputs**](SimulationsApi.md#get_simulation_outputs) | **GET** /simulations/{id}/outputs | Get simulation outputs
 [**get_task_logs**](SimulationsApi.md#get_task_logs) | **GET** /simulations/{id}/task/{task_id}/logs | Get a simulation task&#39;s logs
 [**list**](SimulationsApi.md#list) | **GET** /simulations | List simulations
 [**resubmit**](SimulationsApi.md#resubmit) | **POST** /simulations/{id}/re-submit | re-submit a simulation
@@ -166,8 +168,85 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_simulation_inputs**
+> get_simulation_inputs(id)
+
+Get simulation inputs
+
+get simulation inputs
+
+### Example
+
+* Bearer Authentication (JWT):
+```python
+from __future__ import print_function
+import time
+import pollination_sdk
+from pollination_sdk.rest import ApiException
+from pprint import pprint
+configuration = pollination_sdk.Configuration()
+
+# Retrieve a temporary Acces Token (JWT) using your API key id and secret
+API_KEY_ID = 'some-long-id'
+API_KEY_SECRET = 'some-long-secret'
+
+auth = pollination_sdk.AuthenticationApi()
+api_token = pollination_sdk.Token(
+  id=API_KEY_ID,
+  secret=API_KEY_SECRET
+)
+
+auth_response = auth.login(token)
+
+# Configure Bearer authorization: JWT
+configuration.access_token = auth_response.access_token
+
+# Defining host is optional and default to https://api.pollination.cloud
+configuration.host = "https://api.pollination.cloud"
+# Create an instance of the API class
+api_instance = pollination_sdk.SimulationsApi(pollination_sdk.ApiClient(configuration))
+id = 'id_example' # str | 
+
+try:
+    # Get simulation inputs
+    api_instance.get_simulation_inputs(id)
+except ApiException as e:
+    print("Exception when calling SimulationsApi->get_simulation_inputs: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **str**|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[JWT](../README.md#JWT)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/x-gtar-compressed, application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**403** | Access forbidden |  -  |
+**500** | Server error |  -  |
+**404** | Not found |  -  |
+**200** | Retrieved |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_simulation_logs**
-> list[WorkflowTaskLog] get_simulation_logs(id)
+> get_simulation_logs(id)
 
 Get simulation logs
 
@@ -207,8 +286,7 @@ id = 'id_example' # str |
 
 try:
     # Get simulation logs
-    api_response = api_instance.get_simulation_logs(id)
-    pprint(api_response)
+    api_instance.get_simulation_logs(id)
 except ApiException as e:
     print("Exception when calling SimulationsApi->get_simulation_logs: %s\n" % e)
 ```
@@ -217,11 +295,11 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**str**](.md)|  | 
+ **id** | **str**|  | 
 
 ### Return type
 
-[**list[WorkflowTaskLog]**](WorkflowTaskLog.md)
+void (empty response body)
 
 ### Authorization
 
@@ -230,7 +308,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/x-gtar-compressed, application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -239,13 +317,90 @@ Name | Type | Description  | Notes
 **403** | Access forbidden |  -  |
 **500** | Server error |  -  |
 **404** | Not found |  -  |
-**200** | Retrieved |  * Link - The Link header with pagination information. For details see [link header](https://pollination.cloud/api/#section/Pagination/Link-header). <br>  |
+**200** | Retrieved |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_simulation_outputs**
+> get_simulation_outputs(id)
+
+Get simulation outputs
+
+get simulation outputs
+
+### Example
+
+* Bearer Authentication (JWT):
+```python
+from __future__ import print_function
+import time
+import pollination_sdk
+from pollination_sdk.rest import ApiException
+from pprint import pprint
+configuration = pollination_sdk.Configuration()
+
+# Retrieve a temporary Acces Token (JWT) using your API key id and secret
+API_KEY_ID = 'some-long-id'
+API_KEY_SECRET = 'some-long-secret'
+
+auth = pollination_sdk.AuthenticationApi()
+api_token = pollination_sdk.Token(
+  id=API_KEY_ID,
+  secret=API_KEY_SECRET
+)
+
+auth_response = auth.login(token)
+
+# Configure Bearer authorization: JWT
+configuration.access_token = auth_response.access_token
+
+# Defining host is optional and default to https://api.pollination.cloud
+configuration.host = "https://api.pollination.cloud"
+# Create an instance of the API class
+api_instance = pollination_sdk.SimulationsApi(pollination_sdk.ApiClient(configuration))
+id = 'id_example' # str | 
+
+try:
+    # Get simulation outputs
+    api_instance.get_simulation_outputs(id)
+except ApiException as e:
+    print("Exception when calling SimulationsApi->get_simulation_outputs: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **str**|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[JWT](../README.md#JWT)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/x-gtar-compressed, application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+**403** | Access forbidden |  -  |
+**500** | Server error |  -  |
+**404** | Not found |  -  |
+**200** | Retrieved |  -  |
 **422** | Validation Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_task_logs**
-> WorkflowTaskLog get_task_logs(id, task_id)
+> str get_task_logs(id, task_id)
 
 Get a simulation task's logs
 
@@ -301,7 +456,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**WorkflowTaskLog**](WorkflowTaskLog.md)
+**str**
 
 ### Authorization
 

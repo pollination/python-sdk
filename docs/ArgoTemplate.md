@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **inputs** | [**ArgoArguments**](ArgoArguments.md) |  | [optional] 
 **outputs** | [**ArgoOutputs**](ArgoOutputs.md) |  | [optional] 
 **daemon** | **bool** |  | [optional] 
-**steps** | [**list[ArgoStep]**](ArgoStep.md) |  | [optional] 
+**steps** | **list[object]** |  | [optional] 
 **container** | [**ArgoTaskContainer**](ArgoTaskContainer.md) |  | [optional] 
 **dag** | [**ArgoDAG**](ArgoDAG.md) |  | [optional] 
 **suspend** | [**ArgoSuspend**](ArgoSuspend.md) |  | [optional] 

@@ -115,7 +115,9 @@ Class | Method | HTTP request | Description
 *SensorGridApi* | [**list**](https://github.com/pollination/python-sdk/blob/master/docs/SensorGridApi.md#list) | **GET** /sensor-grids | Get Sensor Grids
 *SimulationsApi* | [**create**](https://github.com/pollination/python-sdk/blob/master/docs/SimulationsApi.md#create) | **POST** /simulations | Schedule a simulation
 *SimulationsApi* | [**get**](https://github.com/pollination/python-sdk/blob/master/docs/SimulationsApi.md#get) | **GET** /simulations/{id} | Get a Simulation
+*SimulationsApi* | [**get_simulation_inputs**](https://github.com/pollination/python-sdk/blob/master/docs/SimulationsApi.md#get_simulation_inputs) | **GET** /simulations/{id}/inputs | Get simulation inputs
 *SimulationsApi* | [**get_simulation_logs**](https://github.com/pollination/python-sdk/blob/master/docs/SimulationsApi.md#get_simulation_logs) | **GET** /simulations/{id}/logs | Get simulation logs
+*SimulationsApi* | [**get_simulation_outputs**](https://github.com/pollination/python-sdk/blob/master/docs/SimulationsApi.md#get_simulation_outputs) | **GET** /simulations/{id}/outputs | Get simulation outputs
 *SimulationsApi* | [**get_task_logs**](https://github.com/pollination/python-sdk/blob/master/docs/SimulationsApi.md#get_task_logs) | **GET** /simulations/{id}/task/{task_id}/logs | Get a simulation task&#39;s logs
 *SimulationsApi* | [**list**](https://github.com/pollination/python-sdk/blob/master/docs/SimulationsApi.md#list) | **GET** /simulations | List simulations
 *SimulationsApi* | [**resubmit**](https://github.com/pollination/python-sdk/blob/master/docs/SimulationsApi.md#resubmit) | **POST** /simulations/{id}/re-submit | re-submit a simulation
@@ -143,14 +145,11 @@ Class | Method | HTTP request | Description
  - [ArgoParameter](https://github.com/pollination/python-sdk/blob/master/docs/ArgoParameter.md)
  - [ArgoRetryStrategy](https://github.com/pollination/python-sdk/blob/master/docs/ArgoRetryStrategy.md)
  - [ArgoS3Location](https://github.com/pollination/python-sdk/blob/master/docs/ArgoS3Location.md)
- - [ArgoSequence](https://github.com/pollination/python-sdk/blob/master/docs/ArgoSequence.md)
  - [ArgoStatus](https://github.com/pollination/python-sdk/blob/master/docs/ArgoStatus.md)
- - [ArgoStep](https://github.com/pollination/python-sdk/blob/master/docs/ArgoStep.md)
  - [ArgoSuspend](https://github.com/pollination/python-sdk/blob/master/docs/ArgoSuspend.md)
  - [ArgoTaskContainer](https://github.com/pollination/python-sdk/blob/master/docs/ArgoTaskContainer.md)
  - [ArgoTemplate](https://github.com/pollination/python-sdk/blob/master/docs/ArgoTemplate.md)
  - [ArgoTemplateRef](https://github.com/pollination/python-sdk/blob/master/docs/ArgoTemplateRef.md)
- - [ArgoWorkflowStep](https://github.com/pollination/python-sdk/blob/master/docs/ArgoWorkflowStep.md)
  - [Arguments](https://github.com/pollination/python-sdk/blob/master/docs/Arguments.md)
  - [Artifact](https://github.com/pollination/python-sdk/blob/master/docs/Artifact.md)
  - [Auth0TokenResponse](https://github.com/pollination/python-sdk/blob/master/docs/Auth0TokenResponse.md)
@@ -162,9 +161,9 @@ Class | Method | HTTP request | Description
  - [Glass](https://github.com/pollination/python-sdk/blob/master/docs/Glass.md)
  - [HTTPLocation](https://github.com/pollination/python-sdk/blob/master/docs/HTTPLocation.md)
  - [HTTPValidationError](https://github.com/pollination/python-sdk/blob/master/docs/HTTPValidationError.md)
+ - [InputFolderLocation](https://github.com/pollination/python-sdk/blob/master/docs/InputFolderLocation.md)
  - [KeySecret](https://github.com/pollination/python-sdk/blob/master/docs/KeySecret.md)
  - [Language](https://github.com/pollination/python-sdk/blob/master/docs/Language.md)
- - [LocalLocation](https://github.com/pollination/python-sdk/blob/master/docs/LocalLocation.md)
  - [LocalRequirements](https://github.com/pollination/python-sdk/blob/master/docs/LocalRequirements.md)
  - [LoopControl](https://github.com/pollination/python-sdk/blob/master/docs/LoopControl.md)
  - [Model](https://github.com/pollination/python-sdk/blob/master/docs/Model.md)
@@ -178,6 +177,7 @@ Class | Method | HTTP request | Description
  - [Parent](https://github.com/pollination/python-sdk/blob/master/docs/Parent.md)
  - [Plastic](https://github.com/pollination/python-sdk/blob/master/docs/Plastic.md)
  - [ReferenceWorkflow](https://github.com/pollination/python-sdk/blob/master/docs/ReferenceWorkflow.md)
+ - [RunFolderLocation](https://github.com/pollination/python-sdk/blob/master/docs/RunFolderLocation.md)
  - [S3Location](https://github.com/pollination/python-sdk/blob/master/docs/S3Location.md)
  - [Sensor](https://github.com/pollination/python-sdk/blob/master/docs/Sensor.md)
  - [SensorGridIn](https://github.com/pollination/python-sdk/blob/master/docs/SensorGridIn.md)
@@ -191,7 +191,6 @@ Class | Method | HTTP request | Description
  - [Vertex](https://github.com/pollination/python-sdk/blob/master/docs/Vertex.md)
  - [Workflow](https://github.com/pollination/python-sdk/blob/master/docs/Workflow.md)
  - [WorkflowListItem](https://github.com/pollination/python-sdk/blob/master/docs/WorkflowListItem.md)
- - [WorkflowTaskLog](https://github.com/pollination/python-sdk/blob/master/docs/WorkflowTaskLog.md)
 
 
 ## Documentation For Authorization

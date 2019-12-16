@@ -15,12 +15,12 @@ from __future__ import absolute_import
 import unittest
 
 import pollination_sdk
-from pollination_sdk.models.workflow_task_log import WorkflowTaskLog  # noqa: E501
+from pollination_sdk.models.run_folder_location import RunFolderLocation  # noqa: E501
 from pollination_sdk.rest import ApiException
 
 
-class TestWorkflowTaskLog(unittest.TestCase):
-    """WorkflowTaskLog unit test stubs"""
+class TestRunFolderLocation(unittest.TestCase):
+    """RunFolderLocation unit test stubs"""
 
     def setUp(self):
         pass
@@ -28,10 +28,10 @@ class TestWorkflowTaskLog(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testWorkflowTaskLog(self):
-        """Test WorkflowTaskLog"""
+    def testRunFolderLocation(self):
+        """Test RunFolderLocation"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = pollination_sdk.models.workflow_task_log.WorkflowTaskLog()  # noqa: E501
+        # model = pollination_sdk.models.run_folder_location.RunFolderLocation()  # noqa: E501
         pass
 
 

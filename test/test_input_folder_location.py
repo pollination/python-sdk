@@ -15,12 +15,12 @@ from __future__ import absolute_import
 import unittest
 
 import pollination_sdk
-from pollination_sdk.models.argo_sequence import ArgoSequence  # noqa: E501
+from pollination_sdk.models.input_folder_location import InputFolderLocation  # noqa: E501
 from pollination_sdk.rest import ApiException
 
 
-class TestArgoSequence(unittest.TestCase):
-    """ArgoSequence unit test stubs"""
+class TestInputFolderLocation(unittest.TestCase):
+    """InputFolderLocation unit test stubs"""
 
     def setUp(self):
         pass
@@ -28,10 +28,10 @@ class TestArgoSequence(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testArgoSequence(self):
-        """Test ArgoSequence"""
+    def testInputFolderLocation(self):
+        """Test InputFolderLocation"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = pollination_sdk.models.argo_sequence.ArgoSequence()  # noqa: E501
+        # model = pollination_sdk.models.input_folder_location.InputFolderLocation()  # noqa: E501
         pass
 
 

@@ -33,24 +33,29 @@ class ArgoArchiveLocation(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'archive_logs': 'bool'
+        'archive_logs': 'bool',
+        's3': 'ArgoS3Location'
     }
 
     attribute_map = {
-        'archive_logs': 'archiveLogs'
+        'archive_logs': 'archiveLogs',
+        's3': 's3'
     }
 
-    def __init__(self, archive_logs=True, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, archive_logs=True, s3=None, local_vars_configuration=None):  # noqa: E501
         """ArgoArchiveLocation - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._archive_logs = None
+        self._s3 = None
         self.discriminator = None
 
         if archive_logs is not None:
             self.archive_logs = archive_logs
+        if s3 is not None:
+            self.s3 = s3
 
     @property
     def archive_logs(self):
@@ -72,6 +77,27 @@ class ArgoArchiveLocation(object):
         """
 
         self._archive_logs = archive_logs
+
+    @property
+    def s3(self):
+        """Gets the s3 of this ArgoArchiveLocation.  # noqa: E501
+
+
+        :return: The s3 of this ArgoArchiveLocation.  # noqa: E501
+        :rtype: ArgoS3Location
+        """
+        return self._s3
+
+    @s3.setter
+    def s3(self, s3):
+        """Sets the s3 of this ArgoArchiveLocation.
+
+
+        :param s3: The s3 of this ArgoArchiveLocation.  # noqa: E501
+        :type: ArgoS3Location
+        """
+
+        self._s3 = s3
 
     def to_dict(self):
         """Returns the model properties as a dict"""

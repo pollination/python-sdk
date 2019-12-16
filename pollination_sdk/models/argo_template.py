@@ -40,7 +40,7 @@ class ArgoTemplate(object):
         'inputs': 'ArgoArguments',
         'outputs': 'ArgoOutputs',
         'daemon': 'bool',
-        'steps': 'list[ArgoStep]',
+        'steps': 'list[object]',
         'container': 'ArgoTaskContainer',
         'dag': 'ArgoDAG',
         'suspend': 'ArgoSuspend',
@@ -280,7 +280,7 @@ class ArgoTemplate(object):
 
 
         :return: The steps of this ArgoTemplate.  # noqa: E501
-        :rtype: list[ArgoStep]
+        :rtype: list[object]
         """
         return self._steps
 
@@ -290,7 +290,7 @@ class ArgoTemplate(object):
 
 
         :param steps: The steps of this ArgoTemplate.  # noqa: E501
-        :type: list[ArgoStep]
+        :type: list[object]
         """
 
         self._steps = steps

@@ -42,10 +42,24 @@ class TestSimulationsApi(unittest.TestCase):
         """
         pass
 
+    def test_get_simulation_inputs(self):
+        """Test case for get_simulation_inputs
+
+        Get simulation inputs  # noqa: E501
+        """
+        pass
+
     def test_get_simulation_logs(self):
         """Test case for get_simulation_logs
 
         Get simulation logs  # noqa: E501
+        """
+        pass
+
+    def test_get_simulation_outputs(self):
+        """Test case for get_simulation_outputs
+
+        Get simulation outputs  # noqa: E501
         """
         pass
 

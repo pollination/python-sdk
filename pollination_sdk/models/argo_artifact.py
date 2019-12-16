@@ -35,7 +35,7 @@ class ArgoArtifact(object):
     openapi_types = {
         'name': 'str',
         'path': 'str',
-        'archive': 'object',
+        'archive': 'dict(str, object)',
         's3': 'ArgoS3Location'
     }
 
@@ -118,9 +118,10 @@ class ArgoArtifact(object):
     def archive(self):
         """Gets the archive of this ArgoArtifact.  # noqa: E501
 
+        Artifact storage strategy to use when uploading to persistent location.  # noqa: E501
 
         :return: The archive of this ArgoArtifact.  # noqa: E501
-        :rtype: object
+        :rtype: dict(str, object)
         """
         return self._archive
 
@@ -128,9 +129,10 @@ class ArgoArtifact(object):
     def archive(self, archive):
         """Sets the archive of this ArgoArtifact.
 
+        Artifact storage strategy to use when uploading to persistent location.  # noqa: E501
 
         :param archive: The archive of this ArgoArtifact.  # noqa: E501
-        :type: object
+        :type: dict(str, object)
         """
 
         self._archive = archive
