@@ -39,7 +39,7 @@ class SimulationsApi(object):
     def create(self, submit_simulation, **kwargs):  # noqa: E501
         """Schedule a simulation  # noqa: E501
 
-        Create a new workflow.  # noqa: E501
+        Create a new simulation.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create(submit_simulation, async_req=True)
@@ -64,7 +64,7 @@ class SimulationsApi(object):
     def create_with_http_info(self, submit_simulation, **kwargs):  # noqa: E501
         """Schedule a simulation  # noqa: E501
 
-        Create a new workflow.  # noqa: E501
+        Create a new simulation.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_with_http_info(submit_simulation, async_req=True)
@@ -166,7 +166,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: WorkflowListItem
+        :return: SimulationStatus
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -193,7 +193,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(WorkflowListItem, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(SimulationStatus, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -248,7 +248,7 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='WorkflowListItem',  # noqa: E501
+            response_type='SimulationStatus',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -715,7 +715,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: list[WorkflowListItem]
+        :return: list[SimulationStatus]
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -743,7 +743,7 @@ class SimulationsApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(list[WorkflowListItem], status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(list[SimulationStatus], status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -800,7 +800,7 @@ class SimulationsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[WorkflowListItem]',  # noqa: E501
+            response_type='list[SimulationStatus]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501

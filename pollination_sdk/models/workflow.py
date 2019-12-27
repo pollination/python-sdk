@@ -56,7 +56,7 @@ class Workflow(object):
         'artifact_locations': 'artifact_locations'
     }
 
-    def __init__(self, type=None, name=None, operators=None, templates=None, id='de13e43c-9382-4c24-baf1-ea5b92e49bbe', inputs=None, flow=None, outputs=None, artifact_locations=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, type=None, name=None, operators=None, templates=None, id='f80701ac-7f05-405e-8152-e39c909c0715', inputs=None, flow=None, outputs=None, artifact_locations=None, local_vars_configuration=None):  # noqa: E501
         """Workflow - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()

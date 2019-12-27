@@ -15,12 +15,12 @@ from __future__ import absolute_import
 import unittest
 
 import pollination_sdk
-from pollination_sdk.models.argo_template import ArgoTemplate  # noqa: E501
+from pollination_sdk.models.simulation_status import SimulationStatus  # noqa: E501
 from pollination_sdk.rest import ApiException
 
 
-class TestArgoTemplate(unittest.TestCase):
-    """ArgoTemplate unit test stubs"""
+class TestSimulationStatus(unittest.TestCase):
+    """SimulationStatus unit test stubs"""
 
     def setUp(self):
         pass
@@ -28,10 +28,10 @@ class TestArgoTemplate(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testArgoTemplate(self):
-        """Test ArgoTemplate"""
+    def testSimulationStatus(self):
+        """Test SimulationStatus"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = pollination_sdk.models.argo_template.ArgoTemplate()  # noqa: E501
+        # model = pollination_sdk.models.simulation_status.SimulationStatus()  # noqa: E501
         pass
 
 

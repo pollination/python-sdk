@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **name** | **str** |  | 
 **operators** | [**list[Operator]**](Operator.md) |  | 
 **templates** | **list[object]** |  | 
-**id** | **str** |  | [optional] [default to 'de13e43c-9382-4c24-baf1-ea5b92e49bbe']
+**id** | **str** |  | [optional] [default to 'f80701ac-7f05-405e-8152-e39c909c0715']
 **inputs** | [**Arguments**](Arguments.md) |  | [optional] 
 **flow** | [**DAG**](DAG.md) | A list of steps for using tasks in a DAG workflow | 
 **outputs** | [**Arguments**](Arguments.md) |  | [optional] 

@@ -21,7 +21,7 @@ Method | HTTP request | Description
 
 Schedule a simulation
 
-Create a new workflow.
+Create a new simulation.
 
 ### Example
 
@@ -91,7 +91,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get**
-> WorkflowListItem get(id)
+> SimulationStatus get(id)
 
 Get a Simulation
 
@@ -145,7 +145,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**WorkflowListItem**](WorkflowListItem.md)
+[**SimulationStatus**](SimulationStatus.md)
 
 ### Authorization
 
@@ -480,7 +480,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list**
-> list[WorkflowListItem] list(page=page, per_page=per_page)
+> list[SimulationStatus] list(page=page, per_page=per_page)
 
 List simulations
 
@@ -536,7 +536,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[WorkflowListItem]**](WorkflowListItem.md)
+[**list[SimulationStatus]**](SimulationStatus.md)
 
 ### Authorization
 
