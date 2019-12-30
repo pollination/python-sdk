@@ -5,6 +5,7 @@ All URIs are relative to *https://api.pollination.cloud*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create**](ArtifactsApi.md#create) | **POST** /artifacts | Get an Artifact upload link.
+[**delete**](ArtifactsApi.md#delete) | **DELETE** /artifacts | Delete one or many artifacts by key/prefix
 [**list**](ArtifactsApi.md#list) | **GET** /artifacts | List artifacts in user folder
 
 
@@ -13,7 +14,7 @@ Method | HTTP request | Description
 
 Get an Artifact upload link.
 
-Create a new workflow.
+Create a new artifact.
 
 ### Example
 
@@ -82,8 +83,82 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **delete**
+> UpdateAccepted delete(query)
+
+Delete one or many artifacts by key/prefix
+
+Delete one or multiple artifacts based on key prefix
+
+### Example
+
+* Bearer Authentication (JWT):
+```python
+from __future__ import print_function
+import time
+import pollination_sdk
+from pollination_sdk.rest import ApiException
+from pprint import pprint
+configuration = pollination_sdk.Configuration()
+
+# Retrieve a temporary Acces Token (JWT) using your API key id and secret
+API_KEY_ID = 'some-long-id'
+API_KEY_SECRET = 'some-long-secret'
+
+auth = pollination_sdk.AuthenticationApi()
+api_token = pollination_sdk.Token(
+  id=API_KEY_ID,
+  secret=API_KEY_SECRET
+)
+
+auth_response = auth.login(token)
+
+# Configure Bearer authorization: JWT
+configuration.access_token = auth_response.access_token
+
+# Defining host is optional and default to https://api.pollination.cloud
+configuration.host = "https://api.pollination.cloud"
+# Create an instance of the API class
+api_instance = pollination_sdk.ArtifactsApi(pollination_sdk.ApiClient(configuration))
+query = pollination_sdk.Query() # Query | 
+
+try:
+    # Delete one or many artifacts by key/prefix
+    api_response = api_instance.delete(query)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ArtifactsApi->delete: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **query** | [**Query**](Query.md)|  | 
+
+### Return type
+
+[**UpdateAccepted**](UpdateAccepted.md)
+
+### Authorization
+
+[JWT](../README.md#JWT)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**202** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **list**
-> list[FileMeta] list(page=page, per_page=per_page)
+> list[FileMeta] list()
 
 List artifacts in user folder
 
@@ -119,23 +194,17 @@ configuration.access_token = auth_response.access_token
 configuration.host = "https://api.pollination.cloud"
 # Create an instance of the API class
 api_instance = pollination_sdk.ArtifactsApi(pollination_sdk.ApiClient(configuration))
-page = 1 # int | Page number starting from 1 (optional) (default to 1)
-per_page = 25 # int | Number of items per page (optional) (default to 25)
 
 try:
     # List artifacts in user folder
-    api_response = api_instance.list(page=page, per_page=per_page)
+    api_response = api_instance.list()
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling ArtifactsApi->list: %s\n" % e)
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **page** | **int**| Page number starting from 1 | [optional] [default to 1]
- **per_page** | **int**| Number of items per page | [optional] [default to 25]
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -158,7 +227,6 @@ Name | Type | Description  | Notes
 **500** | Server error |  -  |
 **404** | Not found |  -  |
 **200** | Retrieved |  * Link - The Link header with pagination information. For details see [link header](https://pollination.cloud/api/#section/Pagination/Link-header). <br>  |
-**422** | Validation Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

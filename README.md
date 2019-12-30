@@ -98,6 +98,7 @@ All URIs are relative to *https://api.pollination.cloud*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *ArtifactsApi* | [**create**](https://github.com/pollination/python-sdk/blob/master/docs/ArtifactsApi.md#create) | **POST** /artifacts | Get an Artifact upload link.
+*ArtifactsApi* | [**delete**](https://github.com/pollination/python-sdk/blob/master/docs/ArtifactsApi.md#delete) | **DELETE** /artifacts | Delete one or many artifacts by key/prefix
 *ArtifactsApi* | [**list**](https://github.com/pollination/python-sdk/blob/master/docs/ArtifactsApi.md#list) | **GET** /artifacts | List artifacts in user folder
 *AuthenticationApi* | [**create_api_token**](https://github.com/pollination/python-sdk/blob/master/docs/AuthenticationApi.md#create_api_token) | **POST** /auth/api-token | Create an API Token
 *AuthenticationApi* | [**delete_api_token**](https://github.com/pollination/python-sdk/blob/master/docs/AuthenticationApi.md#delete_api_token) | **DELETE** /auth/api-token | Delete an API Token
@@ -164,6 +165,7 @@ Class | Method | HTTP request | Description
  - [Parameter](https://github.com/pollination/python-sdk/blob/master/docs/Parameter.md)
  - [Parent](https://github.com/pollination/python-sdk/blob/master/docs/Parent.md)
  - [Plastic](https://github.com/pollination/python-sdk/blob/master/docs/Plastic.md)
+ - [Query](https://github.com/pollination/python-sdk/blob/master/docs/Query.md)
  - [ReferenceWorkflow](https://github.com/pollination/python-sdk/blob/master/docs/ReferenceWorkflow.md)
  - [RunFolderLocation](https://github.com/pollination/python-sdk/blob/master/docs/RunFolderLocation.md)
  - [S3Location](https://github.com/pollination/python-sdk/blob/master/docs/S3Location.md)
@@ -178,6 +180,7 @@ Class | Method | HTTP request | Description
  - [TaskStatus](https://github.com/pollination/python-sdk/blob/master/docs/TaskStatus.md)
  - [Token](https://github.com/pollination/python-sdk/blob/master/docs/Token.md)
  - [Transparent](https://github.com/pollination/python-sdk/blob/master/docs/Transparent.md)
+ - [UpdateAccepted](https://github.com/pollination/python-sdk/blob/master/docs/UpdateAccepted.md)
  - [ValidationError](https://github.com/pollination/python-sdk/blob/master/docs/ValidationError.md)
  - [Vertex](https://github.com/pollination/python-sdk/blob/master/docs/Vertex.md)
  - [Workflow](https://github.com/pollination/python-sdk/blob/master/docs/Workflow.md)

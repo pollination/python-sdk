@@ -35,6 +35,13 @@ class TestArtifactsApi(unittest.TestCase):
         """
         pass
 
+    def test_delete(self):
+        """Test case for delete
+
+        Delete one or many artifacts by key/prefix  # noqa: E501
+        """
+        pass
+
     def test_list(self):
         """Test case for list
 

@@ -44,6 +44,7 @@ from pollination_sdk.models.package import Package
 from pollination_sdk.models.parameter import Parameter
 from pollination_sdk.models.parent import Parent
 from pollination_sdk.models.plastic import Plastic
+from pollination_sdk.models.query import Query
 from pollination_sdk.models.reference_workflow import ReferenceWorkflow
 from pollination_sdk.models.run_folder_location import RunFolderLocation
 from pollination_sdk.models.s3_location import S3Location
@@ -58,6 +59,7 @@ from pollination_sdk.models.submit_simulation import SubmitSimulation
 from pollination_sdk.models.task_status import TaskStatus
 from pollination_sdk.models.token import Token
 from pollination_sdk.models.transparent import Transparent
+from pollination_sdk.models.update_accepted import UpdateAccepted
 from pollination_sdk.models.validation_error import ValidationError
 from pollination_sdk.models.vertex import Vertex
 from pollination_sdk.models.workflow import Workflow
