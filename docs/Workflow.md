@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **type** | **str** |  | 
 **name** | **str** |  | 
-**id** | **str** |  | [optional] [default to 'b713943e-5186-4622-9a39-b0f08cb6b8cc']
+**id** | **str** |  | [optional] [default to '8b84c025-d31d-4973-9658-d291ee667f76']
 **inputs** | [**Arguments**](Arguments.md) |  | [optional] 
 **operators** | [**list[Operator]**](Operator.md) |  | 
 **templates** | [**list[AnyOfFunctionDAGWorkflow]**](AnyOfFunctionDAGWorkflow.md) | A list of templates. Templates can be Function, DAG or a Workflow. | 

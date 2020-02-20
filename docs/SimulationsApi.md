@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 
 # **create_simulation**
-> CreatedContent create_simulation(owner, name, unknown_base_type)
+> CreatedContent create_simulation(owner, name, submit_simulation_dto)
 
 Schedule a simulation
 
@@ -53,11 +53,11 @@ configuration.host = "http://localhost"
 api_instance = pollination_sdk.SimulationsApi(pollination_sdk.ApiClient(configuration))
 owner = 'owner_example' # str | 
 name = 'name_example' # str | 
-unknown_base_type = pollination_sdk.UNKNOWN_BASE_TYPE() # UNKNOWN_BASE_TYPE | 
+submit_simulation_dto = pollination_sdk.SubmitSimulationDto() # SubmitSimulationDto | 
 
 try:
     # Schedule a simulation
-    api_response = api_instance.create_simulation(owner, name, unknown_base_type)
+    api_response = api_instance.create_simulation(owner, name, submit_simulation_dto)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling SimulationsApi->create_simulation: %s\n" % e)
@@ -69,7 +69,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **name** | **str**|  | 
- **unknown_base_type** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  | 
+ **submit_simulation_dto** | [**SubmitSimulationDto**](SubmitSimulationDto.md)|  | 
 
 ### Return type
 
