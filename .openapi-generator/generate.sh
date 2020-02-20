@@ -9,7 +9,7 @@ rm -r pollination_sdk.egg-info/
 
 
 npx openapi-generator generate \
-  -i https://api.pollination.cloud/sdk_openapi.json \
+  -i https://api.pollination.cloud/openapi.json \
   -t .openapi-generator/templates/python \
   -g python \
   -o . \

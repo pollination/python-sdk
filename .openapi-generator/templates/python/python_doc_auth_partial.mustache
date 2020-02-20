@@ -9,17 +9,15 @@ configuration.password = 'YOUR_PASSWORD'
 {{/isBasicBearer}}
 {{#isBasicBearer}}
 
-# Retrieve a temporary Acces Token (JWT) using your API key id and secret
-API_KEY_ID = 'some-long-id'
-API_KEY_SECRET = 'some-long-secret'
+# Retrieve a temporary Acces Token (JWT) using your API token
+API_TOKEN = 'some-token-string'
 
-auth = pollination_sdk.AuthenticationApi()
-api_token = pollination_sdk.Token(
-  id=API_KEY_ID,
-  secret=API_KEY_SECRET
+auth = pollination_sdk.UserApi()
+api_token = pollination_sdk.LoginDto(
+  api_token=API_TOKEN
 )
 
-auth_response = auth.login(token)
+auth_response = auth.login(api_token)
 
 # Configure Bearer authorization{{#bearerFormat}} ({{{.}}}){{/bearerFormat}}: {{{name}}}
 configuration.access_token = auth_response.access_token
