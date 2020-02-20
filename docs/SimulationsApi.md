@@ -1,23 +1,23 @@
 # pollination_sdk.SimulationsApi
 
-All URIs are relative to *https://api.pollination.cloud*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create**](SimulationsApi.md#create) | **POST** /simulations | Schedule a simulation
-[**get**](SimulationsApi.md#get) | **GET** /simulations/{id} | Get a Simulation
-[**get_simulation_inputs**](SimulationsApi.md#get_simulation_inputs) | **GET** /simulations/{id}/inputs | Get simulation inputs
-[**get_simulation_logs**](SimulationsApi.md#get_simulation_logs) | **GET** /simulations/{id}/logs | Get simulation logs
-[**get_simulation_outputs**](SimulationsApi.md#get_simulation_outputs) | **GET** /simulations/{id}/outputs | Get simulation outputs
-[**get_task_logs**](SimulationsApi.md#get_task_logs) | **GET** /simulations/{id}/task/{task_id}/logs | Get a simulation task&#39;s logs
-[**list**](SimulationsApi.md#list) | **GET** /simulations | List simulations
-[**resubmit**](SimulationsApi.md#resubmit) | **POST** /simulations/{id}/re-submit | re-submit a simulation
-[**resume**](SimulationsApi.md#resume) | **PUT** /simulations/{id}/resume | resume a simulation
-[**suspend**](SimulationsApi.md#suspend) | **PUT** /simulations/{id}/suspend | Suspend a simulation
+[**create_simulation**](SimulationsApi.md#create_simulation) | **POST** /projects/{owner}/{name}/simulations | Schedule a simulation
+[**get_simulation**](SimulationsApi.md#get_simulation) | **GET** /projects/{owner}/{name}/simulations/{simulation_id} | Get a Simulation
+[**get_simulation_inputs**](SimulationsApi.md#get_simulation_inputs) | **GET** /projects/{owner}/{name}/simulations/{simulation_id}/inputs | Get simulation inputs
+[**get_simulation_logs**](SimulationsApi.md#get_simulation_logs) | **GET** /projects/{owner}/{name}/simulations/{simulation_id}/logs | Get simulation logs
+[**get_simulation_outputs**](SimulationsApi.md#get_simulation_outputs) | **GET** /projects/{owner}/{name}/simulations/{simulation_id}/outputs | Get simulation outputs
+[**get_simulation_task_logs**](SimulationsApi.md#get_simulation_task_logs) | **GET** /projects/{owner}/{name}/simulations/{simulation_id}/task/{task_id}/logs | Get a simulation task&#39;s logs
+[**list_simulations**](SimulationsApi.md#list_simulations) | **GET** /projects/{owner}/{name}/simulations | List simulations
+[**resubmit_simulation**](SimulationsApi.md#resubmit_simulation) | **POST** /projects/{owner}/{name}/simulations/{simulation_id}/re-submit | re-submit a simulation
+[**resume_simulation**](SimulationsApi.md#resume_simulation) | **PUT** /projects/{owner}/{name}/simulations/{simulation_id}/resume | resume a simulation
+[**suspend_simulation**](SimulationsApi.md#suspend_simulation) | **PUT** /projects/{owner}/{name}/simulations/{simulation_id}/suspend | Suspend a simulation
 
 
-# **create**
-> CreatedContent create(submit_simulation)
+# **create_simulation**
+> CreatedContent create_simulation(owner, name, unknown_base_type)
 
 Schedule a simulation
 
@@ -35,39 +35,41 @@ from pprint import pprint
 configuration = pollination_sdk.Configuration()
 
 # Retrieve a temporary Acces Token (JWT) using your API key id and secret
-API_KEY_ID = 'some-long-id'
-API_KEY_SECRET = 'some-long-secret'
+API_TOKEN = 'some-token-string'
 
-auth = pollination_sdk.AuthenticationApi()
-api_token = pollination_sdk.Token(
-  id=API_KEY_ID,
-  secret=API_KEY_SECRET
+auth = pollination_sdk.UserApi()
+api_token = pollination_sdk.LoginDto(
+  api_token=API_TOKEN
 )
 
-auth_response = auth.login(token)
+auth_response = auth.login(api_token)
 
 # Configure Bearer authorization: JWT
 configuration.access_token = auth_response.access_token
 
-# Defining host is optional and default to https://api.pollination.cloud
-configuration.host = "https://api.pollination.cloud"
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
 # Create an instance of the API class
 api_instance = pollination_sdk.SimulationsApi(pollination_sdk.ApiClient(configuration))
-submit_simulation = pollination_sdk.SubmitSimulation() # SubmitSimulation | 
+owner = 'owner_example' # str | 
+name = 'name_example' # str | 
+unknown_base_type = pollination_sdk.UNKNOWN_BASE_TYPE() # UNKNOWN_BASE_TYPE | 
 
 try:
     # Schedule a simulation
-    api_response = api_instance.create(submit_simulation)
+    api_response = api_instance.create_simulation(owner, name, unknown_base_type)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling SimulationsApi->create: %s\n" % e)
+    print("Exception when calling SimulationsApi->create_simulation: %s\n" % e)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **submit_simulation** | [**SubmitSimulation**](SubmitSimulation.md)|  | 
+ **owner** | **str**|  | 
+ **name** | **str**|  | 
+ **unknown_base_type** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  | 
 
 ### Return type
 
@@ -90,12 +92,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get**
-> SimulationStatus get(id)
+# **get_simulation**
+> SimulationStatus get_simulation(owner, name, simulation_id)
 
 Get a Simulation
 
-Retrieve a workflow.
+Retrieve a simulation.
 
 ### Example
 
@@ -109,39 +111,41 @@ from pprint import pprint
 configuration = pollination_sdk.Configuration()
 
 # Retrieve a temporary Acces Token (JWT) using your API key id and secret
-API_KEY_ID = 'some-long-id'
-API_KEY_SECRET = 'some-long-secret'
+API_TOKEN = 'some-token-string'
 
-auth = pollination_sdk.AuthenticationApi()
-api_token = pollination_sdk.Token(
-  id=API_KEY_ID,
-  secret=API_KEY_SECRET
+auth = pollination_sdk.UserApi()
+api_token = pollination_sdk.LoginDto(
+  api_token=API_TOKEN
 )
 
-auth_response = auth.login(token)
+auth_response = auth.login(api_token)
 
 # Configure Bearer authorization: JWT
 configuration.access_token = auth_response.access_token
 
-# Defining host is optional and default to https://api.pollination.cloud
-configuration.host = "https://api.pollination.cloud"
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
 # Create an instance of the API class
 api_instance = pollination_sdk.SimulationsApi(pollination_sdk.ApiClient(configuration))
-id = 'id_example' # str | 
+owner = 'owner_example' # str | 
+name = 'name_example' # str | 
+simulation_id = 'simulation_id_example' # str | 
 
 try:
     # Get a Simulation
-    api_response = api_instance.get(id)
+    api_response = api_instance.get_simulation(owner, name, simulation_id)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling SimulationsApi->get: %s\n" % e)
+    print("Exception when calling SimulationsApi->get_simulation: %s\n" % e)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**str**](.md)|  | 
+ **owner** | **str**|  | 
+ **name** | **str**|  | 
+ **simulation_id** | **str**|  | 
 
 ### Return type
 
@@ -159,17 +163,13 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**401** | Unauthorized |  -  |
-**403** | Access forbidden |  -  |
-**500** | Server error |  -  |
-**404** | Not found |  -  |
 **200** | Retrieved |  -  |
 **422** | Validation Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_simulation_inputs**
-> get_simulation_inputs(id)
+> object get_simulation_inputs(owner, name, simulation_id)
 
 Get simulation inputs
 
@@ -187,29 +187,30 @@ from pprint import pprint
 configuration = pollination_sdk.Configuration()
 
 # Retrieve a temporary Acces Token (JWT) using your API key id and secret
-API_KEY_ID = 'some-long-id'
-API_KEY_SECRET = 'some-long-secret'
+API_TOKEN = 'some-token-string'
 
-auth = pollination_sdk.AuthenticationApi()
-api_token = pollination_sdk.Token(
-  id=API_KEY_ID,
-  secret=API_KEY_SECRET
+auth = pollination_sdk.UserApi()
+api_token = pollination_sdk.LoginDto(
+  api_token=API_TOKEN
 )
 
-auth_response = auth.login(token)
+auth_response = auth.login(api_token)
 
 # Configure Bearer authorization: JWT
 configuration.access_token = auth_response.access_token
 
-# Defining host is optional and default to https://api.pollination.cloud
-configuration.host = "https://api.pollination.cloud"
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
 # Create an instance of the API class
 api_instance = pollination_sdk.SimulationsApi(pollination_sdk.ApiClient(configuration))
-id = 'id_example' # str | 
+owner = 'owner_example' # str | 
+name = 'name_example' # str | 
+simulation_id = 'simulation_id_example' # str | 
 
 try:
     # Get simulation inputs
-    api_instance.get_simulation_inputs(id)
+    api_response = api_instance.get_simulation_inputs(owner, name, simulation_id)
+    pprint(api_response)
 except ApiException as e:
     print("Exception when calling SimulationsApi->get_simulation_inputs: %s\n" % e)
 ```
@@ -218,11 +219,13 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**|  | 
+ **owner** | **str**|  | 
+ **name** | **str**|  | 
+ **simulation_id** | **str**|  | 
 
 ### Return type
 
-void (empty response body)
+**object**
 
 ### Authorization
 
@@ -231,22 +234,22 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/x-gtar-compressed, application/json
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**401** | Unauthorized |  -  |
 **403** | Access forbidden |  -  |
 **500** | Server error |  -  |
-**404** | Not found |  -  |
+**400** | Invalid request |  -  |
 **200** | Retrieved |  -  |
+**404** | Not found |  -  |
 **422** | Validation Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_simulation_logs**
-> get_simulation_logs(id)
+> object get_simulation_logs(owner, name, simulation_id)
 
 Get simulation logs
 
@@ -264,29 +267,30 @@ from pprint import pprint
 configuration = pollination_sdk.Configuration()
 
 # Retrieve a temporary Acces Token (JWT) using your API key id and secret
-API_KEY_ID = 'some-long-id'
-API_KEY_SECRET = 'some-long-secret'
+API_TOKEN = 'some-token-string'
 
-auth = pollination_sdk.AuthenticationApi()
-api_token = pollination_sdk.Token(
-  id=API_KEY_ID,
-  secret=API_KEY_SECRET
+auth = pollination_sdk.UserApi()
+api_token = pollination_sdk.LoginDto(
+  api_token=API_TOKEN
 )
 
-auth_response = auth.login(token)
+auth_response = auth.login(api_token)
 
 # Configure Bearer authorization: JWT
 configuration.access_token = auth_response.access_token
 
-# Defining host is optional and default to https://api.pollination.cloud
-configuration.host = "https://api.pollination.cloud"
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
 # Create an instance of the API class
 api_instance = pollination_sdk.SimulationsApi(pollination_sdk.ApiClient(configuration))
-id = 'id_example' # str | 
+owner = 'owner_example' # str | 
+name = 'name_example' # str | 
+simulation_id = 'simulation_id_example' # str | 
 
 try:
     # Get simulation logs
-    api_instance.get_simulation_logs(id)
+    api_response = api_instance.get_simulation_logs(owner, name, simulation_id)
+    pprint(api_response)
 except ApiException as e:
     print("Exception when calling SimulationsApi->get_simulation_logs: %s\n" % e)
 ```
@@ -295,11 +299,13 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**|  | 
+ **owner** | **str**|  | 
+ **name** | **str**|  | 
+ **simulation_id** | **str**|  | 
 
 ### Return type
 
-void (empty response body)
+**object**
 
 ### Authorization
 
@@ -308,22 +314,22 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/x-gtar-compressed, application/json
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**401** | Unauthorized |  -  |
 **403** | Access forbidden |  -  |
 **500** | Server error |  -  |
-**404** | Not found |  -  |
+**400** | Invalid request |  -  |
 **200** | Retrieved |  -  |
+**404** | Not found |  -  |
 **422** | Validation Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_simulation_outputs**
-> get_simulation_outputs(id)
+> object get_simulation_outputs(owner, name, simulation_id)
 
 Get simulation outputs
 
@@ -341,29 +347,30 @@ from pprint import pprint
 configuration = pollination_sdk.Configuration()
 
 # Retrieve a temporary Acces Token (JWT) using your API key id and secret
-API_KEY_ID = 'some-long-id'
-API_KEY_SECRET = 'some-long-secret'
+API_TOKEN = 'some-token-string'
 
-auth = pollination_sdk.AuthenticationApi()
-api_token = pollination_sdk.Token(
-  id=API_KEY_ID,
-  secret=API_KEY_SECRET
+auth = pollination_sdk.UserApi()
+api_token = pollination_sdk.LoginDto(
+  api_token=API_TOKEN
 )
 
-auth_response = auth.login(token)
+auth_response = auth.login(api_token)
 
 # Configure Bearer authorization: JWT
 configuration.access_token = auth_response.access_token
 
-# Defining host is optional and default to https://api.pollination.cloud
-configuration.host = "https://api.pollination.cloud"
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
 # Create an instance of the API class
 api_instance = pollination_sdk.SimulationsApi(pollination_sdk.ApiClient(configuration))
-id = 'id_example' # str | 
+owner = 'owner_example' # str | 
+name = 'name_example' # str | 
+simulation_id = 'simulation_id_example' # str | 
 
 try:
     # Get simulation outputs
-    api_instance.get_simulation_outputs(id)
+    api_response = api_instance.get_simulation_outputs(owner, name, simulation_id)
+    pprint(api_response)
 except ApiException as e:
     print("Exception when calling SimulationsApi->get_simulation_outputs: %s\n" % e)
 ```
@@ -372,11 +379,13 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**|  | 
+ **owner** | **str**|  | 
+ **name** | **str**|  | 
+ **simulation_id** | **str**|  | 
 
 ### Return type
 
-void (empty response body)
+**object**
 
 ### Authorization
 
@@ -385,22 +394,22 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/x-gtar-compressed, application/json
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**401** | Unauthorized |  -  |
 **403** | Access forbidden |  -  |
 **500** | Server error |  -  |
-**404** | Not found |  -  |
+**400** | Invalid request |  -  |
 **200** | Retrieved |  -  |
+**404** | Not found |  -  |
 **422** | Validation Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_task_logs**
-> str get_task_logs(id, task_id)
+# **get_simulation_task_logs**
+> str get_simulation_task_logs(owner, name, simulation_id, task_id)
 
 Get a simulation task's logs
 
@@ -418,40 +427,42 @@ from pprint import pprint
 configuration = pollination_sdk.Configuration()
 
 # Retrieve a temporary Acces Token (JWT) using your API key id and secret
-API_KEY_ID = 'some-long-id'
-API_KEY_SECRET = 'some-long-secret'
+API_TOKEN = 'some-token-string'
 
-auth = pollination_sdk.AuthenticationApi()
-api_token = pollination_sdk.Token(
-  id=API_KEY_ID,
-  secret=API_KEY_SECRET
+auth = pollination_sdk.UserApi()
+api_token = pollination_sdk.LoginDto(
+  api_token=API_TOKEN
 )
 
-auth_response = auth.login(token)
+auth_response = auth.login(api_token)
 
 # Configure Bearer authorization: JWT
 configuration.access_token = auth_response.access_token
 
-# Defining host is optional and default to https://api.pollination.cloud
-configuration.host = "https://api.pollination.cloud"
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
 # Create an instance of the API class
 api_instance = pollination_sdk.SimulationsApi(pollination_sdk.ApiClient(configuration))
-id = 'id_example' # str | 
+owner = 'owner_example' # str | 
+name = 'name_example' # str | 
+simulation_id = 'simulation_id_example' # str | 
 task_id = 'task_id_example' # str | 
 
 try:
     # Get a simulation task's logs
-    api_response = api_instance.get_task_logs(id, task_id)
+    api_response = api_instance.get_simulation_task_logs(owner, name, simulation_id, task_id)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling SimulationsApi->get_task_logs: %s\n" % e)
+    print("Exception when calling SimulationsApi->get_simulation_task_logs: %s\n" % e)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**str**](.md)|  | 
+ **owner** | **str**|  | 
+ **name** | **str**|  | 
+ **simulation_id** | **str**|  | 
  **task_id** | **str**|  | 
 
 ### Return type
@@ -470,17 +481,13 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**401** | Unauthorized |  -  |
-**403** | Access forbidden |  -  |
-**500** | Server error |  -  |
-**404** | Not found |  -  |
-**200** | Retrieved |  * Link - The Link header with pagination information. For details see [link header](https://pollination.cloud/api/#section/Pagination/Link-header). <br>  |
+**200** | Retrieved |  -  |
 **422** | Validation Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **list**
-> list[SimulationStatus] list(page=page, per_page=per_page)
+# **list_simulations**
+> list[SimulationStatus] list_simulations(owner, name, page=page, per_page=per_page, id=id, workflow=workflow, status=status)
 
 List simulations
 
@@ -498,41 +505,49 @@ from pprint import pprint
 configuration = pollination_sdk.Configuration()
 
 # Retrieve a temporary Acces Token (JWT) using your API key id and secret
-API_KEY_ID = 'some-long-id'
-API_KEY_SECRET = 'some-long-secret'
+API_TOKEN = 'some-token-string'
 
-auth = pollination_sdk.AuthenticationApi()
-api_token = pollination_sdk.Token(
-  id=API_KEY_ID,
-  secret=API_KEY_SECRET
+auth = pollination_sdk.UserApi()
+api_token = pollination_sdk.LoginDto(
+  api_token=API_TOKEN
 )
 
-auth_response = auth.login(token)
+auth_response = auth.login(api_token)
 
 # Configure Bearer authorization: JWT
 configuration.access_token = auth_response.access_token
 
-# Defining host is optional and default to https://api.pollination.cloud
-configuration.host = "https://api.pollination.cloud"
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
 # Create an instance of the API class
 api_instance = pollination_sdk.SimulationsApi(pollination_sdk.ApiClient(configuration))
+owner = 'owner_example' # str | 
+name = 'name_example' # str | 
 page = 1 # int | Page number starting from 1 (optional) (default to 1)
 per_page = 25 # int | Number of items per page (optional) (default to 25)
+id = ['id_example'] # list[str] | The ID of a simulation to search for (optional)
+workflow = ['workflow_example'] # list[str] | The ID of the workflow used for this simulation (optional)
+status = ['status_example'] # list[str] | The status of the simulation to filter by (optional)
 
 try:
     # List simulations
-    api_response = api_instance.list(page=page, per_page=per_page)
+    api_response = api_instance.list_simulations(owner, name, page=page, per_page=per_page, id=id, workflow=workflow, status=status)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling SimulationsApi->list: %s\n" % e)
+    print("Exception when calling SimulationsApi->list_simulations: %s\n" % e)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **owner** | **str**|  | 
+ **name** | **str**|  | 
  **page** | **int**| Page number starting from 1 | [optional] [default to 1]
  **per_page** | **int**| Number of items per page | [optional] [default to 25]
+ **id** | [**list[str]**](str.md)| The ID of a simulation to search for | [optional] 
+ **workflow** | [**list[str]**](str.md)| The ID of the workflow used for this simulation | [optional] 
+ **status** | [**list[str]**](str.md)| The status of the simulation to filter by | [optional] 
 
 ### Return type
 
@@ -550,17 +565,13 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**401** | Unauthorized |  -  |
-**403** | Access forbidden |  -  |
-**500** | Server error |  -  |
-**404** | Not found |  -  |
-**200** | Retrieved |  * Link - The Link header with pagination information. For details see [link header](https://pollination.cloud/api/#section/Pagination/Link-header). <br>  |
+**200** | Retrieved |  -  |
 **422** | Validation Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **resubmit**
-> CreatedContent resubmit(id)
+# **resubmit_simulation**
+> CreatedContent resubmit_simulation(owner, name, simulation_id)
 
 re-submit a simulation
 
@@ -578,39 +589,41 @@ from pprint import pprint
 configuration = pollination_sdk.Configuration()
 
 # Retrieve a temporary Acces Token (JWT) using your API key id and secret
-API_KEY_ID = 'some-long-id'
-API_KEY_SECRET = 'some-long-secret'
+API_TOKEN = 'some-token-string'
 
-auth = pollination_sdk.AuthenticationApi()
-api_token = pollination_sdk.Token(
-  id=API_KEY_ID,
-  secret=API_KEY_SECRET
+auth = pollination_sdk.UserApi()
+api_token = pollination_sdk.LoginDto(
+  api_token=API_TOKEN
 )
 
-auth_response = auth.login(token)
+auth_response = auth.login(api_token)
 
 # Configure Bearer authorization: JWT
 configuration.access_token = auth_response.access_token
 
-# Defining host is optional and default to https://api.pollination.cloud
-configuration.host = "https://api.pollination.cloud"
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
 # Create an instance of the API class
 api_instance = pollination_sdk.SimulationsApi(pollination_sdk.ApiClient(configuration))
-id = 'id_example' # str | 
+owner = 'owner_example' # str | 
+name = 'name_example' # str | 
+simulation_id = 'simulation_id_example' # str | 
 
 try:
     # re-submit a simulation
-    api_response = api_instance.resubmit(id)
+    api_response = api_instance.resubmit_simulation(owner, name, simulation_id)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling SimulationsApi->resubmit: %s\n" % e)
+    print("Exception when calling SimulationsApi->resubmit_simulation: %s\n" % e)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**str**](.md)|  | 
+ **owner** | **str**|  | 
+ **name** | **str**|  | 
+ **simulation_id** | **str**|  | 
 
 ### Return type
 
@@ -628,17 +641,13 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**401** | Unauthorized |  -  |
-**403** | Access forbidden |  -  |
-**500** | Server error |  -  |
-**404** | Not found |  -  |
-**200** | Accepted |  -  |
+**201** | Accepted |  -  |
 **422** | Validation Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **resume**
-> Accepted resume(id)
+# **resume_simulation**
+> Accepted resume_simulation(owner, name, simulation_id)
 
 resume a simulation
 
@@ -656,39 +665,41 @@ from pprint import pprint
 configuration = pollination_sdk.Configuration()
 
 # Retrieve a temporary Acces Token (JWT) using your API key id and secret
-API_KEY_ID = 'some-long-id'
-API_KEY_SECRET = 'some-long-secret'
+API_TOKEN = 'some-token-string'
 
-auth = pollination_sdk.AuthenticationApi()
-api_token = pollination_sdk.Token(
-  id=API_KEY_ID,
-  secret=API_KEY_SECRET
+auth = pollination_sdk.UserApi()
+api_token = pollination_sdk.LoginDto(
+  api_token=API_TOKEN
 )
 
-auth_response = auth.login(token)
+auth_response = auth.login(api_token)
 
 # Configure Bearer authorization: JWT
 configuration.access_token = auth_response.access_token
 
-# Defining host is optional and default to https://api.pollination.cloud
-configuration.host = "https://api.pollination.cloud"
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
 # Create an instance of the API class
 api_instance = pollination_sdk.SimulationsApi(pollination_sdk.ApiClient(configuration))
-id = 'id_example' # str | 
+owner = 'owner_example' # str | 
+name = 'name_example' # str | 
+simulation_id = 'simulation_id_example' # str | 
 
 try:
     # resume a simulation
-    api_response = api_instance.resume(id)
+    api_response = api_instance.resume_simulation(owner, name, simulation_id)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling SimulationsApi->resume: %s\n" % e)
+    print("Exception when calling SimulationsApi->resume_simulation: %s\n" % e)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**str**](.md)|  | 
+ **owner** | **str**|  | 
+ **name** | **str**|  | 
+ **simulation_id** | **str**|  | 
 
 ### Return type
 
@@ -706,17 +717,13 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**401** | Unauthorized |  -  |
-**403** | Access forbidden |  -  |
-**500** | Server error |  -  |
-**404** | Not found |  -  |
-**200** | Accepted |  -  |
+**202** | Accepted |  -  |
 **422** | Validation Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **suspend**
-> Accepted suspend(id)
+# **suspend_simulation**
+> Accepted suspend_simulation(owner, name, simulation_id)
 
 Suspend a simulation
 
@@ -734,39 +741,41 @@ from pprint import pprint
 configuration = pollination_sdk.Configuration()
 
 # Retrieve a temporary Acces Token (JWT) using your API key id and secret
-API_KEY_ID = 'some-long-id'
-API_KEY_SECRET = 'some-long-secret'
+API_TOKEN = 'some-token-string'
 
-auth = pollination_sdk.AuthenticationApi()
-api_token = pollination_sdk.Token(
-  id=API_KEY_ID,
-  secret=API_KEY_SECRET
+auth = pollination_sdk.UserApi()
+api_token = pollination_sdk.LoginDto(
+  api_token=API_TOKEN
 )
 
-auth_response = auth.login(token)
+auth_response = auth.login(api_token)
 
 # Configure Bearer authorization: JWT
 configuration.access_token = auth_response.access_token
 
-# Defining host is optional and default to https://api.pollination.cloud
-configuration.host = "https://api.pollination.cloud"
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
 # Create an instance of the API class
 api_instance = pollination_sdk.SimulationsApi(pollination_sdk.ApiClient(configuration))
-id = 'id_example' # str | 
+owner = 'owner_example' # str | 
+name = 'name_example' # str | 
+simulation_id = 'simulation_id_example' # str | 
 
 try:
     # Suspend a simulation
-    api_response = api_instance.suspend(id)
+    api_response = api_instance.suspend_simulation(owner, name, simulation_id)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling SimulationsApi->suspend: %s\n" % e)
+    print("Exception when calling SimulationsApi->suspend_simulation: %s\n" % e)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**str**](.md)|  | 
+ **owner** | **str**|  | 
+ **name** | **str**|  | 
+ **simulation_id** | **str**|  | 
 
 ### Return type
 
@@ -784,11 +793,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**401** | Unauthorized |  -  |
-**403** | Access forbidden |  -  |
-**500** | Server error |  -  |
-**404** | Not found |  -  |
-**200** | Accepted |  -  |
+**202** | Accepted |  -  |
 **422** | Validation Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

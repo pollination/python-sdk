@@ -8,8 +8,7 @@ Name | Type | Description | Notes
 **arguments** | [**Arguments**](Arguments.md) | Input arguments for template. | [optional] 
 **template** | **str** | Template name. | 
 **dependencies** | **list[str]** | Dependencies are name of other DAG steps which this depends on. | [optional] 
-**loop** | [**object**](.md) |  | [optional] 
-**loop_control** | [**LoopControl**](LoopControl.md) | Control parameters for loop. | [optional] 
+**loop** | [**AnyOfstringarray**](AnyOfstringarray.md) | List of inputs to loop over. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

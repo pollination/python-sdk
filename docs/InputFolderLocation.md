@@ -1,6 +1,6 @@
 # InputFolderLocation
 
-Input Folder Location  This is a folder that the workflow can use to pull input artifacts from. When running locally it can be any folder path on the machine's filesystem. When running on the Pollination platform the root 
+Input Folder Location  This is a folder that the workflow can use to pull input artifacts from. When running locally it can be any folder path on the machine's filesystem. When running on the Pollination platform the root.
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

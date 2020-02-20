@@ -10,8 +10,10 @@ Name | Type | Description | Notes
 **finished_at** | **datetime** | The time at which the task was completed | [optional] 
 **id** | **str** | The ID of the individual workflow run. | 
 **tasks** | [**dict(str, TaskStatus)**](TaskStatus.md) |  | [optional] 
-**workflow_ref** | [**ReferenceWorkflow**](ReferenceWorkflow.md) |  | [optional] 
-**inputs** | [**Arguments**](Arguments.md) |  | [optional] 
+**owner_id** | **str** | ID of the account the simulation is running for. | 
+**project_id** | **str** | ID of the project the simulation belongs to | 
+**workflow** | [**Workflow**](Workflow.md) | A queenbee workflow payload | [optional] 
+**inputs** | [**Arguments**](Arguments.md) | Simulation inputs | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
