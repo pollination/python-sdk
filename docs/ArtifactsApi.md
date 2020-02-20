@@ -27,7 +27,7 @@ from pollination_sdk.rest import ApiException
 from pprint import pprint
 configuration = pollination_sdk.Configuration()
 
-# Retrieve a temporary Acces Token (JWT) using your API key id and secret
+# Retrieve a temporary Acces Token (JWT) using your API token
 API_TOKEN = 'some-token-string'
 
 auth = pollination_sdk.UserApi()
@@ -103,7 +103,7 @@ from pollination_sdk.rest import ApiException
 from pprint import pprint
 configuration = pollination_sdk.Configuration()
 
-# Retrieve a temporary Acces Token (JWT) using your API key id and secret
+# Retrieve a temporary Acces Token (JWT) using your API token
 API_TOKEN = 'some-token-string'
 
 auth = pollination_sdk.UserApi()
@@ -179,7 +179,7 @@ from pollination_sdk.rest import ApiException
 from pprint import pprint
 configuration = pollination_sdk.Configuration()
 
-# Retrieve a temporary Acces Token (JWT) using your API key id and secret
+# Retrieve a temporary Acces Token (JWT) using your API token
 API_TOKEN = 'some-token-string'
 
 auth = pollination_sdk.UserApi()
