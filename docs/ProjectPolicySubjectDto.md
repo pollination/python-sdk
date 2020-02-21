@@ -1,4 +1,4 @@
-# AppModulesWorkflowsDtoPolicySubjectDto
+# ProjectPolicySubjectDto
 
 ## Properties
 Name | Type | Description | Notes

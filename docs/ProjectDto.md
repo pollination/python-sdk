@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **public** | **bool** | Whether or not a project is publicly viewable | [optional] [default to True]
 **id** | **str** | The project ID | 
 **owner** | [**AccountPublic**](AccountPublic.md) |  | 
-**permissions** | [**AppModulesProjectsInterfacePermissions**](AppModulesProjectsInterfacePermissions.md) |  | 
+**permissions** | [**ProjectPermissions**](ProjectPermissions.md) |  | 
 **slug** | **str** | The project name in slug format | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

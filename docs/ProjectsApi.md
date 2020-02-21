@@ -169,7 +169,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_project_org_permission**
-> delete_project_org_permission(owner, name, app_modules_projects_dto_project_policy_subject_dto)
+> delete_project_org_permission(owner, name, project_policy_subject_dto)
 
 Remove a Project permissions
 
@@ -205,11 +205,11 @@ configuration.host = "http://localhost"
 api_instance = pollination_sdk.ProjectsApi(pollination_sdk.ApiClient(configuration))
 owner = 'owner_example' # str | 
 name = 'name_example' # str | 
-app_modules_projects_dto_project_policy_subject_dto = pollination_sdk.AppModulesProjectsDtoProjectPolicySubjectDto() # AppModulesProjectsDtoProjectPolicySubjectDto | 
+project_policy_subject_dto = pollination_sdk.ProjectPolicySubjectDto() # ProjectPolicySubjectDto | 
 
 try:
     # Remove a Project permissions
-    api_instance.delete_project_org_permission(owner, name, app_modules_projects_dto_project_policy_subject_dto)
+    api_instance.delete_project_org_permission(owner, name, project_policy_subject_dto)
 except ApiException as e:
     print("Exception when calling ProjectsApi->delete_project_org_permission: %s\n" % e)
 ```
@@ -220,7 +220,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **name** | **str**|  | 
- **app_modules_projects_dto_project_policy_subject_dto** | [**AppModulesProjectsDtoProjectPolicySubjectDto**](AppModulesProjectsDtoProjectPolicySubjectDto.md)|  | 
+ **project_policy_subject_dto** | [**ProjectPolicySubjectDto**](ProjectPolicySubjectDto.md)|  | 
 
 ### Return type
 
@@ -325,7 +325,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_project_access_permissions**
-> list[AppModulesProjectsDtoProjectAccessPolicyDto] get_project_access_permissions(owner, name)
+> list[ProjectAccessPolicyDto] get_project_access_permissions(owner, name)
 
 Get a project's access permissions
 
@@ -379,7 +379,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[AppModulesProjectsDtoProjectAccessPolicyDto]**](AppModulesProjectsDtoProjectAccessPolicyDto.md)
+[**list[ProjectAccessPolicyDto]**](ProjectAccessPolicyDto.md)
 
 ### Authorization
 
@@ -566,7 +566,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **upsert_project_permission**
-> UpdateAccepted upsert_project_permission(owner, name, app_modules_projects_dto_project_access_policy_dto)
+> UpdateAccepted upsert_project_permission(owner, name, project_access_policy_dto)
 
 Upsert a new permission to a project
 
@@ -602,11 +602,11 @@ configuration.host = "http://localhost"
 api_instance = pollination_sdk.ProjectsApi(pollination_sdk.ApiClient(configuration))
 owner = 'owner_example' # str | 
 name = 'name_example' # str | 
-app_modules_projects_dto_project_access_policy_dto = pollination_sdk.AppModulesProjectsDtoProjectAccessPolicyDto() # AppModulesProjectsDtoProjectAccessPolicyDto | 
+project_access_policy_dto = pollination_sdk.ProjectAccessPolicyDto() # ProjectAccessPolicyDto | 
 
 try:
     # Upsert a new permission to a project
-    api_response = api_instance.upsert_project_permission(owner, name, app_modules_projects_dto_project_access_policy_dto)
+    api_response = api_instance.upsert_project_permission(owner, name, project_access_policy_dto)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling ProjectsApi->upsert_project_permission: %s\n" % e)
@@ -618,7 +618,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **name** | **str**|  | 
- **app_modules_projects_dto_project_access_policy_dto** | [**AppModulesProjectsDtoProjectAccessPolicyDto**](AppModulesProjectsDtoProjectAccessPolicyDto.md)|  | 
+ **project_access_policy_dto** | [**ProjectAccessPolicyDto**](ProjectAccessPolicyDto.md)|  | 
 
 ### Return type
 

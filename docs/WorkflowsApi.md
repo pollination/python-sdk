@@ -394,7 +394,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_workflow_access_permissions**
-> list[AppModulesWorkflowsDtoAccessPolicyDto] get_workflow_access_permissions(owner, name)
+> list[WorkflowAccessPolicyDto] get_workflow_access_permissions(owner, name)
 
 Get a workflow's access permissions
 
@@ -448,7 +448,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[AppModulesWorkflowsDtoAccessPolicyDto]**](AppModulesWorkflowsDtoAccessPolicyDto.md)
+[**list[WorkflowAccessPolicyDto]**](WorkflowAccessPolicyDto.md)
 
 ### Authorization
 

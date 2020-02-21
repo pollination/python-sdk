@@ -15,12 +15,12 @@ from __future__ import absolute_import
 import unittest
 
 import pollination_sdk
-from pollination_sdk.models.login_dto import LoginDto  # noqa: E501
+from pollination_sdk.models.workflow_access_policy_dto import WorkflowAccessPolicyDto  # noqa: E501
 from pollination_sdk.rest import ApiException
 
 
-class TestLoginDto(unittest.TestCase):
-    """LoginDto unit test stubs"""
+class TestWorkflowAccessPolicyDto(unittest.TestCase):
+    """WorkflowAccessPolicyDto unit test stubs"""
 
     def setUp(self):
         pass
@@ -28,10 +28,10 @@ class TestLoginDto(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testLoginDto(self):
-        """Test LoginDto"""
+    def testWorkflowAccessPolicyDto(self):
+        """Test WorkflowAccessPolicyDto"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = pollination_sdk.models.login_dto.LoginDto()  # noqa: E501
+        # model = pollination_sdk.models.workflow_access_policy_dto.WorkflowAccessPolicyDto()  # noqa: E501
         pass
 
 
