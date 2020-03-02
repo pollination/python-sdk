@@ -15,23 +15,24 @@ from __future__ import absolute_import
 import unittest
 
 import pollination_sdk
-from pollination_sdk.models.user_metadata import UserMetadata  # noqa: E501
+from pollination_sdk.api.accounts_api import AccountsApi  # noqa: E501
 from pollination_sdk.rest import ApiException
 
 
-class TestUserMetadata(unittest.TestCase):
-    """UserMetadata unit test stubs"""
+class TestAccountsApi(unittest.TestCase):
+    """AccountsApi unit test stubs"""
 
     def setUp(self):
-        pass
+        self.api = pollination_sdk.api.accounts_api.AccountsApi()  # noqa: E501
 
     def tearDown(self):
         pass
 
-    def testUserMetadata(self):
-        """Test UserMetadata"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = pollination_sdk.models.user_metadata.UserMetadata()  # noqa: E501
+    def test_get_account(self):
+        """Test case for get_account
+
+        Get an account by name  # noqa: E501
+        """
         pass
 
 

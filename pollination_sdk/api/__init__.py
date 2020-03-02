@@ -3,6 +3,7 @@ from __future__ import absolute_import
 # flake8: noqa
 
 # import apis into api package
+from pollination_sdk.api.accounts_api import AccountsApi
 from pollination_sdk.api.artifacts_api import ArtifactsApi
 from pollination_sdk.api.orgs_api import OrgsApi
 from pollination_sdk.api.projects_api import ProjectsApi

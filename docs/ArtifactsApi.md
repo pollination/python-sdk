@@ -162,7 +162,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_artifacts**
-> list[FileMeta] list_artifacts(owner, name, page=page, per_page=per_page)
+> list[FileMeta] list_artifacts(owner, name, page=page, per_page=per_page, path=path)
 
 List artifacts in a project folder
 
@@ -200,10 +200,11 @@ owner = 'owner_example' # str |
 name = 'name_example' # str | 
 page = 1 # int | Page number starting from 1 (optional) (default to 1)
 per_page = 25 # int | Number of items per page (optional) (default to 25)
+path = ['path_example'] # list[str] | The path to an artifact within a project folder (optional)
 
 try:
     # List artifacts in a project folder
-    api_response = api_instance.list_artifacts(owner, name, page=page, per_page=per_page)
+    api_response = api_instance.list_artifacts(owner, name, page=page, per_page=per_page, path=path)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling ArtifactsApi->list_artifacts: %s\n" % e)
@@ -217,6 +218,7 @@ Name | Type | Description  | Notes
  **name** | **str**|  | 
  **page** | **int**| Page number starting from 1 | [optional] [default to 1]
  **per_page** | **int**| Number of items per page | [optional] [default to 25]
+ **path** | [**list[str]**](str.md)| The path to an artifact within a project folder | [optional] 
 
 ### Return type
 
