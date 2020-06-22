@@ -11,13 +11,12 @@ Method | HTTP request | Description
 [**get_simulation_outputs**](SimulationsApi.md#get_simulation_outputs) | **GET** /projects/{owner}/{name}/simulations/{simulation_id}/outputs | Get simulation outputs
 [**get_simulation_task_logs**](SimulationsApi.md#get_simulation_task_logs) | **GET** /projects/{owner}/{name}/simulations/{simulation_id}/task/{task_id}/logs | Get a simulation task&#39;s logs
 [**list_simulations**](SimulationsApi.md#list_simulations) | **GET** /projects/{owner}/{name}/simulations | List simulations
-[**resubmit_simulation**](SimulationsApi.md#resubmit_simulation) | **POST** /projects/{owner}/{name}/simulations/{simulation_id}/re-submit | re-submit a simulation
 [**resume_simulation**](SimulationsApi.md#resume_simulation) | **PUT** /projects/{owner}/{name}/simulations/{simulation_id}/resume | resume a simulation
 [**suspend_simulation**](SimulationsApi.md#suspend_simulation) | **PUT** /projects/{owner}/{name}/simulations/{simulation_id}/suspend | Suspend a simulation
 
 
 # **create_simulation**
-> CreatedContent create_simulation(owner, name, submit_simulation_dto)
+> CreatedContent create_simulation(owner, name, submit_simulation_dto, authorization=authorization)
 
 Schedule a simulation
 
@@ -54,10 +53,11 @@ api_instance = pollination_sdk.SimulationsApi(pollination_sdk.ApiClient(configur
 owner = 'owner_example' # str | 
 name = 'name_example' # str | 
 submit_simulation_dto = pollination_sdk.SubmitSimulationDto() # SubmitSimulationDto | 
+authorization = 'authorization_example' # str |  (optional)
 
 try:
     # Schedule a simulation
-    api_response = api_instance.create_simulation(owner, name, submit_simulation_dto)
+    api_response = api_instance.create_simulation(owner, name, submit_simulation_dto, authorization=authorization)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling SimulationsApi->create_simulation: %s\n" % e)
@@ -70,6 +70,7 @@ Name | Type | Description  | Notes
  **owner** | **str**|  | 
  **name** | **str**|  | 
  **submit_simulation_dto** | [**SubmitSimulationDto**](SubmitSimulationDto.md)|  | 
+ **authorization** | **str**|  | [optional] 
 
 ### Return type
 
@@ -487,7 +488,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_simulations**
-> list[SimulationStatus] list_simulations(owner, name, page=page, per_page=per_page, id=id, workflow=workflow, status=status)
+> SimulationList list_simulations(owner, name, page=page, per_page=per_page, id=id, status=status)
 
 List simulations
 
@@ -526,12 +527,11 @@ name = 'name_example' # str |
 page = 1 # int | Page number starting from 1 (optional) (default to 1)
 per_page = 25 # int | Number of items per page (optional) (default to 25)
 id = ['id_example'] # list[str] | The ID of a simulation to search for (optional)
-workflow = ['workflow_example'] # list[str] | The ID of the workflow used for this simulation (optional)
 status = ['status_example'] # list[str] | The status of the simulation to filter by (optional)
 
 try:
     # List simulations
-    api_response = api_instance.list_simulations(owner, name, page=page, per_page=per_page, id=id, workflow=workflow, status=status)
+    api_response = api_instance.list_simulations(owner, name, page=page, per_page=per_page, id=id, status=status)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling SimulationsApi->list_simulations: %s\n" % e)
@@ -546,12 +546,11 @@ Name | Type | Description  | Notes
  **page** | **int**| Page number starting from 1 | [optional] [default to 1]
  **per_page** | **int**| Number of items per page | [optional] [default to 25]
  **id** | [**list[str]**](str.md)| The ID of a simulation to search for | [optional] 
- **workflow** | [**list[str]**](str.md)| The ID of the workflow used for this simulation | [optional] 
  **status** | [**list[str]**](str.md)| The status of the simulation to filter by | [optional] 
 
 ### Return type
 
-[**list[SimulationStatus]**](SimulationStatus.md)
+[**SimulationList**](SimulationList.md)
 
 ### Authorization
 
@@ -566,82 +565,6 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Retrieved |  -  |
-**422** | Validation Error |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **resubmit_simulation**
-> CreatedContent resubmit_simulation(owner, name, simulation_id)
-
-re-submit a simulation
-
-re-submit a simulation
-
-### Example
-
-* Bearer Authentication (JWT):
-```python
-from __future__ import print_function
-import time
-import pollination_sdk
-from pollination_sdk.rest import ApiException
-from pprint import pprint
-configuration = pollination_sdk.Configuration()
-
-# Retrieve a temporary Acces Token (JWT) using your API token
-API_TOKEN = 'some-token-string'
-
-auth = pollination_sdk.UserApi()
-api_token = pollination_sdk.LoginDto(
-  api_token=API_TOKEN
-)
-
-auth_response = auth.login(api_token)
-
-# Configure Bearer authorization: JWT
-configuration.access_token = auth_response.access_token
-
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
-# Create an instance of the API class
-api_instance = pollination_sdk.SimulationsApi(pollination_sdk.ApiClient(configuration))
-owner = 'owner_example' # str | 
-name = 'name_example' # str | 
-simulation_id = 'simulation_id_example' # str | 
-
-try:
-    # re-submit a simulation
-    api_response = api_instance.resubmit_simulation(owner, name, simulation_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling SimulationsApi->resubmit_simulation: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **str**|  | 
- **name** | **str**|  | 
- **simulation_id** | **str**|  | 
-
-### Return type
-
-[**CreatedContent**](CreatedContent.md)
-
-### Authorization
-
-[JWT](../README.md#JWT)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**201** | Accepted |  -  |
 **422** | Validation Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
