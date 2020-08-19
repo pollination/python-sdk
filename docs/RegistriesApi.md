@@ -11,13 +11,13 @@ Method | HTTP request | Description
 
 
 # **get_package**
-> get_package(owner, type, name, digest)
+> object get_package(owner, type, name, digest)
 
 Get Package
 
 ### Example
 
-* Bearer Authentication (JWT):
+* Bearer Authentication (Optional Auth):
 ```python
 from __future__ import print_function
 import time
@@ -36,7 +36,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWT
+# Configure Bearer authorization: Optional Auth
 configuration.access_token = auth_response.access_token
 
 # Defining host is optional and default to http://localhost
@@ -50,7 +50,8 @@ digest = 'digest_example' # str |
 
 try:
     # Get Package
-    api_instance.get_package(owner, type, name, digest)
+    api_response = api_instance.get_package(owner, type, name, digest)
+    pprint(api_response)
 except ApiException as e:
     print("Exception when calling RegistriesApi->get_package: %s\n" % e)
 ```
@@ -66,16 +67,16 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+**object**
 
 ### Authorization
 
-[JWT](../README.md#JWT)
+[Optional Auth](../README.md#Optional Auth)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/x-tar, application/json
+ - **Accept**: application/json, application/x-tar
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -92,7 +93,7 @@ Get Registry Index
 
 ### Example
 
-* Bearer Authentication (JWT):
+* Bearer Authentication (Optional Auth):
 ```python
 from __future__ import print_function
 import time
@@ -111,7 +112,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWT
+# Configure Bearer authorization: Optional Auth
 configuration.access_token = auth_response.access_token
 
 # Defining host is optional and default to http://localhost
@@ -140,7 +141,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[JWT](../README.md#JWT)
+[Optional Auth](../README.md#Optional Auth)
 
 ### HTTP request headers
 
@@ -162,7 +163,7 @@ Push an Operator to the registry
 
 ### Example
 
-* Bearer Authentication (JWT):
+* Bearer Authentication (Compulsory Auth):
 ```python
 from __future__ import print_function
 import time
@@ -181,7 +182,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWT
+# Configure Bearer authorization: Compulsory Auth
 configuration.access_token = auth_response.access_token
 
 # Defining host is optional and default to http://localhost
@@ -212,7 +213,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[JWT](../README.md#JWT)
+[Compulsory Auth](../README.md#Compulsory Auth)
 
 ### HTTP request headers
 
@@ -234,7 +235,7 @@ Push an Recipe to the registry
 
 ### Example
 
-* Bearer Authentication (JWT):
+* Bearer Authentication (Compulsory Auth):
 ```python
 from __future__ import print_function
 import time
@@ -253,7 +254,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWT
+# Configure Bearer authorization: Compulsory Auth
 configuration.access_token = auth_response.access_token
 
 # Defining host is optional and default to http://localhost
@@ -286,7 +287,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[JWT](../README.md#JWT)
+[Compulsory Auth](../README.md#Compulsory Auth)
 
 ### HTTP request headers
 

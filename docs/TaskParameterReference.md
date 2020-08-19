@@ -4,7 +4,7 @@ A Task Parameter Reference
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **str** |  | [optional] [default to 'tasks']
+**type** | [**TaskReference**](TaskReference.md) |  | [optional] 
 **name** | **str** | The name of the task to pull output data from | 
 **variable** | **str** | The name of the task output variable | 
 

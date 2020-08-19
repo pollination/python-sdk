@@ -4,6 +4,7 @@ An artifact used within the DAG.
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**annotations** | **dict(str, str)** | Optional annotations for Queenbee objects. | [optional] 
 **name** | **str** | The name of the artifact within the scope of the DAG | 
 **description** | **str** | Optional description for the input artifact | [optional] 
 **default** | [**object**](.md) |  | [optional] 

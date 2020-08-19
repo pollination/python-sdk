@@ -63,10 +63,10 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**200** | Successful Response |  -  |
 **403** | Access forbidden |  -  |
 **500** | Server error |  -  |
 **400** | Invalid request |  -  |
-**200** | Retrieved |  -  |
 **404** | Not found |  -  |
 **422** | Validation Error |  -  |
 
@@ -81,7 +81,7 @@ Get authenticated user profile
 
 ### Example
 
-* Bearer Authentication (JWT):
+* Bearer Authentication (Compulsory Auth):
 ```python
 from __future__ import print_function
 import time
@@ -100,7 +100,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWT
+# Configure Bearer authorization: Compulsory Auth
 configuration.access_token = auth_response.access_token
 
 # Defining host is optional and default to http://localhost
@@ -125,7 +125,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[JWT](../README.md#JWT)
+[Compulsory Auth](../README.md#Compulsory Auth)
 
 ### HTTP request headers
 
@@ -146,7 +146,7 @@ Get the authenticated user roles
 
 ### Example
 
-* Bearer Authentication (JWT):
+* Bearer Authentication (Compulsory Auth):
 ```python
 from __future__ import print_function
 import time
@@ -165,7 +165,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWT
+# Configure Bearer authorization: Compulsory Auth
 configuration.access_token = auth_response.access_token
 
 # Defining host is optional and default to http://localhost
@@ -190,7 +190,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[JWT](../README.md#JWT)
+[Compulsory Auth](../README.md#Compulsory Auth)
 
 ### HTTP request headers
 
@@ -376,11 +376,11 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**201** | Successful Response |  -  |
 **403** | Access forbidden |  -  |
 **500** | Server error |  -  |
 **400** | Invalid request |  -  |
-**202** | Success |  -  |
-**201** | Successful Response |  -  |
+**202** | Accepted |  -  |
 **422** | Validation Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

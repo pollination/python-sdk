@@ -23,7 +23,7 @@ Create a new project.
 
 ### Example
 
-* Bearer Authentication (JWT):
+* Bearer Authentication (Compulsory Auth):
 ```python
 from __future__ import print_function
 import time
@@ -42,7 +42,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWT
+# Configure Bearer authorization: Compulsory Auth
 configuration.access_token = auth_response.access_token
 
 # Defining host is optional and default to http://localhost
@@ -73,7 +73,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[JWT](../README.md#JWT)
+[Compulsory Auth](../README.md#Compulsory Auth)
 
 ### HTTP request headers
 
@@ -83,11 +83,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**201** | Success |  -  |
 **403** | Access forbidden |  -  |
 **500** | Server error |  -  |
 **400** | Invalid request |  -  |
-**202** | Success |  -  |
-**201** | Success |  -  |
+**202** | Accepted |  -  |
 **422** | Validation Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -101,7 +101,7 @@ Delete a project (must have `admin` permission)
 
 ### Example
 
-* Bearer Authentication (JWT):
+* Bearer Authentication (Compulsory Auth):
 ```python
 from __future__ import print_function
 import time
@@ -120,7 +120,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWT
+# Configure Bearer authorization: Compulsory Auth
 configuration.access_token = auth_response.access_token
 
 # Defining host is optional and default to http://localhost
@@ -150,7 +150,7 @@ void (empty response body)
 
 ### Authorization
 
-[JWT](../README.md#JWT)
+[Compulsory Auth](../README.md#Compulsory Auth)
 
 ### HTTP request headers
 
@@ -160,10 +160,10 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**204** | Accepted |  -  |
 **403** | Access forbidden |  -  |
 **500** | Server error |  -  |
 **400** | Invalid request |  -  |
-**204** | Success |  -  |
 **422** | Validation Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -177,7 +177,7 @@ Delete a project's access policy (must have `admin` permission)
 
 ### Example
 
-* Bearer Authentication (JWT):
+* Bearer Authentication (Compulsory Auth):
 ```python
 from __future__ import print_function
 import time
@@ -196,7 +196,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWT
+# Configure Bearer authorization: Compulsory Auth
 configuration.access_token = auth_response.access_token
 
 # Defining host is optional and default to http://localhost
@@ -228,7 +228,7 @@ void (empty response body)
 
 ### Authorization
 
-[JWT](../README.md#JWT)
+[Compulsory Auth](../README.md#Compulsory Auth)
 
 ### HTTP request headers
 
@@ -238,16 +238,16 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**204** | Accepted |  -  |
 **403** | Access forbidden |  -  |
 **500** | Server error |  -  |
 **400** | Invalid request |  -  |
-**204** | Success |  -  |
 **422** | Validation Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_project**
-> object get_project(owner, name)
+> ProjectDto get_project(owner, name)
 
 Get a project
 
@@ -255,7 +255,7 @@ Retrieve a project by name
 
 ### Example
 
-* Bearer Authentication (JWT):
+* Bearer Authentication (Optional Auth):
 ```python
 from __future__ import print_function
 import time
@@ -274,7 +274,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWT
+# Configure Bearer authorization: Optional Auth
 configuration.access_token = auth_response.access_token
 
 # Defining host is optional and default to http://localhost
@@ -301,11 +301,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+[**ProjectDto**](ProjectDto.md)
 
 ### Authorization
 
-[JWT](../README.md#JWT)
+[Optional Auth](../README.md#Optional Auth)
 
 ### HTTP request headers
 
@@ -315,10 +315,10 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**200** | Retrieved |  -  |
 **403** | Access forbidden |  -  |
 **500** | Server error |  -  |
 **400** | Invalid request |  -  |
-**200** | Retrieved |  -  |
 **404** | Not found |  -  |
 **422** | Validation Error |  -  |
 
@@ -333,7 +333,7 @@ Retrieve a project's access permissions (must have `contribute` permission)
 
 ### Example
 
-* Bearer Authentication (JWT):
+* Bearer Authentication (Compulsory Auth):
 ```python
 from __future__ import print_function
 import time
@@ -352,7 +352,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWT
+# Configure Bearer authorization: Compulsory Auth
 configuration.access_token = auth_response.access_token
 
 # Defining host is optional and default to http://localhost
@@ -383,7 +383,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[JWT](../README.md#JWT)
+[Compulsory Auth](../README.md#Compulsory Auth)
 
 ### HTTP request headers
 
@@ -393,10 +393,10 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**200** | Retrieved |  -  |
 **403** | Access forbidden |  -  |
 **500** | Server error |  -  |
 **400** | Invalid request |  -  |
-**200** | Retrieved |  * Link - The Link header with pagination information. For details see [link header](https://pollination.cloud/api/#section/Pagination/Link-header). <br>  |
 **422** | Validation Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -410,7 +410,7 @@ search for projects using query parameters
 
 ### Example
 
-* Bearer Authentication (JWT):
+* Bearer Authentication (Optional Auth):
 ```python
 from __future__ import print_function
 import time
@@ -429,7 +429,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWT
+# Configure Bearer authorization: Optional Auth
 configuration.access_token = auth_response.access_token
 
 # Defining host is optional and default to http://localhost
@@ -470,7 +470,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[JWT](../README.md#JWT)
+[Optional Auth](../README.md#Optional Auth)
 
 ### HTTP request headers
 
@@ -481,6 +481,9 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Retrieved |  -  |
+**403** | Access forbidden |  -  |
+**500** | Server error |  -  |
+**400** | Invalid request |  -  |
 **422** | Validation Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -494,7 +497,7 @@ Update a project (must have `contribute` permission)
 
 ### Example
 
-* Bearer Authentication (JWT):
+* Bearer Authentication (Compulsory Auth):
 ```python
 from __future__ import print_function
 import time
@@ -513,7 +516,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWT
+# Configure Bearer authorization: Compulsory Auth
 configuration.access_token = auth_response.access_token
 
 # Defining host is optional and default to http://localhost
@@ -546,7 +549,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[JWT](../README.md#JWT)
+[Compulsory Auth](../README.md#Compulsory Auth)
 
 ### HTTP request headers
 
@@ -556,10 +559,10 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**202** | Accepted |  -  |
 **403** | Access forbidden |  -  |
 **500** | Server error |  -  |
 **400** | Invalid request |  -  |
-**202** | Success |  -  |
 **404** | Not found |  -  |
 **422** | Validation Error |  -  |
 
@@ -574,7 +577,7 @@ Upsert a project's access policy (must have `admin` permission)
 
 ### Example
 
-* Bearer Authentication (JWT):
+* Bearer Authentication (Compulsory Auth):
 ```python
 from __future__ import print_function
 import time
@@ -593,7 +596,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWT
+# Configure Bearer authorization: Compulsory Auth
 configuration.access_token = auth_response.access_token
 
 # Defining host is optional and default to http://localhost
@@ -626,7 +629,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[JWT](../README.md#JWT)
+[Compulsory Auth](../README.md#Compulsory Auth)
 
 ### HTTP request headers
 
@@ -636,10 +639,10 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**202** | Accepted |  -  |
 **403** | Access forbidden |  -  |
 **500** | Server error |  -  |
 **400** | Invalid request |  -  |
-**202** | Success |  -  |
 **404** | Not found |  -  |
 **422** | Validation Error |  -  |
 

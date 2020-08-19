@@ -8,8 +8,8 @@ Method | HTTP request | Description
 [**create_recipe_package**](RecipesApi.md#create_recipe_package) | **POST** /recipes/{owner}/{name}/tags | Create a new Recipe package
 [**delete_recipe**](RecipesApi.md#delete_recipe) | **DELETE** /recipes/{owner}/{name} | Delete a Recipe
 [**get_recipe**](RecipesApi.md#get_recipe) | **GET** /recipes/{owner}/{name} | Get a recipe
-[**get_recipe_tag**](RecipesApi.md#get_recipe_tag) | **GET** /recipes/{owner}/{name}/tags/{tag} | Get a recipe tag
-[**get_recipe_tags**](RecipesApi.md#get_recipe_tags) | **GET** /recipes/{owner}/{name}/tags | Get a recipe tags
+[**get_recipe_by_tag**](RecipesApi.md#get_recipe_by_tag) | **GET** /recipes/{owner}/{name}/tags/{tag} | Get a recipe tag
+[**list_recipe_tags**](RecipesApi.md#list_recipe_tags) | **GET** /recipes/{owner}/{name}/tags | Get a recipe tags
 [**list_recipes**](RecipesApi.md#list_recipes) | **GET** /recipes | List recipes
 [**update_recipe**](RecipesApi.md#update_recipe) | **PUT** /recipes/{owner}/{name} | Update a Recipe
 
@@ -23,7 +23,7 @@ Create a new recipe.
 
 ### Example
 
-* Bearer Authentication (JWT):
+* Bearer Authentication (Compulsory Auth):
 ```python
 from __future__ import print_function
 import time
@@ -42,7 +42,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWT
+# Configure Bearer authorization: Compulsory Auth
 configuration.access_token = auth_response.access_token
 
 # Defining host is optional and default to http://localhost
@@ -73,7 +73,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[JWT](../README.md#JWT)
+[Compulsory Auth](../README.md#Compulsory Auth)
 
 ### HTTP request headers
 
@@ -83,17 +83,17 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**201** | Success |  -  |
 **403** | Access forbidden |  -  |
 **500** | Server error |  -  |
 **400** | Invalid request |  -  |
-**202** | Success |  -  |
-**201** | Success |  -  |
+**202** | Accepted |  -  |
 **422** | Validation Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_recipe_package**
-> object create_recipe_package(owner, name, new_recipe_package, authorization=authorization)
+> PackageDto create_recipe_package(owner, name, new_recipe_package, authorization=authorization)
 
 Create a new Recipe package
 
@@ -101,7 +101,7 @@ Create a new recipe package version
 
 ### Example
 
-* Bearer Authentication (JWT):
+* Bearer Authentication (Compulsory Auth):
 ```python
 from __future__ import print_function
 import time
@@ -120,7 +120,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWT
+# Configure Bearer authorization: Compulsory Auth
 configuration.access_token = auth_response.access_token
 
 # Defining host is optional and default to http://localhost
@@ -151,11 +151,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+[**PackageDto**](PackageDto.md)
 
 ### Authorization
 
-[JWT](../README.md#JWT)
+[Compulsory Auth](../README.md#Compulsory Auth)
 
 ### HTTP request headers
 
@@ -165,10 +165,10 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**200** | Success |  -  |
 **403** | Access forbidden |  -  |
 **500** | Server error |  -  |
 **400** | Invalid request |  -  |
-**200** | Retrieved |  -  |
 **404** | Not found |  -  |
 **422** | Validation Error |  -  |
 
@@ -183,7 +183,7 @@ Delete a recipe (must have `admin` permission)
 
 ### Example
 
-* Bearer Authentication (JWT):
+* Bearer Authentication (Compulsory Auth):
 ```python
 from __future__ import print_function
 import time
@@ -202,7 +202,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWT
+# Configure Bearer authorization: Compulsory Auth
 configuration.access_token = auth_response.access_token
 
 # Defining host is optional and default to http://localhost
@@ -232,7 +232,7 @@ void (empty response body)
 
 ### Authorization
 
-[JWT](../README.md#JWT)
+[Compulsory Auth](../README.md#Compulsory Auth)
 
 ### HTTP request headers
 
@@ -242,16 +242,16 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**204** | Accepted |  -  |
 **403** | Access forbidden |  -  |
 **500** | Server error |  -  |
 **400** | Invalid request |  -  |
-**204** | Success |  -  |
 **422** | Validation Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_recipe**
-> object get_recipe(owner, name)
+> RepositoryDto get_recipe(owner, name)
 
 Get a recipe
 
@@ -259,7 +259,7 @@ Retrieve a recipe by name
 
 ### Example
 
-* Bearer Authentication (JWT):
+* Bearer Authentication (Optional Auth):
 ```python
 from __future__ import print_function
 import time
@@ -278,7 +278,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWT
+# Configure Bearer authorization: Optional Auth
 configuration.access_token = auth_response.access_token
 
 # Defining host is optional and default to http://localhost
@@ -305,11 +305,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+[**RepositoryDto**](RepositoryDto.md)
 
 ### Authorization
 
-[JWT](../README.md#JWT)
+[Optional Auth](../README.md#Optional Auth)
 
 ### HTTP request headers
 
@@ -319,17 +319,17 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**200** | Retrieved |  -  |
 **403** | Access forbidden |  -  |
 **500** | Server error |  -  |
 **400** | Invalid request |  -  |
-**200** | Retrieved |  -  |
 **404** | Not found |  -  |
 **422** | Validation Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_recipe_tag**
-> object get_recipe_tag(owner, name, tag)
+# **get_recipe_by_tag**
+> RecipePackage get_recipe_by_tag(owner, name, tag)
 
 Get a recipe tag
 
@@ -337,7 +337,7 @@ Retrieve a recipe tag by name and tag
 
 ### Example
 
-* Bearer Authentication (JWT):
+* Bearer Authentication (Optional Auth):
 ```python
 from __future__ import print_function
 import time
@@ -356,7 +356,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWT
+# Configure Bearer authorization: Optional Auth
 configuration.access_token = auth_response.access_token
 
 # Defining host is optional and default to http://localhost
@@ -369,10 +369,10 @@ tag = 'tag_example' # str |
 
 try:
     # Get a recipe tag
-    api_response = api_instance.get_recipe_tag(owner, name, tag)
+    api_response = api_instance.get_recipe_by_tag(owner, name, tag)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling RecipesApi->get_recipe_tag: %s\n" % e)
+    print("Exception when calling RecipesApi->get_recipe_by_tag: %s\n" % e)
 ```
 
 ### Parameters
@@ -385,11 +385,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+[**RecipePackage**](RecipePackage.md)
 
 ### Authorization
 
-[JWT](../README.md#JWT)
+[Optional Auth](../README.md#Optional Auth)
 
 ### HTTP request headers
 
@@ -399,17 +399,17 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**200** | Retrieved |  -  |
 **403** | Access forbidden |  -  |
 **500** | Server error |  -  |
 **400** | Invalid request |  -  |
-**200** | Retrieved |  -  |
 **404** | Not found |  -  |
 **422** | Validation Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_recipe_tags**
-> object get_recipe_tags(owner, name)
+# **list_recipe_tags**
+> PackageListDto list_recipe_tags(owner, name)
 
 Get a recipe tags
 
@@ -417,7 +417,7 @@ Retrieve a recipe by name
 
 ### Example
 
-* Bearer Authentication (JWT):
+* Bearer Authentication (Optional Auth):
 ```python
 from __future__ import print_function
 import time
@@ -436,7 +436,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWT
+# Configure Bearer authorization: Optional Auth
 configuration.access_token = auth_response.access_token
 
 # Defining host is optional and default to http://localhost
@@ -448,10 +448,10 @@ name = 'name_example' # str |
 
 try:
     # Get a recipe tags
-    api_response = api_instance.get_recipe_tags(owner, name)
+    api_response = api_instance.list_recipe_tags(owner, name)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling RecipesApi->get_recipe_tags: %s\n" % e)
+    print("Exception when calling RecipesApi->list_recipe_tags: %s\n" % e)
 ```
 
 ### Parameters
@@ -463,11 +463,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+[**PackageListDto**](PackageListDto.md)
 
 ### Authorization
 
-[JWT](../README.md#JWT)
+[Optional Auth](../README.md#Optional Auth)
 
 ### HTTP request headers
 
@@ -477,10 +477,10 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**200** | Retrieved |  -  |
 **403** | Access forbidden |  -  |
 **500** | Server error |  -  |
 **400** | Invalid request |  -  |
-**200** | Retrieved |  -  |
 **404** | Not found |  -  |
 **422** | Validation Error |  -  |
 
@@ -493,7 +493,7 @@ List recipes
 
 ### Example
 
-* Bearer Authentication (JWT):
+* Bearer Authentication (Optional Auth):
 ```python
 from __future__ import print_function
 import time
@@ -512,7 +512,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWT
+# Configure Bearer authorization: Optional Auth
 configuration.access_token = auth_response.access_token
 
 # Defining host is optional and default to http://localhost
@@ -551,7 +551,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[JWT](../README.md#JWT)
+[Optional Auth](../README.md#Optional Auth)
 
 ### HTTP request headers
 
@@ -575,7 +575,7 @@ Update a recipe (must have `contribute` permission)
 
 ### Example
 
-* Bearer Authentication (JWT):
+* Bearer Authentication (Compulsory Auth):
 ```python
 from __future__ import print_function
 import time
@@ -594,7 +594,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWT
+# Configure Bearer authorization: Compulsory Auth
 configuration.access_token = auth_response.access_token
 
 # Defining host is optional and default to http://localhost
@@ -627,7 +627,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[JWT](../README.md#JWT)
+[Compulsory Auth](../README.md#Compulsory Auth)
 
 ### HTTP request headers
 
@@ -637,10 +637,10 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**202** | Accepted |  -  |
 **403** | Access forbidden |  -  |
 **500** | Server error |  -  |
 **400** | Invalid request |  -  |
-**202** | Success |  -  |
 **404** | Not found |  -  |
 **422** | Validation Error |  -  |
 

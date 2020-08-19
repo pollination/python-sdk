@@ -8,8 +8,8 @@ Method | HTTP request | Description
 [**create_operator_package**](OperatorsApi.md#create_operator_package) | **POST** /operators/{owner}/{name}/tags | Create a new Operator package
 [**delete_operator**](OperatorsApi.md#delete_operator) | **DELETE** /operators/{owner}/{name} | Delete an Operator
 [**get_operator**](OperatorsApi.md#get_operator) | **GET** /operators/{owner}/{name} | Get an operator
-[**get_operator_tag**](OperatorsApi.md#get_operator_tag) | **GET** /operators/{owner}/{name}/tags/{tag} | Get an operator tag
-[**get_operator_tags**](OperatorsApi.md#get_operator_tags) | **GET** /operators/{owner}/{name}/tags | Get an operator tags
+[**get_operator_by_tag**](OperatorsApi.md#get_operator_by_tag) | **GET** /operators/{owner}/{name}/tags/{tag} | Get an operator tag
+[**list_operator_tags**](OperatorsApi.md#list_operator_tags) | **GET** /operators/{owner}/{name}/tags | Get an operator tags
 [**list_operators**](OperatorsApi.md#list_operators) | **GET** /operators | List operators
 [**update_operator**](OperatorsApi.md#update_operator) | **PUT** /operators/{owner}/{name} | Update an Operator
 
@@ -23,7 +23,7 @@ Create a new operator.
 
 ### Example
 
-* Bearer Authentication (JWT):
+* Bearer Authentication (Compulsory Auth):
 ```python
 from __future__ import print_function
 import time
@@ -42,7 +42,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWT
+# Configure Bearer authorization: Compulsory Auth
 configuration.access_token = auth_response.access_token
 
 # Defining host is optional and default to http://localhost
@@ -73,7 +73,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[JWT](../README.md#JWT)
+[Compulsory Auth](../README.md#Compulsory Auth)
 
 ### HTTP request headers
 
@@ -83,17 +83,17 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**201** | Success |  -  |
 **403** | Access forbidden |  -  |
 **500** | Server error |  -  |
 **400** | Invalid request |  -  |
-**202** | Success |  -  |
-**201** | Success |  -  |
+**202** | Accepted |  -  |
 **422** | Validation Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_operator_package**
-> object create_operator_package(owner, name, new_operator_package)
+> PackageDto create_operator_package(owner, name, new_operator_package)
 
 Create a new Operator package
 
@@ -101,7 +101,7 @@ Create a new operator package version
 
 ### Example
 
-* Bearer Authentication (JWT):
+* Bearer Authentication (Compulsory Auth):
 ```python
 from __future__ import print_function
 import time
@@ -120,7 +120,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWT
+# Configure Bearer authorization: Compulsory Auth
 configuration.access_token = auth_response.access_token
 
 # Defining host is optional and default to http://localhost
@@ -149,11 +149,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+[**PackageDto**](PackageDto.md)
 
 ### Authorization
 
-[JWT](../README.md#JWT)
+[Compulsory Auth](../README.md#Compulsory Auth)
 
 ### HTTP request headers
 
@@ -163,10 +163,10 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**200** | Success |  -  |
 **403** | Access forbidden |  -  |
 **500** | Server error |  -  |
 **400** | Invalid request |  -  |
-**200** | Retrieved |  -  |
 **404** | Not found |  -  |
 **422** | Validation Error |  -  |
 
@@ -181,7 +181,7 @@ Delete an operator (must have `admin` permission)
 
 ### Example
 
-* Bearer Authentication (JWT):
+* Bearer Authentication (Compulsory Auth):
 ```python
 from __future__ import print_function
 import time
@@ -200,7 +200,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWT
+# Configure Bearer authorization: Compulsory Auth
 configuration.access_token = auth_response.access_token
 
 # Defining host is optional and default to http://localhost
@@ -230,7 +230,7 @@ void (empty response body)
 
 ### Authorization
 
-[JWT](../README.md#JWT)
+[Compulsory Auth](../README.md#Compulsory Auth)
 
 ### HTTP request headers
 
@@ -240,16 +240,16 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**204** | Accepted |  -  |
 **403** | Access forbidden |  -  |
 **500** | Server error |  -  |
 **400** | Invalid request |  -  |
-**204** | Success |  -  |
 **422** | Validation Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_operator**
-> object get_operator(owner, name)
+> RepositoryDto get_operator(owner, name)
 
 Get an operator
 
@@ -257,7 +257,7 @@ Retrieve an operator by name
 
 ### Example
 
-* Bearer Authentication (JWT):
+* Bearer Authentication (Optional Auth):
 ```python
 from __future__ import print_function
 import time
@@ -276,7 +276,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWT
+# Configure Bearer authorization: Optional Auth
 configuration.access_token = auth_response.access_token
 
 # Defining host is optional and default to http://localhost
@@ -303,11 +303,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+[**RepositoryDto**](RepositoryDto.md)
 
 ### Authorization
 
-[JWT](../README.md#JWT)
+[Optional Auth](../README.md#Optional Auth)
 
 ### HTTP request headers
 
@@ -317,17 +317,17 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**200** | Retrieved |  -  |
 **403** | Access forbidden |  -  |
 **500** | Server error |  -  |
 **400** | Invalid request |  -  |
-**200** | Retrieved |  -  |
 **404** | Not found |  -  |
 **422** | Validation Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_operator_tag**
-> object get_operator_tag(owner, name, tag)
+# **get_operator_by_tag**
+> OperatorPackage get_operator_by_tag(owner, name, tag)
 
 Get an operator tag
 
@@ -335,7 +335,7 @@ Retrieve an operator tag by name and tag
 
 ### Example
 
-* Bearer Authentication (JWT):
+* Bearer Authentication (Optional Auth):
 ```python
 from __future__ import print_function
 import time
@@ -354,7 +354,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWT
+# Configure Bearer authorization: Optional Auth
 configuration.access_token = auth_response.access_token
 
 # Defining host is optional and default to http://localhost
@@ -367,10 +367,10 @@ tag = 'tag_example' # str |
 
 try:
     # Get an operator tag
-    api_response = api_instance.get_operator_tag(owner, name, tag)
+    api_response = api_instance.get_operator_by_tag(owner, name, tag)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling OperatorsApi->get_operator_tag: %s\n" % e)
+    print("Exception when calling OperatorsApi->get_operator_by_tag: %s\n" % e)
 ```
 
 ### Parameters
@@ -383,11 +383,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+[**OperatorPackage**](OperatorPackage.md)
 
 ### Authorization
 
-[JWT](../README.md#JWT)
+[Optional Auth](../README.md#Optional Auth)
 
 ### HTTP request headers
 
@@ -397,17 +397,17 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**200** | Retrieved |  -  |
 **403** | Access forbidden |  -  |
 **500** | Server error |  -  |
 **400** | Invalid request |  -  |
-**200** | Retrieved |  -  |
 **404** | Not found |  -  |
 **422** | Validation Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_operator_tags**
-> object get_operator_tags(owner, name)
+# **list_operator_tags**
+> PackageListDto list_operator_tags(owner, name)
 
 Get an operator tags
 
@@ -415,7 +415,7 @@ Retrieve an operator by name
 
 ### Example
 
-* Bearer Authentication (JWT):
+* Bearer Authentication (Optional Auth):
 ```python
 from __future__ import print_function
 import time
@@ -434,7 +434,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWT
+# Configure Bearer authorization: Optional Auth
 configuration.access_token = auth_response.access_token
 
 # Defining host is optional and default to http://localhost
@@ -446,10 +446,10 @@ name = 'name_example' # str |
 
 try:
     # Get an operator tags
-    api_response = api_instance.get_operator_tags(owner, name)
+    api_response = api_instance.list_operator_tags(owner, name)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling OperatorsApi->get_operator_tags: %s\n" % e)
+    print("Exception when calling OperatorsApi->list_operator_tags: %s\n" % e)
 ```
 
 ### Parameters
@@ -461,11 +461,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+[**PackageListDto**](PackageListDto.md)
 
 ### Authorization
 
-[JWT](../README.md#JWT)
+[Optional Auth](../README.md#Optional Auth)
 
 ### HTTP request headers
 
@@ -475,10 +475,10 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**200** | Retrieved |  -  |
 **403** | Access forbidden |  -  |
 **500** | Server error |  -  |
 **400** | Invalid request |  -  |
-**200** | Retrieved |  -  |
 **404** | Not found |  -  |
 **422** | Validation Error |  -  |
 
@@ -491,7 +491,7 @@ List operators
 
 ### Example
 
-* Bearer Authentication (JWT):
+* Bearer Authentication (Optional Auth):
 ```python
 from __future__ import print_function
 import time
@@ -510,7 +510,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWT
+# Configure Bearer authorization: Optional Auth
 configuration.access_token = auth_response.access_token
 
 # Defining host is optional and default to http://localhost
@@ -549,7 +549,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[JWT](../README.md#JWT)
+[Optional Auth](../README.md#Optional Auth)
 
 ### HTTP request headers
 
@@ -573,7 +573,7 @@ Update an operator (must have `contribute` permission)
 
 ### Example
 
-* Bearer Authentication (JWT):
+* Bearer Authentication (Compulsory Auth):
 ```python
 from __future__ import print_function
 import time
@@ -592,7 +592,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWT
+# Configure Bearer authorization: Compulsory Auth
 configuration.access_token = auth_response.access_token
 
 # Defining host is optional and default to http://localhost
@@ -625,7 +625,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[JWT](../README.md#JWT)
+[Compulsory Auth](../README.md#Compulsory Auth)
 
 ### HTTP request headers
 
@@ -635,10 +635,10 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**202** | Accepted |  -  |
 **403** | Access forbidden |  -  |
 **500** | Server error |  -  |
 **400** | Invalid request |  -  |
-**202** | Success |  -  |
 **404** | Not found |  -  |
 **422** | Validation Error |  -  |
 

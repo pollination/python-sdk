@@ -23,7 +23,7 @@ Create a new team (must be parent org member)
 
 ### Example
 
-* Bearer Authentication (JWT):
+* Bearer Authentication (Compulsory Auth):
 ```python
 from __future__ import print_function
 import time
@@ -42,7 +42,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWT
+# Configure Bearer authorization: Compulsory Auth
 configuration.access_token = auth_response.access_token
 
 # Defining host is optional and default to http://localhost
@@ -73,7 +73,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[JWT](../README.md#JWT)
+[Compulsory Auth](../README.md#Compulsory Auth)
 
 ### HTTP request headers
 
@@ -83,11 +83,11 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**201** | Success |  -  |
 **403** | Access forbidden |  -  |
 **500** | Server error |  -  |
 **400** | Invalid request |  -  |
-**202** | Success |  -  |
-**201** | Success |  -  |
+**202** | Accepted |  -  |
 **422** | Validation Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -101,7 +101,7 @@ Remove a member from the org (must have org `owner` role)
 
 ### Example
 
-* Bearer Authentication (JWT):
+* Bearer Authentication (Compulsory Auth):
 ```python
 from __future__ import print_function
 import time
@@ -120,7 +120,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWT
+# Configure Bearer authorization: Compulsory Auth
 configuration.access_token = auth_response.access_token
 
 # Defining host is optional and default to http://localhost
@@ -152,7 +152,7 @@ void (empty response body)
 
 ### Authorization
 
-[JWT](../README.md#JWT)
+[Compulsory Auth](../README.md#Compulsory Auth)
 
 ### HTTP request headers
 
@@ -162,10 +162,10 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**204** | Accepted |  -  |
 **403** | Access forbidden |  -  |
 **500** | Server error |  -  |
 **400** | Invalid request |  -  |
-**204** | Success |  -  |
 **422** | Validation Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -179,7 +179,7 @@ Delete a team (must have team or org `owner` role)
 
 ### Example
 
-* Bearer Authentication (JWT):
+* Bearer Authentication (Compulsory Auth):
 ```python
 from __future__ import print_function
 import time
@@ -198,7 +198,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWT
+# Configure Bearer authorization: Compulsory Auth
 configuration.access_token = auth_response.access_token
 
 # Defining host is optional and default to http://localhost
@@ -228,7 +228,7 @@ void (empty response body)
 
 ### Authorization
 
-[JWT](../README.md#JWT)
+[Compulsory Auth](../README.md#Compulsory Auth)
 
 ### HTTP request headers
 
@@ -238,10 +238,10 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**204** | Accepted |  -  |
 **403** | Access forbidden |  -  |
 **500** | Server error |  -  |
 **400** | Invalid request |  -  |
-**204** | Success |  -  |
 **422** | Validation Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -255,32 +255,15 @@ Retrieve a tean's members
 
 ### Example
 
-* Bearer Authentication (JWT):
 ```python
 from __future__ import print_function
 import time
 import pollination_sdk
 from pollination_sdk.rest import ApiException
 from pprint import pprint
-configuration = pollination_sdk.Configuration()
 
-# Retrieve a temporary Acces Token (JWT) using your API token
-API_TOKEN = 'some-token-string'
-
-auth = pollination_sdk.UserApi()
-api_token = pollination_sdk.LoginDto(
-  api_token=API_TOKEN
-)
-
-auth_response = auth.login(api_token)
-
-# Configure Bearer authorization: JWT
-configuration.access_token = auth_response.access_token
-
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Create an instance of the API class
-api_instance = pollination_sdk.TeamsApi(pollination_sdk.ApiClient(configuration))
+api_instance = pollination_sdk.TeamsApi()
 org_name = 'org_name_example' # str | 
 team_slug = 'team_slug_example' # str | 
 
@@ -305,7 +288,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[JWT](../README.md#JWT)
+No authorization required
 
 ### HTTP request headers
 
@@ -321,7 +304,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_team**
-> object get_team(org_name, team_slug)
+> TeamDto get_team(org_name, team_slug)
 
 Get a Team
 
@@ -329,32 +312,15 @@ Retrieve a team by name
 
 ### Example
 
-* Bearer Authentication (JWT):
 ```python
 from __future__ import print_function
 import time
 import pollination_sdk
 from pollination_sdk.rest import ApiException
 from pprint import pprint
-configuration = pollination_sdk.Configuration()
 
-# Retrieve a temporary Acces Token (JWT) using your API token
-API_TOKEN = 'some-token-string'
-
-auth = pollination_sdk.UserApi()
-api_token = pollination_sdk.LoginDto(
-  api_token=API_TOKEN
-)
-
-auth_response = auth.login(api_token)
-
-# Configure Bearer authorization: JWT
-configuration.access_token = auth_response.access_token
-
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Create an instance of the API class
-api_instance = pollination_sdk.TeamsApi(pollination_sdk.ApiClient(configuration))
+api_instance = pollination_sdk.TeamsApi()
 org_name = 'org_name_example' # str | 
 team_slug = 'team_slug_example' # str | 
 
@@ -375,11 +341,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+[**TeamDto**](TeamDto.md)
 
 ### Authorization
 
-[JWT](../README.md#JWT)
+No authorization required
 
 ### HTTP request headers
 
@@ -389,10 +355,10 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**200** | Retrieved |  -  |
 **403** | Access forbidden |  -  |
 **500** | Server error |  -  |
 **400** | Invalid request |  -  |
-**200** | Retrieved |  -  |
 **404** | Not found |  -  |
 **422** | Validation Error |  -  |
 
@@ -407,32 +373,15 @@ search for orgs using query parameters
 
 ### Example
 
-* Bearer Authentication (JWT):
 ```python
 from __future__ import print_function
 import time
 import pollination_sdk
 from pollination_sdk.rest import ApiException
 from pprint import pprint
-configuration = pollination_sdk.Configuration()
 
-# Retrieve a temporary Acces Token (JWT) using your API token
-API_TOKEN = 'some-token-string'
-
-auth = pollination_sdk.UserApi()
-api_token = pollination_sdk.LoginDto(
-  api_token=API_TOKEN
-)
-
-auth_response = auth.login(api_token)
-
-# Configure Bearer authorization: JWT
-configuration.access_token = auth_response.access_token
-
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Create an instance of the API class
-api_instance = pollination_sdk.TeamsApi(pollination_sdk.ApiClient(configuration))
+api_instance = pollination_sdk.TeamsApi()
 org_name = 'org_name_example' # str | 
 page = 1 # int | Page number starting from 1 (optional) (default to 1)
 per_page = 25 # int | Number of items per page (optional) (default to 25)
@@ -463,7 +412,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[JWT](../README.md#JWT)
+No authorization required
 
 ### HTTP request headers
 
@@ -487,7 +436,7 @@ Update a team (must have team or org `owner` role)
 
 ### Example
 
-* Bearer Authentication (JWT):
+* Bearer Authentication (Compulsory Auth):
 ```python
 from __future__ import print_function
 import time
@@ -506,7 +455,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWT
+# Configure Bearer authorization: Compulsory Auth
 configuration.access_token = auth_response.access_token
 
 # Defining host is optional and default to http://localhost
@@ -539,7 +488,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[JWT](../README.md#JWT)
+[Compulsory Auth](../README.md#Compulsory Auth)
 
 ### HTTP request headers
 
@@ -549,10 +498,10 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**202** | Accepted |  -  |
 **403** | Access forbidden |  -  |
 **500** | Server error |  -  |
 **400** | Invalid request |  -  |
-**202** | Success |  -  |
 **404** | Not found |  -  |
 **422** | Validation Error |  -  |
 
@@ -567,7 +516,7 @@ Upsert a member role to the team (must have org or team `owner` role)
 
 ### Example
 
-* Bearer Authentication (JWT):
+* Bearer Authentication (Compulsory Auth):
 ```python
 from __future__ import print_function
 import time
@@ -586,7 +535,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWT
+# Configure Bearer authorization: Compulsory Auth
 configuration.access_token = auth_response.access_token
 
 # Defining host is optional and default to http://localhost
@@ -596,7 +545,7 @@ api_instance = pollination_sdk.TeamsApi(pollination_sdk.ApiClient(configuration)
 org_name = 'org_name_example' # str | 
 team_slug = 'team_slug_example' # str | 
 username = 'username_example' # str | 
-role = 'role_example' # str | 
+role = pollination_sdk.TeamRoleEnum() # TeamRoleEnum | 
 
 try:
     # Add or update the role of an Org Member
@@ -613,7 +562,7 @@ Name | Type | Description  | Notes
  **org_name** | **str**|  | 
  **team_slug** | **str**|  | 
  **username** | **str**|  | 
- **role** | **str**|  | 
+ **role** | [**TeamRoleEnum**](.md)|  | 
 
 ### Return type
 
@@ -621,7 +570,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[JWT](../README.md#JWT)
+[Compulsory Auth](../README.md#Compulsory Auth)
 
 ### HTTP request headers
 
@@ -631,10 +580,10 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**202** | Accepted |  -  |
 **403** | Access forbidden |  -  |
 **500** | Server error |  -  |
 **400** | Invalid request |  -  |
-**202** | Success |  -  |
 **404** | Not found |  -  |
 **422** | Validation Error |  -  |
 

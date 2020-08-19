@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **finished_at** | **datetime** | The time at which the task was completed | [optional] 
 **id** | **str** | The task unique ID | 
 **name** | **str** | A human readable name for the task. Usually defined by the DAG task name but can be extended if the task is part of a loop for example. This name is unique within the boundary of the DAG/Workflow that generated it. | 
-**type** | **str** | The type of task this status is for. Can be \&quot;function\&quot;, \&quot;dag\&quot; or \&quot;loop\&quot; | 
+**type** | [**StatusType**](StatusType.md) |  | 
 **template_ref** | **str** | The name of the template that spawned this task | 
 **command** | **str** | The command used to run this task. Only applies to Function tasks. | [optional] 
 **inputs** | [**Arguments**](Arguments.md) | The inputs used by this task | 

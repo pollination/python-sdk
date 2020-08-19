@@ -4,7 +4,7 @@ S3Source  An S3 bucket artifact Source.
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **str** |  | 
+**type** | **str** |  | [optional] [default to 's3']
 **key** | **str** | The path inside the bucket to source artifacts from. | 
 **endpoint** | **str** | The HTTP endpoint to reach the S3 bucket. | 
 **bucket** | **str** | The name of the S3 bucket on the host server. | 
