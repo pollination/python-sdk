@@ -1,4 +1,4 @@
-# ArgumentArtifact
+# QueenbeeWorkflowArgumentsArgumentArtifact
 
 A workflow Artifact Argument
 ## Properties

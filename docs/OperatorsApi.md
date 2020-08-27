@@ -93,7 +93,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_operator_package**
-> PackageDto create_operator_package(owner, name, new_operator_package)
+> CreatedContent create_operator_package(owner, name, new_operator_package)
 
 Create a new Operator package
 
@@ -149,7 +149,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PackageDto**](PackageDto.md)
+[**CreatedContent**](CreatedContent.md)
 
 ### Authorization
 

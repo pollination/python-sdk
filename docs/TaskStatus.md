@@ -13,8 +13,8 @@ Name | Type | Description | Notes
 **type** | [**StatusType**](StatusType.md) |  | 
 **template_ref** | **str** | The name of the template that spawned this task | 
 **command** | **str** | The command used to run this task. Only applies to Function tasks. | [optional] 
-**inputs** | [**Arguments**](Arguments.md) | The inputs used by this task | 
-**outputs** | [**Arguments**](Arguments.md) | The outputs produced by this task | 
+**inputs** | [**QueenbeeWorkflowArgumentsArguments**](QueenbeeWorkflowArgumentsArguments.md) | The inputs used by this task | 
+**outputs** | [**QueenbeeWorkflowArgumentsArguments**](QueenbeeWorkflowArgumentsArguments.md) | The outputs produced by this task | 
 **boundary_id** | **str** | This indicates the task ID of the associated template root             task in which this task belongs to. A DAG task will have the id of the             parent DAG for example. | [optional] 
 **children** | **list[str]** | A list of child task IDs | 
 **outbound_tasks** | **list[str]** | A list of the last tasks to ran in the context of this task. In the case of a DAG or a workflow this will be the last task that has been executed. It will remain empty for functions. | 

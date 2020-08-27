@@ -5,12 +5,14 @@ All URIs are relative to *http://localhost*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_simulation**](SimulationsApi.md#create_simulation) | **POST** /projects/{owner}/{name}/simulations | Schedule a simulation
+[**download_simulation_artifact**](SimulationsApi.md#download_simulation_artifact) | **GET** /projects/{owner}/{name}/simulations/{simulation_id}/artifacts/download | Download an artifact from the simulation folder
 [**get_simulation**](SimulationsApi.md#get_simulation) | **GET** /projects/{owner}/{name}/simulations/{simulation_id} | Get a Simulation
 [**get_simulation_inputs**](SimulationsApi.md#get_simulation_inputs) | **GET** /projects/{owner}/{name}/simulations/{simulation_id}/inputs | Get simulation inputs
 [**get_simulation_logs**](SimulationsApi.md#get_simulation_logs) | **GET** /projects/{owner}/{name}/simulations/{simulation_id}/logs | Get simulation logs
 [**get_simulation_output_artifact**](SimulationsApi.md#get_simulation_output_artifact) | **GET** /projects/{owner}/{name}/simulations/{simulation_id}/outputs/artifacts/{artifact_name} | Get simulation output artifact by name
 [**get_simulation_outputs**](SimulationsApi.md#get_simulation_outputs) | **GET** /projects/{owner}/{name}/simulations/{simulation_id}/outputs | Get simulation outputs
 [**get_simulation_task_logs**](SimulationsApi.md#get_simulation_task_logs) | **GET** /projects/{owner}/{name}/simulations/{simulation_id}/task/{task_id}/logs | Get a simulation task&#39;s logs
+[**list_simulation_artifacts**](SimulationsApi.md#list_simulation_artifacts) | **GET** /projects/{owner}/{name}/simulations/{simulation_id}/artifacts | List artifacts in a simulation folder
 [**list_simulations**](SimulationsApi.md#list_simulations) | **GET** /projects/{owner}/{name}/simulations | List simulations
 [**resume_simulation**](SimulationsApi.md#resume_simulation) | **PUT** /projects/{owner}/{name}/simulations/{simulation_id}/resume | resume a simulation
 [**stop_simulation**](SimulationsApi.md#stop_simulation) | **PUT** /projects/{owner}/{name}/simulations/{simulation_id}/stop | Stop a simulation
@@ -91,6 +93,88 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **download_simulation_artifact**
+> object download_simulation_artifact(owner, name, simulation_id, path=path)
+
+Download an artifact from the simulation folder
+
+Get a download link for an artifact in a simulation folder
+
+### Example
+
+* Bearer Authentication (Optional Auth):
+```python
+from __future__ import print_function
+import time
+import pollination_sdk
+from pollination_sdk.rest import ApiException
+from pprint import pprint
+configuration = pollination_sdk.Configuration()
+
+# Retrieve a temporary Acces Token (JWT) using your API token
+API_TOKEN = 'some-token-string'
+
+auth = pollination_sdk.UserApi()
+api_token = pollination_sdk.LoginDto(
+  api_token=API_TOKEN
+)
+
+auth_response = auth.login(api_token)
+
+# Configure Bearer authorization: Optional Auth
+configuration.access_token = auth_response.access_token
+
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Create an instance of the API class
+api_instance = pollination_sdk.SimulationsApi(pollination_sdk.ApiClient(configuration))
+owner = 'owner_example' # str | 
+name = 'name_example' # str | 
+simulation_id = 'simulation_id_example' # str | 
+path = 'path_example' # str | The path to an file within a project folder (optional)
+
+try:
+    # Download an artifact from the simulation folder
+    api_response = api_instance.download_simulation_artifact(owner, name, simulation_id, path=path)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling SimulationsApi->download_simulation_artifact: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **str**|  | 
+ **name** | **str**|  | 
+ **simulation_id** | **str**|  | 
+ **path** | **str**| The path to an file within a project folder | [optional] 
+
+### Return type
+
+**object**
+
+### Authorization
+
+[Optional Auth](../README.md#Optional Auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Retrieved |  -  |
+**403** | Access forbidden |  -  |
+**500** | Server error |  -  |
+**400** | Invalid request |  -  |
+**404** | Not found |  -  |
 **422** | Validation Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -553,6 +637,88 @@ Name | Type | Description  | Notes
 ### Return type
 
 **str**
+
+### Authorization
+
+[Optional Auth](../README.md#Optional Auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Retrieved |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **list_simulation_artifacts**
+> list[FileMeta] list_simulation_artifacts(owner, name, simulation_id, page=page, per_page=per_page, path=path)
+
+List artifacts in a simulation folder
+
+Retrieve a list of artifacts in a simulation folder
+
+### Example
+
+* Bearer Authentication (Optional Auth):
+```python
+from __future__ import print_function
+import time
+import pollination_sdk
+from pollination_sdk.rest import ApiException
+from pprint import pprint
+configuration = pollination_sdk.Configuration()
+
+# Retrieve a temporary Acces Token (JWT) using your API token
+API_TOKEN = 'some-token-string'
+
+auth = pollination_sdk.UserApi()
+api_token = pollination_sdk.LoginDto(
+  api_token=API_TOKEN
+)
+
+auth_response = auth.login(api_token)
+
+# Configure Bearer authorization: Optional Auth
+configuration.access_token = auth_response.access_token
+
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Create an instance of the API class
+api_instance = pollination_sdk.SimulationsApi(pollination_sdk.ApiClient(configuration))
+owner = 'owner_example' # str | 
+name = 'name_example' # str | 
+simulation_id = 'simulation_id_example' # str | 
+page = 1 # int | Page number starting from 1 (optional) (default to 1)
+per_page = 25 # int | Number of items per page (optional) (default to 25)
+path = ['path_example'] # list[str] | The path to an file within a project folder (optional)
+
+try:
+    # List artifacts in a simulation folder
+    api_response = api_instance.list_simulation_artifacts(owner, name, simulation_id, page=page, per_page=per_page, path=path)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling SimulationsApi->list_simulation_artifacts: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **str**|  | 
+ **name** | **str**|  | 
+ **simulation_id** | **str**|  | 
+ **page** | **int**| Page number starting from 1 | [optional] [default to 1]
+ **per_page** | **int**| Number of items per page | [optional] [default to 25]
+ **path** | [**list[str]**](str.md)| The path to an file within a project folder | [optional] 
+
+### Return type
+
+[**list[FileMeta]**](FileMeta.md)
 
 ### Authorization
 
