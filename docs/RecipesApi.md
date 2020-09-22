@@ -1,6 +1,6 @@
 # pollination_sdk.RecipesApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://api.pollination.cloud*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -23,14 +23,13 @@ Create a new recipe.
 
 ### Example
 
-* Bearer Authentication (Compulsory Auth):
+* Bearer Authentication (CompulsoryAuth):
 ```python
 from __future__ import print_function
 import time
 import pollination_sdk
 from pollination_sdk.rest import ApiException
 from pprint import pprint
-configuration = pollination_sdk.Configuration()
 
 # Retrieve a temporary Acces Token (JWT) using your API token
 API_TOKEN = 'some-token-string'
@@ -42,22 +41,24 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: Compulsory Auth
-configuration.access_token = auth_response.access_token
+# Configure Bearer authorization: CompulsoryAuth
+configuration = pollination_sdk.Configuration(
+    access_token=auth_response.access_token
+)
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
-# Create an instance of the API class
-api_instance = pollination_sdk.RecipesApi(pollination_sdk.ApiClient(configuration))
-owner = 'owner_example' # str | 
+# Enter a context with an instance of the API client
+with pollination_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = pollination_sdk.RecipesApi(api_client)
+    owner = 'owner_example' # str | 
 new_repository_dto = pollination_sdk.NewRepositoryDto() # NewRepositoryDto | 
 
-try:
-    # Create a Recipe
-    api_response = api_instance.create_recipe(owner, new_repository_dto)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling RecipesApi->create_recipe: %s\n" % e)
+    try:
+        # Create a Recipe
+        api_response = api_instance.create_recipe(owner, new_repository_dto)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling RecipesApi->create_recipe: %s\n" % e)
 ```
 
 ### Parameters
@@ -73,7 +74,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Compulsory Auth](../README.md#Compulsory Auth)
+[CompulsoryAuth](../README.md#CompulsoryAuth)
 
 ### HTTP request headers
 
@@ -84,11 +85,11 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Success |  -  |
-**403** | Access forbidden |  -  |
-**500** | Server error |  -  |
-**400** | Invalid request |  -  |
 **202** | Accepted |  -  |
+**400** | Invalid request |  -  |
+**403** | Access forbidden |  -  |
 **422** | Validation Error |  -  |
+**500** | Server error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -101,14 +102,13 @@ Create a new recipe package version
 
 ### Example
 
-* Bearer Authentication (Compulsory Auth):
+* Bearer Authentication (CompulsoryAuth):
 ```python
 from __future__ import print_function
 import time
 import pollination_sdk
 from pollination_sdk.rest import ApiException
 from pprint import pprint
-configuration = pollination_sdk.Configuration()
 
 # Retrieve a temporary Acces Token (JWT) using your API token
 API_TOKEN = 'some-token-string'
@@ -120,24 +120,26 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: Compulsory Auth
-configuration.access_token = auth_response.access_token
+# Configure Bearer authorization: CompulsoryAuth
+configuration = pollination_sdk.Configuration(
+    access_token=auth_response.access_token
+)
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
-# Create an instance of the API class
-api_instance = pollination_sdk.RecipesApi(pollination_sdk.ApiClient(configuration))
-owner = 'owner_example' # str | 
+# Enter a context with an instance of the API client
+with pollination_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = pollination_sdk.RecipesApi(api_client)
+    owner = 'owner_example' # str | 
 name = 'name_example' # str | 
 new_recipe_package = pollination_sdk.NewRecipePackage() # NewRecipePackage | 
 authorization = 'authorization_example' # str |  (optional)
 
-try:
-    # Create a new Recipe package
-    api_response = api_instance.create_recipe_package(owner, name, new_recipe_package, authorization=authorization)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling RecipesApi->create_recipe_package: %s\n" % e)
+    try:
+        # Create a new Recipe package
+        api_response = api_instance.create_recipe_package(owner, name, new_recipe_package, authorization=authorization)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling RecipesApi->create_recipe_package: %s\n" % e)
 ```
 
 ### Parameters
@@ -155,7 +157,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Compulsory Auth](../README.md#Compulsory Auth)
+[CompulsoryAuth](../README.md#CompulsoryAuth)
 
 ### HTTP request headers
 
@@ -166,11 +168,11 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Success |  -  |
-**403** | Access forbidden |  -  |
-**500** | Server error |  -  |
 **400** | Invalid request |  -  |
+**403** | Access forbidden |  -  |
 **404** | Not found |  -  |
 **422** | Validation Error |  -  |
+**500** | Server error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -183,14 +185,13 @@ Delete a recipe (must have `admin` permission)
 
 ### Example
 
-* Bearer Authentication (Compulsory Auth):
+* Bearer Authentication (CompulsoryAuth):
 ```python
 from __future__ import print_function
 import time
 import pollination_sdk
 from pollination_sdk.rest import ApiException
 from pprint import pprint
-configuration = pollination_sdk.Configuration()
 
 # Retrieve a temporary Acces Token (JWT) using your API token
 API_TOKEN = 'some-token-string'
@@ -202,21 +203,23 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: Compulsory Auth
-configuration.access_token = auth_response.access_token
+# Configure Bearer authorization: CompulsoryAuth
+configuration = pollination_sdk.Configuration(
+    access_token=auth_response.access_token
+)
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
-# Create an instance of the API class
-api_instance = pollination_sdk.RecipesApi(pollination_sdk.ApiClient(configuration))
-owner = 'owner_example' # str | 
+# Enter a context with an instance of the API client
+with pollination_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = pollination_sdk.RecipesApi(api_client)
+    owner = 'owner_example' # str | 
 name = 'name_example' # str | 
 
-try:
-    # Delete a Recipe
-    api_instance.delete_recipe(owner, name)
-except ApiException as e:
-    print("Exception when calling RecipesApi->delete_recipe: %s\n" % e)
+    try:
+        # Delete a Recipe
+        api_instance.delete_recipe(owner, name)
+    except ApiException as e:
+        print("Exception when calling RecipesApi->delete_recipe: %s\n" % e)
 ```
 
 ### Parameters
@@ -232,7 +235,7 @@ void (empty response body)
 
 ### Authorization
 
-[Compulsory Auth](../README.md#Compulsory Auth)
+[CompulsoryAuth](../README.md#CompulsoryAuth)
 
 ### HTTP request headers
 
@@ -243,10 +246,10 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | Accepted |  -  |
-**403** | Access forbidden |  -  |
-**500** | Server error |  -  |
 **400** | Invalid request |  -  |
+**403** | Access forbidden |  -  |
 **422** | Validation Error |  -  |
+**500** | Server error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -259,14 +262,13 @@ Retrieve a recipe by name
 
 ### Example
 
-* Bearer Authentication (Optional Auth):
+* Bearer Authentication (OptionalAuth):
 ```python
 from __future__ import print_function
 import time
 import pollination_sdk
 from pollination_sdk.rest import ApiException
 from pprint import pprint
-configuration = pollination_sdk.Configuration()
 
 # Retrieve a temporary Acces Token (JWT) using your API token
 API_TOKEN = 'some-token-string'
@@ -278,22 +280,24 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: Optional Auth
-configuration.access_token = auth_response.access_token
+# Configure Bearer authorization: OptionalAuth
+configuration = pollination_sdk.Configuration(
+    access_token=auth_response.access_token
+)
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
-# Create an instance of the API class
-api_instance = pollination_sdk.RecipesApi(pollination_sdk.ApiClient(configuration))
-owner = 'owner_example' # str | 
+# Enter a context with an instance of the API client
+with pollination_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = pollination_sdk.RecipesApi(api_client)
+    owner = 'owner_example' # str | 
 name = 'name_example' # str | 
 
-try:
-    # Get a recipe
-    api_response = api_instance.get_recipe(owner, name)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling RecipesApi->get_recipe: %s\n" % e)
+    try:
+        # Get a recipe
+        api_response = api_instance.get_recipe(owner, name)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling RecipesApi->get_recipe: %s\n" % e)
 ```
 
 ### Parameters
@@ -309,7 +313,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Optional Auth](../README.md#Optional Auth)
+[OptionalAuth](../README.md#OptionalAuth)
 
 ### HTTP request headers
 
@@ -320,11 +324,11 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Retrieved |  -  |
-**403** | Access forbidden |  -  |
-**500** | Server error |  -  |
 **400** | Invalid request |  -  |
+**403** | Access forbidden |  -  |
 **404** | Not found |  -  |
 **422** | Validation Error |  -  |
+**500** | Server error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -337,14 +341,13 @@ Retrieve a recipe tag by name and tag
 
 ### Example
 
-* Bearer Authentication (Optional Auth):
+* Bearer Authentication (OptionalAuth):
 ```python
 from __future__ import print_function
 import time
 import pollination_sdk
 from pollination_sdk.rest import ApiException
 from pprint import pprint
-configuration = pollination_sdk.Configuration()
 
 # Retrieve a temporary Acces Token (JWT) using your API token
 API_TOKEN = 'some-token-string'
@@ -356,23 +359,25 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: Optional Auth
-configuration.access_token = auth_response.access_token
+# Configure Bearer authorization: OptionalAuth
+configuration = pollination_sdk.Configuration(
+    access_token=auth_response.access_token
+)
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
-# Create an instance of the API class
-api_instance = pollination_sdk.RecipesApi(pollination_sdk.ApiClient(configuration))
-owner = 'owner_example' # str | 
+# Enter a context with an instance of the API client
+with pollination_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = pollination_sdk.RecipesApi(api_client)
+    owner = 'owner_example' # str | 
 name = 'name_example' # str | 
 tag = 'tag_example' # str | 
 
-try:
-    # Get a recipe tag
-    api_response = api_instance.get_recipe_by_tag(owner, name, tag)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling RecipesApi->get_recipe_by_tag: %s\n" % e)
+    try:
+        # Get a recipe tag
+        api_response = api_instance.get_recipe_by_tag(owner, name, tag)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling RecipesApi->get_recipe_by_tag: %s\n" % e)
 ```
 
 ### Parameters
@@ -389,7 +394,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Optional Auth](../README.md#Optional Auth)
+[OptionalAuth](../README.md#OptionalAuth)
 
 ### HTTP request headers
 
@@ -400,11 +405,11 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Retrieved |  -  |
-**403** | Access forbidden |  -  |
-**500** | Server error |  -  |
 **400** | Invalid request |  -  |
+**403** | Access forbidden |  -  |
 **404** | Not found |  -  |
 **422** | Validation Error |  -  |
+**500** | Server error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -417,14 +422,13 @@ Retrieve a recipe by name
 
 ### Example
 
-* Bearer Authentication (Optional Auth):
+* Bearer Authentication (OptionalAuth):
 ```python
 from __future__ import print_function
 import time
 import pollination_sdk
 from pollination_sdk.rest import ApiException
 from pprint import pprint
-configuration = pollination_sdk.Configuration()
 
 # Retrieve a temporary Acces Token (JWT) using your API token
 API_TOKEN = 'some-token-string'
@@ -436,22 +440,24 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: Optional Auth
-configuration.access_token = auth_response.access_token
+# Configure Bearer authorization: OptionalAuth
+configuration = pollination_sdk.Configuration(
+    access_token=auth_response.access_token
+)
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
-# Create an instance of the API class
-api_instance = pollination_sdk.RecipesApi(pollination_sdk.ApiClient(configuration))
-owner = 'owner_example' # str | 
+# Enter a context with an instance of the API client
+with pollination_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = pollination_sdk.RecipesApi(api_client)
+    owner = 'owner_example' # str | 
 name = 'name_example' # str | 
 
-try:
-    # Get a recipe tags
-    api_response = api_instance.list_recipe_tags(owner, name)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling RecipesApi->list_recipe_tags: %s\n" % e)
+    try:
+        # Get a recipe tags
+        api_response = api_instance.list_recipe_tags(owner, name)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling RecipesApi->list_recipe_tags: %s\n" % e)
 ```
 
 ### Parameters
@@ -467,7 +473,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Optional Auth](../README.md#Optional Auth)
+[OptionalAuth](../README.md#OptionalAuth)
 
 ### HTTP request headers
 
@@ -478,11 +484,11 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Retrieved |  -  |
-**403** | Access forbidden |  -  |
-**500** | Server error |  -  |
 **400** | Invalid request |  -  |
+**403** | Access forbidden |  -  |
 **404** | Not found |  -  |
 **422** | Validation Error |  -  |
+**500** | Server error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -493,14 +499,13 @@ List recipes
 
 ### Example
 
-* Bearer Authentication (Optional Auth):
+* Bearer Authentication (OptionalAuth):
 ```python
 from __future__ import print_function
 import time
 import pollination_sdk
 from pollination_sdk.rest import ApiException
 from pprint import pprint
-configuration = pollination_sdk.Configuration()
 
 # Retrieve a temporary Acces Token (JWT) using your API token
 API_TOKEN = 'some-token-string'
@@ -512,26 +517,28 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: Optional Auth
-configuration.access_token = auth_response.access_token
+# Configure Bearer authorization: OptionalAuth
+configuration = pollination_sdk.Configuration(
+    access_token=auth_response.access_token
+)
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
-# Create an instance of the API class
-api_instance = pollination_sdk.RecipesApi(pollination_sdk.ApiClient(configuration))
-page = 1 # int | Page number starting from 1 (optional) (default to 1)
+# Enter a context with an instance of the API client
+with pollination_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = pollination_sdk.RecipesApi(api_client)
+    page = 1 # int | Page number starting from 1 (optional) (default to 1)
 per_page = 25 # int | Number of items per page (optional) (default to 25)
 name = ['name_example'] # list[str] | The account name (optional)
 owner = ['owner_example'] # list[str] | Owner of the project (optional)
 public = True # bool | Boolean check for public/private projects (optional)
 keyword = ['keyword_example'] # list[str] | A keyword to index the repository by (optional)
 
-try:
-    # List recipes
-    api_response = api_instance.list_recipes(page=page, per_page=per_page, name=name, owner=owner, public=public, keyword=keyword)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling RecipesApi->list_recipes: %s\n" % e)
+    try:
+        # List recipes
+        api_response = api_instance.list_recipes(page=page, per_page=per_page, name=name, owner=owner, public=public, keyword=keyword)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling RecipesApi->list_recipes: %s\n" % e)
 ```
 
 ### Parameters
@@ -551,7 +558,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Optional Auth](../README.md#Optional Auth)
+[OptionalAuth](../README.md#OptionalAuth)
 
 ### HTTP request headers
 
@@ -575,14 +582,13 @@ Update a recipe (must have `contribute` permission)
 
 ### Example
 
-* Bearer Authentication (Compulsory Auth):
+* Bearer Authentication (CompulsoryAuth):
 ```python
 from __future__ import print_function
 import time
 import pollination_sdk
 from pollination_sdk.rest import ApiException
 from pprint import pprint
-configuration = pollination_sdk.Configuration()
 
 # Retrieve a temporary Acces Token (JWT) using your API token
 API_TOKEN = 'some-token-string'
@@ -594,23 +600,25 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: Compulsory Auth
-configuration.access_token = auth_response.access_token
+# Configure Bearer authorization: CompulsoryAuth
+configuration = pollination_sdk.Configuration(
+    access_token=auth_response.access_token
+)
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
-# Create an instance of the API class
-api_instance = pollination_sdk.RecipesApi(pollination_sdk.ApiClient(configuration))
-owner = 'owner_example' # str | 
+# Enter a context with an instance of the API client
+with pollination_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = pollination_sdk.RecipesApi(api_client)
+    owner = 'owner_example' # str | 
 name = 'name_example' # str | 
 update_repository_dto = pollination_sdk.UpdateRepositoryDto() # UpdateRepositoryDto | 
 
-try:
-    # Update a Recipe
-    api_response = api_instance.update_recipe(owner, name, update_repository_dto)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling RecipesApi->update_recipe: %s\n" % e)
+    try:
+        # Update a Recipe
+        api_response = api_instance.update_recipe(owner, name, update_repository_dto)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling RecipesApi->update_recipe: %s\n" % e)
 ```
 
 ### Parameters
@@ -627,7 +635,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Compulsory Auth](../README.md#Compulsory Auth)
+[CompulsoryAuth](../README.md#CompulsoryAuth)
 
 ### HTTP request headers
 
@@ -638,11 +646,11 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **202** | Accepted |  -  |
-**403** | Access forbidden |  -  |
-**500** | Server error |  -  |
 **400** | Invalid request |  -  |
+**403** | Access forbidden |  -  |
 **404** | Not found |  -  |
 **422** | Validation Error |  -  |
+**500** | Server error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

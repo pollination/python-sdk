@@ -1,6 +1,6 @@
 # pollination_sdk.UsersApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://api.pollination.cloud*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -25,16 +25,18 @@ import pollination_sdk
 from pollination_sdk.rest import ApiException
 from pprint import pprint
 
-# Create an instance of the API class
-api_instance = pollination_sdk.UsersApi()
-username = 'username_example' # str | 
+# Enter a context with an instance of the API client
+with pollination_sdk.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = pollination_sdk.UsersApi(api_client)
+    username = 'username_example' # str | 
 
-try:
-    # Check if a username is already taken
-    api_response = api_instance.check_username(username)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling UsersApi->check_username: %s\n" % e)
+    try:
+        # Check if a username is already taken
+        api_response = api_instance.check_username(username)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling UsersApi->check_username: %s\n" % e)
 ```
 
 ### Parameters
@@ -80,16 +82,18 @@ import pollination_sdk
 from pollination_sdk.rest import ApiException
 from pprint import pprint
 
-# Create an instance of the API class
-api_instance = pollination_sdk.UsersApi()
-name = 'name_example' # str | 
+# Enter a context with an instance of the API client
+with pollination_sdk.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = pollination_sdk.UsersApi(api_client)
+    name = 'name_example' # str | 
 
-try:
-    # Get a specific user profile
-    api_response = api_instance.get_one_user(name)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling UsersApi->get_one_user: %s\n" % e)
+    try:
+        # Get a specific user profile
+        api_response = api_instance.get_one_user(name)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling UsersApi->get_one_user: %s\n" % e)
 ```
 
 ### Parameters
@@ -133,20 +137,22 @@ import pollination_sdk
 from pollination_sdk.rest import ApiException
 from pprint import pprint
 
-# Create an instance of the API class
-api_instance = pollination_sdk.UsersApi()
-page = 1 # int | Page number starting from 1 (optional) (default to 1)
+# Enter a context with an instance of the API client
+with pollination_sdk.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = pollination_sdk.UsersApi(api_client)
+    page = 1 # int | Page number starting from 1 (optional) (default to 1)
 per_page = 25 # int | Number of items per page (optional) (default to 25)
 name = 'name_example' # str | Name of the user to search for (optional)
 username = 'username_example' # str | Username of the user to search for (optional)
 id = [] # list[str] | A list of users to search for by their user ID (optional) (default to [])
 
-try:
-    # List Users
-    api_response = api_instance.list_users(page=page, per_page=per_page, name=name, username=username, id=id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling UsersApi->list_users: %s\n" % e)
+    try:
+        # List Users
+        api_response = api_instance.list_users(page=page, per_page=per_page, name=name, username=username, id=id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling UsersApi->list_users: %s\n" % e)
 ```
 
 ### Parameters

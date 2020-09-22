@@ -1,6 +1,6 @@
 # pollination_sdk.AccountsApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://api.pollination.cloud*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -24,16 +24,18 @@ import pollination_sdk
 from pollination_sdk.rest import ApiException
 from pprint import pprint
 
-# Create an instance of the API class
-api_instance = pollination_sdk.AccountsApi()
-name = 'name_example' # str | 
+# Enter a context with an instance of the API client
+with pollination_sdk.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = pollination_sdk.AccountsApi(api_client)
+    name = 'name_example' # str | 
 
-try:
-    # Get an account by name
-    api_response = api_instance.get_account(name)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling AccountsApi->get_account: %s\n" % e)
+    try:
+        # Get an account by name
+        api_response = api_instance.get_account(name)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling AccountsApi->get_account: %s\n" % e)
 ```
 
 ### Parameters
@@ -79,19 +81,21 @@ import pollination_sdk
 from pollination_sdk.rest import ApiException
 from pprint import pprint
 
-# Create an instance of the API class
-api_instance = pollination_sdk.AccountsApi()
-page = 1 # int | Page number starting from 1 (optional) (default to 1)
+# Enter a context with an instance of the API client
+with pollination_sdk.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = pollination_sdk.AccountsApi(api_client)
+    page = 1 # int | Page number starting from 1 (optional) (default to 1)
 per_page = 25 # int | Number of items per page (optional) (default to 25)
 search = 'search_example' # str | Search string to find accounts (optional)
 type = 'type_example' # str | Whether the account is for a user or an org (optional)
 
-try:
-    # List Accounts on the Pollination platform
-    api_response = api_instance.list_accounts(page=page, per_page=per_page, search=search, type=type)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling AccountsApi->list_accounts: %s\n" % e)
+    try:
+        # List Accounts on the Pollination platform
+        api_response = api_instance.list_accounts(page=page, per_page=per_page, search=search, type=type)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling AccountsApi->list_accounts: %s\n" % e)
 ```
 
 ### Parameters

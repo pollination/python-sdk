@@ -1,6 +1,6 @@
 # pollination_sdk.TeamsApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://api.pollination.cloud*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -23,14 +23,13 @@ Create a new team (must be parent org member)
 
 ### Example
 
-* Bearer Authentication (Compulsory Auth):
+* Bearer Authentication (CompulsoryAuth):
 ```python
 from __future__ import print_function
 import time
 import pollination_sdk
 from pollination_sdk.rest import ApiException
 from pprint import pprint
-configuration = pollination_sdk.Configuration()
 
 # Retrieve a temporary Acces Token (JWT) using your API token
 API_TOKEN = 'some-token-string'
@@ -42,22 +41,24 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: Compulsory Auth
-configuration.access_token = auth_response.access_token
+# Configure Bearer authorization: CompulsoryAuth
+configuration = pollination_sdk.Configuration(
+    access_token=auth_response.access_token
+)
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
-# Create an instance of the API class
-api_instance = pollination_sdk.TeamsApi(pollination_sdk.ApiClient(configuration))
-org_name = 'org_name_example' # str | 
+# Enter a context with an instance of the API client
+with pollination_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = pollination_sdk.TeamsApi(api_client)
+    org_name = 'org_name_example' # str | 
 patch_team_dto = pollination_sdk.PatchTeamDto() # PatchTeamDto | 
 
-try:
-    # Create a Team
-    api_response = api_instance.create_team(org_name, patch_team_dto)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling TeamsApi->create_team: %s\n" % e)
+    try:
+        # Create a Team
+        api_response = api_instance.create_team(org_name, patch_team_dto)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling TeamsApi->create_team: %s\n" % e)
 ```
 
 ### Parameters
@@ -73,7 +74,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Compulsory Auth](../README.md#Compulsory Auth)
+[CompulsoryAuth](../README.md#CompulsoryAuth)
 
 ### HTTP request headers
 
@@ -84,11 +85,11 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Success |  -  |
-**403** | Access forbidden |  -  |
-**500** | Server error |  -  |
-**400** | Invalid request |  -  |
 **202** | Accepted |  -  |
+**400** | Invalid request |  -  |
+**403** | Access forbidden |  -  |
 **422** | Validation Error |  -  |
+**500** | Server error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -101,14 +102,13 @@ Remove a member from the org (must have org `owner` role)
 
 ### Example
 
-* Bearer Authentication (Compulsory Auth):
+* Bearer Authentication (CompulsoryAuth):
 ```python
 from __future__ import print_function
 import time
 import pollination_sdk
 from pollination_sdk.rest import ApiException
 from pprint import pprint
-configuration = pollination_sdk.Configuration()
 
 # Retrieve a temporary Acces Token (JWT) using your API token
 API_TOKEN = 'some-token-string'
@@ -120,22 +120,24 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: Compulsory Auth
-configuration.access_token = auth_response.access_token
+# Configure Bearer authorization: CompulsoryAuth
+configuration = pollination_sdk.Configuration(
+    access_token=auth_response.access_token
+)
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
-# Create an instance of the API class
-api_instance = pollination_sdk.TeamsApi(pollination_sdk.ApiClient(configuration))
-org_name = 'org_name_example' # str | 
+# Enter a context with an instance of the API client
+with pollination_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = pollination_sdk.TeamsApi(api_client)
+    org_name = 'org_name_example' # str | 
 team_slug = 'team_slug_example' # str | 
 username = 'username_example' # str | 
 
-try:
-    # Remove a team member
-    api_instance.delete_org_team_member(org_name, team_slug, username)
-except ApiException as e:
-    print("Exception when calling TeamsApi->delete_org_team_member: %s\n" % e)
+    try:
+        # Remove a team member
+        api_instance.delete_org_team_member(org_name, team_slug, username)
+    except ApiException as e:
+        print("Exception when calling TeamsApi->delete_org_team_member: %s\n" % e)
 ```
 
 ### Parameters
@@ -152,7 +154,7 @@ void (empty response body)
 
 ### Authorization
 
-[Compulsory Auth](../README.md#Compulsory Auth)
+[CompulsoryAuth](../README.md#CompulsoryAuth)
 
 ### HTTP request headers
 
@@ -163,10 +165,10 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | Accepted |  -  |
-**403** | Access forbidden |  -  |
-**500** | Server error |  -  |
 **400** | Invalid request |  -  |
+**403** | Access forbidden |  -  |
 **422** | Validation Error |  -  |
+**500** | Server error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -179,14 +181,13 @@ Delete a team (must have team or org `owner` role)
 
 ### Example
 
-* Bearer Authentication (Compulsory Auth):
+* Bearer Authentication (CompulsoryAuth):
 ```python
 from __future__ import print_function
 import time
 import pollination_sdk
 from pollination_sdk.rest import ApiException
 from pprint import pprint
-configuration = pollination_sdk.Configuration()
 
 # Retrieve a temporary Acces Token (JWT) using your API token
 API_TOKEN = 'some-token-string'
@@ -198,21 +199,23 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: Compulsory Auth
-configuration.access_token = auth_response.access_token
+# Configure Bearer authorization: CompulsoryAuth
+configuration = pollination_sdk.Configuration(
+    access_token=auth_response.access_token
+)
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
-# Create an instance of the API class
-api_instance = pollination_sdk.TeamsApi(pollination_sdk.ApiClient(configuration))
-org_name = 'org_name_example' # str | 
+# Enter a context with an instance of the API client
+with pollination_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = pollination_sdk.TeamsApi(api_client)
+    org_name = 'org_name_example' # str | 
 team_slug = 'team_slug_example' # str | 
 
-try:
-    # Delete a Team
-    api_instance.delete_team(org_name, team_slug)
-except ApiException as e:
-    print("Exception when calling TeamsApi->delete_team: %s\n" % e)
+    try:
+        # Delete a Team
+        api_instance.delete_team(org_name, team_slug)
+    except ApiException as e:
+        print("Exception when calling TeamsApi->delete_team: %s\n" % e)
 ```
 
 ### Parameters
@@ -228,7 +231,7 @@ void (empty response body)
 
 ### Authorization
 
-[Compulsory Auth](../README.md#Compulsory Auth)
+[CompulsoryAuth](../README.md#CompulsoryAuth)
 
 ### HTTP request headers
 
@@ -239,10 +242,10 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | Accepted |  -  |
-**403** | Access forbidden |  -  |
-**500** | Server error |  -  |
 **400** | Invalid request |  -  |
+**403** | Access forbidden |  -  |
 **422** | Validation Error |  -  |
+**500** | Server error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -262,17 +265,19 @@ import pollination_sdk
 from pollination_sdk.rest import ApiException
 from pprint import pprint
 
-# Create an instance of the API class
-api_instance = pollination_sdk.TeamsApi()
-org_name = 'org_name_example' # str | 
+# Enter a context with an instance of the API client
+with pollination_sdk.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = pollination_sdk.TeamsApi(api_client)
+    org_name = 'org_name_example' # str | 
 team_slug = 'team_slug_example' # str | 
 
-try:
-    # List a team's members
-    api_response = api_instance.get_org_team_members(org_name, team_slug)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling TeamsApi->get_org_team_members: %s\n" % e)
+    try:
+        # List a team's members
+        api_response = api_instance.get_org_team_members(org_name, team_slug)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling TeamsApi->get_org_team_members: %s\n" % e)
 ```
 
 ### Parameters
@@ -319,17 +324,19 @@ import pollination_sdk
 from pollination_sdk.rest import ApiException
 from pprint import pprint
 
-# Create an instance of the API class
-api_instance = pollination_sdk.TeamsApi()
-org_name = 'org_name_example' # str | 
+# Enter a context with an instance of the API client
+with pollination_sdk.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = pollination_sdk.TeamsApi(api_client)
+    org_name = 'org_name_example' # str | 
 team_slug = 'team_slug_example' # str | 
 
-try:
-    # Get a Team
-    api_response = api_instance.get_team(org_name, team_slug)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling TeamsApi->get_team: %s\n" % e)
+    try:
+        # Get a Team
+        api_response = api_instance.get_team(org_name, team_slug)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling TeamsApi->get_team: %s\n" % e)
 ```
 
 ### Parameters
@@ -356,11 +363,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Retrieved |  -  |
-**403** | Access forbidden |  -  |
-**500** | Server error |  -  |
 **400** | Invalid request |  -  |
+**403** | Access forbidden |  -  |
 **404** | Not found |  -  |
 **422** | Validation Error |  -  |
+**500** | Server error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -380,20 +387,22 @@ import pollination_sdk
 from pollination_sdk.rest import ApiException
 from pprint import pprint
 
-# Create an instance of the API class
-api_instance = pollination_sdk.TeamsApi()
-org_name = 'org_name_example' # str | 
+# Enter a context with an instance of the API client
+with pollination_sdk.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = pollination_sdk.TeamsApi(api_client)
+    org_name = 'org_name_example' # str | 
 page = 1 # int | Page number starting from 1 (optional) (default to 1)
 per_page = 25 # int | Number of items per page (optional) (default to 25)
 name = ['name_example'] # list[str] | The account name (optional)
 member = ['member_example'] # list[str] | The ID of a user (optional)
 
-try:
-    # List Teams
-    api_response = api_instance.list_org_teams(org_name, page=page, per_page=per_page, name=name, member=member)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling TeamsApi->list_org_teams: %s\n" % e)
+    try:
+        # List Teams
+        api_response = api_instance.list_org_teams(org_name, page=page, per_page=per_page, name=name, member=member)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling TeamsApi->list_org_teams: %s\n" % e)
 ```
 
 ### Parameters
@@ -436,14 +445,13 @@ Update a team (must have team or org `owner` role)
 
 ### Example
 
-* Bearer Authentication (Compulsory Auth):
+* Bearer Authentication (CompulsoryAuth):
 ```python
 from __future__ import print_function
 import time
 import pollination_sdk
 from pollination_sdk.rest import ApiException
 from pprint import pprint
-configuration = pollination_sdk.Configuration()
 
 # Retrieve a temporary Acces Token (JWT) using your API token
 API_TOKEN = 'some-token-string'
@@ -455,23 +463,25 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: Compulsory Auth
-configuration.access_token = auth_response.access_token
+# Configure Bearer authorization: CompulsoryAuth
+configuration = pollination_sdk.Configuration(
+    access_token=auth_response.access_token
+)
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
-# Create an instance of the API class
-api_instance = pollination_sdk.TeamsApi(pollination_sdk.ApiClient(configuration))
-org_name = 'org_name_example' # str | 
+# Enter a context with an instance of the API client
+with pollination_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = pollination_sdk.TeamsApi(api_client)
+    org_name = 'org_name_example' # str | 
 team_slug = 'team_slug_example' # str | 
 patch_team_dto = pollination_sdk.PatchTeamDto() # PatchTeamDto | 
 
-try:
-    # Update a Team
-    api_response = api_instance.update_team(org_name, team_slug, patch_team_dto)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling TeamsApi->update_team: %s\n" % e)
+    try:
+        # Update a Team
+        api_response = api_instance.update_team(org_name, team_slug, patch_team_dto)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling TeamsApi->update_team: %s\n" % e)
 ```
 
 ### Parameters
@@ -488,7 +498,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Compulsory Auth](../README.md#Compulsory Auth)
+[CompulsoryAuth](../README.md#CompulsoryAuth)
 
 ### HTTP request headers
 
@@ -499,11 +509,11 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **202** | Accepted |  -  |
-**403** | Access forbidden |  -  |
-**500** | Server error |  -  |
 **400** | Invalid request |  -  |
+**403** | Access forbidden |  -  |
 **404** | Not found |  -  |
 **422** | Validation Error |  -  |
+**500** | Server error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -516,14 +526,13 @@ Upsert a member role to the team (must have org or team `owner` role)
 
 ### Example
 
-* Bearer Authentication (Compulsory Auth):
+* Bearer Authentication (CompulsoryAuth):
 ```python
 from __future__ import print_function
 import time
 import pollination_sdk
 from pollination_sdk.rest import ApiException
 from pprint import pprint
-configuration = pollination_sdk.Configuration()
 
 # Retrieve a temporary Acces Token (JWT) using your API token
 API_TOKEN = 'some-token-string'
@@ -535,24 +544,26 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: Compulsory Auth
-configuration.access_token = auth_response.access_token
+# Configure Bearer authorization: CompulsoryAuth
+configuration = pollination_sdk.Configuration(
+    access_token=auth_response.access_token
+)
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
-# Create an instance of the API class
-api_instance = pollination_sdk.TeamsApi(pollination_sdk.ApiClient(configuration))
-org_name = 'org_name_example' # str | 
+# Enter a context with an instance of the API client
+with pollination_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = pollination_sdk.TeamsApi(api_client)
+    org_name = 'org_name_example' # str | 
 team_slug = 'team_slug_example' # str | 
 username = 'username_example' # str | 
 role = pollination_sdk.TeamRoleEnum() # TeamRoleEnum | 
 
-try:
-    # Add or update the role of an Org Member
-    api_response = api_instance.upsert_org_team_member(org_name, team_slug, username, role)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling TeamsApi->upsert_org_team_member: %s\n" % e)
+    try:
+        # Add or update the role of an Org Member
+        api_response = api_instance.upsert_org_team_member(org_name, team_slug, username, role)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling TeamsApi->upsert_org_team_member: %s\n" % e)
 ```
 
 ### Parameters
@@ -570,7 +581,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Compulsory Auth](../README.md#Compulsory Auth)
+[CompulsoryAuth](../README.md#CompulsoryAuth)
 
 ### HTTP request headers
 
@@ -581,11 +592,11 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **202** | Accepted |  -  |
-**403** | Access forbidden |  -  |
-**500** | Server error |  -  |
 **400** | Invalid request |  -  |
+**403** | Access forbidden |  -  |
 **404** | Not found |  -  |
 **422** | Validation Error |  -  |
+**500** | Server error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

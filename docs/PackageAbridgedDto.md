@@ -3,12 +3,12 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**digest** | **str** | The new package digest | 
-**tag** | **str** | The new package tag | 
-**keywords** | **list[str]** | keywords | [optional] 
-**description** | **str** | description | [optional] 
-**icon** | **str** | icon | [optional] 
 **created_at** | **datetime** | Creation Timestamp | [optional] 
+**description** | **str** | description | [optional] 
+**digest** | **str** | The new package digest | 
+**icon** | **str** | icon | [optional] 
+**keywords** | **list[str]** | keywords | [optional] 
+**tag** | **str** | The new package tag | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

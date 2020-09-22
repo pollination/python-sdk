@@ -1,6 +1,6 @@
 # pollination_sdk.OrgsApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://api.pollination.cloud*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -23,14 +23,13 @@ Create a new org.
 
 ### Example
 
-* Bearer Authentication (Compulsory Auth):
+* Bearer Authentication (CompulsoryAuth):
 ```python
 from __future__ import print_function
 import time
 import pollination_sdk
 from pollination_sdk.rest import ApiException
 from pprint import pprint
-configuration = pollination_sdk.Configuration()
 
 # Retrieve a temporary Acces Token (JWT) using your API token
 API_TOKEN = 'some-token-string'
@@ -42,21 +41,23 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: Compulsory Auth
-configuration.access_token = auth_response.access_token
+# Configure Bearer authorization: CompulsoryAuth
+configuration = pollination_sdk.Configuration(
+    access_token=auth_response.access_token
+)
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
-# Create an instance of the API class
-api_instance = pollination_sdk.OrgsApi(pollination_sdk.ApiClient(configuration))
-create_org_dto = pollination_sdk.CreateOrgDto() # CreateOrgDto | 
+# Enter a context with an instance of the API client
+with pollination_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = pollination_sdk.OrgsApi(api_client)
+    create_org_dto = pollination_sdk.CreateOrgDto() # CreateOrgDto | 
 
-try:
-    # Create an Org
-    api_response = api_instance.create_org(create_org_dto)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling OrgsApi->create_org: %s\n" % e)
+    try:
+        # Create an Org
+        api_response = api_instance.create_org(create_org_dto)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling OrgsApi->create_org: %s\n" % e)
 ```
 
 ### Parameters
@@ -71,7 +72,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Compulsory Auth](../README.md#Compulsory Auth)
+[CompulsoryAuth](../README.md#CompulsoryAuth)
 
 ### HTTP request headers
 
@@ -82,11 +83,11 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Success |  -  |
-**403** | Access forbidden |  -  |
-**500** | Server error |  -  |
-**400** | Invalid request |  -  |
 **202** | Accepted |  -  |
+**400** | Invalid request |  -  |
+**403** | Access forbidden |  -  |
 **422** | Validation Error |  -  |
+**500** | Server error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -99,14 +100,13 @@ Delete a org (must have `admin` permission)
 
 ### Example
 
-* Bearer Authentication (Compulsory Auth):
+* Bearer Authentication (CompulsoryAuth):
 ```python
 from __future__ import print_function
 import time
 import pollination_sdk
 from pollination_sdk.rest import ApiException
 from pprint import pprint
-configuration = pollination_sdk.Configuration()
 
 # Retrieve a temporary Acces Token (JWT) using your API token
 API_TOKEN = 'some-token-string'
@@ -118,20 +118,22 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: Compulsory Auth
-configuration.access_token = auth_response.access_token
+# Configure Bearer authorization: CompulsoryAuth
+configuration = pollination_sdk.Configuration(
+    access_token=auth_response.access_token
+)
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
-# Create an instance of the API class
-api_instance = pollination_sdk.OrgsApi(pollination_sdk.ApiClient(configuration))
-name = 'name_example' # str | 
+# Enter a context with an instance of the API client
+with pollination_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = pollination_sdk.OrgsApi(api_client)
+    name = 'name_example' # str | 
 
-try:
-    # Delete an Org
-    api_instance.delete_org(name)
-except ApiException as e:
-    print("Exception when calling OrgsApi->delete_org: %s\n" % e)
+    try:
+        # Delete an Org
+        api_instance.delete_org(name)
+    except ApiException as e:
+        print("Exception when calling OrgsApi->delete_org: %s\n" % e)
 ```
 
 ### Parameters
@@ -146,7 +148,7 @@ void (empty response body)
 
 ### Authorization
 
-[Compulsory Auth](../README.md#Compulsory Auth)
+[CompulsoryAuth](../README.md#CompulsoryAuth)
 
 ### HTTP request headers
 
@@ -157,10 +159,10 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | Accepted |  -  |
-**403** | Access forbidden |  -  |
-**500** | Server error |  -  |
 **400** | Invalid request |  -  |
+**403** | Access forbidden |  -  |
 **422** | Validation Error |  -  |
+**500** | Server error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -173,14 +175,13 @@ Remove a member from the org (must have org `owner` role)
 
 ### Example
 
-* Bearer Authentication (Compulsory Auth):
+* Bearer Authentication (CompulsoryAuth):
 ```python
 from __future__ import print_function
 import time
 import pollination_sdk
 from pollination_sdk.rest import ApiException
 from pprint import pprint
-configuration = pollination_sdk.Configuration()
 
 # Retrieve a temporary Acces Token (JWT) using your API token
 API_TOKEN = 'some-token-string'
@@ -192,21 +193,23 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: Compulsory Auth
-configuration.access_token = auth_response.access_token
+# Configure Bearer authorization: CompulsoryAuth
+configuration = pollination_sdk.Configuration(
+    access_token=auth_response.access_token
+)
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
-# Create an instance of the API class
-api_instance = pollination_sdk.OrgsApi(pollination_sdk.ApiClient(configuration))
-name = 'name_example' # str | 
+# Enter a context with an instance of the API client
+with pollination_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = pollination_sdk.OrgsApi(api_client)
+    name = 'name_example' # str | 
 username = 'username_example' # str | 
 
-try:
-    # Remove an Org member
-    api_instance.delete_org_member(name, username)
-except ApiException as e:
-    print("Exception when calling OrgsApi->delete_org_member: %s\n" % e)
+    try:
+        # Remove an Org member
+        api_instance.delete_org_member(name, username)
+    except ApiException as e:
+        print("Exception when calling OrgsApi->delete_org_member: %s\n" % e)
 ```
 
 ### Parameters
@@ -222,7 +225,7 @@ void (empty response body)
 
 ### Authorization
 
-[Compulsory Auth](../README.md#Compulsory Auth)
+[CompulsoryAuth](../README.md#CompulsoryAuth)
 
 ### HTTP request headers
 
@@ -233,10 +236,10 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | Accepted |  -  |
-**403** | Access forbidden |  -  |
-**500** | Server error |  -  |
 **400** | Invalid request |  -  |
+**403** | Access forbidden |  -  |
 **422** | Validation Error |  -  |
+**500** | Server error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -256,16 +259,18 @@ import pollination_sdk
 from pollination_sdk.rest import ApiException
 from pprint import pprint
 
-# Create an instance of the API class
-api_instance = pollination_sdk.OrgsApi()
-name = 'name_example' # str | 
+# Enter a context with an instance of the API client
+with pollination_sdk.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = pollination_sdk.OrgsApi(api_client)
+    name = 'name_example' # str | 
 
-try:
-    # Get an Org
-    api_response = api_instance.get_org(name)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling OrgsApi->get_org: %s\n" % e)
+    try:
+        # Get an Org
+        api_response = api_instance.get_org(name)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling OrgsApi->get_org: %s\n" % e)
 ```
 
 ### Parameters
@@ -291,11 +296,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Retrieved |  -  |
-**403** | Access forbidden |  -  |
-**500** | Server error |  -  |
 **400** | Invalid request |  -  |
+**403** | Access forbidden |  -  |
 **404** | Not found |  -  |
 **422** | Validation Error |  -  |
+**500** | Server error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -315,16 +320,18 @@ import pollination_sdk
 from pollination_sdk.rest import ApiException
 from pprint import pprint
 
-# Create an instance of the API class
-api_instance = pollination_sdk.OrgsApi()
-name = 'name_example' # str | 
+# Enter a context with an instance of the API client
+with pollination_sdk.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = pollination_sdk.OrgsApi(api_client)
+    name = 'name_example' # str | 
 
-try:
-    # List an Org's members
-    api_response = api_instance.get_org_members(name)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling OrgsApi->get_org_members: %s\n" % e)
+    try:
+        # List an Org's members
+        api_response = api_instance.get_org_members(name)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling OrgsApi->get_org_members: %s\n" % e)
 ```
 
 ### Parameters
@@ -370,19 +377,21 @@ import pollination_sdk
 from pollination_sdk.rest import ApiException
 from pprint import pprint
 
-# Create an instance of the API class
-api_instance = pollination_sdk.OrgsApi()
-page = 1 # int | Page number starting from 1 (optional) (default to 1)
+# Enter a context with an instance of the API client
+with pollination_sdk.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = pollination_sdk.OrgsApi(api_client)
+    page = 1 # int | Page number starting from 1 (optional) (default to 1)
 per_page = 25 # int | Number of items per page (optional) (default to 25)
 name = ['name_example'] # list[str] | The account name (optional)
 member = ['member_example'] # list[str] | The ID of a user (optional)
 
-try:
-    # List Orgs
-    api_response = api_instance.list_orgs(page=page, per_page=per_page, name=name, member=member)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling OrgsApi->list_orgs: %s\n" % e)
+    try:
+        # List Orgs
+        api_response = api_instance.list_orgs(page=page, per_page=per_page, name=name, member=member)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling OrgsApi->list_orgs: %s\n" % e)
 ```
 
 ### Parameters
@@ -424,14 +433,13 @@ Update a org (must have org `owner` role)
 
 ### Example
 
-* Bearer Authentication (Compulsory Auth):
+* Bearer Authentication (CompulsoryAuth):
 ```python
 from __future__ import print_function
 import time
 import pollination_sdk
 from pollination_sdk.rest import ApiException
 from pprint import pprint
-configuration = pollination_sdk.Configuration()
 
 # Retrieve a temporary Acces Token (JWT) using your API token
 API_TOKEN = 'some-token-string'
@@ -443,22 +451,24 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: Compulsory Auth
-configuration.access_token = auth_response.access_token
+# Configure Bearer authorization: CompulsoryAuth
+configuration = pollination_sdk.Configuration(
+    access_token=auth_response.access_token
+)
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
-# Create an instance of the API class
-api_instance = pollination_sdk.OrgsApi(pollination_sdk.ApiClient(configuration))
-name = 'name_example' # str | 
+# Enter a context with an instance of the API client
+with pollination_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = pollination_sdk.OrgsApi(api_client)
+    name = 'name_example' # str | 
 patch_org_dto = pollination_sdk.PatchOrgDto() # PatchOrgDto | 
 
-try:
-    # Update an Org
-    api_response = api_instance.update_org(name, patch_org_dto)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling OrgsApi->update_org: %s\n" % e)
+    try:
+        # Update an Org
+        api_response = api_instance.update_org(name, patch_org_dto)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling OrgsApi->update_org: %s\n" % e)
 ```
 
 ### Parameters
@@ -474,7 +484,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Compulsory Auth](../README.md#Compulsory Auth)
+[CompulsoryAuth](../README.md#CompulsoryAuth)
 
 ### HTTP request headers
 
@@ -485,11 +495,11 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **202** | Accepted |  -  |
-**403** | Access forbidden |  -  |
-**500** | Server error |  -  |
 **400** | Invalid request |  -  |
+**403** | Access forbidden |  -  |
 **404** | Not found |  -  |
 **422** | Validation Error |  -  |
+**500** | Server error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -502,14 +512,13 @@ Upsert a member role to the org (must have org `owner` role)
 
 ### Example
 
-* Bearer Authentication (Compulsory Auth):
+* Bearer Authentication (CompulsoryAuth):
 ```python
 from __future__ import print_function
 import time
 import pollination_sdk
 from pollination_sdk.rest import ApiException
 from pprint import pprint
-configuration = pollination_sdk.Configuration()
 
 # Retrieve a temporary Acces Token (JWT) using your API token
 API_TOKEN = 'some-token-string'
@@ -521,23 +530,25 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: Compulsory Auth
-configuration.access_token = auth_response.access_token
+# Configure Bearer authorization: CompulsoryAuth
+configuration = pollination_sdk.Configuration(
+    access_token=auth_response.access_token
+)
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
-# Create an instance of the API class
-api_instance = pollination_sdk.OrgsApi(pollination_sdk.ApiClient(configuration))
-name = 'name_example' # str | 
+# Enter a context with an instance of the API client
+with pollination_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = pollination_sdk.OrgsApi(api_client)
+    name = 'name_example' # str | 
 username = 'username_example' # str | 
 role = pollination_sdk.OrgRoleEnum() # OrgRoleEnum | 
 
-try:
-    # Add or update the role of an Org Member
-    api_response = api_instance.upsert_org_member(name, username, role)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling OrgsApi->upsert_org_member: %s\n" % e)
+    try:
+        # Add or update the role of an Org Member
+        api_response = api_instance.upsert_org_member(name, username, role)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling OrgsApi->upsert_org_member: %s\n" % e)
 ```
 
 ### Parameters
@@ -554,7 +565,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Compulsory Auth](../README.md#Compulsory Auth)
+[CompulsoryAuth](../README.md#CompulsoryAuth)
 
 ### HTTP request headers
 
@@ -565,11 +576,11 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **202** | Accepted |  -  |
-**403** | Access forbidden |  -  |
-**500** | Server error |  -  |
 **400** | Invalid request |  -  |
+**403** | Access forbidden |  -  |
 **404** | Not found |  -  |
 **422** | Validation Error |  -  |
+**500** | Server error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
