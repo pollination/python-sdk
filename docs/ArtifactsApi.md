@@ -1,6 +1,6 @@
 # pollination_sdk.ArtifactsApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://api.pollination.cloud*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -19,14 +19,13 @@ Create a new artifact.
 
 ### Example
 
-* Bearer Authentication (Compulsory Auth):
+* Bearer Authentication (CompulsoryAuth):
 ```python
 from __future__ import print_function
 import time
 import pollination_sdk
 from pollination_sdk.rest import ApiException
 from pprint import pprint
-configuration = pollination_sdk.Configuration()
 
 # Retrieve a temporary Acces Token (JWT) using your API token
 API_TOKEN = 'some-token-string'
@@ -38,23 +37,25 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: Compulsory Auth
-configuration.access_token = auth_response.access_token
+# Configure Bearer authorization: CompulsoryAuth
+configuration = pollination_sdk.Configuration(
+    access_token=auth_response.access_token
+)
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
-# Create an instance of the API class
-api_instance = pollination_sdk.ArtifactsApi(pollination_sdk.ApiClient(configuration))
-owner = 'owner_example' # str | 
+# Enter a context with an instance of the API client
+with pollination_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = pollination_sdk.ArtifactsApi(api_client)
+    owner = 'owner_example' # str | 
 name = 'name_example' # str | 
 key_request = pollination_sdk.KeyRequest() # KeyRequest | 
 
-try:
-    # Get an Artifact upload link.
-    api_response = api_instance.create_artifact(owner, name, key_request)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ArtifactsApi->create_artifact: %s\n" % e)
+    try:
+        # Get an Artifact upload link.
+        api_response = api_instance.create_artifact(owner, name, key_request)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ArtifactsApi->create_artifact: %s\n" % e)
 ```
 
 ### Parameters
@@ -71,7 +72,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Compulsory Auth](../README.md#Compulsory Auth)
+[CompulsoryAuth](../README.md#CompulsoryAuth)
 
 ### HTTP request headers
 
@@ -95,14 +96,13 @@ Delete one or multiple artifacts based on key prefix
 
 ### Example
 
-* Bearer Authentication (Compulsory Auth):
+* Bearer Authentication (CompulsoryAuth):
 ```python
 from __future__ import print_function
 import time
 import pollination_sdk
 from pollination_sdk.rest import ApiException
 from pprint import pprint
-configuration = pollination_sdk.Configuration()
 
 # Retrieve a temporary Acces Token (JWT) using your API token
 API_TOKEN = 'some-token-string'
@@ -114,23 +114,25 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: Compulsory Auth
-configuration.access_token = auth_response.access_token
+# Configure Bearer authorization: CompulsoryAuth
+configuration = pollination_sdk.Configuration(
+    access_token=auth_response.access_token
+)
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
-# Create an instance of the API class
-api_instance = pollination_sdk.ArtifactsApi(pollination_sdk.ApiClient(configuration))
-owner = 'owner_example' # str | 
+# Enter a context with an instance of the API client
+with pollination_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = pollination_sdk.ArtifactsApi(api_client)
+    owner = 'owner_example' # str | 
 name = 'name_example' # str | 
 path = ['path_example'] # list[str] | The path to an file within a project folder (optional)
 
-try:
-    # Delete one or many artifacts by key/prefix
-    api_response = api_instance.delete_artifact(owner, name, path=path)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ArtifactsApi->delete_artifact: %s\n" % e)
+    try:
+        # Delete one or many artifacts by key/prefix
+        api_response = api_instance.delete_artifact(owner, name, path=path)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ArtifactsApi->delete_artifact: %s\n" % e)
 ```
 
 ### Parameters
@@ -147,7 +149,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Compulsory Auth](../README.md#Compulsory Auth)
+[CompulsoryAuth](../README.md#CompulsoryAuth)
 
 ### HTTP request headers
 
@@ -171,14 +173,13 @@ Retrieve a list of artifacts.
 
 ### Example
 
-* Bearer Authentication (Optional Auth):
+* Bearer Authentication (OptionalAuth):
 ```python
 from __future__ import print_function
 import time
 import pollination_sdk
 from pollination_sdk.rest import ApiException
 from pprint import pprint
-configuration = pollination_sdk.Configuration()
 
 # Retrieve a temporary Acces Token (JWT) using your API token
 API_TOKEN = 'some-token-string'
@@ -190,23 +191,25 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: Optional Auth
-configuration.access_token = auth_response.access_token
+# Configure Bearer authorization: OptionalAuth
+configuration = pollination_sdk.Configuration(
+    access_token=auth_response.access_token
+)
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
-# Create an instance of the API class
-api_instance = pollination_sdk.ArtifactsApi(pollination_sdk.ApiClient(configuration))
-owner = 'owner_example' # str | 
+# Enter a context with an instance of the API client
+with pollination_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = pollination_sdk.ArtifactsApi(api_client)
+    owner = 'owner_example' # str | 
 name = 'name_example' # str | 
 path = 'path_example' # str | The path to an file within a project folder (optional)
 
-try:
-    # Download an artifact from the project folder
-    api_response = api_instance.download_artifact(owner, name, path=path)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ArtifactsApi->download_artifact: %s\n" % e)
+    try:
+        # Download an artifact from the project folder
+        api_response = api_instance.download_artifact(owner, name, path=path)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ArtifactsApi->download_artifact: %s\n" % e)
 ```
 
 ### Parameters
@@ -223,7 +226,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Optional Auth](../README.md#Optional Auth)
+[OptionalAuth](../README.md#OptionalAuth)
 
 ### HTTP request headers
 
@@ -234,11 +237,11 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Retrieved |  -  |
-**403** | Access forbidden |  -  |
-**500** | Server error |  -  |
 **400** | Invalid request |  -  |
+**403** | Access forbidden |  -  |
 **404** | Not found |  -  |
 **422** | Validation Error |  -  |
+**500** | Server error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -251,14 +254,13 @@ Retrieve a list of artifacts.
 
 ### Example
 
-* Bearer Authentication (Optional Auth):
+* Bearer Authentication (OptionalAuth):
 ```python
 from __future__ import print_function
 import time
 import pollination_sdk
 from pollination_sdk.rest import ApiException
 from pprint import pprint
-configuration = pollination_sdk.Configuration()
 
 # Retrieve a temporary Acces Token (JWT) using your API token
 API_TOKEN = 'some-token-string'
@@ -270,25 +272,27 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: Optional Auth
-configuration.access_token = auth_response.access_token
+# Configure Bearer authorization: OptionalAuth
+configuration = pollination_sdk.Configuration(
+    access_token=auth_response.access_token
+)
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
-# Create an instance of the API class
-api_instance = pollination_sdk.ArtifactsApi(pollination_sdk.ApiClient(configuration))
-owner = 'owner_example' # str | 
+# Enter a context with an instance of the API client
+with pollination_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = pollination_sdk.ArtifactsApi(api_client)
+    owner = 'owner_example' # str | 
 name = 'name_example' # str | 
 page = 1 # int | Page number starting from 1 (optional) (default to 1)
 per_page = 25 # int | Number of items per page (optional) (default to 25)
 path = ['path_example'] # list[str] | The path to an file within a project folder (optional)
 
-try:
-    # List artifacts in a project folder
-    api_response = api_instance.list_artifacts(owner, name, page=page, per_page=per_page, path=path)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ArtifactsApi->list_artifacts: %s\n" % e)
+    try:
+        # List artifacts in a project folder
+        api_response = api_instance.list_artifacts(owner, name, page=page, per_page=per_page, path=path)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ArtifactsApi->list_artifacts: %s\n" % e)
 ```
 
 ### Parameters
@@ -307,7 +311,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Optional Auth](../README.md#Optional Auth)
+[OptionalAuth](../README.md#OptionalAuth)
 
 ### HTTP request headers
 

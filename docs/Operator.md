@@ -4,9 +4,9 @@ A Queenbee Operator.  An Operator contains runtime configuration for a Command L
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**metadata** | [**QueenbeeOperatorMetadataMetaData**](QueenbeeOperatorMetadataMetaData.md) | The Operator metadata information | 
 **config** | [**Config**](Config.md) | The configuration information to run this operator | 
 **functions** | [**list[Function]**](Function.md) | List of Operator functions | 
+**metadata** | [**QueenbeeOperatorMetadataMetaData**](QueenbeeOperatorMetadataMetaData.md) | The Operator metadata information | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
