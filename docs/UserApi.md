@@ -1,6 +1,6 @@
 # pollination_sdk.UserApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://api.pollination.cloud*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -29,16 +29,18 @@ import pollination_sdk
 from pollination_sdk.rest import ApiException
 from pprint import pprint
 
-# Create an instance of the API class
-api_instance = pollination_sdk.UserApi()
-email_request = pollination_sdk.EmailRequest() # EmailRequest | 
+# Enter a context with an instance of the API client
+with pollination_sdk.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = pollination_sdk.UserApi(api_client)
+    email_request = pollination_sdk.EmailRequest() # EmailRequest | 
 
-try:
-    # Make a password change request
-    api_response = api_instance.change_password(email_request)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling UserApi->change_password: %s\n" % e)
+    try:
+        # Make a password change request
+        api_response = api_instance.change_password(email_request)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling UserApi->change_password: %s\n" % e)
 ```
 
 ### Parameters
@@ -64,16 +66,16 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful Response |  -  |
-**403** | Access forbidden |  -  |
-**500** | Server error |  -  |
 **400** | Invalid request |  -  |
+**403** | Access forbidden |  -  |
 **404** | Not found |  -  |
 **422** | Validation Error |  -  |
+**500** | Server error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_me**
-> PrivateUserDto get_me()
+> UserPrivate get_me()
 
 Get authenticated user profile.
 
@@ -81,14 +83,13 @@ Get authenticated user profile
 
 ### Example
 
-* Bearer Authentication (Compulsory Auth):
+* Bearer Authentication (CompulsoryAuth):
 ```python
 from __future__ import print_function
 import time
 import pollination_sdk
 from pollination_sdk.rest import ApiException
 from pprint import pprint
-configuration = pollination_sdk.Configuration()
 
 # Retrieve a temporary Acces Token (JWT) using your API token
 API_TOKEN = 'some-token-string'
@@ -100,20 +101,22 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: Compulsory Auth
-configuration.access_token = auth_response.access_token
+# Configure Bearer authorization: CompulsoryAuth
+configuration = pollination_sdk.Configuration(
+    access_token=auth_response.access_token
+)
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
-# Create an instance of the API class
-api_instance = pollination_sdk.UserApi(pollination_sdk.ApiClient(configuration))
-
-try:
-    # Get authenticated user profile.
-    api_response = api_instance.get_me()
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling UserApi->get_me: %s\n" % e)
+# Enter a context with an instance of the API client
+with pollination_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = pollination_sdk.UserApi(api_client)
+    
+    try:
+        # Get authenticated user profile.
+        api_response = api_instance.get_me()
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling UserApi->get_me: %s\n" % e)
 ```
 
 ### Parameters
@@ -121,11 +124,11 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**PrivateUserDto**](PrivateUserDto.md)
+[**UserPrivate**](UserPrivate.md)
 
 ### Authorization
 
-[Compulsory Auth](../README.md#Compulsory Auth)
+[CompulsoryAuth](../README.md#CompulsoryAuth)
 
 ### HTTP request headers
 
@@ -146,14 +149,13 @@ Get the authenticated user roles
 
 ### Example
 
-* Bearer Authentication (Compulsory Auth):
+* Bearer Authentication (CompulsoryAuth):
 ```python
 from __future__ import print_function
 import time
 import pollination_sdk
 from pollination_sdk.rest import ApiException
 from pprint import pprint
-configuration = pollination_sdk.Configuration()
 
 # Retrieve a temporary Acces Token (JWT) using your API token
 API_TOKEN = 'some-token-string'
@@ -165,20 +167,22 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: Compulsory Auth
-configuration.access_token = auth_response.access_token
+# Configure Bearer authorization: CompulsoryAuth
+configuration = pollination_sdk.Configuration(
+    access_token=auth_response.access_token
+)
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
-# Create an instance of the API class
-api_instance = pollination_sdk.UserApi(pollination_sdk.ApiClient(configuration))
-
-try:
-    # Get the authenticated user roles
-    api_response = api_instance.get_roles()
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling UserApi->get_roles: %s\n" % e)
+# Enter a context with an instance of the API client
+with pollination_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = pollination_sdk.UserApi(api_client)
+    
+    try:
+        # Get the authenticated user roles
+        api_response = api_instance.get_roles()
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling UserApi->get_roles: %s\n" % e)
 ```
 
 ### Parameters
@@ -190,7 +194,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[Compulsory Auth](../README.md#Compulsory Auth)
+[CompulsoryAuth](../README.md#CompulsoryAuth)
 
 ### HTTP request headers
 
@@ -205,7 +209,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_refresh_tokens**
-> list[RefreshTokenDto] list_refresh_tokens()
+> list[RefreshToken] list_refresh_tokens()
 
 Get a list of token names
 
@@ -220,7 +224,6 @@ import time
 import pollination_sdk
 from pollination_sdk.rest import ApiException
 from pprint import pprint
-configuration = pollination_sdk.Configuration()
 
 # Retrieve a temporary Acces Token (JWT) using your API token
 API_TOKEN = 'some-token-string'
@@ -233,19 +236,21 @@ api_token = pollination_sdk.LoginDto(
 auth_response = auth.login(api_token)
 
 # Configure Bearer authorization: JWT
-configuration.access_token = auth_response.access_token
+configuration = pollination_sdk.Configuration(
+    access_token=auth_response.access_token
+)
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
-# Create an instance of the API class
-api_instance = pollination_sdk.UserApi(pollination_sdk.ApiClient(configuration))
-
-try:
-    # Get a list of token names
-    api_response = api_instance.list_refresh_tokens()
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling UserApi->list_refresh_tokens: %s\n" % e)
+# Enter a context with an instance of the API client
+with pollination_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = pollination_sdk.UserApi(api_client)
+    
+    try:
+        # Get a list of token names
+        api_response = api_instance.list_refresh_tokens()
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling UserApi->list_refresh_tokens: %s\n" % e)
 ```
 
 ### Parameters
@@ -253,7 +258,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**list[RefreshTokenDto]**](RefreshTokenDto.md)
+[**list[RefreshToken]**](RefreshToken.md)
 
 ### Authorization
 
@@ -272,7 +277,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **login**
-> LoginToken login(login_dto)
+> LoginToken login(login)
 
 Login to the platform and get a JWT back
 
@@ -287,23 +292,25 @@ import pollination_sdk
 from pollination_sdk.rest import ApiException
 from pprint import pprint
 
-# Create an instance of the API class
-api_instance = pollination_sdk.UserApi()
-login_dto = pollination_sdk.LoginDto() # LoginDto | 
+# Enter a context with an instance of the API client
+with pollination_sdk.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = pollination_sdk.UserApi(api_client)
+    login = pollination_sdk.Login() # Login | 
 
-try:
-    # Login to the platform and get a JWT back
-    api_response = api_instance.login(login_dto)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling UserApi->login: %s\n" % e)
+    try:
+        # Login to the platform and get a JWT back
+        api_response = api_instance.login(login)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling UserApi->login: %s\n" % e)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **login_dto** | [**LoginDto**](LoginDto.md)|  | 
+ **login** | [**Login**](Login.md)|  | 
 
 ### Return type
 
@@ -327,7 +334,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **signup**
-> object signup(sign_up_dto)
+> object signup(sign_up)
 
 Sign Up to the platform!
 
@@ -342,23 +349,25 @@ import pollination_sdk
 from pollination_sdk.rest import ApiException
 from pprint import pprint
 
-# Create an instance of the API class
-api_instance = pollination_sdk.UserApi()
-sign_up_dto = pollination_sdk.SignUpDto() # SignUpDto | 
+# Enter a context with an instance of the API client
+with pollination_sdk.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = pollination_sdk.UserApi(api_client)
+    sign_up = pollination_sdk.SignUp() # SignUp | 
 
-try:
-    # Sign Up to the platform!
-    api_response = api_instance.signup(sign_up_dto)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling UserApi->signup: %s\n" % e)
+    try:
+        # Sign Up to the platform!
+        api_response = api_instance.signup(sign_up)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling UserApi->signup: %s\n" % e)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **sign_up_dto** | [**SignUpDto**](SignUpDto.md)|  | 
+ **sign_up** | [**SignUp**](SignUp.md)|  | 
 
 ### Return type
 
@@ -377,16 +386,16 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Successful Response |  -  |
-**403** | Access forbidden |  -  |
-**500** | Server error |  -  |
-**400** | Invalid request |  -  |
 **202** | Accepted |  -  |
+**400** | Invalid request |  -  |
+**403** | Access forbidden |  -  |
 **422** | Validation Error |  -  |
+**500** | Server error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **upsert_refresh_token**
-> str upsert_refresh_token(create_token_dto)
+> str upsert_refresh_token(refresh_token_create)
 
 Get refresh token and delete previous one if it exists
 
@@ -401,23 +410,25 @@ import pollination_sdk
 from pollination_sdk.rest import ApiException
 from pprint import pprint
 
-# Create an instance of the API class
-api_instance = pollination_sdk.UserApi()
-create_token_dto = pollination_sdk.CreateTokenDto() # CreateTokenDto | 
+# Enter a context with an instance of the API client
+with pollination_sdk.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = pollination_sdk.UserApi(api_client)
+    refresh_token_create = pollination_sdk.RefreshTokenCreate() # RefreshTokenCreate | 
 
-try:
-    # Get refresh token and delete previous one if it exists
-    api_response = api_instance.upsert_refresh_token(create_token_dto)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling UserApi->upsert_refresh_token: %s\n" % e)
+    try:
+        # Get refresh token and delete previous one if it exists
+        api_response = api_instance.upsert_refresh_token(refresh_token_create)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling UserApi->upsert_refresh_token: %s\n" % e)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **create_token_dto** | [**CreateTokenDto**](CreateTokenDto.md)|  | 
+ **refresh_token_create** | [**RefreshTokenCreate**](RefreshTokenCreate.md)|  | 
 
 ### Return type
 

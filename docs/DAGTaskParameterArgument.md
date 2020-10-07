@@ -4,8 +4,8 @@ Input argument for a DAG task.  The name must correspond to an input parameter f
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**_from** | [**AnyOfInputParameterReferenceTaskParameterReferenceItemParameterReference**](AnyOfInputParameterReferenceTaskParameterReferenceItemParameterReference.md) | The previous task or global workflow variable to pull this argument from | [optional] 
 **name** | **str** | Name of the argument variable | 
-**_from** | [**object**](.md) |  | [optional] 
 **value** | **str** | The fixed value for this task argument | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
