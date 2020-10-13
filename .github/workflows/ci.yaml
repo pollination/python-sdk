@@ -44,6 +44,7 @@ jobs:
         python setup.py sdist bdist_wheel
         twine upload dist/* -u $PIPY_USERNAME -p $PYPI_PASSWORD
       env:
-        GH_TOKEN: $
-        PYPI_PASSWORD: $
+        GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        PYPI_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
         PYPI_USERNAME: pollinationsolutions
+
