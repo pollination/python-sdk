@@ -698,7 +698,7 @@ name = ['name_example'] # list[str] | The account name (optional)
 owner = ['owner_example'] # list[str] | Owner of the project (optional)
 public = True # bool | Boolean check for public/private projects (optional)
 keyword = ['keyword_example'] # list[str] | A keyword to index the repository by (optional)
-permission = ['permission_example'] # list[str] |  (optional)
+permission = ['permission_example'] # list[str] | Filter by permission on given resource (optional)
 
     try:
         # List operators
@@ -718,7 +718,7 @@ Name | Type | Description  | Notes
  **owner** | [**list[str]**](str.md)| Owner of the project | [optional] 
  **public** | **bool**| Boolean check for public/private projects | [optional] 
  **keyword** | [**list[str]**](str.md)| A keyword to index the repository by | [optional] 
- **permission** | [**list[str]**](str.md)|  | [optional] 
+ **permission** | [**list[str]**](str.md)| Filter by permission on given resource | [optional] 
 
 ### Return type
 

@@ -739,7 +739,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_projects**
-> ProjectList list_projects(page=page, per_page=per_page, id=id, name=name, owner=owner, public=public, operator=operator)
+> ProjectList list_projects(page=page, per_page=per_page, id=id, name=name, owner=owner, public=public, permission=permission)
 
 List Projects
 
@@ -780,11 +780,11 @@ id = ['id_example'] # list[str] | The ID of a project to search for (optional)
 name = ['name_example'] # list[str] | The account name (optional)
 owner = ['owner_example'] # list[str] | Owner of the project (optional)
 public = True # bool | Boolean check for public/private projects (optional)
-operator = ['operator_example'] # list[str] | Name of an operator to search workflows by (optional)
+permission = ['permission_example'] # list[str] | Filter by permission on given resource (optional)
 
     try:
         # List Projects
-        api_response = api_instance.list_projects(page=page, per_page=per_page, id=id, name=name, owner=owner, public=public, operator=operator)
+        api_response = api_instance.list_projects(page=page, per_page=per_page, id=id, name=name, owner=owner, public=public, permission=permission)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ProjectsApi->list_projects: %s\n" % e)
@@ -800,7 +800,7 @@ Name | Type | Description  | Notes
  **name** | [**list[str]**](str.md)| The account name | [optional] 
  **owner** | [**list[str]**](str.md)| Owner of the project | [optional] 
  **public** | **bool**| Boolean check for public/private projects | [optional] 
- **operator** | [**list[str]**](str.md)| Name of an operator to search workflows by | [optional] 
+ **permission** | [**list[str]**](str.md)| Filter by permission on given resource | [optional] 
 
 ### Return type
 
