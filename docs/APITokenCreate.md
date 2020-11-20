@@ -1,13 +1,10 @@
-# LoginToken
+# APITokenCreate
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**access_token** | **str** |  | 
-**expires_in** | **int** |  | 
-**id_token** | **str** |  | [optional] 
-**scope** | **str** |  | [optional] 
-**token_type** | **str** |  | 
+**claims** | **dict(str, str)** | Key value pairs of auth claims the API token is entitled to | [optional] 
+**name** | **str** | The user friendly name of the API token | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

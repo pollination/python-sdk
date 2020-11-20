@@ -26,13 +26,23 @@ Create a new operator.
 
 ### Example
 
-* Bearer Authentication (CompulsoryAuth):
+* Api Key Authentication (APIKeyAuth):
 ```python
 from __future__ import print_function
 import time
 import pollination_sdk
 from pollination_sdk.rest import ApiException
 from pprint import pprint
+
+# Configure API key authorization: APIKeyAuth
+configuration = pollination_sdk.Configuration(
+    host = "https://api.pollination.cloud",
+    api_key = {
+        'APIKeyAuth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
 
 # Retrieve a temporary Acces Token (JWT) using your API token
 API_TOKEN = 'some-token-string'
@@ -44,7 +54,55 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: CompulsoryAuth
+# Configure Bearer authorization: JWTAuth
+configuration = pollination_sdk.Configuration(
+    access_token=auth_response.access_token
+)
+
+# Enter a context with an instance of the API client
+with pollination_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = pollination_sdk.OperatorsApi(api_client)
+    owner = 'owner_example' # str | 
+repository_create = pollination_sdk.RepositoryCreate() # RepositoryCreate | 
+
+    try:
+        # Create an Operator
+        api_response = api_instance.create_operator(owner, repository_create)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling OperatorsApi->create_operator: %s\n" % e)
+```
+
+* Bearer Authentication (JWTAuth):
+```python
+from __future__ import print_function
+import time
+import pollination_sdk
+from pollination_sdk.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: APIKeyAuth
+configuration = pollination_sdk.Configuration(
+    host = "https://api.pollination.cloud",
+    api_key = {
+        'APIKeyAuth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
+
+# Retrieve a temporary Acces Token (JWT) using your API token
+API_TOKEN = 'some-token-string'
+
+auth = pollination_sdk.UserApi()
+api_token = pollination_sdk.LoginDto(
+  api_token=API_TOKEN
+)
+
+auth_response = auth.login(api_token)
+
+# Configure Bearer authorization: JWTAuth
 configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
@@ -77,7 +135,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[CompulsoryAuth](../README.md#CompulsoryAuth)
+[APIKeyAuth](../README.md#APIKeyAuth), [JWTAuth](../README.md#JWTAuth)
 
 ### HTTP request headers
 
@@ -105,13 +163,23 @@ Create a new operator package version
 
 ### Example
 
-* Bearer Authentication (CompulsoryAuth):
+* Api Key Authentication (APIKeyAuth):
 ```python
 from __future__ import print_function
 import time
 import pollination_sdk
 from pollination_sdk.rest import ApiException
 from pprint import pprint
+
+# Configure API key authorization: APIKeyAuth
+configuration = pollination_sdk.Configuration(
+    host = "https://api.pollination.cloud",
+    api_key = {
+        'APIKeyAuth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
 
 # Retrieve a temporary Acces Token (JWT) using your API token
 API_TOKEN = 'some-token-string'
@@ -123,7 +191,56 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: CompulsoryAuth
+# Configure Bearer authorization: JWTAuth
+configuration = pollination_sdk.Configuration(
+    access_token=auth_response.access_token
+)
+
+# Enter a context with an instance of the API client
+with pollination_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = pollination_sdk.OperatorsApi(api_client)
+    owner = 'owner_example' # str | 
+name = 'name_example' # str | 
+new_operator_package = pollination_sdk.NewOperatorPackage() # NewOperatorPackage | 
+
+    try:
+        # Create a new Operator package
+        api_response = api_instance.create_operator_package(owner, name, new_operator_package)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling OperatorsApi->create_operator_package: %s\n" % e)
+```
+
+* Bearer Authentication (JWTAuth):
+```python
+from __future__ import print_function
+import time
+import pollination_sdk
+from pollination_sdk.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: APIKeyAuth
+configuration = pollination_sdk.Configuration(
+    host = "https://api.pollination.cloud",
+    api_key = {
+        'APIKeyAuth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
+
+# Retrieve a temporary Acces Token (JWT) using your API token
+API_TOKEN = 'some-token-string'
+
+auth = pollination_sdk.UserApi()
+api_token = pollination_sdk.LoginDto(
+  api_token=API_TOKEN
+)
+
+auth_response = auth.login(api_token)
+
+# Configure Bearer authorization: JWTAuth
 configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
@@ -158,7 +275,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[CompulsoryAuth](../README.md#CompulsoryAuth)
+[APIKeyAuth](../README.md#APIKeyAuth), [JWTAuth](../README.md#JWTAuth)
 
 ### HTTP request headers
 
@@ -186,13 +303,23 @@ Delete an operator (must have `admin` permission)
 
 ### Example
 
-* Bearer Authentication (CompulsoryAuth):
+* Api Key Authentication (APIKeyAuth):
 ```python
 from __future__ import print_function
 import time
 import pollination_sdk
 from pollination_sdk.rest import ApiException
 from pprint import pprint
+
+# Configure API key authorization: APIKeyAuth
+configuration = pollination_sdk.Configuration(
+    host = "https://api.pollination.cloud",
+    api_key = {
+        'APIKeyAuth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
 
 # Retrieve a temporary Acces Token (JWT) using your API token
 API_TOKEN = 'some-token-string'
@@ -204,7 +331,54 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: CompulsoryAuth
+# Configure Bearer authorization: JWTAuth
+configuration = pollination_sdk.Configuration(
+    access_token=auth_response.access_token
+)
+
+# Enter a context with an instance of the API client
+with pollination_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = pollination_sdk.OperatorsApi(api_client)
+    owner = 'owner_example' # str | 
+name = 'name_example' # str | 
+
+    try:
+        # Delete an Operator
+        api_instance.delete_operator(owner, name)
+    except ApiException as e:
+        print("Exception when calling OperatorsApi->delete_operator: %s\n" % e)
+```
+
+* Bearer Authentication (JWTAuth):
+```python
+from __future__ import print_function
+import time
+import pollination_sdk
+from pollination_sdk.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: APIKeyAuth
+configuration = pollination_sdk.Configuration(
+    host = "https://api.pollination.cloud",
+    api_key = {
+        'APIKeyAuth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
+
+# Retrieve a temporary Acces Token (JWT) using your API token
+API_TOKEN = 'some-token-string'
+
+auth = pollination_sdk.UserApi()
+api_token = pollination_sdk.LoginDto(
+  api_token=API_TOKEN
+)
+
+auth_response = auth.login(api_token)
+
+# Configure Bearer authorization: JWTAuth
 configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
@@ -236,7 +410,7 @@ void (empty response body)
 
 ### Authorization
 
-[CompulsoryAuth](../README.md#CompulsoryAuth)
+[APIKeyAuth](../README.md#APIKeyAuth), [JWTAuth](../README.md#JWTAuth)
 
 ### HTTP request headers
 
@@ -263,13 +437,23 @@ Delete a operator's access policy (must have `admin` permission)
 
 ### Example
 
-* Bearer Authentication (CompulsoryAuth):
+* Api Key Authentication (APIKeyAuth):
 ```python
 from __future__ import print_function
 import time
 import pollination_sdk
 from pollination_sdk.rest import ApiException
 from pprint import pprint
+
+# Configure API key authorization: APIKeyAuth
+configuration = pollination_sdk.Configuration(
+    host = "https://api.pollination.cloud",
+    api_key = {
+        'APIKeyAuth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
 
 # Retrieve a temporary Acces Token (JWT) using your API token
 API_TOKEN = 'some-token-string'
@@ -281,7 +465,55 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: CompulsoryAuth
+# Configure Bearer authorization: JWTAuth
+configuration = pollination_sdk.Configuration(
+    access_token=auth_response.access_token
+)
+
+# Enter a context with an instance of the API client
+with pollination_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = pollination_sdk.OperatorsApi(api_client)
+    owner = 'owner_example' # str | 
+name = 'name_example' # str | 
+repository_policy_subject = pollination_sdk.RepositoryPolicySubject() # RepositoryPolicySubject | 
+
+    try:
+        # Remove a Repository permissions
+        api_instance.delete_operator_org_permission(owner, name, repository_policy_subject)
+    except ApiException as e:
+        print("Exception when calling OperatorsApi->delete_operator_org_permission: %s\n" % e)
+```
+
+* Bearer Authentication (JWTAuth):
+```python
+from __future__ import print_function
+import time
+import pollination_sdk
+from pollination_sdk.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: APIKeyAuth
+configuration = pollination_sdk.Configuration(
+    host = "https://api.pollination.cloud",
+    api_key = {
+        'APIKeyAuth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
+
+# Retrieve a temporary Acces Token (JWT) using your API token
+API_TOKEN = 'some-token-string'
+
+auth = pollination_sdk.UserApi()
+api_token = pollination_sdk.LoginDto(
+  api_token=API_TOKEN
+)
+
+auth_response = auth.login(api_token)
+
+# Configure Bearer authorization: JWTAuth
 configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
@@ -315,7 +547,7 @@ void (empty response body)
 
 ### Authorization
 
-[CompulsoryAuth](../README.md#CompulsoryAuth)
+[APIKeyAuth](../README.md#APIKeyAuth), [JWTAuth](../README.md#JWTAuth)
 
 ### HTTP request headers
 
@@ -342,13 +574,23 @@ Retrieve an operator by name
 
 ### Example
 
-* Bearer Authentication (OptionalAuth):
+* Api Key Authentication (APIKeyAuth):
 ```python
 from __future__ import print_function
 import time
 import pollination_sdk
 from pollination_sdk.rest import ApiException
 from pprint import pprint
+
+# Configure API key authorization: APIKeyAuth
+configuration = pollination_sdk.Configuration(
+    host = "https://api.pollination.cloud",
+    api_key = {
+        'APIKeyAuth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
 
 # Retrieve a temporary Acces Token (JWT) using your API token
 API_TOKEN = 'some-token-string'
@@ -360,7 +602,55 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: OptionalAuth
+# Configure Bearer authorization: JWTAuth
+configuration = pollination_sdk.Configuration(
+    access_token=auth_response.access_token
+)
+
+# Enter a context with an instance of the API client
+with pollination_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = pollination_sdk.OperatorsApi(api_client)
+    owner = 'owner_example' # str | 
+name = 'name_example' # str | 
+
+    try:
+        # Get an operator
+        api_response = api_instance.get_operator(owner, name)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling OperatorsApi->get_operator: %s\n" % e)
+```
+
+* Bearer Authentication (JWTAuth):
+```python
+from __future__ import print_function
+import time
+import pollination_sdk
+from pollination_sdk.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: APIKeyAuth
+configuration = pollination_sdk.Configuration(
+    host = "https://api.pollination.cloud",
+    api_key = {
+        'APIKeyAuth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
+
+# Retrieve a temporary Acces Token (JWT) using your API token
+API_TOKEN = 'some-token-string'
+
+auth = pollination_sdk.UserApi()
+api_token = pollination_sdk.LoginDto(
+  api_token=API_TOKEN
+)
+
+auth_response = auth.login(api_token)
+
+# Configure Bearer authorization: JWTAuth
 configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
@@ -393,7 +683,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OptionalAuth](../README.md#OptionalAuth)
+[APIKeyAuth](../README.md#APIKeyAuth), [JWTAuth](../README.md#JWTAuth)
 
 ### HTTP request headers
 
@@ -421,13 +711,23 @@ Retrieve a operator's access permissions (must have `contribute` permission)
 
 ### Example
 
-* Bearer Authentication (CompulsoryAuth):
+* Api Key Authentication (APIKeyAuth):
 ```python
 from __future__ import print_function
 import time
 import pollination_sdk
 from pollination_sdk.rest import ApiException
 from pprint import pprint
+
+# Configure API key authorization: APIKeyAuth
+configuration = pollination_sdk.Configuration(
+    host = "https://api.pollination.cloud",
+    api_key = {
+        'APIKeyAuth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
 
 # Retrieve a temporary Acces Token (JWT) using your API token
 API_TOKEN = 'some-token-string'
@@ -439,7 +739,59 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: CompulsoryAuth
+# Configure Bearer authorization: JWTAuth
+configuration = pollination_sdk.Configuration(
+    access_token=auth_response.access_token
+)
+
+# Enter a context with an instance of the API client
+with pollination_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = pollination_sdk.OperatorsApi(api_client)
+    owner = 'owner_example' # str | 
+name = 'name_example' # str | 
+page = 1 # int | Page number starting from 1 (optional) (default to 1)
+per_page = 25 # int | Number of items per page (optional) (default to 25)
+subject_type = ['subject_type_example'] # list[str] | The type of access policy subject (optional)
+permission = ['permission_example'] # list[str] | An access policy permission string (optional)
+
+    try:
+        # Get operator access permissions
+        api_response = api_instance.get_operator_access_permissions(owner, name, page=page, per_page=per_page, subject_type=subject_type, permission=permission)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling OperatorsApi->get_operator_access_permissions: %s\n" % e)
+```
+
+* Bearer Authentication (JWTAuth):
+```python
+from __future__ import print_function
+import time
+import pollination_sdk
+from pollination_sdk.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: APIKeyAuth
+configuration = pollination_sdk.Configuration(
+    host = "https://api.pollination.cloud",
+    api_key = {
+        'APIKeyAuth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
+
+# Retrieve a temporary Acces Token (JWT) using your API token
+API_TOKEN = 'some-token-string'
+
+auth = pollination_sdk.UserApi()
+api_token = pollination_sdk.LoginDto(
+  api_token=API_TOKEN
+)
+
+auth_response = auth.login(api_token)
+
+# Configure Bearer authorization: JWTAuth
 configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
@@ -480,7 +832,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[CompulsoryAuth](../README.md#CompulsoryAuth)
+[APIKeyAuth](../README.md#APIKeyAuth), [JWTAuth](../README.md#JWTAuth)
 
 ### HTTP request headers
 
@@ -507,13 +859,23 @@ Retrieve an operator tag by name and tag
 
 ### Example
 
-* Bearer Authentication (OptionalAuth):
+* Api Key Authentication (APIKeyAuth):
 ```python
 from __future__ import print_function
 import time
 import pollination_sdk
 from pollination_sdk.rest import ApiException
 from pprint import pprint
+
+# Configure API key authorization: APIKeyAuth
+configuration = pollination_sdk.Configuration(
+    host = "https://api.pollination.cloud",
+    api_key = {
+        'APIKeyAuth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
 
 # Retrieve a temporary Acces Token (JWT) using your API token
 API_TOKEN = 'some-token-string'
@@ -525,7 +887,56 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: OptionalAuth
+# Configure Bearer authorization: JWTAuth
+configuration = pollination_sdk.Configuration(
+    access_token=auth_response.access_token
+)
+
+# Enter a context with an instance of the API client
+with pollination_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = pollination_sdk.OperatorsApi(api_client)
+    owner = 'owner_example' # str | 
+name = 'name_example' # str | 
+tag = 'tag_example' # str | 
+
+    try:
+        # Get an operator tag
+        api_response = api_instance.get_operator_by_tag(owner, name, tag)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling OperatorsApi->get_operator_by_tag: %s\n" % e)
+```
+
+* Bearer Authentication (JWTAuth):
+```python
+from __future__ import print_function
+import time
+import pollination_sdk
+from pollination_sdk.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: APIKeyAuth
+configuration = pollination_sdk.Configuration(
+    host = "https://api.pollination.cloud",
+    api_key = {
+        'APIKeyAuth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
+
+# Retrieve a temporary Acces Token (JWT) using your API token
+API_TOKEN = 'some-token-string'
+
+auth = pollination_sdk.UserApi()
+api_token = pollination_sdk.LoginDto(
+  api_token=API_TOKEN
+)
+
+auth_response = auth.login(api_token)
+
+# Configure Bearer authorization: JWTAuth
 configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
@@ -560,7 +971,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OptionalAuth](../README.md#OptionalAuth)
+[APIKeyAuth](../README.md#APIKeyAuth), [JWTAuth](../README.md#JWTAuth)
 
 ### HTTP request headers
 
@@ -588,13 +999,23 @@ Retrieve an operator by name
 
 ### Example
 
-* Bearer Authentication (OptionalAuth):
+* Api Key Authentication (APIKeyAuth):
 ```python
 from __future__ import print_function
 import time
 import pollination_sdk
 from pollination_sdk.rest import ApiException
 from pprint import pprint
+
+# Configure API key authorization: APIKeyAuth
+configuration = pollination_sdk.Configuration(
+    host = "https://api.pollination.cloud",
+    api_key = {
+        'APIKeyAuth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
 
 # Retrieve a temporary Acces Token (JWT) using your API token
 API_TOKEN = 'some-token-string'
@@ -606,7 +1027,55 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: OptionalAuth
+# Configure Bearer authorization: JWTAuth
+configuration = pollination_sdk.Configuration(
+    access_token=auth_response.access_token
+)
+
+# Enter a context with an instance of the API client
+with pollination_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = pollination_sdk.OperatorsApi(api_client)
+    owner = 'owner_example' # str | 
+name = 'name_example' # str | 
+
+    try:
+        # Get an operator tags
+        api_response = api_instance.list_operator_tags(owner, name)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling OperatorsApi->list_operator_tags: %s\n" % e)
+```
+
+* Bearer Authentication (JWTAuth):
+```python
+from __future__ import print_function
+import time
+import pollination_sdk
+from pollination_sdk.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: APIKeyAuth
+configuration = pollination_sdk.Configuration(
+    host = "https://api.pollination.cloud",
+    api_key = {
+        'APIKeyAuth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
+
+# Retrieve a temporary Acces Token (JWT) using your API token
+API_TOKEN = 'some-token-string'
+
+auth = pollination_sdk.UserApi()
+api_token = pollination_sdk.LoginDto(
+  api_token=API_TOKEN
+)
+
+auth_response = auth.login(api_token)
+
+# Configure Bearer authorization: JWTAuth
 configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
@@ -639,7 +1108,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OptionalAuth](../README.md#OptionalAuth)
+[APIKeyAuth](../README.md#APIKeyAuth), [JWTAuth](../README.md#JWTAuth)
 
 ### HTTP request headers
 
@@ -659,19 +1128,29 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_operators**
-> RepositoryList list_operators(page=page, per_page=per_page, name=name, owner=owner, public=public, keyword=keyword, permission=permission)
+> RepositoryList list_operators(page=page, per_page=per_page, search=search, name=name, owner=owner, public=public, keyword=keyword, permission=permission)
 
 List operators
 
 ### Example
 
-* Bearer Authentication (OptionalAuth):
+* Api Key Authentication (APIKeyAuth):
 ```python
 from __future__ import print_function
 import time
 import pollination_sdk
 from pollination_sdk.rest import ApiException
 from pprint import pprint
+
+# Configure API key authorization: APIKeyAuth
+configuration = pollination_sdk.Configuration(
+    host = "https://api.pollination.cloud",
+    api_key = {
+        'APIKeyAuth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
 
 # Retrieve a temporary Acces Token (JWT) using your API token
 API_TOKEN = 'some-token-string'
@@ -683,7 +1162,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: OptionalAuth
+# Configure Bearer authorization: JWTAuth
 configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
@@ -694,6 +1173,7 @@ with pollination_sdk.ApiClient(configuration) as api_client:
     api_instance = pollination_sdk.OperatorsApi(api_client)
     page = 1 # int | Page number starting from 1 (optional) (default to 1)
 per_page = 25 # int | Number of items per page (optional) (default to 25)
+search = ['search_example'] # list[str] | You know, for search (optional)
 name = ['name_example'] # list[str] | The account name (optional)
 owner = ['owner_example'] # list[str] | Owner of the project (optional)
 public = True # bool | Boolean check for public/private projects (optional)
@@ -702,7 +1182,61 @@ permission = ['permission_example'] # list[str] | Filter by permission on given 
 
     try:
         # List operators
-        api_response = api_instance.list_operators(page=page, per_page=per_page, name=name, owner=owner, public=public, keyword=keyword, permission=permission)
+        api_response = api_instance.list_operators(page=page, per_page=per_page, search=search, name=name, owner=owner, public=public, keyword=keyword, permission=permission)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling OperatorsApi->list_operators: %s\n" % e)
+```
+
+* Bearer Authentication (JWTAuth):
+```python
+from __future__ import print_function
+import time
+import pollination_sdk
+from pollination_sdk.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: APIKeyAuth
+configuration = pollination_sdk.Configuration(
+    host = "https://api.pollination.cloud",
+    api_key = {
+        'APIKeyAuth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
+
+# Retrieve a temporary Acces Token (JWT) using your API token
+API_TOKEN = 'some-token-string'
+
+auth = pollination_sdk.UserApi()
+api_token = pollination_sdk.LoginDto(
+  api_token=API_TOKEN
+)
+
+auth_response = auth.login(api_token)
+
+# Configure Bearer authorization: JWTAuth
+configuration = pollination_sdk.Configuration(
+    access_token=auth_response.access_token
+)
+
+# Enter a context with an instance of the API client
+with pollination_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = pollination_sdk.OperatorsApi(api_client)
+    page = 1 # int | Page number starting from 1 (optional) (default to 1)
+per_page = 25 # int | Number of items per page (optional) (default to 25)
+search = ['search_example'] # list[str] | You know, for search (optional)
+name = ['name_example'] # list[str] | The account name (optional)
+owner = ['owner_example'] # list[str] | Owner of the project (optional)
+public = True # bool | Boolean check for public/private projects (optional)
+keyword = ['keyword_example'] # list[str] | A keyword to index the repository by (optional)
+permission = ['permission_example'] # list[str] | Filter by permission on given resource (optional)
+
+    try:
+        # List operators
+        api_response = api_instance.list_operators(page=page, per_page=per_page, search=search, name=name, owner=owner, public=public, keyword=keyword, permission=permission)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling OperatorsApi->list_operators: %s\n" % e)
@@ -714,6 +1248,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page** | **int**| Page number starting from 1 | [optional] [default to 1]
  **per_page** | **int**| Number of items per page | [optional] [default to 25]
+ **search** | [**list[str]**](str.md)| You know, for search | [optional] 
  **name** | [**list[str]**](str.md)| The account name | [optional] 
  **owner** | [**list[str]**](str.md)| Owner of the project | [optional] 
  **public** | **bool**| Boolean check for public/private projects | [optional] 
@@ -726,7 +1261,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OptionalAuth](../README.md#OptionalAuth)
+[APIKeyAuth](../README.md#APIKeyAuth), [JWTAuth](../README.md#JWTAuth)
 
 ### HTTP request headers
 
@@ -750,13 +1285,23 @@ Update an operator (must have `contribute` permission)
 
 ### Example
 
-* Bearer Authentication (CompulsoryAuth):
+* Api Key Authentication (APIKeyAuth):
 ```python
 from __future__ import print_function
 import time
 import pollination_sdk
 from pollination_sdk.rest import ApiException
 from pprint import pprint
+
+# Configure API key authorization: APIKeyAuth
+configuration = pollination_sdk.Configuration(
+    host = "https://api.pollination.cloud",
+    api_key = {
+        'APIKeyAuth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
 
 # Retrieve a temporary Acces Token (JWT) using your API token
 API_TOKEN = 'some-token-string'
@@ -768,7 +1313,56 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: CompulsoryAuth
+# Configure Bearer authorization: JWTAuth
+configuration = pollination_sdk.Configuration(
+    access_token=auth_response.access_token
+)
+
+# Enter a context with an instance of the API client
+with pollination_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = pollination_sdk.OperatorsApi(api_client)
+    owner = 'owner_example' # str | 
+name = 'name_example' # str | 
+repository_update = pollination_sdk.RepositoryUpdate() # RepositoryUpdate | 
+
+    try:
+        # Update an Operator
+        api_response = api_instance.update_operator(owner, name, repository_update)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling OperatorsApi->update_operator: %s\n" % e)
+```
+
+* Bearer Authentication (JWTAuth):
+```python
+from __future__ import print_function
+import time
+import pollination_sdk
+from pollination_sdk.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: APIKeyAuth
+configuration = pollination_sdk.Configuration(
+    host = "https://api.pollination.cloud",
+    api_key = {
+        'APIKeyAuth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
+
+# Retrieve a temporary Acces Token (JWT) using your API token
+API_TOKEN = 'some-token-string'
+
+auth = pollination_sdk.UserApi()
+api_token = pollination_sdk.LoginDto(
+  api_token=API_TOKEN
+)
+
+auth_response = auth.login(api_token)
+
+# Configure Bearer authorization: JWTAuth
 configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
@@ -803,7 +1397,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[CompulsoryAuth](../README.md#CompulsoryAuth)
+[APIKeyAuth](../README.md#APIKeyAuth), [JWTAuth](../README.md#JWTAuth)
 
 ### HTTP request headers
 
@@ -831,13 +1425,23 @@ Upsert a operator's access policy (must have `admin` permission)
 
 ### Example
 
-* Bearer Authentication (CompulsoryAuth):
+* Api Key Authentication (APIKeyAuth):
 ```python
 from __future__ import print_function
 import time
 import pollination_sdk
 from pollination_sdk.rest import ApiException
 from pprint import pprint
+
+# Configure API key authorization: APIKeyAuth
+configuration = pollination_sdk.Configuration(
+    host = "https://api.pollination.cloud",
+    api_key = {
+        'APIKeyAuth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
 
 # Retrieve a temporary Acces Token (JWT) using your API token
 API_TOKEN = 'some-token-string'
@@ -849,7 +1453,56 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: CompulsoryAuth
+# Configure Bearer authorization: JWTAuth
+configuration = pollination_sdk.Configuration(
+    access_token=auth_response.access_token
+)
+
+# Enter a context with an instance of the API client
+with pollination_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = pollination_sdk.OperatorsApi(api_client)
+    owner = 'owner_example' # str | 
+name = 'name_example' # str | 
+repository_access_policy = pollination_sdk.RepositoryAccessPolicy() # RepositoryAccessPolicy | 
+
+    try:
+        # Upsert a new permission to a operator
+        api_response = api_instance.upsert_operator_permission(owner, name, repository_access_policy)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling OperatorsApi->upsert_operator_permission: %s\n" % e)
+```
+
+* Bearer Authentication (JWTAuth):
+```python
+from __future__ import print_function
+import time
+import pollination_sdk
+from pollination_sdk.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: APIKeyAuth
+configuration = pollination_sdk.Configuration(
+    host = "https://api.pollination.cloud",
+    api_key = {
+        'APIKeyAuth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
+
+# Retrieve a temporary Acces Token (JWT) using your API token
+API_TOKEN = 'some-token-string'
+
+auth = pollination_sdk.UserApi()
+api_token = pollination_sdk.LoginDto(
+  api_token=API_TOKEN
+)
+
+auth_response = auth.login(api_token)
+
+# Configure Bearer authorization: JWTAuth
 configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
@@ -884,7 +1537,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[CompulsoryAuth](../README.md#CompulsoryAuth)
+[APIKeyAuth](../README.md#APIKeyAuth), [JWTAuth](../README.md#JWTAuth)
 
 ### HTTP request headers
 

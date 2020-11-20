@@ -3,6 +3,11 @@
 .openapi-generator-ignore
 .travis.yml
 README.md
+docs/APIToken.md
+docs/APITokenCreate.md
+docs/APITokenList.md
+docs/APITokenPrivate.md
+docs/APITokensApi.md
 docs/Accepted.md
 docs/AccountPublic.md
 docs/AccountsApi.md
@@ -32,7 +37,6 @@ docs/DAGTaskParameterArgument.md
 docs/Dependency.md
 docs/DependencyType.md
 docs/DockerConfig.md
-docs/EmailRequest.md
 docs/FileMeta.md
 docs/FolderArtifactReference.md
 docs/FolderReference.md
@@ -51,8 +55,6 @@ docs/ItemParameterReference.md
 docs/ItemReference.md
 docs/KeyRequest.md
 docs/License.md
-docs/Login.md
-docs/LoginToken.md
 docs/Maintainer.md
 docs/MetaData.md
 docs/NewOperatorPackage.md
@@ -88,8 +90,6 @@ docs/Recipe.md
 docs/RecipePackage.md
 docs/RecipeSelection.md
 docs/RecipesApi.md
-docs/RefreshToken.md
-docs/RefreshTokenCreate.md
 docs/RegistriesApi.md
 docs/Repository.md
 docs/RepositoryAccessPolicy.md
@@ -105,13 +105,12 @@ docs/RepositoryUpdate.md
 docs/RepositoryUserPermissions.md
 docs/S3Source.md
 docs/S3UploadRequest.md
-docs/SignUp.md
+docs/Simulation.md
 docs/SimulationInputArtifact.md
 docs/SimulationInputParameter.md
 docs/SimulationInputs.md
 docs/SimulationList.md
 docs/SimulationOutputSource.md
-docs/SimulationStatus.md
 docs/SimulationsApi.md
 docs/StatusType.md
 docs/SubjectType.md
@@ -141,6 +140,7 @@ git_push.sh
 pollination_sdk/__init__.py
 pollination_sdk/api/__init__.py
 pollination_sdk/api/accounts_api.py
+pollination_sdk/api/api_tokens_api.py
 pollination_sdk/api/artifacts_api.py
 pollination_sdk/api/operators_api.py
 pollination_sdk/api/orgs_api.py
@@ -157,6 +157,10 @@ pollination_sdk/exceptions.py
 pollination_sdk/models/__init__.py
 pollination_sdk/models/accepted.py
 pollination_sdk/models/account_public.py
+pollination_sdk/models/api_token.py
+pollination_sdk/models/api_token_create.py
+pollination_sdk/models/api_token_list.py
+pollination_sdk/models/api_token_private.py
 pollination_sdk/models/argument_artifact.py
 pollination_sdk/models/argument_parameter.py
 pollination_sdk/models/arguments.py
@@ -182,7 +186,6 @@ pollination_sdk/models/dag_task_parameter_argument.py
 pollination_sdk/models/dependency.py
 pollination_sdk/models/dependency_type.py
 pollination_sdk/models/docker_config.py
-pollination_sdk/models/email_request.py
 pollination_sdk/models/file_meta.py
 pollination_sdk/models/folder_artifact_reference.py
 pollination_sdk/models/folder_reference.py
@@ -201,8 +204,6 @@ pollination_sdk/models/item_parameter_reference.py
 pollination_sdk/models/item_reference.py
 pollination_sdk/models/key_request.py
 pollination_sdk/models/license.py
-pollination_sdk/models/login.py
-pollination_sdk/models/login_token.py
 pollination_sdk/models/maintainer.py
 pollination_sdk/models/meta_data.py
 pollination_sdk/models/new_operator_package.py
@@ -234,8 +235,6 @@ pollination_sdk/models/public_account_list.py
 pollination_sdk/models/recipe.py
 pollination_sdk/models/recipe_package.py
 pollination_sdk/models/recipe_selection.py
-pollination_sdk/models/refresh_token.py
-pollination_sdk/models/refresh_token_create.py
 pollination_sdk/models/repository.py
 pollination_sdk/models/repository_access_policy.py
 pollination_sdk/models/repository_access_policy_list.py
@@ -250,13 +249,12 @@ pollination_sdk/models/repository_update.py
 pollination_sdk/models/repository_user_permissions.py
 pollination_sdk/models/s3_source.py
 pollination_sdk/models/s3_upload_request.py
-pollination_sdk/models/sign_up.py
+pollination_sdk/models/simulation.py
 pollination_sdk/models/simulation_input_artifact.py
 pollination_sdk/models/simulation_input_parameter.py
 pollination_sdk/models/simulation_inputs.py
 pollination_sdk/models/simulation_list.py
 pollination_sdk/models/simulation_output_source.py
-pollination_sdk/models/simulation_status.py
 pollination_sdk/models/status_type.py
 pollination_sdk/models/subject_type.py
 pollination_sdk/models/submit_simulation.py
@@ -287,6 +285,11 @@ test/__init__.py
 test/test_accepted.py
 test/test_account_public.py
 test/test_accounts_api.py
+test/test_api_token.py
+test/test_api_token_create.py
+test/test_api_token_list.py
+test/test_api_token_private.py
+test/test_api_tokens_api.py
 test/test_argument_artifact.py
 test/test_argument_parameter.py
 test/test_arguments.py
@@ -313,7 +316,6 @@ test/test_dag_task_parameter_argument.py
 test/test_dependency.py
 test/test_dependency_type.py
 test/test_docker_config.py
-test/test_email_request.py
 test/test_file_meta.py
 test/test_folder_artifact_reference.py
 test/test_folder_reference.py
@@ -332,8 +334,6 @@ test/test_item_parameter_reference.py
 test/test_item_reference.py
 test/test_key_request.py
 test/test_license.py
-test/test_login.py
-test/test_login_token.py
 test/test_maintainer.py
 test/test_meta_data.py
 test/test_new_operator_package.py
@@ -369,8 +369,6 @@ test/test_recipe.py
 test/test_recipe_package.py
 test/test_recipe_selection.py
 test/test_recipes_api.py
-test/test_refresh_token.py
-test/test_refresh_token_create.py
 test/test_registries_api.py
 test/test_repository.py
 test/test_repository_access_policy.py
@@ -386,13 +384,12 @@ test/test_repository_update.py
 test/test_repository_user_permissions.py
 test/test_s3_source.py
 test/test_s3_upload_request.py
-test/test_sign_up.py
+test/test_simulation.py
 test/test_simulation_input_artifact.py
 test/test_simulation_input_parameter.py
 test/test_simulation_inputs.py
 test/test_simulation_list.py
 test/test_simulation_output_source.py
-test/test_simulation_status.py
 test/test_simulations_api.py
 test/test_status_type.py
 test/test_subject_type.py
