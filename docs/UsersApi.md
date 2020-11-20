@@ -124,7 +124,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_users**
-> UserPublicList list_users(page=page, per_page=per_page, name=name, username=username, id=id)
+> UserPublicList list_users(page=page, per_page=per_page, username=username)
 
 List Users
 
@@ -143,13 +143,11 @@ with pollination_sdk.ApiClient() as api_client:
     api_instance = pollination_sdk.UsersApi(api_client)
     page = 1 # int | Page number starting from 1 (optional) (default to 1)
 per_page = 25 # int | Number of items per page (optional) (default to 25)
-name = 'name_example' # str | Name of the user to search for (optional)
-username = 'username_example' # str | Username of the user to search for (optional)
-id = [] # list[str] | A list of users to search for by their user ID (optional) (default to [])
+username = ['username_example'] # list[str] | Username of the user to search for (optional)
 
     try:
         # List Users
-        api_response = api_instance.list_users(page=page, per_page=per_page, name=name, username=username, id=id)
+        api_response = api_instance.list_users(page=page, per_page=per_page, username=username)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling UsersApi->list_users: %s\n" % e)
@@ -161,9 +159,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page** | **int**| Page number starting from 1 | [optional] [default to 1]
  **per_page** | **int**| Number of items per page | [optional] [default to 25]
- **name** | **str**| Name of the user to search for | [optional] 
- **username** | **str**| Username of the user to search for | [optional] 
- **id** | [**list[str]**](str.md)| A list of users to search for by their user ID | [optional] [default to []]
+ **username** | [**list[str]**](str.md)| Username of the user to search for | [optional] 
 
 ### Return type
 
