@@ -5,7 +5,7 @@ A file or a folder input.  Use this input only in cases that the input can be ei
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **annotations** | **dict(str, str)** | An optional dictionary to add annotations to inputs. These annotations will be used by the client side libraries. | [optional] 
-**default** | [**AnyOfobjectobjectobject**](AnyOfobjectobjectobject.md) | The default source for file if the value is not provided. | [optional] 
+**default** | [**AnyOfHTTPS3ProjectFolder**](AnyOfHTTPS3ProjectFolder.md) | The default source for file if the value is not provided. | [optional] 
 **description** | **str** | Optional description for input. | [optional] 
 **extensions** | **list[str]** | Optional list of extensions for path. The check for extension is case-insensitive. The extension will only be validated for file inputs. | [optional] 
 **handler** | [**list[IOAliasHandler]**](IOAliasHandler.md) | List of process actions to process the input or output value. | 

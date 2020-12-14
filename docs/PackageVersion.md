@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **kind** | **str** | The type of Queenbee package (ie: recipe or plugin) | [optional] [default to '']
 **license** | [**License**](License.md) | The license information. | [optional] 
 **maintainers** | [**list[Maintainer]**](Maintainer.md) | A list of maintainers for the package | [optional] 
-**manifest** | [**AnyOfobjectobject**](AnyOfobjectobject.md) | The package Recipe or Plugin manifest | [optional] 
+**manifest** | [**AnyOfRecipePlugin**](AnyOfRecipePlugin.md) | The package Recipe or Plugin manifest | [optional] 
 **name** | **str** | Package name. Make it descriptive and helpful ;) | 
 **readme** | **str** | The README file string for this package | [optional] 
 **slug** | **str** | A slug of the repository name and the package name. | [optional] 

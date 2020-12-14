@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **description** | **str** | Optional description for output. | [optional] 
 **name** | **str** | Output name. | 
 **path** | **str** | Path to the output file or folder relative to where the function command is executed. | 
-**source** | [**AnyOfobjectobjectobject**](AnyOfobjectobjectobject.md) | The path to source the file from. | 
+**source** | [**AnyOfHTTPS3ProjectFolder**](AnyOfHTTPS3ProjectFolder.md) | The path to source the file from. | 
 **type** | **str** |  | [optional] [readonly] [default to 'StepPathOutput']
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

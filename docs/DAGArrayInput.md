@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **annotations** | **dict(str, str)** | An optional dictionary to add annotations to inputs. These annotations will be used by the client side libraries. | [optional] 
 **default** | **list[object]** | Default value to use for an input if a value was not supplied. | [optional] 
 **description** | **str** | Optional description for input. | [optional] 
-**items_type** | **str** | Type of items in an array. All the items in an array must be from the same type. | [optional] [default to 'String']
+**items_type** | [**ItemType**](ItemType.md) | Type of items in an array. All the items in an array must be from the same type. | [optional] 
 **name** | **str** | Input name. | 
 **required** | **bool** | A field to indicate if this input is required. This input needs to be set explicitly even when a default value is provided. | [optional] [default to False]
 **spec** | **object** | An optional JSON Schema specification to validate the input value. You can use validate_spec method to validate a value against the spec. | [optional] 

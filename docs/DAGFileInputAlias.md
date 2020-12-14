@@ -5,7 +5,7 @@ An alias file input.  File is a special string input. Unlike other string inputs
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **annotations** | **dict(str, str)** | An optional dictionary to add annotations to inputs. These annotations will be used by the client side libraries. | [optional] 
-**default** | [**AnyOfobjectobjectobject**](AnyOfobjectobjectobject.md) | The default source for file if the value is not provided. | [optional] 
+**default** | [**AnyOfHTTPS3ProjectFolder**](AnyOfHTTPS3ProjectFolder.md) | The default source for file if the value is not provided. | [optional] 
 **description** | **str** | Optional description for input. | [optional] 
 **extensions** | **list[str]** | Optional list of extensions for file. The check for extension is case-insensitive. | [optional] 
 **handler** | [**list[IOAliasHandler]**](IOAliasHandler.md) | List of process actions to process the input or output value. | 
