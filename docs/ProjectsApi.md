@@ -1125,7 +1125,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_project_recipes**
-> RepositoryList get_project_recipes(owner, name, page=page, per_page=per_page)
+> RecipeInterfaceList get_project_recipes(owner, name, search=search, page=page, per_page=per_page)
 
 Get project recipes
 
@@ -1172,12 +1172,13 @@ with pollination_sdk.ApiClient(configuration) as api_client:
     api_instance = pollination_sdk.ProjectsApi(api_client)
     owner = 'owner_example' # str | 
 name = 'name_example' # str | 
+search = 'search_example' # str |  (optional)
 page = 1 # int | Page number starting from 1 (optional) (default to 1)
 per_page = 25 # int | Number of items per page (optional) (default to 25)
 
     try:
         # Get project recipes
-        api_response = api_instance.get_project_recipes(owner, name, page=page, per_page=per_page)
+        api_response = api_instance.get_project_recipes(owner, name, search=search, page=page, per_page=per_page)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ProjectsApi->get_project_recipes: %s\n" % e)
@@ -1222,12 +1223,13 @@ with pollination_sdk.ApiClient(configuration) as api_client:
     api_instance = pollination_sdk.ProjectsApi(api_client)
     owner = 'owner_example' # str | 
 name = 'name_example' # str | 
+search = 'search_example' # str |  (optional)
 page = 1 # int | Page number starting from 1 (optional) (default to 1)
 per_page = 25 # int | Number of items per page (optional) (default to 25)
 
     try:
         # Get project recipes
-        api_response = api_instance.get_project_recipes(owner, name, page=page, per_page=per_page)
+        api_response = api_instance.get_project_recipes(owner, name, search=search, page=page, per_page=per_page)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ProjectsApi->get_project_recipes: %s\n" % e)
@@ -1239,12 +1241,13 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **name** | **str**|  | 
+ **search** | **str**|  | [optional] 
  **page** | **int**| Page number starting from 1 | [optional] [default to 1]
  **per_page** | **int**| Number of items per page | [optional] [default to 25]
 
 ### Return type
 
-[**RepositoryList**](RepositoryList.md)
+[**RecipeInterfaceList**](RecipeInterfaceList.md)
 
 ### Authorization
 
