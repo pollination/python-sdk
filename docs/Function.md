@@ -4,11 +4,13 @@ A Function with a single command
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**command** | **str** | Full shell command for this function. Each function accepts only one command. The command will be executed as a shell command in operator. For running several commands after each other use &amp;&amp; between the commands or pipe data from one to another using | | 
+**annotations** | **dict(str, str)** | An optional dictionary to add annotations to inputs. These annotations will be used by the client side libraries. | [optional] 
+**command** | **str** | Full shell command for this function. Each function accepts only one command. The command will be executed as a shell command in plugin. For running several commands after each other use &amp;&amp; between the commands or pipe data from one to another using | | 
 **description** | **str** | Function description. A short human readable description for this function. | [optional] 
-**inputs** | [**FunctionInputs**](FunctionInputs.md) | Input arguments for this function. | [optional] 
-**name** | **str** | Function name. Must be unique within an operator. | 
-**outputs** | [**FunctionOutputs**](FunctionOutputs.md) | List of output arguments. | [optional] 
+**inputs** | [**list[AnyOfFunctionStringInputFunctionIntegerInputFunctionNumberInputFunctionBooleanInputFunctionFolderInputFunctionFileInputFunctionPathInputFunctionArrayInputFunctionJSONObjectInput]**](AnyOfFunctionStringInputFunctionIntegerInputFunctionNumberInputFunctionBooleanInputFunctionFolderInputFunctionFileInputFunctionPathInputFunctionArrayInputFunctionJSONObjectInput.md) | Input arguments for this function. | [optional] 
+**name** | **str** | Function name. Must be unique within a plugin. | 
+**outputs** | [**list[AnyOfFunctionStringOutputFunctionIntegerOutputFunctionNumberOutputFunctionBooleanOutputFunctionFolderOutputFunctionFileOutputFunctionPathOutputFunctionArrayOutputFunctionJSONObjectOutput]**](AnyOfFunctionStringOutputFunctionIntegerOutputFunctionNumberOutputFunctionBooleanOutputFunctionFolderOutputFunctionFileOutputFunctionPathOutputFunctionArrayOutputFunctionJSONObjectOutput.md) | List of output arguments. | [optional] 
+**type** | **str** |  | [optional] [readonly] [default to 'Function']
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

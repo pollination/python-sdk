@@ -804,7 +804,7 @@ with pollination_sdk.ApiClient(configuration) as api_client:
     org_name = 'org_name_example' # str | 
 team_slug = 'team_slug_example' # str | 
 username = 'username_example' # str | 
-role = pollination_sdk.TeamRoleEnum() # TeamRoleEnum | 
+role = 'role_example' # str | 
 
     try:
         # Add or update the role of an Team Member
@@ -854,7 +854,7 @@ with pollination_sdk.ApiClient(configuration) as api_client:
     org_name = 'org_name_example' # str | 
 team_slug = 'team_slug_example' # str | 
 username = 'username_example' # str | 
-role = pollination_sdk.TeamRoleEnum() # TeamRoleEnum | 
+role = 'role_example' # str | 
 
     try:
         # Add or update the role of an Team Member
@@ -871,7 +871,7 @@ Name | Type | Description  | Notes
  **org_name** | **str**|  | 
  **team_slug** | **str**|  | 
  **username** | **str**|  | 
- **role** | [**TeamRoleEnum**](.md)|  | 
+ **role** | **str**|  | 
 
 ### Return type
 

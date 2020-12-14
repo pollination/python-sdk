@@ -854,7 +854,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_recipe_by_tag**
-> RecipePackage get_recipe_by_tag(owner, name, tag)
+> RecipeInterface get_recipe_by_tag(owner, name, tag)
 
 Get a recipe tag
 
@@ -970,7 +970,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RecipePackage**](RecipePackage.md)
+[**RecipeInterface**](RecipeInterface.md)
 
 ### Authorization
 
@@ -994,7 +994,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_recipe_tags**
-> RepositoryPackageList list_recipe_tags(owner, name)
+> RecipeInterfaceList list_recipe_tags(owner, name)
 
 Get a recipe tags
 
@@ -1107,7 +1107,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RepositoryPackageList**](RepositoryPackageList.md)
+[**RecipeInterfaceList**](RecipeInterfaceList.md)
 
 ### Authorization
 

@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **name** | **str** | The display name for this org | 
 **owner** | [**AccountPublic**](AccountPublic.md) | The account the organization represents | 
 **picture** | **str** | URL to the picture associated with this org | 
+**role** | **str** | The role the user has within the organization | [optional] 
 **team_count** | **int** | The number of teams that are part of this org | [optional] [default to 0]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
