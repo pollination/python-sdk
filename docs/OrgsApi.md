@@ -935,7 +935,7 @@ with pollination_sdk.ApiClient(configuration) as api_client:
     api_instance = pollination_sdk.OrgsApi(api_client)
     name = 'name_example' # str | 
 username = 'username_example' # str | 
-role = 'role_example' # str | 
+role = pollination_sdk.OrganizationRoleEnum() # OrganizationRoleEnum | 
 
     try:
         # Add or update the role of an Org Member
@@ -984,7 +984,7 @@ with pollination_sdk.ApiClient(configuration) as api_client:
     api_instance = pollination_sdk.OrgsApi(api_client)
     name = 'name_example' # str | 
 username = 'username_example' # str | 
-role = 'role_example' # str | 
+role = pollination_sdk.OrganizationRoleEnum() # OrganizationRoleEnum | 
 
     try:
         # Add or update the role of an Org Member
@@ -1000,7 +1000,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **str**|  | 
  **username** | **str**|  | 
- **role** | **str**|  | 
+ **role** | [**OrganizationRoleEnum**](.md)|  | 
 
 ### Return type
 

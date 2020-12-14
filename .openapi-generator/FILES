@@ -61,6 +61,7 @@ docs/DAGStringOutputAlias.md
 docs/DAGTask.md
 docs/DAGTaskLoop.md
 docs/Dependency.md
+docs/DependencyKind.md
 docs/DockerConfig.md
 docs/FileMeta.md
 docs/FileReference.md
@@ -92,6 +93,7 @@ docs/InputFolderReference.md
 docs/InputPathReference.md
 docs/InputReference.md
 docs/ItemReference.md
+docs/ItemType.md
 docs/Job.md
 docs/JobArgument.md
 docs/JobList.md
@@ -110,9 +112,11 @@ docs/OrganizationCreate.md
 docs/OrganizationList.md
 docs/OrganizationMember.md
 docs/OrganizationMemberList.md
+docs/OrganizationRoleEnum.md
 docs/OrganizationUpdate.md
 docs/OrgsApi.md
 docs/PackageVersion.md
+docs/Permission.md
 docs/Plugin.md
 docs/PluginConfig.md
 docs/PluginList.md
@@ -149,6 +153,7 @@ docs/RepositoryUserPermissions.md
 docs/Run.md
 docs/S3.md
 docs/S3UploadRequest.md
+docs/StatusType.md
 docs/StepArrayInput.md
 docs/StepArrayOutput.md
 docs/StepBooleanInput.md
@@ -169,6 +174,7 @@ docs/StepPathOutput.md
 docs/StepStatus.md
 docs/StepStringInput.md
 docs/StepStringOutput.md
+docs/SubjectType.md
 docs/TaskArgument.md
 docs/TaskFileReference.md
 docs/TaskFolderReference.md
@@ -182,6 +188,7 @@ docs/TeamCreate.md
 docs/TeamList.md
 docs/TeamMember.md
 docs/TeamMemberList.md
+docs/TeamRoleEnum.md
 docs/TeamUpdate.md
 docs/TeamsApi.md
 docs/UpdateAccepted.md
@@ -270,6 +277,7 @@ pollination_sdk/models/dagjson_object_input_alias.py
 pollination_sdk/models/dagjson_object_output.py
 pollination_sdk/models/dagjson_object_output_alias.py
 pollination_sdk/models/dependency.py
+pollination_sdk/models/dependency_kind.py
 pollination_sdk/models/docker_config.py
 pollination_sdk/models/file_meta.py
 pollination_sdk/models/file_reference.py
@@ -301,6 +309,7 @@ pollination_sdk/models/input_path_reference.py
 pollination_sdk/models/input_reference.py
 pollination_sdk/models/io_alias_handler.py
 pollination_sdk/models/item_reference.py
+pollination_sdk/models/item_type.py
 pollination_sdk/models/job.py
 pollination_sdk/models/job_argument.py
 pollination_sdk/models/job_list.py
@@ -318,8 +327,10 @@ pollination_sdk/models/organization_create.py
 pollination_sdk/models/organization_list.py
 pollination_sdk/models/organization_member.py
 pollination_sdk/models/organization_member_list.py
+pollination_sdk/models/organization_role_enum.py
 pollination_sdk/models/organization_update.py
 pollination_sdk/models/package_version.py
+pollination_sdk/models/permission.py
 pollination_sdk/models/plugin.py
 pollination_sdk/models/plugin_config.py
 pollination_sdk/models/plugin_list.py
@@ -352,6 +363,7 @@ pollination_sdk/models/repository_user_permissions.py
 pollination_sdk/models/run.py
 pollination_sdk/models/s3.py
 pollination_sdk/models/s3_upload_request.py
+pollination_sdk/models/status_type.py
 pollination_sdk/models/step_array_input.py
 pollination_sdk/models/step_array_output.py
 pollination_sdk/models/step_boolean_input.py
@@ -372,6 +384,7 @@ pollination_sdk/models/step_path_output.py
 pollination_sdk/models/step_status.py
 pollination_sdk/models/step_string_input.py
 pollination_sdk/models/step_string_output.py
+pollination_sdk/models/subject_type.py
 pollination_sdk/models/task_argument.py
 pollination_sdk/models/task_file_reference.py
 pollination_sdk/models/task_folder_reference.py
@@ -385,6 +398,7 @@ pollination_sdk/models/team_create.py
 pollination_sdk/models/team_list.py
 pollination_sdk/models/team_member.py
 pollination_sdk/models/team_member_list.py
+pollination_sdk/models/team_role_enum.py
 pollination_sdk/models/team_update.py
 pollination_sdk/models/update_accepted.py
 pollination_sdk/models/user_metadata.py
@@ -460,6 +474,7 @@ test/test_dagjson_object_input_alias.py
 test/test_dagjson_object_output.py
 test/test_dagjson_object_output_alias.py
 test/test_dependency.py
+test/test_dependency_kind.py
 test/test_docker_config.py
 test/test_file_meta.py
 test/test_file_reference.py
@@ -491,6 +506,7 @@ test/test_input_path_reference.py
 test/test_input_reference.py
 test/test_io_alias_handler.py
 test/test_item_reference.py
+test/test_item_type.py
 test/test_job.py
 test/test_job_argument.py
 test/test_job_list.py
@@ -509,9 +525,11 @@ test/test_organization_create.py
 test/test_organization_list.py
 test/test_organization_member.py
 test/test_organization_member_list.py
+test/test_organization_role_enum.py
 test/test_organization_update.py
 test/test_orgs_api.py
 test/test_package_version.py
+test/test_permission.py
 test/test_plugin.py
 test/test_plugin_config.py
 test/test_plugin_list.py
@@ -548,6 +566,7 @@ test/test_repository_user_permissions.py
 test/test_run.py
 test/test_s3.py
 test/test_s3_upload_request.py
+test/test_status_type.py
 test/test_step_array_input.py
 test/test_step_array_output.py
 test/test_step_boolean_input.py
@@ -568,6 +587,7 @@ test/test_step_path_output.py
 test/test_step_status.py
 test/test_step_string_input.py
 test/test_step_string_output.py
+test/test_subject_type.py
 test/test_task_argument.py
 test/test_task_file_reference.py
 test/test_task_folder_reference.py
@@ -581,6 +601,7 @@ test/test_team_create.py
 test/test_team_list.py
 test/test_team_member.py
 test/test_team_member_list.py
+test/test_team_role_enum.py
 test/test_team_update.py
 test/test_teams_api.py
 test/test_update_accepted.py
