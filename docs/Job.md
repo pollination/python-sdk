@@ -5,7 +5,7 @@ Queenbee Job.  A Job is an object to submit a list of arguments to execute a Que
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **annotations** | **dict(str, str)** | An optional dictionary to add annotations to inputs. These annotations will be used by the client side libraries. | [optional] 
-**api_version** | **str** |  | [optional] [default to 'v1beta1']
+**api_version** | **str** |  | [optional] [readonly] [default to 'v1beta1']
 **arguments** | [**list[AnyOfJobArgumentJobPathArgument]**](AnyOfJobArgumentJobPathArgument.md) | Input arguments for this job. | [optional] 
 **description** | **str** | Run description. | [optional] 
 **labels** | **dict(str, str)** | Optional user data as a dictionary. User data is for user reference only and will not be used in the execution of the job. | [optional] 

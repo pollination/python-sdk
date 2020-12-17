@@ -5,7 +5,7 @@ A searchable index for a Queenbee Plugin and Recipe repository
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **annotations** | **dict(str, str)** | An optional dictionary to add annotations to inputs. These annotations will be used by the client side libraries. | [optional] 
-**api_version** | **str** |  | [optional] [default to 'v1beta1']
+**api_version** | **str** |  | [optional] [readonly] [default to 'v1beta1']
 **generated** | **datetime** | The timestamp at which the index was generated | [optional] 
 **metadata** | [**RepositoryMetadata**](RepositoryMetadata.md) | Extra information about the repository | [optional] 
 **plugin** | **dict(str, list[PackageVersion])** | A dict of plugins accessible by name. Each name key points to a list of plugin versions | [optional] 

@@ -854,7 +854,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_recipe_by_tag**
-> RecipeInterface get_recipe_by_tag(owner, name, tag)
+> RecipePackage get_recipe_by_tag(owner, name, tag)
 
 Get a recipe tag
 
@@ -970,7 +970,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RecipeInterface**](RecipeInterface.md)
+[**RecipePackage**](RecipePackage.md)
 
 ### Authorization
 
@@ -994,7 +994,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_recipe_tags**
-> RecipeInterfaceList list_recipe_tags(owner, name)
+> RecipePackageList list_recipe_tags(owner, name, page=page, per_page=per_page)
 
 Get a recipe tags
 
@@ -1041,10 +1041,12 @@ with pollination_sdk.ApiClient(configuration) as api_client:
     api_instance = pollination_sdk.RecipesApi(api_client)
     owner = 'owner_example' # str | 
 name = 'name_example' # str | 
+page = 1 # int | Page number starting from 1 (optional) (default to 1)
+per_page = 25 # int | Number of items per page (optional) (default to 25)
 
     try:
         # Get a recipe tags
-        api_response = api_instance.list_recipe_tags(owner, name)
+        api_response = api_instance.list_recipe_tags(owner, name, page=page, per_page=per_page)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling RecipesApi->list_recipe_tags: %s\n" % e)
@@ -1089,10 +1091,12 @@ with pollination_sdk.ApiClient(configuration) as api_client:
     api_instance = pollination_sdk.RecipesApi(api_client)
     owner = 'owner_example' # str | 
 name = 'name_example' # str | 
+page = 1 # int | Page number starting from 1 (optional) (default to 1)
+per_page = 25 # int | Number of items per page (optional) (default to 25)
 
     try:
         # Get a recipe tags
-        api_response = api_instance.list_recipe_tags(owner, name)
+        api_response = api_instance.list_recipe_tags(owner, name, page=page, per_page=per_page)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling RecipesApi->list_recipe_tags: %s\n" % e)
@@ -1104,10 +1108,12 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **name** | **str**|  | 
+ **page** | **int**| Page number starting from 1 | [optional] [default to 1]
+ **per_page** | **int**| Number of items per page | [optional] [default to 25]
 
 ### Return type
 
-[**RecipeInterfaceList**](RecipeInterfaceList.md)
+[**RecipePackageList**](RecipePackageList.md)
 
 ### Authorization
 
