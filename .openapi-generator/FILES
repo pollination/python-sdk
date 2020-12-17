@@ -119,7 +119,8 @@ docs/PackageVersion.md
 docs/Permission.md
 docs/Plugin.md
 docs/PluginConfig.md
-docs/PluginList.md
+docs/PluginPackage.md
+docs/PluginPackageList.md
 docs/PluginsApi.md
 docs/PolicySubject.md
 docs/Project.md
@@ -138,6 +139,8 @@ docs/PublicAccountList.md
 docs/Recipe.md
 docs/RecipeInterface.md
 docs/RecipeInterfaceList.md
+docs/RecipePackage.md
+docs/RecipePackageList.md
 docs/RecipesApi.md
 docs/RegistriesApi.md
 docs/Repository.md
@@ -333,7 +336,8 @@ pollination_sdk/models/package_version.py
 pollination_sdk/models/permission.py
 pollination_sdk/models/plugin.py
 pollination_sdk/models/plugin_config.py
-pollination_sdk/models/plugin_list.py
+pollination_sdk/models/plugin_package.py
+pollination_sdk/models/plugin_package_list.py
 pollination_sdk/models/policy_subject.py
 pollination_sdk/models/project.py
 pollination_sdk/models/project_access_policy.py
@@ -350,6 +354,8 @@ pollination_sdk/models/public_account_list.py
 pollination_sdk/models/recipe.py
 pollination_sdk/models/recipe_interface.py
 pollination_sdk/models/recipe_interface_list.py
+pollination_sdk/models/recipe_package.py
+pollination_sdk/models/recipe_package_list.py
 pollination_sdk/models/repository.py
 pollination_sdk/models/repository_access_policy.py
 pollination_sdk/models/repository_access_policy_list.py
@@ -532,7 +538,8 @@ test/test_package_version.py
 test/test_permission.py
 test/test_plugin.py
 test/test_plugin_config.py
-test/test_plugin_list.py
+test/test_plugin_package.py
+test/test_plugin_package_list.py
 test/test_plugins_api.py
 test/test_policy_subject.py
 test/test_project.py
@@ -551,6 +558,8 @@ test/test_public_account_list.py
 test/test_recipe.py
 test/test_recipe_interface.py
 test/test_recipe_interface_list.py
+test/test_recipe_package.py
+test/test_recipe_package_list.py
 test/test_recipes_api.py
 test/test_registries_api.py
 test/test_repository.py

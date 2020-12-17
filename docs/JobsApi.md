@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 
 # **create_job**
-> CreatedContent create_job(owner, name, job, authorization=authorization)
+> CreatedContent create_job(owner, name, job, authorization=authorization, x_pollination_token=x_pollination_token)
 
 Schedule a job
 
@@ -67,10 +67,11 @@ with pollination_sdk.ApiClient(configuration) as api_client:
 name = 'name_example' # str | 
 job = pollination_sdk.Job() # Job | 
 authorization = 'authorization_example' # str |  (optional)
+x_pollination_token = 'x_pollination_token_example' # str |  (optional)
 
     try:
         # Schedule a job
-        api_response = api_instance.create_job(owner, name, job, authorization=authorization)
+        api_response = api_instance.create_job(owner, name, job, authorization=authorization, x_pollination_token=x_pollination_token)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling JobsApi->create_job: %s\n" % e)
@@ -117,10 +118,11 @@ with pollination_sdk.ApiClient(configuration) as api_client:
 name = 'name_example' # str | 
 job = pollination_sdk.Job() # Job | 
 authorization = 'authorization_example' # str |  (optional)
+x_pollination_token = 'x_pollination_token_example' # str |  (optional)
 
     try:
         # Schedule a job
-        api_response = api_instance.create_job(owner, name, job, authorization=authorization)
+        api_response = api_instance.create_job(owner, name, job, authorization=authorization, x_pollination_token=x_pollination_token)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling JobsApi->create_job: %s\n" % e)
@@ -134,6 +136,7 @@ Name | Type | Description  | Notes
  **name** | **str**|  | 
  **job** | [**Job**](Job.md)|  | 
  **authorization** | **str**|  | [optional] 
+ **x_pollination_token** | **str**|  | [optional] 
 
 ### Return type
 

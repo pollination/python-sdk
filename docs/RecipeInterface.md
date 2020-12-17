@@ -5,7 +5,7 @@ An interface object for creating a Recipe.  Recipe information only includes met
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **annotations** | **dict(str, str)** | An optional dictionary to add annotations to inputs. These annotations will be used by the client side libraries. | [optional] 
-**api_version** | **str** |  | [optional] [default to 'v1beta1']
+**api_version** | **str** |  | [optional] [readonly] [default to 'v1beta1']
 **inputs** | [**list[AnyOfDAGGenericInputDAGStringInputDAGIntegerInputDAGNumberInputDAGBooleanInputDAGFolderInputDAGFileInputDAGPathInputDAGArrayInputDAGJSONObjectInput]**](AnyOfDAGGenericInputDAGStringInputDAGIntegerInputDAGNumberInputDAGBooleanInputDAGFolderInputDAGFileInputDAGPathInputDAGArrayInputDAGJSONObjectInput.md) | A list of recipe inputs. | [optional] 
 **metadata** | [**MetaData**](MetaData.md) | Recipe metadata information. | 
 **outputs** | [**list[AnyOfDAGGenericOutputDAGStringOutputDAGIntegerOutputDAGNumberOutputDAGBooleanOutputDAGFolderOutputDAGFileOutputDAGPathOutputDAGArrayOutputDAGJSONObjectOutput]**](AnyOfDAGGenericOutputDAGStringOutputDAGIntegerOutputDAGNumberOutputDAGBooleanOutputDAGFolderOutputDAGFileOutputDAGPathOutputDAGArrayOutputDAGJSONObjectOutput.md) | A list of recipe outputs. | [optional] 
