@@ -96,10 +96,8 @@ docs/ItemReference.md
 docs/ItemType.md
 docs/Job.md
 docs/JobArgument.md
-docs/JobList.md
 docs/JobPathArgument.md
 docs/JobStatus.md
-docs/JobsApi.md
 docs/KeyRequest.md
 docs/License.md
 docs/LocalConfig.md
@@ -154,6 +152,8 @@ docs/RepositoryPolicySubject.md
 docs/RepositoryUpdate.md
 docs/RepositoryUserPermissions.md
 docs/Run.md
+docs/RunList.md
+docs/RunsApi.md
 docs/S3.md
 docs/S3UploadRequest.md
 docs/StatusType.md
@@ -212,12 +212,12 @@ pollination_sdk/api/__init__.py
 pollination_sdk/api/accounts_api.py
 pollination_sdk/api/api_tokens_api.py
 pollination_sdk/api/artifacts_api.py
-pollination_sdk/api/jobs_api.py
 pollination_sdk/api/orgs_api.py
 pollination_sdk/api/plugins_api.py
 pollination_sdk/api/projects_api.py
 pollination_sdk/api/recipes_api.py
 pollination_sdk/api/registries_api.py
+pollination_sdk/api/runs_api.py
 pollination_sdk/api/teams_api.py
 pollination_sdk/api/user_api.py
 pollination_sdk/api/users_api.py
@@ -315,7 +315,6 @@ pollination_sdk/models/item_reference.py
 pollination_sdk/models/item_type.py
 pollination_sdk/models/job.py
 pollination_sdk/models/job_argument.py
-pollination_sdk/models/job_list.py
 pollination_sdk/models/job_path_argument.py
 pollination_sdk/models/job_status.py
 pollination_sdk/models/key_request.py
@@ -367,6 +366,7 @@ pollination_sdk/models/repository_policy_subject.py
 pollination_sdk/models/repository_update.py
 pollination_sdk/models/repository_user_permissions.py
 pollination_sdk/models/run.py
+pollination_sdk/models/run_list.py
 pollination_sdk/models/s3.py
 pollination_sdk/models/s3_upload_request.py
 pollination_sdk/models/status_type.py
@@ -515,10 +515,8 @@ test/test_item_reference.py
 test/test_item_type.py
 test/test_job.py
 test/test_job_argument.py
-test/test_job_list.py
 test/test_job_path_argument.py
 test/test_job_status.py
-test/test_jobs_api.py
 test/test_key_request.py
 test/test_license.py
 test/test_local_config.py
@@ -573,6 +571,8 @@ test/test_repository_policy_subject.py
 test/test_repository_update.py
 test/test_repository_user_permissions.py
 test/test_run.py
+test/test_run_list.py
+test/test_runs_api.py
 test/test_s3.py
 test/test_s3_upload_request.py
 test/test_status_type.py
