@@ -1,4 +1,4 @@
-# JobList
+# RunList
 
 A list response from a pagination request
 ## Properties

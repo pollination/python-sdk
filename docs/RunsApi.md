@@ -1,28 +1,28 @@
-# pollination_sdk.JobsApi
+# pollination_sdk.RunsApi
 
 All URIs are relative to *https://api.pollination.cloud*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_job**](JobsApi.md#create_job) | **POST** /projects/{owner}/{name}/jobs | Schedule a job
-[**download_job_artifact**](JobsApi.md#download_job_artifact) | **GET** /projects/{owner}/{name}/jobs/{job_id}/artifacts/download | Download an artifact from the job folder
-[**get_job**](JobsApi.md#get_job) | **GET** /projects/{owner}/{name}/jobs/{job_id} | Get a Job
-[**get_job_output**](JobsApi.md#get_job_output) | **GET** /projects/{owner}/{name}/jobs/{job_id}/outputs/{output_name} | Get job output by name
-[**get_job_step_logs**](JobsApi.md#get_job_step_logs) | **GET** /projects/{owner}/{name}/jobs/{job_id}/steps/{step_id}/logs | Get the logs of a specific step of the job
-[**get_job_steps**](JobsApi.md#get_job_steps) | **GET** /projects/{owner}/{name}/jobs/{job_id}/steps | Query the steps of a job
-[**list_job_artifacts**](JobsApi.md#list_job_artifacts) | **GET** /projects/{owner}/{name}/jobs/{job_id}/artifacts | List artifacts in a job folder
-[**list_jobs**](JobsApi.md#list_jobs) | **GET** /projects/{owner}/{name}/jobs | List jobs
-[**resume_job**](JobsApi.md#resume_job) | **PUT** /projects/{owner}/{name}/jobs/{job_id}/resume | resume a job
-[**stop_job**](JobsApi.md#stop_job) | **PUT** /projects/{owner}/{name}/jobs/{job_id}/stop | Stop a job
-[**suspend_job**](JobsApi.md#suspend_job) | **PUT** /projects/{owner}/{name}/jobs/{job_id}/suspend | Suspend a job
+[**create_run**](RunsApi.md#create_run) | **POST** /projects/{owner}/{name}/runs | Schedule a run
+[**download_run_artifact**](RunsApi.md#download_run_artifact) | **GET** /projects/{owner}/{name}/runs/{run_id}/artifacts/download | Download an artifact from the run folder
+[**get_run**](RunsApi.md#get_run) | **GET** /projects/{owner}/{name}/runs/{run_id} | Get a Run
+[**get_run_output**](RunsApi.md#get_run_output) | **GET** /projects/{owner}/{name}/runs/{run_id}/outputs/{output_name} | Get run output by name
+[**get_run_step_logs**](RunsApi.md#get_run_step_logs) | **GET** /projects/{owner}/{name}/runs/{run_id}/steps/{step_id}/logs | Get the logs of a specific step of the run
+[**get_run_steps**](RunsApi.md#get_run_steps) | **GET** /projects/{owner}/{name}/runs/{run_id}/steps | Query the steps of a run
+[**list_run_artifacts**](RunsApi.md#list_run_artifacts) | **GET** /projects/{owner}/{name}/runs/{run_id}/artifacts | List artifacts in a run folder
+[**list_runs**](RunsApi.md#list_runs) | **GET** /projects/{owner}/{name}/runs | List runs
+[**resume_run**](RunsApi.md#resume_run) | **PUT** /projects/{owner}/{name}/runs/{run_id}/resume | resume a run
+[**stop_run**](RunsApi.md#stop_run) | **PUT** /projects/{owner}/{name}/runs/{run_id}/stop | Stop a run
+[**suspend_run**](RunsApi.md#suspend_run) | **PUT** /projects/{owner}/{name}/runs/{run_id}/suspend | Suspend a run
 
 
-# **create_job**
-> CreatedContent create_job(owner, name, job, authorization=authorization, x_pollination_token=x_pollination_token)
+# **create_run**
+> CreatedContent create_run(owner, name, job, authorization=authorization, x_pollination_token=x_pollination_token)
 
-Schedule a job
+Schedule a run
 
-Create a new job.
+Create a new run.
 
 ### Example
 
@@ -62,7 +62,7 @@ configuration = pollination_sdk.Configuration(
 # Enter a context with an instance of the API client
 with pollination_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = pollination_sdk.JobsApi(api_client)
+    api_instance = pollination_sdk.RunsApi(api_client)
     owner = 'owner_example' # str | 
 name = 'name_example' # str | 
 job = pollination_sdk.Job() # Job | 
@@ -70,11 +70,11 @@ authorization = 'authorization_example' # str |  (optional)
 x_pollination_token = 'x_pollination_token_example' # str |  (optional)
 
     try:
-        # Schedule a job
-        api_response = api_instance.create_job(owner, name, job, authorization=authorization, x_pollination_token=x_pollination_token)
+        # Schedule a run
+        api_response = api_instance.create_run(owner, name, job, authorization=authorization, x_pollination_token=x_pollination_token)
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling JobsApi->create_job: %s\n" % e)
+        print("Exception when calling RunsApi->create_run: %s\n" % e)
 ```
 
 * Bearer Authentication (JWTAuth):
@@ -113,7 +113,7 @@ configuration = pollination_sdk.Configuration(
 # Enter a context with an instance of the API client
 with pollination_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = pollination_sdk.JobsApi(api_client)
+    api_instance = pollination_sdk.RunsApi(api_client)
     owner = 'owner_example' # str | 
 name = 'name_example' # str | 
 job = pollination_sdk.Job() # Job | 
@@ -121,11 +121,11 @@ authorization = 'authorization_example' # str |  (optional)
 x_pollination_token = 'x_pollination_token_example' # str |  (optional)
 
     try:
-        # Schedule a job
-        api_response = api_instance.create_job(owner, name, job, authorization=authorization, x_pollination_token=x_pollination_token)
+        # Schedule a run
+        api_response = api_instance.create_run(owner, name, job, authorization=authorization, x_pollination_token=x_pollination_token)
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling JobsApi->create_job: %s\n" % e)
+        print("Exception when calling RunsApi->create_run: %s\n" % e)
 ```
 
 ### Parameters
@@ -159,12 +159,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **download_job_artifact**
-> object download_job_artifact(owner, name, job_id, path=path)
+# **download_run_artifact**
+> object download_run_artifact(owner, name, run_id, path=path)
 
-Download an artifact from the job folder
+Download an artifact from the run folder
 
-Get a download link for an artifact in a job folder
+Get a download link for an artifact in a run folder
 
 ### Example
 
@@ -204,18 +204,18 @@ configuration = pollination_sdk.Configuration(
 # Enter a context with an instance of the API client
 with pollination_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = pollination_sdk.JobsApi(api_client)
+    api_instance = pollination_sdk.RunsApi(api_client)
     owner = 'owner_example' # str | 
 name = 'name_example' # str | 
-job_id = 'job_id_example' # str | 
+run_id = 'run_id_example' # str | 
 path = 'path_example' # str | The path to an file within a project folder (optional)
 
     try:
-        # Download an artifact from the job folder
-        api_response = api_instance.download_job_artifact(owner, name, job_id, path=path)
+        # Download an artifact from the run folder
+        api_response = api_instance.download_run_artifact(owner, name, run_id, path=path)
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling JobsApi->download_job_artifact: %s\n" % e)
+        print("Exception when calling RunsApi->download_run_artifact: %s\n" % e)
 ```
 
 * Bearer Authentication (JWTAuth):
@@ -254,18 +254,18 @@ configuration = pollination_sdk.Configuration(
 # Enter a context with an instance of the API client
 with pollination_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = pollination_sdk.JobsApi(api_client)
+    api_instance = pollination_sdk.RunsApi(api_client)
     owner = 'owner_example' # str | 
 name = 'name_example' # str | 
-job_id = 'job_id_example' # str | 
+run_id = 'run_id_example' # str | 
 path = 'path_example' # str | The path to an file within a project folder (optional)
 
     try:
-        # Download an artifact from the job folder
-        api_response = api_instance.download_job_artifact(owner, name, job_id, path=path)
+        # Download an artifact from the run folder
+        api_response = api_instance.download_run_artifact(owner, name, run_id, path=path)
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling JobsApi->download_job_artifact: %s\n" % e)
+        print("Exception when calling RunsApi->download_run_artifact: %s\n" % e)
 ```
 
 ### Parameters
@@ -274,7 +274,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **name** | **str**|  | 
- **job_id** | **str**|  | 
+ **run_id** | **str**|  | 
  **path** | **str**| The path to an file within a project folder | [optional] 
 
 ### Return type
@@ -302,12 +302,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_job**
-> Run get_job(owner, name, job_id)
+# **get_run**
+> Run get_run(owner, name, run_id)
 
-Get a Job
+Get a Run
 
-Retrieve a job.
+Retrieve a run.
 
 ### Example
 
@@ -347,17 +347,17 @@ configuration = pollination_sdk.Configuration(
 # Enter a context with an instance of the API client
 with pollination_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = pollination_sdk.JobsApi(api_client)
+    api_instance = pollination_sdk.RunsApi(api_client)
     owner = 'owner_example' # str | 
 name = 'name_example' # str | 
-job_id = 'job_id_example' # str | 
+run_id = 'run_id_example' # str | 
 
     try:
-        # Get a Job
-        api_response = api_instance.get_job(owner, name, job_id)
+        # Get a Run
+        api_response = api_instance.get_run(owner, name, run_id)
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling JobsApi->get_job: %s\n" % e)
+        print("Exception when calling RunsApi->get_run: %s\n" % e)
 ```
 
 * Bearer Authentication (JWTAuth):
@@ -396,17 +396,17 @@ configuration = pollination_sdk.Configuration(
 # Enter a context with an instance of the API client
 with pollination_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = pollination_sdk.JobsApi(api_client)
+    api_instance = pollination_sdk.RunsApi(api_client)
     owner = 'owner_example' # str | 
 name = 'name_example' # str | 
-job_id = 'job_id_example' # str | 
+run_id = 'run_id_example' # str | 
 
     try:
-        # Get a Job
-        api_response = api_instance.get_job(owner, name, job_id)
+        # Get a Run
+        api_response = api_instance.get_run(owner, name, run_id)
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling JobsApi->get_job: %s\n" % e)
+        print("Exception when calling RunsApi->get_run: %s\n" % e)
 ```
 
 ### Parameters
@@ -415,7 +415,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **name** | **str**|  | 
- **job_id** | **str**|  | 
+ **run_id** | **str**|  | 
 
 ### Return type
 
@@ -438,12 +438,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_job_output**
-> object get_job_output(owner, name, job_id, output_name)
+# **get_run_output**
+> object get_run_output(owner, name, run_id, output_name)
 
-Get job output by name
+Get run output by name
 
-get job output by name
+get run output by name
 
 ### Example
 
@@ -483,18 +483,18 @@ configuration = pollination_sdk.Configuration(
 # Enter a context with an instance of the API client
 with pollination_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = pollination_sdk.JobsApi(api_client)
+    api_instance = pollination_sdk.RunsApi(api_client)
     owner = 'owner_example' # str | 
 name = 'name_example' # str | 
-job_id = 'job_id_example' # str | 
+run_id = 'run_id_example' # str | 
 output_name = 'output_name_example' # str | 
 
     try:
-        # Get job output by name
-        api_response = api_instance.get_job_output(owner, name, job_id, output_name)
+        # Get run output by name
+        api_response = api_instance.get_run_output(owner, name, run_id, output_name)
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling JobsApi->get_job_output: %s\n" % e)
+        print("Exception when calling RunsApi->get_run_output: %s\n" % e)
 ```
 
 * Bearer Authentication (JWTAuth):
@@ -533,18 +533,18 @@ configuration = pollination_sdk.Configuration(
 # Enter a context with an instance of the API client
 with pollination_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = pollination_sdk.JobsApi(api_client)
+    api_instance = pollination_sdk.RunsApi(api_client)
     owner = 'owner_example' # str | 
 name = 'name_example' # str | 
-job_id = 'job_id_example' # str | 
+run_id = 'run_id_example' # str | 
 output_name = 'output_name_example' # str | 
 
     try:
-        # Get job output by name
-        api_response = api_instance.get_job_output(owner, name, job_id, output_name)
+        # Get run output by name
+        api_response = api_instance.get_run_output(owner, name, run_id, output_name)
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling JobsApi->get_job_output: %s\n" % e)
+        print("Exception when calling RunsApi->get_run_output: %s\n" % e)
 ```
 
 ### Parameters
@@ -553,7 +553,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **name** | **str**|  | 
- **job_id** | **str**|  | 
+ **run_id** | **str**|  | 
  **output_name** | **str**|  | 
 
 ### Return type
@@ -581,12 +581,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_job_step_logs**
-> str get_job_step_logs(owner, name, job_id, step_id)
+# **get_run_step_logs**
+> str get_run_step_logs(owner, name, run_id, step_id)
 
-Get the logs of a specific step of the job
+Get the logs of a specific step of the run
 
-get job step logs
+get run step logs
 
 ### Example
 
@@ -626,18 +626,18 @@ configuration = pollination_sdk.Configuration(
 # Enter a context with an instance of the API client
 with pollination_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = pollination_sdk.JobsApi(api_client)
+    api_instance = pollination_sdk.RunsApi(api_client)
     owner = 'owner_example' # str | 
 name = 'name_example' # str | 
-job_id = 'job_id_example' # str | 
+run_id = 'run_id_example' # str | 
 step_id = 'step_id_example' # str | 
 
     try:
-        # Get the logs of a specific step of the job
-        api_response = api_instance.get_job_step_logs(owner, name, job_id, step_id)
+        # Get the logs of a specific step of the run
+        api_response = api_instance.get_run_step_logs(owner, name, run_id, step_id)
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling JobsApi->get_job_step_logs: %s\n" % e)
+        print("Exception when calling RunsApi->get_run_step_logs: %s\n" % e)
 ```
 
 * Bearer Authentication (JWTAuth):
@@ -676,18 +676,18 @@ configuration = pollination_sdk.Configuration(
 # Enter a context with an instance of the API client
 with pollination_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = pollination_sdk.JobsApi(api_client)
+    api_instance = pollination_sdk.RunsApi(api_client)
     owner = 'owner_example' # str | 
 name = 'name_example' # str | 
-job_id = 'job_id_example' # str | 
+run_id = 'run_id_example' # str | 
 step_id = 'step_id_example' # str | 
 
     try:
-        # Get the logs of a specific step of the job
-        api_response = api_instance.get_job_step_logs(owner, name, job_id, step_id)
+        # Get the logs of a specific step of the run
+        api_response = api_instance.get_run_step_logs(owner, name, run_id, step_id)
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling JobsApi->get_job_step_logs: %s\n" % e)
+        print("Exception when calling RunsApi->get_run_step_logs: %s\n" % e)
 ```
 
 ### Parameters
@@ -696,7 +696,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **name** | **str**|  | 
- **job_id** | **str**|  | 
+ **run_id** | **str**|  | 
  **step_id** | **str**|  | 
 
 ### Return type
@@ -720,12 +720,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_job_steps**
-> StepList get_job_steps(owner, name, job_id, status=status, step_id=step_id, page=page, per_page=per_page)
+# **get_run_steps**
+> StepList get_run_steps(owner, name, run_id, status=status, step_id=step_id, page=page, per_page=per_page)
 
-Query the steps of a job
+Query the steps of a run
 
-list job steps
+list run steps
 
 ### Example
 
@@ -765,21 +765,21 @@ configuration = pollination_sdk.Configuration(
 # Enter a context with an instance of the API client
 with pollination_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = pollination_sdk.JobsApi(api_client)
+    api_instance = pollination_sdk.RunsApi(api_client)
     owner = 'owner_example' # str | 
 name = 'name_example' # str | 
-job_id = 'job_id_example' # str | 
+run_id = 'run_id_example' # str | 
 status = 'status_example' # str |  (optional)
 step_id = ['step_id_example'] # list[str] |  (optional)
 page = 1 # int | Page number starting from 1 (optional) (default to 1)
 per_page = 25 # int | Number of items per page (optional) (default to 25)
 
     try:
-        # Query the steps of a job
-        api_response = api_instance.get_job_steps(owner, name, job_id, status=status, step_id=step_id, page=page, per_page=per_page)
+        # Query the steps of a run
+        api_response = api_instance.get_run_steps(owner, name, run_id, status=status, step_id=step_id, page=page, per_page=per_page)
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling JobsApi->get_job_steps: %s\n" % e)
+        print("Exception when calling RunsApi->get_run_steps: %s\n" % e)
 ```
 
 * Bearer Authentication (JWTAuth):
@@ -818,21 +818,21 @@ configuration = pollination_sdk.Configuration(
 # Enter a context with an instance of the API client
 with pollination_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = pollination_sdk.JobsApi(api_client)
+    api_instance = pollination_sdk.RunsApi(api_client)
     owner = 'owner_example' # str | 
 name = 'name_example' # str | 
-job_id = 'job_id_example' # str | 
+run_id = 'run_id_example' # str | 
 status = 'status_example' # str |  (optional)
 step_id = ['step_id_example'] # list[str] |  (optional)
 page = 1 # int | Page number starting from 1 (optional) (default to 1)
 per_page = 25 # int | Number of items per page (optional) (default to 25)
 
     try:
-        # Query the steps of a job
-        api_response = api_instance.get_job_steps(owner, name, job_id, status=status, step_id=step_id, page=page, per_page=per_page)
+        # Query the steps of a run
+        api_response = api_instance.get_run_steps(owner, name, run_id, status=status, step_id=step_id, page=page, per_page=per_page)
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling JobsApi->get_job_steps: %s\n" % e)
+        print("Exception when calling RunsApi->get_run_steps: %s\n" % e)
 ```
 
 ### Parameters
@@ -841,7 +841,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **name** | **str**|  | 
- **job_id** | **str**|  | 
+ **run_id** | **str**|  | 
  **status** | **str**|  | [optional] 
  **step_id** | [**list[str]**](str.md)|  | [optional] 
  **page** | **int**| Page number starting from 1 | [optional] [default to 1]
@@ -868,12 +868,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **list_job_artifacts**
-> list[FileMeta] list_job_artifacts(owner, name, job_id, page=page, per_page=per_page, path=path)
+# **list_run_artifacts**
+> list[FileMeta] list_run_artifacts(owner, name, run_id, page=page, per_page=per_page, path=path)
 
-List artifacts in a job folder
+List artifacts in a run folder
 
-Retrieve a list of artifacts in a job folder
+Retrieve a list of artifacts in a run folder
 
 ### Example
 
@@ -913,20 +913,20 @@ configuration = pollination_sdk.Configuration(
 # Enter a context with an instance of the API client
 with pollination_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = pollination_sdk.JobsApi(api_client)
+    api_instance = pollination_sdk.RunsApi(api_client)
     owner = 'owner_example' # str | 
 name = 'name_example' # str | 
-job_id = 'job_id_example' # str | 
+run_id = 'run_id_example' # str | 
 page = 1 # int | Page number starting from 1 (optional) (default to 1)
 per_page = 25 # int | Number of items per page (optional) (default to 25)
 path = ['path_example'] # list[str] | The path to an file within a project folder (optional)
 
     try:
-        # List artifacts in a job folder
-        api_response = api_instance.list_job_artifacts(owner, name, job_id, page=page, per_page=per_page, path=path)
+        # List artifacts in a run folder
+        api_response = api_instance.list_run_artifacts(owner, name, run_id, page=page, per_page=per_page, path=path)
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling JobsApi->list_job_artifacts: %s\n" % e)
+        print("Exception when calling RunsApi->list_run_artifacts: %s\n" % e)
 ```
 
 * Bearer Authentication (JWTAuth):
@@ -965,20 +965,20 @@ configuration = pollination_sdk.Configuration(
 # Enter a context with an instance of the API client
 with pollination_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = pollination_sdk.JobsApi(api_client)
+    api_instance = pollination_sdk.RunsApi(api_client)
     owner = 'owner_example' # str | 
 name = 'name_example' # str | 
-job_id = 'job_id_example' # str | 
+run_id = 'run_id_example' # str | 
 page = 1 # int | Page number starting from 1 (optional) (default to 1)
 per_page = 25 # int | Number of items per page (optional) (default to 25)
 path = ['path_example'] # list[str] | The path to an file within a project folder (optional)
 
     try:
-        # List artifacts in a job folder
-        api_response = api_instance.list_job_artifacts(owner, name, job_id, page=page, per_page=per_page, path=path)
+        # List artifacts in a run folder
+        api_response = api_instance.list_run_artifacts(owner, name, run_id, page=page, per_page=per_page, path=path)
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling JobsApi->list_job_artifacts: %s\n" % e)
+        print("Exception when calling RunsApi->list_run_artifacts: %s\n" % e)
 ```
 
 ### Parameters
@@ -987,7 +987,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **name** | **str**|  | 
- **job_id** | **str**|  | 
+ **run_id** | **str**|  | 
  **page** | **int**| Page number starting from 1 | [optional] [default to 1]
  **per_page** | **int**| Number of items per page | [optional] [default to 25]
  **path** | [**list[str]**](str.md)| The path to an file within a project folder | [optional] 
@@ -1013,12 +1013,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **list_jobs**
-> JobList list_jobs(owner, name, ids=ids, status=status, page=page, per_page=per_page)
+# **list_runs**
+> RunList list_runs(owner, name, ids=ids, status=status, page=page, per_page=per_page)
 
-List jobs
+List runs
 
-Retrieve a list of jobs.
+Retrieve a list of runs.
 
 ### Example
 
@@ -1058,7 +1058,7 @@ configuration = pollination_sdk.Configuration(
 # Enter a context with an instance of the API client
 with pollination_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = pollination_sdk.JobsApi(api_client)
+    api_instance = pollination_sdk.RunsApi(api_client)
     owner = 'owner_example' # str | 
 name = 'name_example' # str | 
 ids = ['ids_example'] # list[str] |  (optional)
@@ -1067,11 +1067,11 @@ page = 1 # int | Page number starting from 1 (optional) (default to 1)
 per_page = 25 # int | Number of items per page (optional) (default to 25)
 
     try:
-        # List jobs
-        api_response = api_instance.list_jobs(owner, name, ids=ids, status=status, page=page, per_page=per_page)
+        # List runs
+        api_response = api_instance.list_runs(owner, name, ids=ids, status=status, page=page, per_page=per_page)
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling JobsApi->list_jobs: %s\n" % e)
+        print("Exception when calling RunsApi->list_runs: %s\n" % e)
 ```
 
 * Bearer Authentication (JWTAuth):
@@ -1110,7 +1110,7 @@ configuration = pollination_sdk.Configuration(
 # Enter a context with an instance of the API client
 with pollination_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = pollination_sdk.JobsApi(api_client)
+    api_instance = pollination_sdk.RunsApi(api_client)
     owner = 'owner_example' # str | 
 name = 'name_example' # str | 
 ids = ['ids_example'] # list[str] |  (optional)
@@ -1119,11 +1119,11 @@ page = 1 # int | Page number starting from 1 (optional) (default to 1)
 per_page = 25 # int | Number of items per page (optional) (default to 25)
 
     try:
-        # List jobs
-        api_response = api_instance.list_jobs(owner, name, ids=ids, status=status, page=page, per_page=per_page)
+        # List runs
+        api_response = api_instance.list_runs(owner, name, ids=ids, status=status, page=page, per_page=per_page)
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling JobsApi->list_jobs: %s\n" % e)
+        print("Exception when calling RunsApi->list_runs: %s\n" % e)
 ```
 
 ### Parameters
@@ -1139,7 +1139,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**JobList**](JobList.md)
+[**RunList**](RunList.md)
 
 ### Authorization
 
@@ -1158,12 +1158,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **resume_job**
-> Accepted resume_job(owner, name, job_id)
+# **resume_run**
+> Accepted resume_run(owner, name, run_id)
 
-resume a job
+resume a run
 
-resume a job
+resume a run
 
 ### Example
 
@@ -1203,17 +1203,17 @@ configuration = pollination_sdk.Configuration(
 # Enter a context with an instance of the API client
 with pollination_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = pollination_sdk.JobsApi(api_client)
+    api_instance = pollination_sdk.RunsApi(api_client)
     owner = 'owner_example' # str | 
 name = 'name_example' # str | 
-job_id = 'job_id_example' # str | 
+run_id = 'run_id_example' # str | 
 
     try:
-        # resume a job
-        api_response = api_instance.resume_job(owner, name, job_id)
+        # resume a run
+        api_response = api_instance.resume_run(owner, name, run_id)
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling JobsApi->resume_job: %s\n" % e)
+        print("Exception when calling RunsApi->resume_run: %s\n" % e)
 ```
 
 * Bearer Authentication (JWTAuth):
@@ -1252,17 +1252,17 @@ configuration = pollination_sdk.Configuration(
 # Enter a context with an instance of the API client
 with pollination_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = pollination_sdk.JobsApi(api_client)
+    api_instance = pollination_sdk.RunsApi(api_client)
     owner = 'owner_example' # str | 
 name = 'name_example' # str | 
-job_id = 'job_id_example' # str | 
+run_id = 'run_id_example' # str | 
 
     try:
-        # resume a job
-        api_response = api_instance.resume_job(owner, name, job_id)
+        # resume a run
+        api_response = api_instance.resume_run(owner, name, run_id)
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling JobsApi->resume_job: %s\n" % e)
+        print("Exception when calling RunsApi->resume_run: %s\n" % e)
 ```
 
 ### Parameters
@@ -1271,7 +1271,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **name** | **str**|  | 
- **job_id** | **str**|  | 
+ **run_id** | **str**|  | 
 
 ### Return type
 
@@ -1294,12 +1294,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **stop_job**
-> Accepted stop_job(owner, name, job_id)
+# **stop_run**
+> Accepted stop_run(owner, name, run_id)
 
-Stop a job
+Stop a run
 
-Stop a job.
+Stop a run.
 
 ### Example
 
@@ -1339,17 +1339,17 @@ configuration = pollination_sdk.Configuration(
 # Enter a context with an instance of the API client
 with pollination_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = pollination_sdk.JobsApi(api_client)
+    api_instance = pollination_sdk.RunsApi(api_client)
     owner = 'owner_example' # str | 
 name = 'name_example' # str | 
-job_id = 'job_id_example' # str | 
+run_id = 'run_id_example' # str | 
 
     try:
-        # Stop a job
-        api_response = api_instance.stop_job(owner, name, job_id)
+        # Stop a run
+        api_response = api_instance.stop_run(owner, name, run_id)
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling JobsApi->stop_job: %s\n" % e)
+        print("Exception when calling RunsApi->stop_run: %s\n" % e)
 ```
 
 * Bearer Authentication (JWTAuth):
@@ -1388,17 +1388,17 @@ configuration = pollination_sdk.Configuration(
 # Enter a context with an instance of the API client
 with pollination_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = pollination_sdk.JobsApi(api_client)
+    api_instance = pollination_sdk.RunsApi(api_client)
     owner = 'owner_example' # str | 
 name = 'name_example' # str | 
-job_id = 'job_id_example' # str | 
+run_id = 'run_id_example' # str | 
 
     try:
-        # Stop a job
-        api_response = api_instance.stop_job(owner, name, job_id)
+        # Stop a run
+        api_response = api_instance.stop_run(owner, name, run_id)
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling JobsApi->stop_job: %s\n" % e)
+        print("Exception when calling RunsApi->stop_run: %s\n" % e)
 ```
 
 ### Parameters
@@ -1407,7 +1407,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **name** | **str**|  | 
- **job_id** | **str**|  | 
+ **run_id** | **str**|  | 
 
 ### Return type
 
@@ -1430,12 +1430,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **suspend_job**
-> Accepted suspend_job(owner, name, job_id)
+# **suspend_run**
+> Accepted suspend_run(owner, name, run_id)
 
-Suspend a job
+Suspend a run
 
-Stop a job.
+Stop a run.
 
 ### Example
 
@@ -1475,17 +1475,17 @@ configuration = pollination_sdk.Configuration(
 # Enter a context with an instance of the API client
 with pollination_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = pollination_sdk.JobsApi(api_client)
+    api_instance = pollination_sdk.RunsApi(api_client)
     owner = 'owner_example' # str | 
 name = 'name_example' # str | 
-job_id = 'job_id_example' # str | 
+run_id = 'run_id_example' # str | 
 
     try:
-        # Suspend a job
-        api_response = api_instance.suspend_job(owner, name, job_id)
+        # Suspend a run
+        api_response = api_instance.suspend_run(owner, name, run_id)
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling JobsApi->suspend_job: %s\n" % e)
+        print("Exception when calling RunsApi->suspend_run: %s\n" % e)
 ```
 
 * Bearer Authentication (JWTAuth):
@@ -1524,17 +1524,17 @@ configuration = pollination_sdk.Configuration(
 # Enter a context with an instance of the API client
 with pollination_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = pollination_sdk.JobsApi(api_client)
+    api_instance = pollination_sdk.RunsApi(api_client)
     owner = 'owner_example' # str | 
 name = 'name_example' # str | 
-job_id = 'job_id_example' # str | 
+run_id = 'run_id_example' # str | 
 
     try:
-        # Suspend a job
-        api_response = api_instance.suspend_job(owner, name, job_id)
+        # Suspend a run
+        api_response = api_instance.suspend_run(owner, name, run_id)
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling JobsApi->suspend_job: %s\n" % e)
+        print("Exception when calling RunsApi->suspend_run: %s\n" % e)
 ```
 
 ### Parameters
@@ -1543,7 +1543,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **name** | **str**|  | 
- **job_id** | **str**|  | 
+ **run_id** | **str**|  | 
 
 ### Return type
 
