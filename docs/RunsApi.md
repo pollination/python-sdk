@@ -721,7 +721,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_run_steps**
-> StepList get_run_steps(owner, name, run_id, status=status, step_id=step_id, page=page, per_page=per_page)
+> StepList get_run_steps(owner, name, run_id, status=status, step_id=step_id, until_generation=until_generation, since_generation=since_generation, page=page, per_page=per_page)
 
 Query the steps of a run
 
@@ -771,12 +771,14 @@ name = 'name_example' # str |
 run_id = 'run_id_example' # str | 
 status = 'status_example' # str |  (optional)
 step_id = ['step_id_example'] # list[str] |  (optional)
+until_generation = 'until_generation_example' # str |  (optional)
+since_generation = 'since_generation_example' # str |  (optional)
 page = 1 # int | Page number starting from 1 (optional) (default to 1)
 per_page = 25 # int | Number of items per page (optional) (default to 25)
 
     try:
         # Query the steps of a run
-        api_response = api_instance.get_run_steps(owner, name, run_id, status=status, step_id=step_id, page=page, per_page=per_page)
+        api_response = api_instance.get_run_steps(owner, name, run_id, status=status, step_id=step_id, until_generation=until_generation, since_generation=since_generation, page=page, per_page=per_page)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling RunsApi->get_run_steps: %s\n" % e)
@@ -824,12 +826,14 @@ name = 'name_example' # str |
 run_id = 'run_id_example' # str | 
 status = 'status_example' # str |  (optional)
 step_id = ['step_id_example'] # list[str] |  (optional)
+until_generation = 'until_generation_example' # str |  (optional)
+since_generation = 'since_generation_example' # str |  (optional)
 page = 1 # int | Page number starting from 1 (optional) (default to 1)
 per_page = 25 # int | Number of items per page (optional) (default to 25)
 
     try:
         # Query the steps of a run
-        api_response = api_instance.get_run_steps(owner, name, run_id, status=status, step_id=step_id, page=page, per_page=per_page)
+        api_response = api_instance.get_run_steps(owner, name, run_id, status=status, step_id=step_id, until_generation=until_generation, since_generation=since_generation, page=page, per_page=per_page)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling RunsApi->get_run_steps: %s\n" % e)
@@ -844,6 +848,8 @@ Name | Type | Description  | Notes
  **run_id** | **str**|  | 
  **status** | **str**|  | [optional] 
  **step_id** | [**list[str]**](str.md)|  | [optional] 
+ **until_generation** | **str**|  | [optional] 
+ **since_generation** | **str**|  | [optional] 
  **page** | **int**| Page number starting from 1 | [optional] [default to 1]
  **per_page** | **int**| Number of items per page | [optional] [default to 25]
 

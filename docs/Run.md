@@ -4,6 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **author** | [**AccountPublic**](AccountPublic.md) | author | [optional] 
+**generation** | **float** | The generation of this run | [optional] 
 **id** | **str** | The unique ID for this run | 
 **job** | [**Job**](Job.md) |  | 
 **owner** | [**AccountPublic**](AccountPublic.md) | owner | [optional] 
