@@ -1,6 +1,6 @@
 # DAGArrayInput
 
-An array input.  You can add additional validation by defining a JSONSchema specification.  See http://json-schema.org/understanding-json-schema/reference/array.html for more information.
+A JSON array input.  You can add additional validation by defining a JSONSchema specification.  See http://json-schema.org/understanding-json-schema/reference/array.html for more information.
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **description** | **str** | Optional description for output. | [optional] 
 **name** | **str** | Output name. | 
 **path** | **str** | Path to the output folder relative to where the function command is executed. | 
+**required** | **bool** | A boolean to indicate if an artifact output is required. A False value makes the artifact optional. | [optional] [default to True]
 **source** | [**AnyOfHTTPS3ProjectFolder**](AnyOfHTTPS3ProjectFolder.md) | The path to source the file from. | 
 **type** | **str** |  | [optional] [readonly] [default to 'StepFolderOutput']
 
