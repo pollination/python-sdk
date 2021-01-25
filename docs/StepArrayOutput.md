@@ -1,6 +1,6 @@
 # StepArrayOutput
 
-An array output.
+A JSON array output.
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **items_type** | [**ItemType**](ItemType.md) | Type of items in this array. All the items in an array must be from the same type. | [optional] 
 **name** | **str** | Output name. | 
 **path** | **str** | Path to the output file relative to where the function command is executed. | 
+**required** | **bool** | A boolean to indicate if an artifact output is required. A False value makes the artifact optional. | [optional] [default to True]
 **type** | **str** |  | [optional] [readonly] [default to 'StepArrayOutput']
 **value** | **list[object]** |  | 
 

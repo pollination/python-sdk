@@ -1,6 +1,6 @@
 # StepArrayInput
 
-An array input.
+A JSON array input.
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

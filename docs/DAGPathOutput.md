@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **description** | **str** | Optional description for output. | [optional] 
 **_from** | [**AnyOfTaskReferenceFileReferenceFolderReference**](AnyOfTaskReferenceFileReferenceFolderReference.md) | Reference to a file, folder or a task output. Task output must either be a file or a folder. | 
 **name** | **str** | Output name. | 
+**required** | **bool** | A boolean to indicate if an artifact output is required. A False value makes the artifact optional. | [optional] [default to True]
 **type** | **str** |  | [optional] [readonly] [default to 'DAGPathOutput']
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
