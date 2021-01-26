@@ -124,7 +124,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_users**
-> UserPublicList list_users(page=page, per_page=per_page, username=username)
+> UserPublicList list_users(search=search, page=page, per_page=per_page)
 
 List Users
 
@@ -141,13 +141,13 @@ from pprint import pprint
 with pollination_sdk.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = pollination_sdk.UsersApi(api_client)
-    page = 1 # int | Page number starting from 1 (optional) (default to 1)
+    search = ['search_example'] # list[str] | You know, for search (optional)
+page = 1 # int | Page number starting from 1 (optional) (default to 1)
 per_page = 25 # int | Number of items per page (optional) (default to 25)
-username = ['username_example'] # list[str] | Username of the user to search for (optional)
 
     try:
         # List Users
-        api_response = api_instance.list_users(page=page, per_page=per_page, username=username)
+        api_response = api_instance.list_users(search=search, page=page, per_page=per_page)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling UsersApi->list_users: %s\n" % e)
@@ -157,9 +157,9 @@ username = ['username_example'] # list[str] | Username of the user to search for
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **search** | [**list[str]**](str.md)| You know, for search | [optional] 
  **page** | **int**| Page number starting from 1 | [optional] [default to 1]
  **per_page** | **int**| Number of items per page | [optional] [default to 25]
- **username** | [**list[str]**](str.md)| Username of the user to search for | [optional] 
 
 ### Return type
 
