@@ -5,7 +5,7 @@ An alias JSON object input.  JSON objects are similar to Python dictionaries.  Y
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **annotations** | **dict(str, str)** | An optional dictionary to add annotations to inputs. These annotations will be used by the client side libraries. | [optional] 
-**default** | **object** | Default value to use for an input if a value was not supplied. | [optional] 
+**default** | [**AnyOfarrayobject**](AnyOfarrayobject.md) | Default value to use for an input if a value was not supplied. | [optional] 
 **description** | **str** | Optional description for input. | [optional] 
 **handler** | [**list[IOAliasHandler]**](IOAliasHandler.md) | List of process actions to process the input or output value. | 
 **name** | **str** | Input name. | 
