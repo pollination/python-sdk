@@ -6,6 +6,7 @@ from __future__ import absolute_import
 from pollination_sdk.api.api_tokens_api import APITokensApi
 from pollination_sdk.api.accounts_api import AccountsApi
 from pollination_sdk.api.artifacts_api import ArtifactsApi
+from pollination_sdk.api.jobs_api import JobsApi
 from pollination_sdk.api.orgs_api import OrgsApi
 from pollination_sdk.api.plugins_api import PluginsApi
 from pollination_sdk.api.projects_api import ProjectsApi

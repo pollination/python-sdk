@@ -1,10 +1,9 @@
 # pollination_sdk.RunsApi
 
-All URIs are relative to *https://api.pollination.cloud*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_run**](RunsApi.md#create_run) | **POST** /projects/{owner}/{name}/runs | Schedule a run
 [**download_run_artifact**](RunsApi.md#download_run_artifact) | **GET** /projects/{owner}/{name}/runs/{run_id}/artifacts/download | Download an artifact from the run folder
 [**get_run**](RunsApi.md#get_run) | **GET** /projects/{owner}/{name}/runs/{run_id} | Get a Run
 [**get_run_output**](RunsApi.md#get_run_output) | **GET** /projects/{owner}/{name}/runs/{run_id}/outputs/{output_name} | Get run output by name
@@ -12,152 +11,11 @@ Method | HTTP request | Description
 [**get_run_steps**](RunsApi.md#get_run_steps) | **GET** /projects/{owner}/{name}/runs/{run_id}/steps | Query the steps of a run
 [**list_run_artifacts**](RunsApi.md#list_run_artifacts) | **GET** /projects/{owner}/{name}/runs/{run_id}/artifacts | List artifacts in a run folder
 [**list_runs**](RunsApi.md#list_runs) | **GET** /projects/{owner}/{name}/runs | List runs
+[**query_results**](RunsApi.md#query_results) | **GET** /projects/{owner}/{name}/results | Query run results
 [**resume_run**](RunsApi.md#resume_run) | **PUT** /projects/{owner}/{name}/runs/{run_id}/resume | resume a run
 [**stop_run**](RunsApi.md#stop_run) | **PUT** /projects/{owner}/{name}/runs/{run_id}/stop | Stop a run
 [**suspend_run**](RunsApi.md#suspend_run) | **PUT** /projects/{owner}/{name}/runs/{run_id}/suspend | Suspend a run
 
-
-# **create_run**
-> CreatedContent create_run(owner, name, job, authorization=authorization, x_pollination_token=x_pollination_token)
-
-Schedule a run
-
-Create a new run.
-
-### Example
-
-* Api Key Authentication (APIKeyAuth):
-```python
-from __future__ import print_function
-import time
-import pollination_sdk
-from pollination_sdk.rest import ApiException
-from pprint import pprint
-
-# Configure API key authorization: APIKeyAuth
-configuration = pollination_sdk.Configuration(
-    host = "https://api.pollination.cloud",
-    api_key = {
-        'APIKeyAuth': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
-
-# Retrieve a temporary Acces Token (JWT) using your API token
-API_TOKEN = 'some-token-string'
-
-auth = pollination_sdk.UserApi()
-api_token = pollination_sdk.LoginDto(
-  api_token=API_TOKEN
-)
-
-auth_response = auth.login(api_token)
-
-# Configure Bearer authorization: JWTAuth
-configuration = pollination_sdk.Configuration(
-    access_token=auth_response.access_token
-)
-
-# Enter a context with an instance of the API client
-with pollination_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = pollination_sdk.RunsApi(api_client)
-    owner = 'owner_example' # str | 
-name = 'name_example' # str | 
-job = pollination_sdk.Job() # Job | 
-authorization = 'authorization_example' # str |  (optional)
-x_pollination_token = 'x_pollination_token_example' # str |  (optional)
-
-    try:
-        # Schedule a run
-        api_response = api_instance.create_run(owner, name, job, authorization=authorization, x_pollination_token=x_pollination_token)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling RunsApi->create_run: %s\n" % e)
-```
-
-* Bearer Authentication (JWTAuth):
-```python
-from __future__ import print_function
-import time
-import pollination_sdk
-from pollination_sdk.rest import ApiException
-from pprint import pprint
-
-# Configure API key authorization: APIKeyAuth
-configuration = pollination_sdk.Configuration(
-    host = "https://api.pollination.cloud",
-    api_key = {
-        'APIKeyAuth': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
-
-# Retrieve a temporary Acces Token (JWT) using your API token
-API_TOKEN = 'some-token-string'
-
-auth = pollination_sdk.UserApi()
-api_token = pollination_sdk.LoginDto(
-  api_token=API_TOKEN
-)
-
-auth_response = auth.login(api_token)
-
-# Configure Bearer authorization: JWTAuth
-configuration = pollination_sdk.Configuration(
-    access_token=auth_response.access_token
-)
-
-# Enter a context with an instance of the API client
-with pollination_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = pollination_sdk.RunsApi(api_client)
-    owner = 'owner_example' # str | 
-name = 'name_example' # str | 
-job = pollination_sdk.Job() # Job | 
-authorization = 'authorization_example' # str |  (optional)
-x_pollination_token = 'x_pollination_token_example' # str |  (optional)
-
-    try:
-        # Schedule a run
-        api_response = api_instance.create_run(owner, name, job, authorization=authorization, x_pollination_token=x_pollination_token)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling RunsApi->create_run: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **str**|  | 
- **name** | **str**|  | 
- **job** | [**Job**](Job.md)|  | 
- **authorization** | **str**|  | [optional] 
- **x_pollination_token** | **str**|  | [optional] 
-
-### Return type
-
-[**CreatedContent**](CreatedContent.md)
-
-### Authorization
-
-[APIKeyAuth](../README.md#APIKeyAuth), [JWTAuth](../README.md#JWTAuth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**201** | Successful Response |  -  |
-**422** | Validation Error |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **download_run_artifact**
 > object download_run_artifact(owner, name, run_id, path=path)
@@ -178,7 +36,7 @@ from pprint import pprint
 
 # Configure API key authorization: APIKeyAuth
 configuration = pollination_sdk.Configuration(
-    host = "https://api.pollination.cloud",
+    host = "http://localhost",
     api_key = {
         'APIKeyAuth': 'YOUR_API_KEY'
     }
@@ -228,7 +86,7 @@ from pprint import pprint
 
 # Configure API key authorization: APIKeyAuth
 configuration = pollination_sdk.Configuration(
-    host = "https://api.pollination.cloud",
+    host = "http://localhost",
     api_key = {
         'APIKeyAuth': 'YOUR_API_KEY'
     }
@@ -321,7 +179,7 @@ from pprint import pprint
 
 # Configure API key authorization: APIKeyAuth
 configuration = pollination_sdk.Configuration(
-    host = "https://api.pollination.cloud",
+    host = "http://localhost",
     api_key = {
         'APIKeyAuth': 'YOUR_API_KEY'
     }
@@ -370,7 +228,7 @@ from pprint import pprint
 
 # Configure API key authorization: APIKeyAuth
 configuration = pollination_sdk.Configuration(
-    host = "https://api.pollination.cloud",
+    host = "http://localhost",
     api_key = {
         'APIKeyAuth': 'YOUR_API_KEY'
     }
@@ -457,7 +315,7 @@ from pprint import pprint
 
 # Configure API key authorization: APIKeyAuth
 configuration = pollination_sdk.Configuration(
-    host = "https://api.pollination.cloud",
+    host = "http://localhost",
     api_key = {
         'APIKeyAuth': 'YOUR_API_KEY'
     }
@@ -507,7 +365,7 @@ from pprint import pprint
 
 # Configure API key authorization: APIKeyAuth
 configuration = pollination_sdk.Configuration(
-    host = "https://api.pollination.cloud",
+    host = "http://localhost",
     api_key = {
         'APIKeyAuth': 'YOUR_API_KEY'
     }
@@ -600,7 +458,7 @@ from pprint import pprint
 
 # Configure API key authorization: APIKeyAuth
 configuration = pollination_sdk.Configuration(
-    host = "https://api.pollination.cloud",
+    host = "http://localhost",
     api_key = {
         'APIKeyAuth': 'YOUR_API_KEY'
     }
@@ -650,7 +508,7 @@ from pprint import pprint
 
 # Configure API key authorization: APIKeyAuth
 configuration = pollination_sdk.Configuration(
-    host = "https://api.pollination.cloud",
+    host = "http://localhost",
     api_key = {
         'APIKeyAuth': 'YOUR_API_KEY'
     }
@@ -739,7 +597,7 @@ from pprint import pprint
 
 # Configure API key authorization: APIKeyAuth
 configuration = pollination_sdk.Configuration(
-    host = "https://api.pollination.cloud",
+    host = "http://localhost",
     api_key = {
         'APIKeyAuth': 'YOUR_API_KEY'
     }
@@ -794,7 +652,7 @@ from pprint import pprint
 
 # Configure API key authorization: APIKeyAuth
 configuration = pollination_sdk.Configuration(
-    host = "https://api.pollination.cloud",
+    host = "http://localhost",
     api_key = {
         'APIKeyAuth': 'YOUR_API_KEY'
     }
@@ -893,7 +751,7 @@ from pprint import pprint
 
 # Configure API key authorization: APIKeyAuth
 configuration = pollination_sdk.Configuration(
-    host = "https://api.pollination.cloud",
+    host = "http://localhost",
     api_key = {
         'APIKeyAuth': 'YOUR_API_KEY'
     }
@@ -945,7 +803,7 @@ from pprint import pprint
 
 # Configure API key authorization: APIKeyAuth
 configuration = pollination_sdk.Configuration(
-    host = "https://api.pollination.cloud",
+    host = "http://localhost",
     api_key = {
         'APIKeyAuth': 'YOUR_API_KEY'
     }
@@ -1020,7 +878,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_runs**
-> RunList list_runs(owner, name, ids=ids, status=status, page=page, per_page=per_page)
+> RunList list_runs(owner, name, status=status, job_id=job_id, page=page, per_page=per_page)
 
 List runs
 
@@ -1038,7 +896,7 @@ from pprint import pprint
 
 # Configure API key authorization: APIKeyAuth
 configuration = pollination_sdk.Configuration(
-    host = "https://api.pollination.cloud",
+    host = "http://localhost",
     api_key = {
         'APIKeyAuth': 'YOUR_API_KEY'
     }
@@ -1067,14 +925,14 @@ with pollination_sdk.ApiClient(configuration) as api_client:
     api_instance = pollination_sdk.RunsApi(api_client)
     owner = 'owner_example' # str | 
 name = 'name_example' # str | 
-ids = ['ids_example'] # list[str] |  (optional)
 status = 'status_example' # str |  (optional)
+job_id = ['job_id_example'] # list[str] |  (optional)
 page = 1 # int | Page number starting from 1 (optional) (default to 1)
 per_page = 25 # int | Number of items per page (optional) (default to 25)
 
     try:
         # List runs
-        api_response = api_instance.list_runs(owner, name, ids=ids, status=status, page=page, per_page=per_page)
+        api_response = api_instance.list_runs(owner, name, status=status, job_id=job_id, page=page, per_page=per_page)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling RunsApi->list_runs: %s\n" % e)
@@ -1090,7 +948,7 @@ from pprint import pprint
 
 # Configure API key authorization: APIKeyAuth
 configuration = pollination_sdk.Configuration(
-    host = "https://api.pollination.cloud",
+    host = "http://localhost",
     api_key = {
         'APIKeyAuth': 'YOUR_API_KEY'
     }
@@ -1119,14 +977,14 @@ with pollination_sdk.ApiClient(configuration) as api_client:
     api_instance = pollination_sdk.RunsApi(api_client)
     owner = 'owner_example' # str | 
 name = 'name_example' # str | 
-ids = ['ids_example'] # list[str] |  (optional)
 status = 'status_example' # str |  (optional)
+job_id = ['job_id_example'] # list[str] |  (optional)
 page = 1 # int | Page number starting from 1 (optional) (default to 1)
 per_page = 25 # int | Number of items per page (optional) (default to 25)
 
     try:
         # List runs
-        api_response = api_instance.list_runs(owner, name, ids=ids, status=status, page=page, per_page=per_page)
+        api_response = api_instance.list_runs(owner, name, status=status, job_id=job_id, page=page, per_page=per_page)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling RunsApi->list_runs: %s\n" % e)
@@ -1138,14 +996,159 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **name** | **str**|  | 
- **ids** | [**list[str]**](str.md)|  | [optional] 
  **status** | **str**|  | [optional] 
+ **job_id** | [**list[str]**](str.md)|  | [optional] 
  **page** | **int**| Page number starting from 1 | [optional] [default to 1]
  **per_page** | **int**| Number of items per page | [optional] [default to 25]
 
 ### Return type
 
 [**RunList**](RunList.md)
+
+### Authorization
+
+[APIKeyAuth](../README.md#APIKeyAuth), [JWTAuth](../README.md#JWTAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Retrieved |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **query_results**
+> RunResultList query_results(owner, name, status=status, job_id=job_id, page=page, per_page=per_page)
+
+Query run results
+
+Retrieve a list of run results.
+
+### Example
+
+* Api Key Authentication (APIKeyAuth):
+```python
+from __future__ import print_function
+import time
+import pollination_sdk
+from pollination_sdk.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: APIKeyAuth
+configuration = pollination_sdk.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'APIKeyAuth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
+
+# Retrieve a temporary Acces Token (JWT) using your API token
+API_TOKEN = 'some-token-string'
+
+auth = pollination_sdk.UserApi()
+api_token = pollination_sdk.LoginDto(
+  api_token=API_TOKEN
+)
+
+auth_response = auth.login(api_token)
+
+# Configure Bearer authorization: JWTAuth
+configuration = pollination_sdk.Configuration(
+    access_token=auth_response.access_token
+)
+
+# Enter a context with an instance of the API client
+with pollination_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = pollination_sdk.RunsApi(api_client)
+    owner = 'owner_example' # str | 
+name = 'name_example' # str | 
+status = 'status_example' # str |  (optional)
+job_id = ['job_id_example'] # list[str] |  (optional)
+page = 1 # int | Page number starting from 1 (optional) (default to 1)
+per_page = 25 # int | Number of items per page (optional) (default to 25)
+
+    try:
+        # Query run results
+        api_response = api_instance.query_results(owner, name, status=status, job_id=job_id, page=page, per_page=per_page)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling RunsApi->query_results: %s\n" % e)
+```
+
+* Bearer Authentication (JWTAuth):
+```python
+from __future__ import print_function
+import time
+import pollination_sdk
+from pollination_sdk.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: APIKeyAuth
+configuration = pollination_sdk.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'APIKeyAuth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
+
+# Retrieve a temporary Acces Token (JWT) using your API token
+API_TOKEN = 'some-token-string'
+
+auth = pollination_sdk.UserApi()
+api_token = pollination_sdk.LoginDto(
+  api_token=API_TOKEN
+)
+
+auth_response = auth.login(api_token)
+
+# Configure Bearer authorization: JWTAuth
+configuration = pollination_sdk.Configuration(
+    access_token=auth_response.access_token
+)
+
+# Enter a context with an instance of the API client
+with pollination_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = pollination_sdk.RunsApi(api_client)
+    owner = 'owner_example' # str | 
+name = 'name_example' # str | 
+status = 'status_example' # str |  (optional)
+job_id = ['job_id_example'] # list[str] |  (optional)
+page = 1 # int | Page number starting from 1 (optional) (default to 1)
+per_page = 25 # int | Number of items per page (optional) (default to 25)
+
+    try:
+        # Query run results
+        api_response = api_instance.query_results(owner, name, status=status, job_id=job_id, page=page, per_page=per_page)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling RunsApi->query_results: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **str**|  | 
+ **name** | **str**|  | 
+ **status** | **str**|  | [optional] 
+ **job_id** | [**list[str]**](str.md)|  | [optional] 
+ **page** | **int**| Page number starting from 1 | [optional] [default to 1]
+ **per_page** | **int**| Number of items per page | [optional] [default to 25]
+
+### Return type
+
+[**RunResultList**](RunResultList.md)
 
 ### Authorization
 
@@ -1183,7 +1186,7 @@ from pprint import pprint
 
 # Configure API key authorization: APIKeyAuth
 configuration = pollination_sdk.Configuration(
-    host = "https://api.pollination.cloud",
+    host = "http://localhost",
     api_key = {
         'APIKeyAuth': 'YOUR_API_KEY'
     }
@@ -1232,7 +1235,7 @@ from pprint import pprint
 
 # Configure API key authorization: APIKeyAuth
 configuration = pollination_sdk.Configuration(
-    host = "https://api.pollination.cloud",
+    host = "http://localhost",
     api_key = {
         'APIKeyAuth': 'YOUR_API_KEY'
     }
@@ -1319,7 +1322,7 @@ from pprint import pprint
 
 # Configure API key authorization: APIKeyAuth
 configuration = pollination_sdk.Configuration(
-    host = "https://api.pollination.cloud",
+    host = "http://localhost",
     api_key = {
         'APIKeyAuth': 'YOUR_API_KEY'
     }
@@ -1368,7 +1371,7 @@ from pprint import pprint
 
 # Configure API key authorization: APIKeyAuth
 configuration = pollination_sdk.Configuration(
-    host = "https://api.pollination.cloud",
+    host = "http://localhost",
     api_key = {
         'APIKeyAuth': 'YOUR_API_KEY'
     }
@@ -1455,7 +1458,7 @@ from pprint import pprint
 
 # Configure API key authorization: APIKeyAuth
 configuration = pollination_sdk.Configuration(
-    host = "https://api.pollination.cloud",
+    host = "http://localhost",
     api_key = {
         'APIKeyAuth': 'YOUR_API_KEY'
     }
@@ -1504,7 +1507,7 @@ from pprint import pprint
 
 # Configure API key authorization: APIKeyAuth
 configuration = pollination_sdk.Configuration(
-    host = "https://api.pollination.cloud",
+    host = "http://localhost",
     api_key = {
         'APIKeyAuth': 'YOUR_API_KEY'
     }

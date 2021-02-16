@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **permissions** | [**ProjectUserPermissions**](ProjectUserPermissions.md) |  | 
 **public** | **bool** | Whether or not a project is publicly viewable | [optional] [default to True]
 **slug** | **str** | The project name in slug format | 
+**usage** | [**ProjectUsage**](ProjectUsage.md) | The CPU/Memory usage of this project | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
