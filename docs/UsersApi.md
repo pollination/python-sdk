@@ -1,6 +1,6 @@
 # pollination_sdk.UsersApi
 
-All URIs are relative to *https://api.pollination.cloud*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------

@@ -1,6 +1,6 @@
 # pollination_sdk.UserApi
 
-All URIs are relative to *https://api.pollination.cloud*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -29,7 +29,7 @@ from pprint import pprint
 
 # Configure API key authorization: APIKeyAuth
 configuration = pollination_sdk.Configuration(
-    host = "https://api.pollination.cloud",
+    host = "http://localhost",
     api_key = {
         'APIKeyAuth': 'YOUR_API_KEY'
     }
@@ -76,7 +76,7 @@ from pprint import pprint
 
 # Configure API key authorization: APIKeyAuth
 configuration = pollination_sdk.Configuration(
-    host = "https://api.pollination.cloud",
+    host = "http://localhost",
     api_key = {
         'APIKeyAuth': 'YOUR_API_KEY'
     }
@@ -163,7 +163,7 @@ from pprint import pprint
 
 # Configure API key authorization: APIKeyAuth
 configuration = pollination_sdk.Configuration(
-    host = "https://api.pollination.cloud",
+    host = "http://localhost",
     api_key = {
         'APIKeyAuth': 'YOUR_API_KEY'
     }
@@ -209,7 +209,7 @@ from pprint import pprint
 
 # Configure API key authorization: APIKeyAuth
 configuration = pollination_sdk.Configuration(
-    host = "https://api.pollination.cloud",
+    host = "http://localhost",
     api_key = {
         'APIKeyAuth': 'YOUR_API_KEY'
     }
@@ -285,7 +285,7 @@ from pprint import pprint
 
 # Configure API key authorization: APIKeyAuth
 configuration = pollination_sdk.Configuration(
-    host = "https://api.pollination.cloud",
+    host = "http://localhost",
     api_key = {
         'APIKeyAuth': 'YOUR_API_KEY'
     }
@@ -331,7 +331,7 @@ from pprint import pprint
 
 # Configure API key authorization: APIKeyAuth
 configuration = pollination_sdk.Configuration(
-    host = "https://api.pollination.cloud",
+    host = "http://localhost",
     api_key = {
         'APIKeyAuth': 'YOUR_API_KEY'
     }
@@ -409,7 +409,7 @@ from pprint import pprint
 
 # Configure API key authorization: APIKeyAuth
 configuration = pollination_sdk.Configuration(
-    host = "https://api.pollination.cloud",
+    host = "http://localhost",
     api_key = {
         'APIKeyAuth': 'YOUR_API_KEY'
     }
@@ -456,7 +456,7 @@ from pprint import pprint
 
 # Configure API key authorization: APIKeyAuth
 configuration = pollination_sdk.Configuration(
-    host = "https://api.pollination.cloud",
+    host = "http://localhost",
     api_key = {
         'APIKeyAuth': 'YOUR_API_KEY'
     }
