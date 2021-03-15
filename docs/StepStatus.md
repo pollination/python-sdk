@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 **outputs** | [**list[AnyOfStepStringOutputStepIntegerOutputStepNumberOutputStepBooleanOutputStepFolderOutputStepFileOutputStepPathOutputStepArrayOutputStepJSONObjectOutput]**](AnyOfStepStringOutputStepIntegerOutputStepNumberOutputStepBooleanOutputStepFolderOutputStepFileOutputStepPathOutputStepArrayOutputStepJSONObjectOutput.md) | The outputs produced by this step. | 
 **source** | **str** | Source url for the status object. It can be a recipe or a function. | [optional] 
 **started_at** | **datetime** | The time at which the task was started | 
-**status** | **str** | The status of this task. Can be \&quot;Running\&quot;, \&quot;Succeeded\&quot;, \&quot;Failed\&quot; or \&quot;Error\&quot; | 
+**status** | [**StepStatusEnum**](StepStatusEnum.md) | The status of this step. | [optional] 
 **status_type** | [**StatusType**](StatusType.md) | The type of step this status is for. Can be \&quot;Function\&quot;, \&quot;DAG\&quot; or \&quot;Loop\&quot; | 
 **template_ref** | **str** | The name of the template that spawned this step | 
 **type** | **str** |  | [optional] [readonly] [default to 'StepStatus']

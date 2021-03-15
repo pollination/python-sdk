@@ -4,6 +4,7 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**cancel_run**](RunsApi.md#cancel_run) | **PUT** /projects/{owner}/{name}/runs/{run_id}/cancel | Cancel a run
 [**download_run_artifact**](RunsApi.md#download_run_artifact) | **GET** /projects/{owner}/{name}/runs/{run_id}/artifacts/download | Download an artifact from the run folder
 [**get_run**](RunsApi.md#get_run) | **GET** /projects/{owner}/{name}/runs/{run_id} | Get a Run
 [**get_run_output**](RunsApi.md#get_run_output) | **GET** /projects/{owner}/{name}/runs/{run_id}/outputs/{output_name} | Get run output by name
@@ -12,10 +13,143 @@ Method | HTTP request | Description
 [**list_run_artifacts**](RunsApi.md#list_run_artifacts) | **GET** /projects/{owner}/{name}/runs/{run_id}/artifacts | List artifacts in a run folder
 [**list_runs**](RunsApi.md#list_runs) | **GET** /projects/{owner}/{name}/runs | List runs
 [**query_results**](RunsApi.md#query_results) | **GET** /projects/{owner}/{name}/results | Query run results
-[**resume_run**](RunsApi.md#resume_run) | **PUT** /projects/{owner}/{name}/runs/{run_id}/resume | resume a run
-[**stop_run**](RunsApi.md#stop_run) | **PUT** /projects/{owner}/{name}/runs/{run_id}/stop | Stop a run
-[**suspend_run**](RunsApi.md#suspend_run) | **PUT** /projects/{owner}/{name}/runs/{run_id}/suspend | Suspend a run
 
+
+# **cancel_run**
+> object cancel_run(owner, name, run_id)
+
+Cancel a run
+
+Stop a run.
+
+### Example
+
+* Api Key Authentication (APIKeyAuth):
+```python
+from __future__ import print_function
+import time
+import pollination_sdk
+from pollination_sdk.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: APIKeyAuth
+configuration = pollination_sdk.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'APIKeyAuth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
+
+# Retrieve a temporary Acces Token (JWT) using your API token
+API_TOKEN = 'some-token-string'
+
+auth = pollination_sdk.UserApi()
+api_token = pollination_sdk.LoginDto(
+  api_token=API_TOKEN
+)
+
+auth_response = auth.login(api_token)
+
+# Configure Bearer authorization: JWTAuth
+configuration = pollination_sdk.Configuration(
+    access_token=auth_response.access_token
+)
+
+# Enter a context with an instance of the API client
+with pollination_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = pollination_sdk.RunsApi(api_client)
+    owner = 'owner_example' # str | 
+name = 'name_example' # str | 
+run_id = 'run_id_example' # str | 
+
+    try:
+        # Cancel a run
+        api_response = api_instance.cancel_run(owner, name, run_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling RunsApi->cancel_run: %s\n" % e)
+```
+
+* Bearer Authentication (JWTAuth):
+```python
+from __future__ import print_function
+import time
+import pollination_sdk
+from pollination_sdk.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: APIKeyAuth
+configuration = pollination_sdk.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'APIKeyAuth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
+
+# Retrieve a temporary Acces Token (JWT) using your API token
+API_TOKEN = 'some-token-string'
+
+auth = pollination_sdk.UserApi()
+api_token = pollination_sdk.LoginDto(
+  api_token=API_TOKEN
+)
+
+auth_response = auth.login(api_token)
+
+# Configure Bearer authorization: JWTAuth
+configuration = pollination_sdk.Configuration(
+    access_token=auth_response.access_token
+)
+
+# Enter a context with an instance of the API client
+with pollination_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = pollination_sdk.RunsApi(api_client)
+    owner = 'owner_example' # str | 
+name = 'name_example' # str | 
+run_id = 'run_id_example' # str | 
+
+    try:
+        # Cancel a run
+        api_response = api_instance.cancel_run(owner, name, run_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling RunsApi->cancel_run: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **str**|  | 
+ **name** | **str**|  | 
+ **run_id** | **str**|  | 
+
+### Return type
+
+**object**
+
+### Authorization
+
+[APIKeyAuth](../README.md#APIKeyAuth), [JWTAuth](../README.md#JWTAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**202** | Accepted |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **download_run_artifact**
 > object download_run_artifact(owner, name, run_id, path=path)
@@ -627,7 +761,7 @@ with pollination_sdk.ApiClient(configuration) as api_client:
     owner = 'owner_example' # str | 
 name = 'name_example' # str | 
 run_id = 'run_id_example' # str | 
-status = 'status_example' # str |  (optional)
+status = pollination_sdk.StepStatusEnum() # StepStatusEnum |  (optional)
 step_id = ['step_id_example'] # list[str] |  (optional)
 until_generation = 'until_generation_example' # str |  (optional)
 since_generation = 'since_generation_example' # str |  (optional)
@@ -682,7 +816,7 @@ with pollination_sdk.ApiClient(configuration) as api_client:
     owner = 'owner_example' # str | 
 name = 'name_example' # str | 
 run_id = 'run_id_example' # str | 
-status = 'status_example' # str |  (optional)
+status = pollination_sdk.StepStatusEnum() # StepStatusEnum |  (optional)
 step_id = ['step_id_example'] # list[str] |  (optional)
 until_generation = 'until_generation_example' # str |  (optional)
 since_generation = 'since_generation_example' # str |  (optional)
@@ -704,7 +838,7 @@ Name | Type | Description  | Notes
  **owner** | **str**|  | 
  **name** | **str**|  | 
  **run_id** | **str**|  | 
- **status** | **str**|  | [optional] 
+ **status** | [**StepStatusEnum**](.md)|  | [optional] 
  **step_id** | [**list[str]**](str.md)|  | [optional] 
  **until_generation** | **str**|  | [optional] 
  **since_generation** | **str**|  | [optional] 
@@ -925,7 +1059,7 @@ with pollination_sdk.ApiClient(configuration) as api_client:
     api_instance = pollination_sdk.RunsApi(api_client)
     owner = 'owner_example' # str | 
 name = 'name_example' # str | 
-status = 'status_example' # str |  (optional)
+status = pollination_sdk.RunStatusEnum() # RunStatusEnum |  (optional)
 job_id = ['job_id_example'] # list[str] |  (optional)
 page = 1 # int | Page number starting from 1 (optional) (default to 1)
 per_page = 25 # int | Number of items per page (optional) (default to 25)
@@ -977,7 +1111,7 @@ with pollination_sdk.ApiClient(configuration) as api_client:
     api_instance = pollination_sdk.RunsApi(api_client)
     owner = 'owner_example' # str | 
 name = 'name_example' # str | 
-status = 'status_example' # str |  (optional)
+status = pollination_sdk.RunStatusEnum() # RunStatusEnum |  (optional)
 job_id = ['job_id_example'] # list[str] |  (optional)
 page = 1 # int | Page number starting from 1 (optional) (default to 1)
 per_page = 25 # int | Number of items per page (optional) (default to 25)
@@ -996,7 +1130,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **name** | **str**|  | 
- **status** | **str**|  | [optional] 
+ **status** | [**RunStatusEnum**](.md)|  | [optional] 
  **job_id** | [**list[str]**](str.md)|  | [optional] 
  **page** | **int**| Page number starting from 1 | [optional] [default to 1]
  **per_page** | **int**| Number of items per page | [optional] [default to 25]
@@ -1070,7 +1204,7 @@ with pollination_sdk.ApiClient(configuration) as api_client:
     api_instance = pollination_sdk.RunsApi(api_client)
     owner = 'owner_example' # str | 
 name = 'name_example' # str | 
-status = 'status_example' # str |  (optional)
+status = pollination_sdk.RunStatusEnum() # RunStatusEnum |  (optional)
 job_id = ['job_id_example'] # list[str] |  (optional)
 page = 1 # int | Page number starting from 1 (optional) (default to 1)
 per_page = 25 # int | Number of items per page (optional) (default to 25)
@@ -1122,7 +1256,7 @@ with pollination_sdk.ApiClient(configuration) as api_client:
     api_instance = pollination_sdk.RunsApi(api_client)
     owner = 'owner_example' # str | 
 name = 'name_example' # str | 
-status = 'status_example' # str |  (optional)
+status = pollination_sdk.RunStatusEnum() # RunStatusEnum |  (optional)
 job_id = ['job_id_example'] # list[str] |  (optional)
 page = 1 # int | Page number starting from 1 (optional) (default to 1)
 per_page = 25 # int | Number of items per page (optional) (default to 25)
@@ -1141,7 +1275,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **name** | **str**|  | 
- **status** | **str**|  | [optional] 
+ **status** | [**RunStatusEnum**](.md)|  | [optional] 
  **job_id** | [**list[str]**](str.md)|  | [optional] 
  **page** | **int**| Page number starting from 1 | [optional] [default to 1]
  **per_page** | **int**| Number of items per page | [optional] [default to 25]
@@ -1163,414 +1297,6 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Retrieved |  -  |
-**422** | Validation Error |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **resume_run**
-> Accepted resume_run(owner, name, run_id)
-
-resume a run
-
-resume a run
-
-### Example
-
-* Api Key Authentication (APIKeyAuth):
-```python
-from __future__ import print_function
-import time
-import pollination_sdk
-from pollination_sdk.rest import ApiException
-from pprint import pprint
-
-# Configure API key authorization: APIKeyAuth
-configuration = pollination_sdk.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'APIKeyAuth': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
-
-# Retrieve a temporary Acces Token (JWT) using your API token
-API_TOKEN = 'some-token-string'
-
-auth = pollination_sdk.UserApi()
-api_token = pollination_sdk.LoginDto(
-  api_token=API_TOKEN
-)
-
-auth_response = auth.login(api_token)
-
-# Configure Bearer authorization: JWTAuth
-configuration = pollination_sdk.Configuration(
-    access_token=auth_response.access_token
-)
-
-# Enter a context with an instance of the API client
-with pollination_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = pollination_sdk.RunsApi(api_client)
-    owner = 'owner_example' # str | 
-name = 'name_example' # str | 
-run_id = 'run_id_example' # str | 
-
-    try:
-        # resume a run
-        api_response = api_instance.resume_run(owner, name, run_id)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling RunsApi->resume_run: %s\n" % e)
-```
-
-* Bearer Authentication (JWTAuth):
-```python
-from __future__ import print_function
-import time
-import pollination_sdk
-from pollination_sdk.rest import ApiException
-from pprint import pprint
-
-# Configure API key authorization: APIKeyAuth
-configuration = pollination_sdk.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'APIKeyAuth': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
-
-# Retrieve a temporary Acces Token (JWT) using your API token
-API_TOKEN = 'some-token-string'
-
-auth = pollination_sdk.UserApi()
-api_token = pollination_sdk.LoginDto(
-  api_token=API_TOKEN
-)
-
-auth_response = auth.login(api_token)
-
-# Configure Bearer authorization: JWTAuth
-configuration = pollination_sdk.Configuration(
-    access_token=auth_response.access_token
-)
-
-# Enter a context with an instance of the API client
-with pollination_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = pollination_sdk.RunsApi(api_client)
-    owner = 'owner_example' # str | 
-name = 'name_example' # str | 
-run_id = 'run_id_example' # str | 
-
-    try:
-        # resume a run
-        api_response = api_instance.resume_run(owner, name, run_id)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling RunsApi->resume_run: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **str**|  | 
- **name** | **str**|  | 
- **run_id** | **str**|  | 
-
-### Return type
-
-[**Accepted**](Accepted.md)
-
-### Authorization
-
-[APIKeyAuth](../README.md#APIKeyAuth), [JWTAuth](../README.md#JWTAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**202** | Accepted |  -  |
-**422** | Validation Error |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **stop_run**
-> Accepted stop_run(owner, name, run_id)
-
-Stop a run
-
-Stop a run.
-
-### Example
-
-* Api Key Authentication (APIKeyAuth):
-```python
-from __future__ import print_function
-import time
-import pollination_sdk
-from pollination_sdk.rest import ApiException
-from pprint import pprint
-
-# Configure API key authorization: APIKeyAuth
-configuration = pollination_sdk.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'APIKeyAuth': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
-
-# Retrieve a temporary Acces Token (JWT) using your API token
-API_TOKEN = 'some-token-string'
-
-auth = pollination_sdk.UserApi()
-api_token = pollination_sdk.LoginDto(
-  api_token=API_TOKEN
-)
-
-auth_response = auth.login(api_token)
-
-# Configure Bearer authorization: JWTAuth
-configuration = pollination_sdk.Configuration(
-    access_token=auth_response.access_token
-)
-
-# Enter a context with an instance of the API client
-with pollination_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = pollination_sdk.RunsApi(api_client)
-    owner = 'owner_example' # str | 
-name = 'name_example' # str | 
-run_id = 'run_id_example' # str | 
-
-    try:
-        # Stop a run
-        api_response = api_instance.stop_run(owner, name, run_id)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling RunsApi->stop_run: %s\n" % e)
-```
-
-* Bearer Authentication (JWTAuth):
-```python
-from __future__ import print_function
-import time
-import pollination_sdk
-from pollination_sdk.rest import ApiException
-from pprint import pprint
-
-# Configure API key authorization: APIKeyAuth
-configuration = pollination_sdk.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'APIKeyAuth': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
-
-# Retrieve a temporary Acces Token (JWT) using your API token
-API_TOKEN = 'some-token-string'
-
-auth = pollination_sdk.UserApi()
-api_token = pollination_sdk.LoginDto(
-  api_token=API_TOKEN
-)
-
-auth_response = auth.login(api_token)
-
-# Configure Bearer authorization: JWTAuth
-configuration = pollination_sdk.Configuration(
-    access_token=auth_response.access_token
-)
-
-# Enter a context with an instance of the API client
-with pollination_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = pollination_sdk.RunsApi(api_client)
-    owner = 'owner_example' # str | 
-name = 'name_example' # str | 
-run_id = 'run_id_example' # str | 
-
-    try:
-        # Stop a run
-        api_response = api_instance.stop_run(owner, name, run_id)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling RunsApi->stop_run: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **str**|  | 
- **name** | **str**|  | 
- **run_id** | **str**|  | 
-
-### Return type
-
-[**Accepted**](Accepted.md)
-
-### Authorization
-
-[APIKeyAuth](../README.md#APIKeyAuth), [JWTAuth](../README.md#JWTAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**202** | Accepted |  -  |
-**422** | Validation Error |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **suspend_run**
-> Accepted suspend_run(owner, name, run_id)
-
-Suspend a run
-
-Stop a run.
-
-### Example
-
-* Api Key Authentication (APIKeyAuth):
-```python
-from __future__ import print_function
-import time
-import pollination_sdk
-from pollination_sdk.rest import ApiException
-from pprint import pprint
-
-# Configure API key authorization: APIKeyAuth
-configuration = pollination_sdk.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'APIKeyAuth': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
-
-# Retrieve a temporary Acces Token (JWT) using your API token
-API_TOKEN = 'some-token-string'
-
-auth = pollination_sdk.UserApi()
-api_token = pollination_sdk.LoginDto(
-  api_token=API_TOKEN
-)
-
-auth_response = auth.login(api_token)
-
-# Configure Bearer authorization: JWTAuth
-configuration = pollination_sdk.Configuration(
-    access_token=auth_response.access_token
-)
-
-# Enter a context with an instance of the API client
-with pollination_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = pollination_sdk.RunsApi(api_client)
-    owner = 'owner_example' # str | 
-name = 'name_example' # str | 
-run_id = 'run_id_example' # str | 
-
-    try:
-        # Suspend a run
-        api_response = api_instance.suspend_run(owner, name, run_id)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling RunsApi->suspend_run: %s\n" % e)
-```
-
-* Bearer Authentication (JWTAuth):
-```python
-from __future__ import print_function
-import time
-import pollination_sdk
-from pollination_sdk.rest import ApiException
-from pprint import pprint
-
-# Configure API key authorization: APIKeyAuth
-configuration = pollination_sdk.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'APIKeyAuth': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
-
-# Retrieve a temporary Acces Token (JWT) using your API token
-API_TOKEN = 'some-token-string'
-
-auth = pollination_sdk.UserApi()
-api_token = pollination_sdk.LoginDto(
-  api_token=API_TOKEN
-)
-
-auth_response = auth.login(api_token)
-
-# Configure Bearer authorization: JWTAuth
-configuration = pollination_sdk.Configuration(
-    access_token=auth_response.access_token
-)
-
-# Enter a context with an instance of the API client
-with pollination_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = pollination_sdk.RunsApi(api_client)
-    owner = 'owner_example' # str | 
-name = 'name_example' # str | 
-run_id = 'run_id_example' # str | 
-
-    try:
-        # Suspend a run
-        api_response = api_instance.suspend_run(owner, name, run_id)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling RunsApi->suspend_run: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **owner** | **str**|  | 
- **name** | **str**|  | 
- **run_id** | **str**|  | 
-
-### Return type
-
-[**Accepted**](Accepted.md)
-
-### Authorization
-
-[APIKeyAuth](../README.md#APIKeyAuth), [JWTAuth](../README.md#JWTAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**202** | Accepted |  -  |
 **422** | Validation Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
