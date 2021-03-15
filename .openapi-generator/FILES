@@ -8,7 +8,6 @@ docs/APITokenCreate.md
 docs/APITokenList.md
 docs/APITokenPrivate.md
 docs/APITokensApi.md
-docs/Accepted.md
 docs/AccountPublic.md
 docs/AccountsApi.md
 docs/ArtifactsApi.md
@@ -100,6 +99,7 @@ docs/Job.md
 docs/JobArgument.md
 docs/JobPathArgument.md
 docs/JobStatus.md
+docs/JobStatusEnum.md
 docs/JobsApi.md
 docs/KeyRequest.md
 docs/License.md
@@ -160,6 +160,7 @@ docs/Run.md
 docs/RunList.md
 docs/RunResultList.md
 docs/RunStatus.md
+docs/RunStatusEnum.md
 docs/RunsApi.md
 docs/S3.md
 docs/S3UploadRequest.md
@@ -182,6 +183,7 @@ docs/StepNumberOutput.md
 docs/StepPathInput.md
 docs/StepPathOutput.md
 docs/StepStatus.md
+docs/StepStatusEnum.md
 docs/StepStringInput.md
 docs/StepStringOutput.md
 docs/SubjectType.md
@@ -234,7 +236,6 @@ pollination_sdk/api_client.py
 pollination_sdk/configuration.py
 pollination_sdk/exceptions.py
 pollination_sdk/models/__init__.py
-pollination_sdk/models/accepted.py
 pollination_sdk/models/account_public.py
 pollination_sdk/models/api_token.py
 pollination_sdk/models/api_token_create.py
@@ -328,6 +329,7 @@ pollination_sdk/models/job.py
 pollination_sdk/models/job_argument.py
 pollination_sdk/models/job_path_argument.py
 pollination_sdk/models/job_status.py
+pollination_sdk/models/job_status_enum.py
 pollination_sdk/models/key_request.py
 pollination_sdk/models/license.py
 pollination_sdk/models/local_config.py
@@ -382,6 +384,7 @@ pollination_sdk/models/run.py
 pollination_sdk/models/run_list.py
 pollination_sdk/models/run_result_list.py
 pollination_sdk/models/run_status.py
+pollination_sdk/models/run_status_enum.py
 pollination_sdk/models/s3.py
 pollination_sdk/models/s3_upload_request.py
 pollination_sdk/models/status_type.py
@@ -403,6 +406,7 @@ pollination_sdk/models/step_number_output.py
 pollination_sdk/models/step_path_input.py
 pollination_sdk/models/step_path_output.py
 pollination_sdk/models/step_status.py
+pollination_sdk/models/step_status_enum.py
 pollination_sdk/models/step_string_input.py
 pollination_sdk/models/step_string_output.py
 pollination_sdk/models/subject_type.py
@@ -438,7 +442,6 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
-test/test_accepted.py
 test/test_account_public.py
 test/test_accounts_api.py
 test/test_api_token.py
@@ -535,6 +538,7 @@ test/test_job.py
 test/test_job_argument.py
 test/test_job_path_argument.py
 test/test_job_status.py
+test/test_job_status_enum.py
 test/test_jobs_api.py
 test/test_key_request.py
 test/test_license.py
@@ -595,6 +599,7 @@ test/test_run.py
 test/test_run_list.py
 test/test_run_result_list.py
 test/test_run_status.py
+test/test_run_status_enum.py
 test/test_runs_api.py
 test/test_s3.py
 test/test_s3_upload_request.py
@@ -617,6 +622,7 @@ test/test_step_number_output.py
 test/test_step_path_input.py
 test/test_step_path_output.py
 test/test_step_status.py
+test/test_step_status_enum.py
 test/test_step_string_input.py
 test/test_step_string_output.py
 test/test_subject_type.py
