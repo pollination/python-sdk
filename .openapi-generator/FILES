@@ -156,6 +156,7 @@ docs/RepositoryMetadata.md
 docs/RepositoryPolicySubject.md
 docs/RepositoryUpdate.md
 docs/RepositoryUserPermissions.md
+docs/RoleEnum.md
 docs/Run.md
 docs/RunList.md
 docs/RunResultList.md
@@ -380,6 +381,7 @@ pollination_sdk/models/repository_metadata.py
 pollination_sdk/models/repository_policy_subject.py
 pollination_sdk/models/repository_update.py
 pollination_sdk/models/repository_user_permissions.py
+pollination_sdk/models/role_enum.py
 pollination_sdk/models/run.py
 pollination_sdk/models/run_list.py
 pollination_sdk/models/run_result_list.py
@@ -595,6 +597,7 @@ test/test_repository_metadata.py
 test/test_repository_policy_subject.py
 test/test_repository_update.py
 test/test_repository_user_permissions.py
+test/test_role_enum.py
 test/test_run.py
 test/test_run_list.py
 test/test_run_result_list.py
