@@ -867,7 +867,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_run_artifacts**
-> list[FileMeta] list_run_artifacts(owner, name, run_id, page=page, per_page=per_page, path=path)
+> list[FileMeta] list_run_artifacts(owner, name, run_id, path=path, page=page, per_page=per_page)
 
 List artifacts in a run folder
 
@@ -915,13 +915,13 @@ with pollination_sdk.ApiClient(configuration) as api_client:
     owner = 'owner_example' # str | 
 name = 'name_example' # str | 
 run_id = 'run_id_example' # str | 
+path = ['path_example'] # list[str] | The path to an file within a project folder (optional)
 page = 1 # int | Page number starting from 1 (optional) (default to 1)
 per_page = 25 # int | Number of items per page (optional) (default to 25)
-path = ['path_example'] # list[str] | The path to an file within a project folder (optional)
 
     try:
         # List artifacts in a run folder
-        api_response = api_instance.list_run_artifacts(owner, name, run_id, page=page, per_page=per_page, path=path)
+        api_response = api_instance.list_run_artifacts(owner, name, run_id, path=path, page=page, per_page=per_page)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling RunsApi->list_run_artifacts: %s\n" % e)
@@ -967,13 +967,13 @@ with pollination_sdk.ApiClient(configuration) as api_client:
     owner = 'owner_example' # str | 
 name = 'name_example' # str | 
 run_id = 'run_id_example' # str | 
+path = ['path_example'] # list[str] | The path to an file within a project folder (optional)
 page = 1 # int | Page number starting from 1 (optional) (default to 1)
 per_page = 25 # int | Number of items per page (optional) (default to 25)
-path = ['path_example'] # list[str] | The path to an file within a project folder (optional)
 
     try:
         # List artifacts in a run folder
-        api_response = api_instance.list_run_artifacts(owner, name, run_id, page=page, per_page=per_page, path=path)
+        api_response = api_instance.list_run_artifacts(owner, name, run_id, path=path, page=page, per_page=per_page)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling RunsApi->list_run_artifacts: %s\n" % e)
@@ -986,9 +986,9 @@ Name | Type | Description  | Notes
  **owner** | **str**|  | 
  **name** | **str**|  | 
  **run_id** | **str**|  | 
+ **path** | [**list[str]**](str.md)| The path to an file within a project folder | [optional] 
  **page** | **int**| Page number starting from 1 | [optional] [default to 1]
  **per_page** | **int**| Number of items per page | [optional] [default to 25]
- **path** | [**list[str]**](str.md)| The path to an file within a project folder | [optional] 
 
 ### Return type
 
@@ -1012,7 +1012,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_runs**
-> RunList list_runs(owner, name, status=status, job_id=job_id, page=page, per_page=per_page)
+> RunList list_runs(owner, name, job_id=job_id, status=status, page=page, per_page=per_page)
 
 List runs
 
@@ -1059,14 +1059,14 @@ with pollination_sdk.ApiClient(configuration) as api_client:
     api_instance = pollination_sdk.RunsApi(api_client)
     owner = 'owner_example' # str | 
 name = 'name_example' # str | 
-status = pollination_sdk.RunStatusEnum() # RunStatusEnum |  (optional)
 job_id = ['job_id_example'] # list[str] |  (optional)
+status = pollination_sdk.RunStatusEnum() # RunStatusEnum |  (optional)
 page = 1 # int | Page number starting from 1 (optional) (default to 1)
 per_page = 25 # int | Number of items per page (optional) (default to 25)
 
     try:
         # List runs
-        api_response = api_instance.list_runs(owner, name, status=status, job_id=job_id, page=page, per_page=per_page)
+        api_response = api_instance.list_runs(owner, name, job_id=job_id, status=status, page=page, per_page=per_page)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling RunsApi->list_runs: %s\n" % e)
@@ -1111,14 +1111,14 @@ with pollination_sdk.ApiClient(configuration) as api_client:
     api_instance = pollination_sdk.RunsApi(api_client)
     owner = 'owner_example' # str | 
 name = 'name_example' # str | 
-status = pollination_sdk.RunStatusEnum() # RunStatusEnum |  (optional)
 job_id = ['job_id_example'] # list[str] |  (optional)
+status = pollination_sdk.RunStatusEnum() # RunStatusEnum |  (optional)
 page = 1 # int | Page number starting from 1 (optional) (default to 1)
 per_page = 25 # int | Number of items per page (optional) (default to 25)
 
     try:
         # List runs
-        api_response = api_instance.list_runs(owner, name, status=status, job_id=job_id, page=page, per_page=per_page)
+        api_response = api_instance.list_runs(owner, name, job_id=job_id, status=status, page=page, per_page=per_page)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling RunsApi->list_runs: %s\n" % e)
@@ -1130,8 +1130,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **name** | **str**|  | 
- **status** | [**RunStatusEnum**](.md)|  | [optional] 
  **job_id** | [**list[str]**](str.md)|  | [optional] 
+ **status** | [**RunStatusEnum**](.md)|  | [optional] 
  **page** | **int**| Page number starting from 1 | [optional] [default to 1]
  **per_page** | **int**| Number of items per page | [optional] [default to 25]
 
@@ -1157,7 +1157,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **query_results**
-> RunResultList query_results(owner, name, status=status, job_id=job_id, page=page, per_page=per_page)
+> RunResultList query_results(owner, name, job_id=job_id, status=status, page=page, per_page=per_page)
 
 Query run results
 
@@ -1204,14 +1204,14 @@ with pollination_sdk.ApiClient(configuration) as api_client:
     api_instance = pollination_sdk.RunsApi(api_client)
     owner = 'owner_example' # str | 
 name = 'name_example' # str | 
-status = pollination_sdk.RunStatusEnum() # RunStatusEnum |  (optional)
 job_id = ['job_id_example'] # list[str] |  (optional)
+status = pollination_sdk.RunStatusEnum() # RunStatusEnum |  (optional)
 page = 1 # int | Page number starting from 1 (optional) (default to 1)
 per_page = 25 # int | Number of items per page (optional) (default to 25)
 
     try:
         # Query run results
-        api_response = api_instance.query_results(owner, name, status=status, job_id=job_id, page=page, per_page=per_page)
+        api_response = api_instance.query_results(owner, name, job_id=job_id, status=status, page=page, per_page=per_page)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling RunsApi->query_results: %s\n" % e)
@@ -1256,14 +1256,14 @@ with pollination_sdk.ApiClient(configuration) as api_client:
     api_instance = pollination_sdk.RunsApi(api_client)
     owner = 'owner_example' # str | 
 name = 'name_example' # str | 
-status = pollination_sdk.RunStatusEnum() # RunStatusEnum |  (optional)
 job_id = ['job_id_example'] # list[str] |  (optional)
+status = pollination_sdk.RunStatusEnum() # RunStatusEnum |  (optional)
 page = 1 # int | Page number starting from 1 (optional) (default to 1)
 per_page = 25 # int | Number of items per page (optional) (default to 25)
 
     try:
         # Query run results
-        api_response = api_instance.query_results(owner, name, status=status, job_id=job_id, page=page, per_page=per_page)
+        api_response = api_instance.query_results(owner, name, job_id=job_id, status=status, page=page, per_page=per_page)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling RunsApi->query_results: %s\n" % e)
@@ -1275,8 +1275,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **name** | **str**|  | 
- **status** | [**RunStatusEnum**](.md)|  | [optional] 
  **job_id** | [**list[str]**](str.md)|  | [optional] 
+ **status** | [**RunStatusEnum**](.md)|  | [optional] 
  **page** | **int**| Page number starting from 1 | [optional] [default to 1]
  **per_page** | **int**| Number of items per page | [optional] [default to 25]
 

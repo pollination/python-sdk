@@ -153,7 +153,7 @@ Name | Type | Description  | Notes
 
 Schedule a job
 
-Create a new run.
+Create a new job.
 
 ### Example
 
@@ -715,7 +715,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **search_job_folder**
-> list[FileMeta] search_job_folder(owner, name, job_id, page=page, per_page=per_page, path=path)
+> list[FileMeta] search_job_folder(owner, name, job_id, path=path, page=page, per_page=per_page)
 
 List files/folders in a job folder
 
@@ -763,13 +763,13 @@ with pollination_sdk.ApiClient(configuration) as api_client:
     owner = 'owner_example' # str | 
 name = 'name_example' # str | 
 job_id = 'job_id_example' # str | 
+path = ['path_example'] # list[str] | The path to an file within a project folder (optional)
 page = 1 # int | Page number starting from 1 (optional) (default to 1)
 per_page = 25 # int | Number of items per page (optional) (default to 25)
-path = ['path_example'] # list[str] | The path to an file within a project folder (optional)
 
     try:
         # List files/folders in a job folder
-        api_response = api_instance.search_job_folder(owner, name, job_id, page=page, per_page=per_page, path=path)
+        api_response = api_instance.search_job_folder(owner, name, job_id, path=path, page=page, per_page=per_page)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling JobsApi->search_job_folder: %s\n" % e)
@@ -815,13 +815,13 @@ with pollination_sdk.ApiClient(configuration) as api_client:
     owner = 'owner_example' # str | 
 name = 'name_example' # str | 
 job_id = 'job_id_example' # str | 
+path = ['path_example'] # list[str] | The path to an file within a project folder (optional)
 page = 1 # int | Page number starting from 1 (optional) (default to 1)
 per_page = 25 # int | Number of items per page (optional) (default to 25)
-path = ['path_example'] # list[str] | The path to an file within a project folder (optional)
 
     try:
         # List files/folders in a job folder
-        api_response = api_instance.search_job_folder(owner, name, job_id, page=page, per_page=per_page, path=path)
+        api_response = api_instance.search_job_folder(owner, name, job_id, path=path, page=page, per_page=per_page)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling JobsApi->search_job_folder: %s\n" % e)
@@ -834,9 +834,9 @@ Name | Type | Description  | Notes
  **owner** | **str**|  | 
  **name** | **str**|  | 
  **job_id** | **str**|  | 
+ **path** | [**list[str]**](str.md)| The path to an file within a project folder | [optional] 
  **page** | **int**| Page number starting from 1 | [optional] [default to 1]
  **per_page** | **int**| Number of items per page | [optional] [default to 25]
- **path** | [**list[str]**](str.md)| The path to an file within a project folder | [optional] 
 
 ### Return type
 

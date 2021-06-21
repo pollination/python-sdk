@@ -545,7 +545,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_recipe**
-> object post_recipe(owner, package, authorization=authorization)
+> object post_recipe(owner, package)
 
 Push an Recipe to the registry
 
@@ -590,11 +590,10 @@ with pollination_sdk.ApiClient(configuration) as api_client:
     api_instance = pollination_sdk.RegistriesApi(api_client)
     owner = 'owner_example' # str | 
 package = '/path/to/file' # file | 
-authorization = 'authorization_example' # str |  (optional)
 
     try:
         # Push an Recipe to the registry
-        api_response = api_instance.post_recipe(owner, package, authorization=authorization)
+        api_response = api_instance.post_recipe(owner, package)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling RegistriesApi->post_recipe: %s\n" % e)
@@ -639,11 +638,10 @@ with pollination_sdk.ApiClient(configuration) as api_client:
     api_instance = pollination_sdk.RegistriesApi(api_client)
     owner = 'owner_example' # str | 
 package = '/path/to/file' # file | 
-authorization = 'authorization_example' # str |  (optional)
 
     try:
         # Push an Recipe to the registry
-        api_response = api_instance.post_recipe(owner, package, authorization=authorization)
+        api_response = api_instance.post_recipe(owner, package)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling RegistriesApi->post_recipe: %s\n" % e)
@@ -655,7 +653,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **package** | **file**|  | 
- **authorization** | **str**|  | [optional] 
 
 ### Return type
 

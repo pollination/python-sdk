@@ -1,4 +1,4 @@
-# BodyPostPluginRegistriesOwnerPluginsPost
+# BodyPostRecipeOwnerRecipesPost
 
 ## Properties
 Name | Type | Description | Notes

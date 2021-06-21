@@ -15,8 +15,6 @@ Method | HTTP request | Description
 
 Get an Artifact upload link.
 
-Create a new artifact.
-
 ### Example
 
 * Api Key Authentication (APIKeyAuth):
@@ -147,11 +145,9 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_artifact**
-> UpdateAccepted delete_artifact(owner, name, path=path)
+> delete_artifact(owner, name, path=path, page=page, per_page=per_page)
 
 Delete one or many artifacts by key/prefix
-
-Delete one or multiple artifacts based on key prefix
 
 ### Example
 
@@ -195,11 +191,12 @@ with pollination_sdk.ApiClient(configuration) as api_client:
     owner = 'owner_example' # str | 
 name = 'name_example' # str | 
 path = ['path_example'] # list[str] | The path to an file within a project folder (optional)
+page = 1 # int | Page number starting from 1 (optional) (default to 1)
+per_page = 25 # int | Number of items per page (optional) (default to 25)
 
     try:
         # Delete one or many artifacts by key/prefix
-        api_response = api_instance.delete_artifact(owner, name, path=path)
-        pprint(api_response)
+        api_instance.delete_artifact(owner, name, path=path, page=page, per_page=per_page)
     except ApiException as e:
         print("Exception when calling ArtifactsApi->delete_artifact: %s\n" % e)
 ```
@@ -244,11 +241,12 @@ with pollination_sdk.ApiClient(configuration) as api_client:
     owner = 'owner_example' # str | 
 name = 'name_example' # str | 
 path = ['path_example'] # list[str] | The path to an file within a project folder (optional)
+page = 1 # int | Page number starting from 1 (optional) (default to 1)
+per_page = 25 # int | Number of items per page (optional) (default to 25)
 
     try:
         # Delete one or many artifacts by key/prefix
-        api_response = api_instance.delete_artifact(owner, name, path=path)
-        pprint(api_response)
+        api_instance.delete_artifact(owner, name, path=path, page=page, per_page=per_page)
     except ApiException as e:
         print("Exception when calling ArtifactsApi->delete_artifact: %s\n" % e)
 ```
@@ -260,10 +258,12 @@ Name | Type | Description  | Notes
  **owner** | **str**|  | 
  **name** | **str**|  | 
  **path** | [**list[str]**](str.md)| The path to an file within a project folder | [optional] 
+ **page** | **int**| Page number starting from 1 | [optional] [default to 1]
+ **per_page** | **int**| Number of items per page | [optional] [default to 25]
 
 ### Return type
 
-[**UpdateAccepted**](UpdateAccepted.md)
+void (empty response body)
 
 ### Authorization
 
@@ -277,7 +277,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**202** | Successful Response |  -  |
+**204** | Successful Response |  -  |
 **422** | Validation Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -286,8 +286,6 @@ Name | Type | Description  | Notes
 > object download_artifact(owner, name, path=path)
 
 Download an artifact from the project folder
-
-Retrieve a list of artifacts.
 
 ### Example
 
@@ -423,11 +421,9 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_artifacts**
-> list[FileMeta] list_artifacts(owner, name, page=page, per_page=per_page, path=path)
+> list[FileMeta] list_artifacts(owner, name, path=path, page=page, per_page=per_page)
 
 List artifacts in a project folder
-
-Retrieve a list of artifacts.
 
 ### Example
 
@@ -470,13 +466,13 @@ with pollination_sdk.ApiClient(configuration) as api_client:
     api_instance = pollination_sdk.ArtifactsApi(api_client)
     owner = 'owner_example' # str | 
 name = 'name_example' # str | 
+path = ['path_example'] # list[str] | The path to an file within a project folder (optional)
 page = 1 # int | Page number starting from 1 (optional) (default to 1)
 per_page = 25 # int | Number of items per page (optional) (default to 25)
-path = ['path_example'] # list[str] | The path to an file within a project folder (optional)
 
     try:
         # List artifacts in a project folder
-        api_response = api_instance.list_artifacts(owner, name, page=page, per_page=per_page, path=path)
+        api_response = api_instance.list_artifacts(owner, name, path=path, page=page, per_page=per_page)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ArtifactsApi->list_artifacts: %s\n" % e)
@@ -521,13 +517,13 @@ with pollination_sdk.ApiClient(configuration) as api_client:
     api_instance = pollination_sdk.ArtifactsApi(api_client)
     owner = 'owner_example' # str | 
 name = 'name_example' # str | 
+path = ['path_example'] # list[str] | The path to an file within a project folder (optional)
 page = 1 # int | Page number starting from 1 (optional) (default to 1)
 per_page = 25 # int | Number of items per page (optional) (default to 25)
-path = ['path_example'] # list[str] | The path to an file within a project folder (optional)
 
     try:
         # List artifacts in a project folder
-        api_response = api_instance.list_artifacts(owner, name, page=page, per_page=per_page, path=path)
+        api_response = api_instance.list_artifacts(owner, name, path=path, page=page, per_page=per_page)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ArtifactsApi->list_artifacts: %s\n" % e)
@@ -539,9 +535,9 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **name** | **str**|  | 
+ **path** | [**list[str]**](str.md)| The path to an file within a project folder | [optional] 
  **page** | **int**| Page number starting from 1 | [optional] [default to 1]
  **per_page** | **int**| Number of items per page | [optional] [default to 25]
- **path** | [**list[str]**](str.md)| The path to an file within a project folder | [optional] 
 
 ### Return type
 

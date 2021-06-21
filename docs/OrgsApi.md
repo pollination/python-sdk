@@ -548,7 +548,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_org_members**
-> OrganizationMemberList get_org_members(name, page=page, per_page=per_page)
+> OrganizationMemberList get_org_members(name)
 
 List organization members
 
@@ -568,12 +568,10 @@ with pollination_sdk.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = pollination_sdk.OrgsApi(api_client)
     name = 'name_example' # str | 
-page = 1 # int | Page number starting from 1 (optional) (default to 1)
-per_page = 25 # int | Number of items per page (optional) (default to 25)
 
     try:
         # List organization members
-        api_response = api_instance.get_org_members(name, page=page, per_page=per_page)
+        api_response = api_instance.get_org_members(name)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling OrgsApi->get_org_members: %s\n" % e)
@@ -584,8 +582,6 @@ per_page = 25 # int | Number of items per page (optional) (default to 25)
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **str**|  | 
- **page** | **int**| Page number starting from 1 | [optional] [default to 1]
- **per_page** | **int**| Number of items per page | [optional] [default to 25]
 
 ### Return type
 
@@ -609,7 +605,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_orgs**
-> OrganizationList list_orgs(page=page, per_page=per_page, search=search, name=name, member=member)
+> OrganizationList list_orgs(search=search, name=name, member=member, page=page, per_page=per_page)
 
 List Orgs
 
@@ -654,15 +650,15 @@ configuration = pollination_sdk.Configuration(
 with pollination_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pollination_sdk.OrgsApi(api_client)
-    page = 1 # int | Page number starting from 1 (optional) (default to 1)
-per_page = 25 # int | Number of items per page (optional) (default to 25)
-search = [] # list[str] | You know, for search (optional) (default to [])
+    search = [] # list[str] | You know, for search (optional) (default to [])
 name = [] # list[str] | The account name (optional) (default to [])
-member = [] # list[str] | The ID of a user (optional) (default to [])
+member = [] # list[str] | The username of a user (optional) (default to [])
+page = 1 # int | Page number starting from 1 (optional) (default to 1)
+per_page = 25 # int | Number of items per page (optional) (default to 25)
 
     try:
         # List Orgs
-        api_response = api_instance.list_orgs(page=page, per_page=per_page, search=search, name=name, member=member)
+        api_response = api_instance.list_orgs(search=search, name=name, member=member, page=page, per_page=per_page)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling OrgsApi->list_orgs: %s\n" % e)
@@ -705,15 +701,15 @@ configuration = pollination_sdk.Configuration(
 with pollination_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pollination_sdk.OrgsApi(api_client)
-    page = 1 # int | Page number starting from 1 (optional) (default to 1)
-per_page = 25 # int | Number of items per page (optional) (default to 25)
-search = [] # list[str] | You know, for search (optional) (default to [])
+    search = [] # list[str] | You know, for search (optional) (default to [])
 name = [] # list[str] | The account name (optional) (default to [])
-member = [] # list[str] | The ID of a user (optional) (default to [])
+member = [] # list[str] | The username of a user (optional) (default to [])
+page = 1 # int | Page number starting from 1 (optional) (default to 1)
+per_page = 25 # int | Number of items per page (optional) (default to 25)
 
     try:
         # List Orgs
-        api_response = api_instance.list_orgs(page=page, per_page=per_page, search=search, name=name, member=member)
+        api_response = api_instance.list_orgs(search=search, name=name, member=member, page=page, per_page=per_page)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling OrgsApi->list_orgs: %s\n" % e)
@@ -723,11 +719,11 @@ member = [] # list[str] | The ID of a user (optional) (default to [])
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | **int**| Page number starting from 1 | [optional] [default to 1]
- **per_page** | **int**| Number of items per page | [optional] [default to 25]
  **search** | [**list[str]**](str.md)| You know, for search | [optional] [default to []]
  **name** | [**list[str]**](str.md)| The account name | [optional] [default to []]
- **member** | [**list[str]**](str.md)| The ID of a user | [optional] [default to []]
+ **member** | [**list[str]**](str.md)| The username of a user | [optional] [default to []]
+ **page** | **int**| Page number starting from 1 | [optional] [default to 1]
+ **per_page** | **int**| Number of items per page | [optional] [default to 25]
 
 ### Return type
 

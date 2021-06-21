@@ -66,7 +66,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_accounts**
-> PublicAccountList list_accounts(page=page, per_page=per_page, search=search, type=type, role=role)
+> PublicAccountList list_accounts(search=search, type=type, role=role, page=page, per_page=per_page)
 
 List Accounts on the Pollination platform
 
@@ -111,15 +111,15 @@ configuration = pollination_sdk.Configuration(
 with pollination_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pollination_sdk.AccountsApi(api_client)
-    page = 1 # int | Page number starting from 1 (optional) (default to 1)
-per_page = 25 # int | Number of items per page (optional) (default to 25)
-search = 'search_example' # str | Search string to find accounts (optional)
+    search = 'search_example' # str | Search string to find accounts (optional)
 type = 'type_example' # str | Whether the account is for a user or an org (optional)
 role = pollination_sdk.RoleEnum() # RoleEnum | The role the user has in relation to this account (optional)
+page = 1 # int | Page number starting from 1 (optional) (default to 1)
+per_page = 25 # int | Number of items per page (optional) (default to 25)
 
     try:
         # List Accounts on the Pollination platform
-        api_response = api_instance.list_accounts(page=page, per_page=per_page, search=search, type=type, role=role)
+        api_response = api_instance.list_accounts(search=search, type=type, role=role, page=page, per_page=per_page)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling AccountsApi->list_accounts: %s\n" % e)
@@ -162,15 +162,15 @@ configuration = pollination_sdk.Configuration(
 with pollination_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pollination_sdk.AccountsApi(api_client)
-    page = 1 # int | Page number starting from 1 (optional) (default to 1)
-per_page = 25 # int | Number of items per page (optional) (default to 25)
-search = 'search_example' # str | Search string to find accounts (optional)
+    search = 'search_example' # str | Search string to find accounts (optional)
 type = 'type_example' # str | Whether the account is for a user or an org (optional)
 role = pollination_sdk.RoleEnum() # RoleEnum | The role the user has in relation to this account (optional)
+page = 1 # int | Page number starting from 1 (optional) (default to 1)
+per_page = 25 # int | Number of items per page (optional) (default to 25)
 
     try:
         # List Accounts on the Pollination platform
-        api_response = api_instance.list_accounts(page=page, per_page=per_page, search=search, type=type, role=role)
+        api_response = api_instance.list_accounts(search=search, type=type, role=role, page=page, per_page=per_page)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling AccountsApi->list_accounts: %s\n" % e)
@@ -180,11 +180,11 @@ role = pollination_sdk.RoleEnum() # RoleEnum | The role the user has in relation
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | **int**| Page number starting from 1 | [optional] [default to 1]
- **per_page** | **int**| Number of items per page | [optional] [default to 25]
  **search** | **str**| Search string to find accounts | [optional] 
  **type** | **str**| Whether the account is for a user or an org | [optional] 
  **role** | [**RoleEnum**](.md)| The role the user has in relation to this account | [optional] 
+ **page** | **int**| Page number starting from 1 | [optional] [default to 1]
+ **per_page** | **int**| Number of items per page | [optional] [default to 25]
 
 ### Return type
 
