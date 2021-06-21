@@ -141,7 +141,7 @@ from pprint import pprint
 with pollination_sdk.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = pollination_sdk.UsersApi(api_client)
-    search = ['search_example'] # list[str] | You know, for search (optional)
+    search = 'search_example' # str | Search string to find users (optional)
 page = 1 # int | Page number starting from 1 (optional) (default to 1)
 per_page = 25 # int | Number of items per page (optional) (default to 25)
 
@@ -157,7 +157,7 @@ per_page = 25 # int | Number of items per page (optional) (default to 25)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **search** | [**list[str]**](str.md)| You know, for search | [optional] 
+ **search** | **str**| Search string to find users | [optional] 
  **page** | **int**| Page number starting from 1 | [optional] [default to 1]
  **per_page** | **int**| Number of items per page | [optional] [default to 25]
 

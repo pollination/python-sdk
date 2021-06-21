@@ -4,23 +4,23 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_plugin**](PluginsApi.md#create_plugin) | **POST** /plugins/{owner} | Create a plugin
+[**create_plugin**](PluginsApi.md#create_plugin) | **POST** /plugins/{owner} | Create a Plugin
 [**create_plugin_package**](PluginsApi.md#create_plugin_package) | **POST** /plugins/{owner}/{name}/tags | Create a new Plugin package
-[**delete_plugin**](PluginsApi.md#delete_plugin) | **DELETE** /plugins/{owner}/{name} | Delete a plugin
+[**delete_plugin**](PluginsApi.md#delete_plugin) | **DELETE** /plugins/{owner}/{name} | Delete a Plugin
 [**delete_plugin_org_permission**](PluginsApi.md#delete_plugin_org_permission) | **DELETE** /plugins/{owner}/{name}/permissions | Remove a Repository permissions
 [**get_plugin**](PluginsApi.md#get_plugin) | **GET** /plugins/{owner}/{name} | Get a plugin
 [**get_plugin_access_permissions**](PluginsApi.md#get_plugin_access_permissions) | **GET** /plugins/{owner}/{name}/permissions | Get plugin access permissions
 [**get_plugin_by_tag**](PluginsApi.md#get_plugin_by_tag) | **GET** /plugins/{owner}/{name}/tags/{tag} | Get a plugin tag
 [**list_plugin_tags**](PluginsApi.md#list_plugin_tags) | **GET** /plugins/{owner}/{name}/tags | Get a plugin tags
 [**list_plugins**](PluginsApi.md#list_plugins) | **GET** /plugins | List plugins
-[**update_plugin**](PluginsApi.md#update_plugin) | **PUT** /plugins/{owner}/{name} | Update a plugin
+[**update_plugin**](PluginsApi.md#update_plugin) | **PUT** /plugins/{owner}/{name} | Update a Plugin
 [**upsert_plugin_permission**](PluginsApi.md#upsert_plugin_permission) | **PATCH** /plugins/{owner}/{name}/permissions | Upsert a new permission to a plugin
 
 
 # **create_plugin**
 > CreatedContent create_plugin(owner, repository_create)
 
-Create a plugin
+Create a Plugin
 
 Create a new plugin.
 
@@ -67,7 +67,7 @@ with pollination_sdk.ApiClient(configuration) as api_client:
 repository_create = pollination_sdk.RepositoryCreate() # RepositoryCreate | 
 
     try:
-        # Create a plugin
+        # Create a Plugin
         api_response = api_instance.create_plugin(owner, repository_create)
         pprint(api_response)
     except ApiException as e:
@@ -115,7 +115,7 @@ with pollination_sdk.ApiClient(configuration) as api_client:
 repository_create = pollination_sdk.RepositoryCreate() # RepositoryCreate | 
 
     try:
-        # Create a plugin
+        # Create a Plugin
         api_response = api_instance.create_plugin(owner, repository_create)
         pprint(api_response)
     except ApiException as e:
@@ -297,7 +297,7 @@ Name | Type | Description  | Notes
 # **delete_plugin**
 > delete_plugin(owner, name)
 
-Delete a plugin
+Delete a Plugin
 
 Delete a plugin (must have `admin` permission)
 
@@ -344,7 +344,7 @@ with pollination_sdk.ApiClient(configuration) as api_client:
 name = 'name_example' # str | 
 
     try:
-        # Delete a plugin
+        # Delete a Plugin
         api_instance.delete_plugin(owner, name)
     except ApiException as e:
         print("Exception when calling PluginsApi->delete_plugin: %s\n" % e)
@@ -391,7 +391,7 @@ with pollination_sdk.ApiClient(configuration) as api_client:
 name = 'name_example' # str | 
 
     try:
-        # Delete a plugin
+        # Delete a Plugin
         api_instance.delete_plugin(owner, name)
     except ApiException as e:
         print("Exception when calling PluginsApi->delete_plugin: %s\n" % e)
@@ -707,7 +707,7 @@ Name | Type | Description  | Notes
 
 Get plugin access permissions
 
-Retrieve a plugin's access permissions (must have `contribute` permission)
+Retrieve a plugin's access permissions (must have `write` permission)
 
 ### Example
 
@@ -1134,7 +1134,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_plugins**
-> RepositoryList list_plugins(page=page, per_page=per_page, search=search, name=name, owner=owner, public=public, keyword=keyword, permission=permission)
+> RepositoryList list_plugins(search=search, name=name, owner=owner, public=public, keyword=keyword, permission=permission, sort_by=sort_by, sort_order=sort_order, page=page, per_page=per_page)
 
 List plugins
 
@@ -1177,18 +1177,20 @@ configuration = pollination_sdk.Configuration(
 with pollination_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pollination_sdk.PluginsApi(api_client)
-    page = 1 # int | Page number starting from 1 (optional) (default to 1)
-per_page = 25 # int | Number of items per page (optional) (default to 25)
-search = ['search_example'] # list[str] | You know, for search (optional)
+    search = ['search_example'] # list[str] | You know, for search (optional)
 name = ['name_example'] # list[str] | The account name (optional)
 owner = ['owner_example'] # list[str] | Owner of the project (optional)
 public = True # bool | Boolean check for public/private projects (optional)
 keyword = ['keyword_example'] # list[str] | A keyword to index the repository by (optional)
 permission = ['permission_example'] # list[str] | Filter by permission on given resource (optional)
+sort_by = pollination_sdk.RepositorySortKey() # RepositorySortKey | Key to sort the list by (optional)
+sort_order = pollination_sdk.SortEnum() # SortEnum | The order to sort the list (optional)
+page = 1 # int | Page number starting from 1 (optional) (default to 1)
+per_page = 25 # int | Number of items per page (optional) (default to 25)
 
     try:
         # List plugins
-        api_response = api_instance.list_plugins(page=page, per_page=per_page, search=search, name=name, owner=owner, public=public, keyword=keyword, permission=permission)
+        api_response = api_instance.list_plugins(search=search, name=name, owner=owner, public=public, keyword=keyword, permission=permission, sort_by=sort_by, sort_order=sort_order, page=page, per_page=per_page)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling PluginsApi->list_plugins: %s\n" % e)
@@ -1231,18 +1233,20 @@ configuration = pollination_sdk.Configuration(
 with pollination_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pollination_sdk.PluginsApi(api_client)
-    page = 1 # int | Page number starting from 1 (optional) (default to 1)
-per_page = 25 # int | Number of items per page (optional) (default to 25)
-search = ['search_example'] # list[str] | You know, for search (optional)
+    search = ['search_example'] # list[str] | You know, for search (optional)
 name = ['name_example'] # list[str] | The account name (optional)
 owner = ['owner_example'] # list[str] | Owner of the project (optional)
 public = True # bool | Boolean check for public/private projects (optional)
 keyword = ['keyword_example'] # list[str] | A keyword to index the repository by (optional)
 permission = ['permission_example'] # list[str] | Filter by permission on given resource (optional)
+sort_by = pollination_sdk.RepositorySortKey() # RepositorySortKey | Key to sort the list by (optional)
+sort_order = pollination_sdk.SortEnum() # SortEnum | The order to sort the list (optional)
+page = 1 # int | Page number starting from 1 (optional) (default to 1)
+per_page = 25 # int | Number of items per page (optional) (default to 25)
 
     try:
         # List plugins
-        api_response = api_instance.list_plugins(page=page, per_page=per_page, search=search, name=name, owner=owner, public=public, keyword=keyword, permission=permission)
+        api_response = api_instance.list_plugins(search=search, name=name, owner=owner, public=public, keyword=keyword, permission=permission, sort_by=sort_by, sort_order=sort_order, page=page, per_page=per_page)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling PluginsApi->list_plugins: %s\n" % e)
@@ -1252,14 +1256,16 @@ permission = ['permission_example'] # list[str] | Filter by permission on given 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | **int**| Page number starting from 1 | [optional] [default to 1]
- **per_page** | **int**| Number of items per page | [optional] [default to 25]
  **search** | [**list[str]**](str.md)| You know, for search | [optional] 
  **name** | [**list[str]**](str.md)| The account name | [optional] 
  **owner** | [**list[str]**](str.md)| Owner of the project | [optional] 
  **public** | **bool**| Boolean check for public/private projects | [optional] 
  **keyword** | [**list[str]**](str.md)| A keyword to index the repository by | [optional] 
  **permission** | [**list[str]**](str.md)| Filter by permission on given resource | [optional] 
+ **sort_by** | [**RepositorySortKey**](.md)| Key to sort the list by | [optional] 
+ **sort_order** | [**SortEnum**](.md)| The order to sort the list | [optional] 
+ **page** | **int**| Page number starting from 1 | [optional] [default to 1]
+ **per_page** | **int**| Number of items per page | [optional] [default to 25]
 
 ### Return type
 
@@ -1285,7 +1291,7 @@ Name | Type | Description  | Notes
 # **update_plugin**
 > UpdateAccepted update_plugin(owner, name, repository_update)
 
-Update a plugin
+Update a Plugin
 
 Update a plugin (must have `contribute` permission)
 
@@ -1333,7 +1339,7 @@ name = 'name_example' # str |
 repository_update = pollination_sdk.RepositoryUpdate() # RepositoryUpdate | 
 
     try:
-        # Update a plugin
+        # Update a Plugin
         api_response = api_instance.update_plugin(owner, name, repository_update)
         pprint(api_response)
     except ApiException as e:
@@ -1382,7 +1388,7 @@ name = 'name_example' # str |
 repository_update = pollination_sdk.RepositoryUpdate() # RepositoryUpdate | 
 
     try:
-        # Update a plugin
+        # Update a Plugin
         api_response = api_instance.update_plugin(owner, name, repository_update)
         pprint(api_response)
     except ApiException as e:

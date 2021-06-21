@@ -423,7 +423,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_org_team_members**
-> TeamMemberList get_org_team_members(org_name, team_slug, page=page, per_page=per_page)
+> TeamMemberList get_org_team_members(org_name, team_slug)
 
 List team members
 
@@ -444,12 +444,10 @@ with pollination_sdk.ApiClient() as api_client:
     api_instance = pollination_sdk.TeamsApi(api_client)
     org_name = 'org_name_example' # str | 
 team_slug = 'team_slug_example' # str | 
-page = 1 # int | Page number starting from 1 (optional) (default to 1)
-per_page = 25 # int | Number of items per page (optional) (default to 25)
 
     try:
         # List team members
-        api_response = api_instance.get_org_team_members(org_name, team_slug, page=page, per_page=per_page)
+        api_response = api_instance.get_org_team_members(org_name, team_slug)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling TeamsApi->get_org_team_members: %s\n" % e)
@@ -461,8 +459,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **org_name** | **str**|  | 
  **team_slug** | **str**|  | 
- **page** | **int**| Page number starting from 1 | [optional] [default to 1]
- **per_page** | **int**| Number of items per page | [optional] [default to 25]
 
 ### Return type
 
@@ -549,7 +545,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_org_teams**
-> TeamList list_org_teams(org_name, page=page, per_page=per_page, search=search, name=name, member=member)
+> TeamList list_org_teams(org_name, search=search, name=name, member=member, page=page, per_page=per_page)
 
 List Teams
 
@@ -569,15 +565,15 @@ with pollination_sdk.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = pollination_sdk.TeamsApi(api_client)
     org_name = 'org_name_example' # str | 
+search = [] # list[str] | You know, for search (optional) (default to [])
+name = [] # list[str] | The account name (optional) (default to [])
+member = [] # list[str] | The ID of a user (optional) (default to [])
 page = 1 # int | Page number starting from 1 (optional) (default to 1)
 per_page = 25 # int | Number of items per page (optional) (default to 25)
-search = ['search_example'] # list[str] | You know, for search (optional)
-name = ['name_example'] # list[str] | The account name (optional)
-member = ['member_example'] # list[str] | The ID of a user (optional)
 
     try:
         # List Teams
-        api_response = api_instance.list_org_teams(org_name, page=page, per_page=per_page, search=search, name=name, member=member)
+        api_response = api_instance.list_org_teams(org_name, search=search, name=name, member=member, page=page, per_page=per_page)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling TeamsApi->list_org_teams: %s\n" % e)
@@ -588,11 +584,11 @@ member = ['member_example'] # list[str] | The ID of a user (optional)
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **org_name** | **str**|  | 
+ **search** | [**list[str]**](str.md)| You know, for search | [optional] [default to []]
+ **name** | [**list[str]**](str.md)| The account name | [optional] [default to []]
+ **member** | [**list[str]**](str.md)| The ID of a user | [optional] [default to []]
  **page** | **int**| Page number starting from 1 | [optional] [default to 1]
  **per_page** | **int**| Number of items per page | [optional] [default to 25]
- **search** | [**list[str]**](str.md)| You know, for search | [optional] 
- **name** | [**list[str]**](str.md)| The account name | [optional] 
- **member** | [**list[str]**](str.md)| The ID of a user | [optional] 
 
 ### Return type
 

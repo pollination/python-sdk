@@ -1,4 +1,4 @@
-# ProjectUserPermissions
+# UserPermission
 
 ## Properties
 Name | Type | Description | Notes

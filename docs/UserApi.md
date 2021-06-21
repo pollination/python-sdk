@@ -322,7 +322,7 @@ This endpoint does not need any parameter.
 
 Update the authenticated user
 
-Update a org (must have org `owner` role)
+Update the authenticated user profile
 
 ### Example
 

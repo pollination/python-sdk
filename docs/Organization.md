@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**account_name** | **str** | The unique name of the org in small case without spaces | [optional] 
 **contact_email** | **str** | The contact email for the Organization | [optional] 
 **description** | **str** | A description of the org | [optional] 
 **id** | **str** | The org ID | 

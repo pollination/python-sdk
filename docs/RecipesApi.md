@@ -155,7 +155,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_recipe_package**
-> CreatedContent create_recipe_package(owner, name, new_recipe_package, authorization=authorization)
+> CreatedContent create_recipe_package(owner, name, new_recipe_package)
 
 Create a new Recipe package
 
@@ -203,11 +203,10 @@ with pollination_sdk.ApiClient(configuration) as api_client:
     owner = 'owner_example' # str | 
 name = 'name_example' # str | 
 new_recipe_package = pollination_sdk.NewRecipePackage() # NewRecipePackage | 
-authorization = 'authorization_example' # str |  (optional)
 
     try:
         # Create a new Recipe package
-        api_response = api_instance.create_recipe_package(owner, name, new_recipe_package, authorization=authorization)
+        api_response = api_instance.create_recipe_package(owner, name, new_recipe_package)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling RecipesApi->create_recipe_package: %s\n" % e)
@@ -253,11 +252,10 @@ with pollination_sdk.ApiClient(configuration) as api_client:
     owner = 'owner_example' # str | 
 name = 'name_example' # str | 
 new_recipe_package = pollination_sdk.NewRecipePackage() # NewRecipePackage | 
-authorization = 'authorization_example' # str |  (optional)
 
     try:
         # Create a new Recipe package
-        api_response = api_instance.create_recipe_package(owner, name, new_recipe_package, authorization=authorization)
+        api_response = api_instance.create_recipe_package(owner, name, new_recipe_package)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling RecipesApi->create_recipe_package: %s\n" % e)
@@ -270,7 +268,6 @@ Name | Type | Description  | Notes
  **owner** | **str**|  | 
  **name** | **str**|  | 
  **new_recipe_package** | [**NewRecipePackage**](NewRecipePackage.md)|  | 
- **authorization** | **str**|  | [optional] 
 
 ### Return type
 
@@ -710,7 +707,7 @@ Name | Type | Description  | Notes
 
 Get recipe access permissions
 
-Retrieve a recipe's access permissions (must have `contribute` permission)
+Retrieve a recipe's access permissions (must have `write` permission)
 
 ### Example
 
@@ -1137,7 +1134,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_recipes**
-> RepositoryList list_recipes(page=page, per_page=per_page, search=search, name=name, owner=owner, public=public, keyword=keyword, permission=permission)
+> RepositoryList list_recipes(search=search, name=name, owner=owner, public=public, keyword=keyword, permission=permission, sort_by=sort_by, sort_order=sort_order, page=page, per_page=per_page)
 
 List recipes
 
@@ -1180,18 +1177,20 @@ configuration = pollination_sdk.Configuration(
 with pollination_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pollination_sdk.RecipesApi(api_client)
-    page = 1 # int | Page number starting from 1 (optional) (default to 1)
-per_page = 25 # int | Number of items per page (optional) (default to 25)
-search = ['search_example'] # list[str] | You know, for search (optional)
+    search = ['search_example'] # list[str] | You know, for search (optional)
 name = ['name_example'] # list[str] | The account name (optional)
 owner = ['owner_example'] # list[str] | Owner of the project (optional)
 public = True # bool | Boolean check for public/private projects (optional)
 keyword = ['keyword_example'] # list[str] | A keyword to index the repository by (optional)
 permission = ['permission_example'] # list[str] | Filter by permission on given resource (optional)
+sort_by = pollination_sdk.RepositorySortKey() # RepositorySortKey | Key to sort the list by (optional)
+sort_order = pollination_sdk.SortEnum() # SortEnum | The order to sort the list (optional)
+page = 1 # int | Page number starting from 1 (optional) (default to 1)
+per_page = 25 # int | Number of items per page (optional) (default to 25)
 
     try:
         # List recipes
-        api_response = api_instance.list_recipes(page=page, per_page=per_page, search=search, name=name, owner=owner, public=public, keyword=keyword, permission=permission)
+        api_response = api_instance.list_recipes(search=search, name=name, owner=owner, public=public, keyword=keyword, permission=permission, sort_by=sort_by, sort_order=sort_order, page=page, per_page=per_page)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling RecipesApi->list_recipes: %s\n" % e)
@@ -1234,18 +1233,20 @@ configuration = pollination_sdk.Configuration(
 with pollination_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pollination_sdk.RecipesApi(api_client)
-    page = 1 # int | Page number starting from 1 (optional) (default to 1)
-per_page = 25 # int | Number of items per page (optional) (default to 25)
-search = ['search_example'] # list[str] | You know, for search (optional)
+    search = ['search_example'] # list[str] | You know, for search (optional)
 name = ['name_example'] # list[str] | The account name (optional)
 owner = ['owner_example'] # list[str] | Owner of the project (optional)
 public = True # bool | Boolean check for public/private projects (optional)
 keyword = ['keyword_example'] # list[str] | A keyword to index the repository by (optional)
 permission = ['permission_example'] # list[str] | Filter by permission on given resource (optional)
+sort_by = pollination_sdk.RepositorySortKey() # RepositorySortKey | Key to sort the list by (optional)
+sort_order = pollination_sdk.SortEnum() # SortEnum | The order to sort the list (optional)
+page = 1 # int | Page number starting from 1 (optional) (default to 1)
+per_page = 25 # int | Number of items per page (optional) (default to 25)
 
     try:
         # List recipes
-        api_response = api_instance.list_recipes(page=page, per_page=per_page, search=search, name=name, owner=owner, public=public, keyword=keyword, permission=permission)
+        api_response = api_instance.list_recipes(search=search, name=name, owner=owner, public=public, keyword=keyword, permission=permission, sort_by=sort_by, sort_order=sort_order, page=page, per_page=per_page)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling RecipesApi->list_recipes: %s\n" % e)
@@ -1255,14 +1256,16 @@ permission = ['permission_example'] # list[str] | Filter by permission on given 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | **int**| Page number starting from 1 | [optional] [default to 1]
- **per_page** | **int**| Number of items per page | [optional] [default to 25]
  **search** | [**list[str]**](str.md)| You know, for search | [optional] 
  **name** | [**list[str]**](str.md)| The account name | [optional] 
  **owner** | [**list[str]**](str.md)| Owner of the project | [optional] 
  **public** | **bool**| Boolean check for public/private projects | [optional] 
  **keyword** | [**list[str]**](str.md)| A keyword to index the repository by | [optional] 
  **permission** | [**list[str]**](str.md)| Filter by permission on given resource | [optional] 
+ **sort_by** | [**RepositorySortKey**](.md)| Key to sort the list by | [optional] 
+ **sort_order** | [**SortEnum**](.md)| The order to sort the list | [optional] 
+ **page** | **int**| Page number starting from 1 | [optional] [default to 1]
+ **per_page** | **int**| Number of items per page | [optional] [default to 25]
 
 ### Return type
 
