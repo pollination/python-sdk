@@ -45,7 +45,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWTAuth
+# Configure Bearer authorization (JWT): JWTAuth
 configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
@@ -66,7 +66,7 @@ key_request = pollination_sdk.KeyRequest() # KeyRequest |
         print("Exception when calling ArtifactsApi->create_artifact: %s\n" % e)
 ```
 
-* Bearer Authentication (JWTAuth):
+* Bearer (JWT) Authentication (JWTAuth):
 ```python
 from __future__ import print_function
 import time
@@ -94,7 +94,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWTAuth
+# Configure Bearer authorization (JWT): JWTAuth
 configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
@@ -179,7 +179,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWTAuth
+# Configure Bearer authorization (JWT): JWTAuth
 configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
@@ -201,7 +201,7 @@ per_page = 25 # int | Number of items per page (optional) (default to 25)
         print("Exception when calling ArtifactsApi->delete_artifact: %s\n" % e)
 ```
 
-* Bearer Authentication (JWTAuth):
+* Bearer (JWT) Authentication (JWTAuth):
 ```python
 from __future__ import print_function
 import time
@@ -229,7 +229,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWTAuth
+# Configure Bearer authorization (JWT): JWTAuth
 configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
@@ -317,7 +317,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWTAuth
+# Configure Bearer authorization (JWT): JWTAuth
 configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
@@ -338,7 +338,7 @@ path = 'path_example' # str | The path to an file within a project folder (optio
         print("Exception when calling ArtifactsApi->download_artifact: %s\n" % e)
 ```
 
-* Bearer Authentication (JWTAuth):
+* Bearer (JWT) Authentication (JWTAuth):
 ```python
 from __future__ import print_function
 import time
@@ -366,7 +366,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWTAuth
+# Configure Bearer authorization (JWT): JWTAuth
 configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
@@ -455,7 +455,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWTAuth
+# Configure Bearer authorization (JWT): JWTAuth
 configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
@@ -478,7 +478,7 @@ per_page = 25 # int | Number of items per page (optional) (default to 25)
         print("Exception when calling ArtifactsApi->list_artifacts: %s\n" % e)
 ```
 
-* Bearer Authentication (JWTAuth):
+* Bearer (JWT) Authentication (JWTAuth):
 ```python
 from __future__ import print_function
 import time
@@ -506,7 +506,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWTAuth
+# Configure Bearer authorization (JWT): JWTAuth
 configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
