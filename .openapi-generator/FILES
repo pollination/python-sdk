@@ -11,6 +11,7 @@ docs/APITokensApi.md
 docs/AccountPublic.md
 docs/AccountsApi.md
 docs/ArtifactsApi.md
+docs/BakedRecipe.md
 docs/BodyPostPluginOwnerPluginsPost.md
 docs/BodyPostRecipeOwnerRecipesPost.md
 docs/CloudJob.md
@@ -117,6 +118,7 @@ docs/OrganizationMemberList.md
 docs/OrganizationRoleEnum.md
 docs/OrganizationUpdate.md
 docs/OrgsApi.md
+docs/PackageSortKey.md
 docs/PackageVersion.md
 docs/Permission.md
 docs/Plugin.md
@@ -138,6 +140,9 @@ docs/ProjectSortKey.md
 docs/ProjectUpdate.md
 docs/ProjectsApi.md
 docs/PublicAccountList.md
+docs/Quota.md
+docs/QuotaList.md
+docs/QuotaType.md
 docs/Recipe.md
 docs/RecipeInterface.md
 docs/RecipeInterfaceList.md
@@ -156,9 +161,12 @@ docs/RepositoryPolicySubject.md
 docs/RepositorySortKey.md
 docs/RepositoryUpdate.md
 docs/RepositoryUserPermissions.md
+docs/ResourcesDuration.md
 docs/RoleEnum.md
 docs/Run.md
 docs/RunList.md
+docs/RunMeta.md
+docs/RunProgress.md
 docs/RunResultList.md
 docs/RunStatus.md
 docs/RunStatusEnum.md
@@ -205,6 +213,7 @@ docs/TeamMemberList.md
 docs/TeamRoleEnum.md
 docs/TeamUpdate.md
 docs/TeamsApi.md
+docs/TemplateFunction.md
 docs/UpdateAccepted.md
 docs/Usage.md
 docs/UserApi.md
@@ -245,6 +254,7 @@ pollination_sdk/models/api_token.py
 pollination_sdk/models/api_token_create.py
 pollination_sdk/models/api_token_list.py
 pollination_sdk/models/api_token_private.py
+pollination_sdk/models/baked_recipe.py
 pollination_sdk/models/body_post_plugin_owner_plugins_post.py
 pollination_sdk/models/body_post_recipe_owner_recipes_post.py
 pollination_sdk/models/cloud_job.py
@@ -349,6 +359,7 @@ pollination_sdk/models/organization_member.py
 pollination_sdk/models/organization_member_list.py
 pollination_sdk/models/organization_role_enum.py
 pollination_sdk/models/organization_update.py
+pollination_sdk/models/package_sort_key.py
 pollination_sdk/models/package_version.py
 pollination_sdk/models/permission.py
 pollination_sdk/models/plugin.py
@@ -368,6 +379,9 @@ pollination_sdk/models/project_recipe_filter_list.py
 pollination_sdk/models/project_sort_key.py
 pollination_sdk/models/project_update.py
 pollination_sdk/models/public_account_list.py
+pollination_sdk/models/quota.py
+pollination_sdk/models/quota_list.py
+pollination_sdk/models/quota_type.py
 pollination_sdk/models/recipe.py
 pollination_sdk/models/recipe_interface.py
 pollination_sdk/models/recipe_interface_list.py
@@ -384,9 +398,12 @@ pollination_sdk/models/repository_policy_subject.py
 pollination_sdk/models/repository_sort_key.py
 pollination_sdk/models/repository_update.py
 pollination_sdk/models/repository_user_permissions.py
+pollination_sdk/models/resources_duration.py
 pollination_sdk/models/role_enum.py
 pollination_sdk/models/run.py
 pollination_sdk/models/run_list.py
+pollination_sdk/models/run_meta.py
+pollination_sdk/models/run_progress.py
 pollination_sdk/models/run_result_list.py
 pollination_sdk/models/run_status.py
 pollination_sdk/models/run_status_enum.py
@@ -431,6 +448,7 @@ pollination_sdk/models/team_member.py
 pollination_sdk/models/team_member_list.py
 pollination_sdk/models/team_role_enum.py
 pollination_sdk/models/team_update.py
+pollination_sdk/models/template_function.py
 pollination_sdk/models/update_accepted.py
 pollination_sdk/models/usage.py
 pollination_sdk/models/user_create.py
@@ -458,6 +476,7 @@ test/test_api_token_list.py
 test/test_api_token_private.py
 test/test_api_tokens_api.py
 test/test_artifacts_api.py
+test/test_baked_recipe.py
 test/test_body_post_plugin_owner_plugins_post.py
 test/test_body_post_recipe_owner_recipes_post.py
 test/test_cloud_job.py
@@ -564,6 +583,7 @@ test/test_organization_member_list.py
 test/test_organization_role_enum.py
 test/test_organization_update.py
 test/test_orgs_api.py
+test/test_package_sort_key.py
 test/test_package_version.py
 test/test_permission.py
 test/test_plugin.py
@@ -585,6 +605,9 @@ test/test_project_sort_key.py
 test/test_project_update.py
 test/test_projects_api.py
 test/test_public_account_list.py
+test/test_quota.py
+test/test_quota_list.py
+test/test_quota_type.py
 test/test_recipe.py
 test/test_recipe_interface.py
 test/test_recipe_interface_list.py
@@ -603,9 +626,12 @@ test/test_repository_policy_subject.py
 test/test_repository_sort_key.py
 test/test_repository_update.py
 test/test_repository_user_permissions.py
+test/test_resources_duration.py
 test/test_role_enum.py
 test/test_run.py
 test/test_run_list.py
+test/test_run_meta.py
+test/test_run_progress.py
 test/test_run_result_list.py
 test/test_run_status.py
 test/test_run_status_enum.py
@@ -652,6 +678,7 @@ test/test_team_member_list.py
 test/test_team_role_enum.py
 test/test_team_update.py
 test/test_teams_api.py
+test/test_template_function.py
 test/test_update_accepted.py
 test/test_usage.py
 test/test_user_api.py

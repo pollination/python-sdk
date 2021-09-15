@@ -52,7 +52,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWTAuth
+# Configure Bearer authorization (JWT): JWTAuth
 configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
@@ -73,7 +73,7 @@ run_id = 'run_id_example' # str |
         print("Exception when calling RunsApi->cancel_run: %s\n" % e)
 ```
 
-* Bearer Authentication (JWTAuth):
+* Bearer (JWT) Authentication (JWTAuth):
 ```python
 from __future__ import print_function
 import time
@@ -101,7 +101,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWTAuth
+# Configure Bearer authorization (JWT): JWTAuth
 configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
@@ -188,7 +188,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWTAuth
+# Configure Bearer authorization (JWT): JWTAuth
 configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
@@ -210,7 +210,7 @@ path = 'path_example' # str | The path to an file within a project folder (optio
         print("Exception when calling RunsApi->download_run_artifact: %s\n" % e)
 ```
 
-* Bearer Authentication (JWTAuth):
+* Bearer (JWT) Authentication (JWTAuth):
 ```python
 from __future__ import print_function
 import time
@@ -238,7 +238,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWTAuth
+# Configure Bearer authorization (JWT): JWTAuth
 configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
@@ -331,7 +331,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWTAuth
+# Configure Bearer authorization (JWT): JWTAuth
 configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
@@ -352,7 +352,7 @@ run_id = 'run_id_example' # str |
         print("Exception when calling RunsApi->get_run: %s\n" % e)
 ```
 
-* Bearer Authentication (JWTAuth):
+* Bearer (JWT) Authentication (JWTAuth):
 ```python
 from __future__ import print_function
 import time
@@ -380,7 +380,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWTAuth
+# Configure Bearer authorization (JWT): JWTAuth
 configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
@@ -467,7 +467,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWTAuth
+# Configure Bearer authorization (JWT): JWTAuth
 configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
@@ -489,7 +489,7 @@ output_name = 'output_name_example' # str |
         print("Exception when calling RunsApi->get_run_output: %s\n" % e)
 ```
 
-* Bearer Authentication (JWTAuth):
+* Bearer (JWT) Authentication (JWTAuth):
 ```python
 from __future__ import print_function
 import time
@@ -517,7 +517,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWTAuth
+# Configure Bearer authorization (JWT): JWTAuth
 configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
@@ -610,7 +610,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWTAuth
+# Configure Bearer authorization (JWT): JWTAuth
 configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
@@ -632,7 +632,7 @@ step_id = 'step_id_example' # str |
         print("Exception when calling RunsApi->get_run_step_logs: %s\n" % e)
 ```
 
-* Bearer Authentication (JWTAuth):
+* Bearer (JWT) Authentication (JWTAuth):
 ```python
 from __future__ import print_function
 import time
@@ -660,7 +660,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWTAuth
+# Configure Bearer authorization (JWT): JWTAuth
 configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
@@ -749,7 +749,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWTAuth
+# Configure Bearer authorization (JWT): JWTAuth
 configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
@@ -776,7 +776,7 @@ per_page = 25 # int | Number of items per page (optional) (default to 25)
         print("Exception when calling RunsApi->get_run_steps: %s\n" % e)
 ```
 
-* Bearer Authentication (JWTAuth):
+* Bearer (JWT) Authentication (JWTAuth):
 ```python
 from __future__ import print_function
 import time
@@ -804,7 +804,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWTAuth
+# Configure Bearer authorization (JWT): JWTAuth
 configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
@@ -903,7 +903,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWTAuth
+# Configure Bearer authorization (JWT): JWTAuth
 configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
@@ -927,7 +927,7 @@ per_page = 25 # int | Number of items per page (optional) (default to 25)
         print("Exception when calling RunsApi->list_run_artifacts: %s\n" % e)
 ```
 
-* Bearer Authentication (JWTAuth):
+* Bearer (JWT) Authentication (JWTAuth):
 ```python
 from __future__ import print_function
 import time
@@ -955,7 +955,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWTAuth
+# Configure Bearer authorization (JWT): JWTAuth
 configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
@@ -1048,7 +1048,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWTAuth
+# Configure Bearer authorization (JWT): JWTAuth
 configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
@@ -1072,7 +1072,7 @@ per_page = 25 # int | Number of items per page (optional) (default to 25)
         print("Exception when calling RunsApi->list_runs: %s\n" % e)
 ```
 
-* Bearer Authentication (JWTAuth):
+* Bearer (JWT) Authentication (JWTAuth):
 ```python
 from __future__ import print_function
 import time
@@ -1100,7 +1100,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWTAuth
+# Configure Bearer authorization (JWT): JWTAuth
 configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
@@ -1193,7 +1193,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWTAuth
+# Configure Bearer authorization (JWT): JWTAuth
 configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
@@ -1217,7 +1217,7 @@ per_page = 25 # int | Number of items per page (optional) (default to 25)
         print("Exception when calling RunsApi->query_results: %s\n" % e)
 ```
 
-* Bearer Authentication (JWTAuth):
+* Bearer (JWT) Authentication (JWTAuth):
 ```python
 from __future__ import print_function
 import time
@@ -1245,7 +1245,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWTAuth
+# Configure Bearer authorization (JWT): JWTAuth
 configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )

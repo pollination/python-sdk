@@ -54,7 +54,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWTAuth
+# Configure Bearer authorization (JWT): JWTAuth
 configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
@@ -74,7 +74,7 @@ repository_create = pollination_sdk.RepositoryCreate() # RepositoryCreate |
         print("Exception when calling PluginsApi->create_plugin: %s\n" % e)
 ```
 
-* Bearer Authentication (JWTAuth):
+* Bearer (JWT) Authentication (JWTAuth):
 ```python
 from __future__ import print_function
 import time
@@ -102,7 +102,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWTAuth
+# Configure Bearer authorization (JWT): JWTAuth
 configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
@@ -191,7 +191,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWTAuth
+# Configure Bearer authorization (JWT): JWTAuth
 configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
@@ -212,7 +212,7 @@ new_plugin_package = pollination_sdk.NewPluginPackage() # NewPluginPackage |
         print("Exception when calling PluginsApi->create_plugin_package: %s\n" % e)
 ```
 
-* Bearer Authentication (JWTAuth):
+* Bearer (JWT) Authentication (JWTAuth):
 ```python
 from __future__ import print_function
 import time
@@ -240,7 +240,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWTAuth
+# Configure Bearer authorization (JWT): JWTAuth
 configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
@@ -331,7 +331,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWTAuth
+# Configure Bearer authorization (JWT): JWTAuth
 configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
@@ -350,7 +350,7 @@ name = 'name_example' # str |
         print("Exception when calling PluginsApi->delete_plugin: %s\n" % e)
 ```
 
-* Bearer Authentication (JWTAuth):
+* Bearer (JWT) Authentication (JWTAuth):
 ```python
 from __future__ import print_function
 import time
@@ -378,7 +378,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWTAuth
+# Configure Bearer authorization (JWT): JWTAuth
 configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
@@ -465,7 +465,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWTAuth
+# Configure Bearer authorization (JWT): JWTAuth
 configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
@@ -485,7 +485,7 @@ repository_policy_subject = pollination_sdk.RepositoryPolicySubject() # Reposito
         print("Exception when calling PluginsApi->delete_plugin_org_permission: %s\n" % e)
 ```
 
-* Bearer Authentication (JWTAuth):
+* Bearer (JWT) Authentication (JWTAuth):
 ```python
 from __future__ import print_function
 import time
@@ -513,7 +513,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWTAuth
+# Configure Bearer authorization (JWT): JWTAuth
 configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
@@ -602,7 +602,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWTAuth
+# Configure Bearer authorization (JWT): JWTAuth
 configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
@@ -622,7 +622,7 @@ name = 'name_example' # str |
         print("Exception when calling PluginsApi->get_plugin: %s\n" % e)
 ```
 
-* Bearer Authentication (JWTAuth):
+* Bearer (JWT) Authentication (JWTAuth):
 ```python
 from __future__ import print_function
 import time
@@ -650,7 +650,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWTAuth
+# Configure Bearer authorization (JWT): JWTAuth
 configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
@@ -739,7 +739,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWTAuth
+# Configure Bearer authorization (JWT): JWTAuth
 configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
@@ -763,7 +763,7 @@ permission = ['permission_example'] # list[str] | An access policy permission st
         print("Exception when calling PluginsApi->get_plugin_access_permissions: %s\n" % e)
 ```
 
-* Bearer Authentication (JWTAuth):
+* Bearer (JWT) Authentication (JWTAuth):
 ```python
 from __future__ import print_function
 import time
@@ -791,7 +791,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWTAuth
+# Configure Bearer authorization (JWT): JWTAuth
 configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
@@ -887,7 +887,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWTAuth
+# Configure Bearer authorization (JWT): JWTAuth
 configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
@@ -908,7 +908,7 @@ tag = 'tag_example' # str |
         print("Exception when calling PluginsApi->get_plugin_by_tag: %s\n" % e)
 ```
 
-* Bearer Authentication (JWTAuth):
+* Bearer (JWT) Authentication (JWTAuth):
 ```python
 from __future__ import print_function
 import time
@@ -936,7 +936,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWTAuth
+# Configure Bearer authorization (JWT): JWTAuth
 configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
@@ -991,7 +991,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_plugin_tags**
-> PluginPackageList list_plugin_tags(owner, name, page=page, per_page=per_page)
+> PluginPackageList list_plugin_tags(owner, name, sort_by=sort_by, sort_order=sort_order, page=page, per_page=per_page)
 
 Get a plugin tags
 
@@ -1027,7 +1027,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWTAuth
+# Configure Bearer authorization (JWT): JWTAuth
 configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
@@ -1038,18 +1038,20 @@ with pollination_sdk.ApiClient(configuration) as api_client:
     api_instance = pollination_sdk.PluginsApi(api_client)
     owner = 'owner_example' # str | 
 name = 'name_example' # str | 
+sort_by = pollination_sdk.PackageSortKey() # PackageSortKey | Key to sort the list by (optional)
+sort_order = pollination_sdk.SortEnum() # SortEnum | The order to sort the list (optional)
 page = 1 # int | Page number starting from 1 (optional) (default to 1)
 per_page = 25 # int | Number of items per page (optional) (default to 25)
 
     try:
         # Get a plugin tags
-        api_response = api_instance.list_plugin_tags(owner, name, page=page, per_page=per_page)
+        api_response = api_instance.list_plugin_tags(owner, name, sort_by=sort_by, sort_order=sort_order, page=page, per_page=per_page)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling PluginsApi->list_plugin_tags: %s\n" % e)
 ```
 
-* Bearer Authentication (JWTAuth):
+* Bearer (JWT) Authentication (JWTAuth):
 ```python
 from __future__ import print_function
 import time
@@ -1077,7 +1079,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWTAuth
+# Configure Bearer authorization (JWT): JWTAuth
 configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
@@ -1088,12 +1090,14 @@ with pollination_sdk.ApiClient(configuration) as api_client:
     api_instance = pollination_sdk.PluginsApi(api_client)
     owner = 'owner_example' # str | 
 name = 'name_example' # str | 
+sort_by = pollination_sdk.PackageSortKey() # PackageSortKey | Key to sort the list by (optional)
+sort_order = pollination_sdk.SortEnum() # SortEnum | The order to sort the list (optional)
 page = 1 # int | Page number starting from 1 (optional) (default to 1)
 per_page = 25 # int | Number of items per page (optional) (default to 25)
 
     try:
         # Get a plugin tags
-        api_response = api_instance.list_plugin_tags(owner, name, page=page, per_page=per_page)
+        api_response = api_instance.list_plugin_tags(owner, name, sort_by=sort_by, sort_order=sort_order, page=page, per_page=per_page)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling PluginsApi->list_plugin_tags: %s\n" % e)
@@ -1105,6 +1109,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **name** | **str**|  | 
+ **sort_by** | [**PackageSortKey**](.md)| Key to sort the list by | [optional] 
+ **sort_order** | [**SortEnum**](.md)| The order to sort the list | [optional] 
  **page** | **int**| Page number starting from 1 | [optional] [default to 1]
  **per_page** | **int**| Number of items per page | [optional] [default to 25]
 
@@ -1168,7 +1174,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWTAuth
+# Configure Bearer authorization (JWT): JWTAuth
 configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
@@ -1196,7 +1202,7 @@ per_page = 25 # int | Number of items per page (optional) (default to 25)
         print("Exception when calling PluginsApi->list_plugins: %s\n" % e)
 ```
 
-* Bearer Authentication (JWTAuth):
+* Bearer (JWT) Authentication (JWTAuth):
 ```python
 from __future__ import print_function
 import time
@@ -1224,7 +1230,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWTAuth
+# Configure Bearer authorization (JWT): JWTAuth
 configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
@@ -1325,7 +1331,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWTAuth
+# Configure Bearer authorization (JWT): JWTAuth
 configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
@@ -1346,7 +1352,7 @@ repository_update = pollination_sdk.RepositoryUpdate() # RepositoryUpdate |
         print("Exception when calling PluginsApi->update_plugin: %s\n" % e)
 ```
 
-* Bearer Authentication (JWTAuth):
+* Bearer (JWT) Authentication (JWTAuth):
 ```python
 from __future__ import print_function
 import time
@@ -1374,7 +1380,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWTAuth
+# Configure Bearer authorization (JWT): JWTAuth
 configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
@@ -1465,7 +1471,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWTAuth
+# Configure Bearer authorization (JWT): JWTAuth
 configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
@@ -1486,7 +1492,7 @@ repository_access_policy = pollination_sdk.RepositoryAccessPolicy() # Repository
         print("Exception when calling PluginsApi->upsert_plugin_permission: %s\n" % e)
 ```
 
-* Bearer Authentication (JWTAuth):
+* Bearer (JWT) Authentication (JWTAuth):
 ```python
 from __future__ import print_function
 import time
@@ -1514,7 +1520,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWTAuth
+# Configure Bearer authorization (JWT): JWTAuth
 configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )

@@ -51,7 +51,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWTAuth
+# Configure Bearer authorization (JWT): JWTAuth
 configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
@@ -71,7 +71,7 @@ team_create = pollination_sdk.TeamCreate() # TeamCreate |
         print("Exception when calling TeamsApi->create_team: %s\n" % e)
 ```
 
-* Bearer Authentication (JWTAuth):
+* Bearer (JWT) Authentication (JWTAuth):
 ```python
 from __future__ import print_function
 import time
@@ -99,7 +99,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWTAuth
+# Configure Bearer authorization (JWT): JWTAuth
 configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
@@ -188,7 +188,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWTAuth
+# Configure Bearer authorization (JWT): JWTAuth
 configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
@@ -208,7 +208,7 @@ username = 'username_example' # str |
         print("Exception when calling TeamsApi->delete_org_team_member: %s\n" % e)
 ```
 
-* Bearer Authentication (JWTAuth):
+* Bearer (JWT) Authentication (JWTAuth):
 ```python
 from __future__ import print_function
 import time
@@ -236,7 +236,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWTAuth
+# Configure Bearer authorization (JWT): JWTAuth
 configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
@@ -325,7 +325,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWTAuth
+# Configure Bearer authorization (JWT): JWTAuth
 configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
@@ -344,7 +344,7 @@ team_slug = 'team_slug_example' # str |
         print("Exception when calling TeamsApi->delete_team: %s\n" % e)
 ```
 
-* Bearer Authentication (JWTAuth):
+* Bearer (JWT) Authentication (JWTAuth):
 ```python
 from __future__ import print_function
 import time
@@ -372,7 +372,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWTAuth
+# Configure Bearer authorization (JWT): JWTAuth
 configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
@@ -648,7 +648,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWTAuth
+# Configure Bearer authorization (JWT): JWTAuth
 configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
@@ -669,7 +669,7 @@ team_update = pollination_sdk.TeamUpdate() # TeamUpdate |
         print("Exception when calling TeamsApi->update_team: %s\n" % e)
 ```
 
-* Bearer Authentication (JWTAuth):
+* Bearer (JWT) Authentication (JWTAuth):
 ```python
 from __future__ import print_function
 import time
@@ -697,7 +697,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWTAuth
+# Configure Bearer authorization (JWT): JWTAuth
 configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
@@ -788,7 +788,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWTAuth
+# Configure Bearer authorization (JWT): JWTAuth
 configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
@@ -810,7 +810,7 @@ role = pollination_sdk.TeamRoleEnum() # TeamRoleEnum |
         print("Exception when calling TeamsApi->upsert_org_team_member: %s\n" % e)
 ```
 
-* Bearer Authentication (JWTAuth):
+* Bearer (JWT) Authentication (JWTAuth):
 ```python
 from __future__ import print_function
 import time
@@ -838,7 +838,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWTAuth
+# Configure Bearer authorization (JWT): JWTAuth
 configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )

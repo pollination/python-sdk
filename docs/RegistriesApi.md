@@ -46,7 +46,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWTAuth
+# Configure Bearer authorization (JWT): JWTAuth
 configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
@@ -68,7 +68,7 @@ digest = 'digest_example' # str |
         print("Exception when calling RegistriesApi->get_package: %s\n" % e)
 ```
 
-* Bearer Authentication (JWTAuth):
+* Bearer (JWT) Authentication (JWTAuth):
 ```python
 from __future__ import print_function
 import time
@@ -96,7 +96,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWTAuth
+# Configure Bearer authorization (JWT): JWTAuth
 configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
@@ -149,7 +149,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_package_json**
-> AnyOfRecipePlugin get_package_json(owner, type, name, digest)
+> AnyOfRecipePluginBakedRecipe get_package_json(owner, type, name, digest, baked=baked)
 
 Get Package in JSON format
 
@@ -183,7 +183,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWTAuth
+# Configure Bearer authorization (JWT): JWTAuth
 configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
@@ -196,16 +196,17 @@ with pollination_sdk.ApiClient(configuration) as api_client:
 type = 'type_example' # str | 
 name = 'name_example' # str | 
 digest = 'digest_example' # str | 
+baked = False # bool |  (optional) (default to False)
 
     try:
         # Get Package in JSON format
-        api_response = api_instance.get_package_json(owner, type, name, digest)
+        api_response = api_instance.get_package_json(owner, type, name, digest, baked=baked)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling RegistriesApi->get_package_json: %s\n" % e)
 ```
 
-* Bearer Authentication (JWTAuth):
+* Bearer (JWT) Authentication (JWTAuth):
 ```python
 from __future__ import print_function
 import time
@@ -233,7 +234,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWTAuth
+# Configure Bearer authorization (JWT): JWTAuth
 configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
@@ -246,10 +247,11 @@ with pollination_sdk.ApiClient(configuration) as api_client:
 type = 'type_example' # str | 
 name = 'name_example' # str | 
 digest = 'digest_example' # str | 
+baked = False # bool |  (optional) (default to False)
 
     try:
         # Get Package in JSON format
-        api_response = api_instance.get_package_json(owner, type, name, digest)
+        api_response = api_instance.get_package_json(owner, type, name, digest, baked=baked)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling RegistriesApi->get_package_json: %s\n" % e)
@@ -263,10 +265,11 @@ Name | Type | Description  | Notes
  **type** | **str**|  | 
  **name** | **str**|  | 
  **digest** | **str**|  | 
+ **baked** | **bool**|  | [optional] [default to False]
 
 ### Return type
 
-[**AnyOfRecipePlugin**](AnyOfRecipePlugin.md)
+[**AnyOfRecipePluginBakedRecipe**](AnyOfRecipePluginBakedRecipe.md)
 
 ### Authorization
 
@@ -320,7 +323,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWTAuth
+# Configure Bearer authorization (JWT): JWTAuth
 configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
@@ -339,7 +342,7 @@ with pollination_sdk.ApiClient(configuration) as api_client:
         print("Exception when calling RegistriesApi->get_registry_index: %s\n" % e)
 ```
 
-* Bearer Authentication (JWTAuth):
+* Bearer (JWT) Authentication (JWTAuth):
 ```python
 from __future__ import print_function
 import time
@@ -367,7 +370,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWTAuth
+# Configure Bearer authorization (JWT): JWTAuth
 configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
@@ -448,7 +451,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWTAuth
+# Configure Bearer authorization (JWT): JWTAuth
 configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
@@ -468,7 +471,7 @@ package = '/path/to/file' # file |
         print("Exception when calling RegistriesApi->post_plugin: %s\n" % e)
 ```
 
-* Bearer Authentication (JWTAuth):
+* Bearer (JWT) Authentication (JWTAuth):
 ```python
 from __future__ import print_function
 import time
@@ -496,7 +499,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWTAuth
+# Configure Bearer authorization (JWT): JWTAuth
 configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
@@ -579,7 +582,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWTAuth
+# Configure Bearer authorization (JWT): JWTAuth
 configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
@@ -599,7 +602,7 @@ package = '/path/to/file' # file |
         print("Exception when calling RegistriesApi->post_recipe: %s\n" % e)
 ```
 
-* Bearer Authentication (JWTAuth):
+* Bearer (JWT) Authentication (JWTAuth):
 ```python
 from __future__ import print_function
 import time
@@ -627,7 +630,7 @@ api_token = pollination_sdk.LoginDto(
 
 auth_response = auth.login(api_token)
 
-# Configure Bearer authorization: JWTAuth
+# Configure Bearer authorization (JWT): JWTAuth
 configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
