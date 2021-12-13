@@ -4,67 +4,9 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**check_username**](UsersApi.md#check_username) | **GET** /users/check_username/{username} | Check if a username is already taken
 [**get_one_user**](UsersApi.md#get_one_user) | **GET** /users/{name} | Get a specific user profile
 [**list_users**](UsersApi.md#list_users) | **GET** /users | List Users
 
-
-# **check_username**
-> object check_username(username)
-
-Check if a username is already taken
-
-Check if a username is already taken by a user or an org
-
-### Example
-
-```python
-from __future__ import print_function
-import time
-import pollination_sdk
-from pollination_sdk.rest import ApiException
-from pprint import pprint
-
-# Enter a context with an instance of the API client
-with pollination_sdk.ApiClient() as api_client:
-    # Create an instance of the API class
-    api_instance = pollination_sdk.UsersApi(api_client)
-    username = 'username_example' # str | 
-
-    try:
-        # Check if a username is already taken
-        api_response = api_instance.check_username(username)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling UsersApi->check_username: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **username** | **str**|  | 
-
-### Return type
-
-**object**
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Username not taken |  -  |
-**422** | Validation Error |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_one_user**
 > UserPublic get_one_user(name)
