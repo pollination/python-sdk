@@ -4,13 +4,13 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**list_subscription_plans**](SubscriptionPlansApi.md#list_subscription_plans) | **GET** /subscription-plans/ | List Subscription Plans
+[**list_subscription_plans**](SubscriptionPlansApi.md#list_subscription_plans) | **GET** /subscription-plans/ | Cython Function Or Method
 
 
 # **list_subscription_plans**
 > list[SubscriptionPlan] list_subscription_plans(plan_type=plan_type)
 
-List Subscription Plans
+Cython Function Or Method
 
 ### Example
 
@@ -28,7 +28,7 @@ with pollination_sdk.ApiClient() as api_client:
     plan_type = pollination_sdk.PlanType() # PlanType | Plan Type (optional)
 
     try:
-        # List Subscription Plans
+        # Cython Function Or Method
         api_response = api_instance.list_subscription_plans(plan_type=plan_type)
         pprint(api_response)
     except ApiException as e:
