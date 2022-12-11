@@ -4,19 +4,19 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_subscription**](SubscriptionsApi.md#create_subscription) | **POST** /subscriptions/ | Create Subscription
-[**get_subscription**](SubscriptionsApi.md#get_subscription) | **GET** /subscriptions/{subscription_id} | Get Subscription
-[**list_pollination_subscriptions**](SubscriptionsApi.md#list_pollination_subscriptions) | **GET** /subscriptions/ | List Subscriptions
-[**list_subscription_payments**](SubscriptionsApi.md#list_subscription_payments) | **GET** /subscriptions/{subscription_id}/payments | List Subscription Payments
-[**list_subscription_quotas**](SubscriptionsApi.md#list_subscription_quotas) | **GET** /subscriptions/{subscription_id}/quotas | List Subscription Quotas
-[**update_subscription**](SubscriptionsApi.md#update_subscription) | **PUT** /subscriptions/{subscription_id} | Update Subscription
-[**update_subscription_preivew**](SubscriptionsApi.md#update_subscription_preivew) | **PUT** /subscriptions/{subscription_id}/preview | Update Subscription Preivew
+[**create_subscription**](SubscriptionsApi.md#create_subscription) | **POST** /subscriptions/ | Cython Function Or Method
+[**get_subscription**](SubscriptionsApi.md#get_subscription) | **GET** /subscriptions/{subscription_id} | Cython Function Or Method
+[**list_pollination_subscriptions**](SubscriptionsApi.md#list_pollination_subscriptions) | **GET** /subscriptions/ | Cython Function Or Method
+[**list_subscription_payments**](SubscriptionsApi.md#list_subscription_payments) | **GET** /subscriptions/{subscription_id}/payments | Cython Function Or Method
+[**list_subscription_quotas**](SubscriptionsApi.md#list_subscription_quotas) | **GET** /subscriptions/{subscription_id}/quotas | Cython Function Or Method
+[**update_subscription**](SubscriptionsApi.md#update_subscription) | **PUT** /subscriptions/{subscription_id} | Cython Function Or Method
+[**update_subscription_preivew**](SubscriptionsApi.md#update_subscription_preivew) | **PUT** /subscriptions/{subscription_id}/preview | Cython Function Or Method
 
 
 # **create_subscription**
 > PayLink create_subscription(subscription_create)
 
-Create Subscription
+Cython Function Or Method
 
 ### Example
 
@@ -60,7 +60,7 @@ with pollination_sdk.ApiClient(configuration) as api_client:
     subscription_create = pollination_sdk.SubscriptionCreate() # SubscriptionCreate | 
 
     try:
-        # Create Subscription
+        # Cython Function Or Method
         api_response = api_instance.create_subscription(subscription_create)
         pprint(api_response)
     except ApiException as e:
@@ -107,7 +107,7 @@ with pollination_sdk.ApiClient(configuration) as api_client:
     subscription_create = pollination_sdk.SubscriptionCreate() # SubscriptionCreate | 
 
     try:
-        # Create Subscription
+        # Cython Function Or Method
         api_response = api_instance.create_subscription(subscription_create)
         pprint(api_response)
     except ApiException as e:
@@ -144,7 +144,7 @@ Name | Type | Description  | Notes
 # **get_subscription**
 > Subscription get_subscription(subscription_id)
 
-Get Subscription
+Cython Function Or Method
 
 ### Example
 
@@ -188,7 +188,7 @@ with pollination_sdk.ApiClient(configuration) as api_client:
     subscription_id = 'subscription_id_example' # str | 
 
     try:
-        # Get Subscription
+        # Cython Function Or Method
         api_response = api_instance.get_subscription(subscription_id)
         pprint(api_response)
     except ApiException as e:
@@ -235,7 +235,7 @@ with pollination_sdk.ApiClient(configuration) as api_client:
     subscription_id = 'subscription_id_example' # str | 
 
     try:
-        # Get Subscription
+        # Cython Function Or Method
         api_response = api_instance.get_subscription(subscription_id)
         pprint(api_response)
     except ApiException as e:
@@ -272,7 +272,7 @@ Name | Type | Description  | Notes
 # **list_pollination_subscriptions**
 > list[Subscription] list_pollination_subscriptions(account=account)
 
-List Subscriptions
+Cython Function Or Method
 
 ### Example
 
@@ -316,7 +316,7 @@ with pollination_sdk.ApiClient(configuration) as api_client:
     account = 'account_example' # str |  (optional)
 
     try:
-        # List Subscriptions
+        # Cython Function Or Method
         api_response = api_instance.list_pollination_subscriptions(account=account)
         pprint(api_response)
     except ApiException as e:
@@ -363,7 +363,7 @@ with pollination_sdk.ApiClient(configuration) as api_client:
     account = 'account_example' # str |  (optional)
 
     try:
-        # List Subscriptions
+        # Cython Function Or Method
         api_response = api_instance.list_pollination_subscriptions(account=account)
         pprint(api_response)
     except ApiException as e:
@@ -400,7 +400,7 @@ Name | Type | Description  | Notes
 # **list_subscription_payments**
 > list[Payment] list_subscription_payments(subscription_id)
 
-List Subscription Payments
+Cython Function Or Method
 
 ### Example
 
@@ -444,7 +444,7 @@ with pollination_sdk.ApiClient(configuration) as api_client:
     subscription_id = 'subscription_id_example' # str | 
 
     try:
-        # List Subscription Payments
+        # Cython Function Or Method
         api_response = api_instance.list_subscription_payments(subscription_id)
         pprint(api_response)
     except ApiException as e:
@@ -491,7 +491,7 @@ with pollination_sdk.ApiClient(configuration) as api_client:
     subscription_id = 'subscription_id_example' # str | 
 
     try:
-        # List Subscription Payments
+        # Cython Function Or Method
         api_response = api_instance.list_subscription_payments(subscription_id)
         pprint(api_response)
     except ApiException as e:
@@ -528,7 +528,7 @@ Name | Type | Description  | Notes
 # **list_subscription_quotas**
 > list[Quota] list_subscription_quotas(subscription_id)
 
-List Subscription Quotas
+Cython Function Or Method
 
 ### Example
 
@@ -572,7 +572,7 @@ with pollination_sdk.ApiClient(configuration) as api_client:
     subscription_id = 'subscription_id_example' # str | 
 
     try:
-        # List Subscription Quotas
+        # Cython Function Or Method
         api_response = api_instance.list_subscription_quotas(subscription_id)
         pprint(api_response)
     except ApiException as e:
@@ -619,7 +619,7 @@ with pollination_sdk.ApiClient(configuration) as api_client:
     subscription_id = 'subscription_id_example' # str | 
 
     try:
-        # List Subscription Quotas
+        # Cython Function Or Method
         api_response = api_instance.list_subscription_quotas(subscription_id)
         pprint(api_response)
     except ApiException as e:
@@ -656,7 +656,7 @@ Name | Type | Description  | Notes
 # **update_subscription**
 > Subscription update_subscription(subscription_id, subscription_update)
 
-Update Subscription
+Cython Function Or Method
 
 ### Example
 
@@ -701,7 +701,7 @@ with pollination_sdk.ApiClient(configuration) as api_client:
 subscription_update = pollination_sdk.SubscriptionUpdate() # SubscriptionUpdate | 
 
     try:
-        # Update Subscription
+        # Cython Function Or Method
         api_response = api_instance.update_subscription(subscription_id, subscription_update)
         pprint(api_response)
     except ApiException as e:
@@ -749,7 +749,7 @@ with pollination_sdk.ApiClient(configuration) as api_client:
 subscription_update = pollination_sdk.SubscriptionUpdate() # SubscriptionUpdate | 
 
     try:
-        # Update Subscription
+        # Cython Function Or Method
         api_response = api_instance.update_subscription(subscription_id, subscription_update)
         pprint(api_response)
     except ApiException as e:
@@ -787,7 +787,7 @@ Name | Type | Description  | Notes
 # **update_subscription_preivew**
 > SubscriptionUpdateDryRun update_subscription_preivew(subscription_id, subscription_update)
 
-Update Subscription Preivew
+Cython Function Or Method
 
 ### Example
 
@@ -832,7 +832,7 @@ with pollination_sdk.ApiClient(configuration) as api_client:
 subscription_update = pollination_sdk.SubscriptionUpdate() # SubscriptionUpdate | 
 
     try:
-        # Update Subscription Preivew
+        # Cython Function Or Method
         api_response = api_instance.update_subscription_preivew(subscription_id, subscription_update)
         pprint(api_response)
     except ApiException as e:
@@ -880,7 +880,7 @@ with pollination_sdk.ApiClient(configuration) as api_client:
 subscription_update = pollination_sdk.SubscriptionUpdate() # SubscriptionUpdate | 
 
     try:
-        # Update Subscription Preivew
+        # Cython Function Or Method
         api_response = api_instance.update_subscription_preivew(subscription_id, subscription_update)
         pprint(api_response)
     except ApiException as e:

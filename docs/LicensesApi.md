@@ -5,13 +5,13 @@ All URIs are relative to *http://localhost*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**delete_activation**](LicensesApi.md#delete_activation) | **DELETE** /licenses/pools/{pool_id}/activations/{activation_id} | Delete Activation
-[**get_available_pools**](LicensesApi.md#get_available_pools) | **GET** /licenses/pools | Get Available Pools
+[**get_available_pools**](LicensesApi.md#get_available_pools) | **GET** /licenses/pools | Cython Function Or Method
 [**get_license_activations**](LicensesApi.md#get_license_activations) | **GET** /licenses/pools/{pool_id}/activations | Get Activations
 [**get_pool_license**](LicensesApi.md#get_pool_license) | **GET** /licenses/pools/{pool_id}/license | Get Pool License
-[**grant_access_to_pool**](LicensesApi.md#grant_access_to_pool) | **PATCH** /licenses/pools/{pool_id}/permissions | Grant Pool Access
-[**regenerate_license_pool**](LicensesApi.md#regenerate_license_pool) | **POST** /licenses/pools/{pool_id}/regenerate | Regenerate
-[**revoke_access_to_pool**](LicensesApi.md#revoke_access_to_pool) | **DELETE** /licenses/pools/{pool_id}/permissions | Delete Pool Access
-[**update_license_pool**](LicensesApi.md#update_license_pool) | **PUT** /licenses/pools/{pool_id} | Update Pool
+[**grant_access_to_pool**](LicensesApi.md#grant_access_to_pool) | **PATCH** /licenses/pools/{pool_id}/permissions | Cython Function Or Method
+[**regenerate_license_pool**](LicensesApi.md#regenerate_license_pool) | **POST** /licenses/pools/{pool_id}/regenerate | Cython Function Or Method
+[**revoke_access_to_pool**](LicensesApi.md#revoke_access_to_pool) | **DELETE** /licenses/pools/{pool_id}/permissions | Cython Function Or Method
+[**update_license_pool**](LicensesApi.md#update_license_pool) | **PUT** /licenses/pools/{pool_id} | Cython Function Or Method
 
 
 # **delete_activation**
@@ -148,7 +148,7 @@ void (empty response body)
 # **get_available_pools**
 > LicensePoolList get_available_pools(owner=owner)
 
-Get Available Pools
+Cython Function Or Method
 
 Get license pools available to authenticated user
 
@@ -194,7 +194,7 @@ with pollination_sdk.ApiClient(configuration) as api_client:
     owner = ['owner_example'] # list[str] | Owner of the project (optional)
 
     try:
-        # Get Available Pools
+        # Cython Function Or Method
         api_response = api_instance.get_available_pools(owner=owner)
         pprint(api_response)
     except ApiException as e:
@@ -241,7 +241,7 @@ with pollination_sdk.ApiClient(configuration) as api_client:
     owner = ['owner_example'] # list[str] | Owner of the project (optional)
 
     try:
-        # Get Available Pools
+        # Cython Function Or Method
         api_response = api_instance.get_available_pools(owner=owner)
         pprint(api_response)
     except ApiException as e:
@@ -538,7 +538,7 @@ Name | Type | Description  | Notes
 # **grant_access_to_pool**
 > LicensePoolPublic grant_access_to_pool(pool_id, license_pool_access_policy_list)
 
-Grant Pool Access
+Cython Function Or Method
 
 Grant access to the license pool
 
@@ -585,7 +585,7 @@ with pollination_sdk.ApiClient(configuration) as api_client:
 license_pool_access_policy_list = pollination_sdk.LicensePoolAccessPolicyList() # LicensePoolAccessPolicyList | 
 
     try:
-        # Grant Pool Access
+        # Cython Function Or Method
         api_response = api_instance.grant_access_to_pool(pool_id, license_pool_access_policy_list)
         pprint(api_response)
     except ApiException as e:
@@ -633,7 +633,7 @@ with pollination_sdk.ApiClient(configuration) as api_client:
 license_pool_access_policy_list = pollination_sdk.LicensePoolAccessPolicyList() # LicensePoolAccessPolicyList | 
 
     try:
-        # Grant Pool Access
+        # Cython Function Or Method
         api_response = api_instance.grant_access_to_pool(pool_id, license_pool_access_policy_list)
         pprint(api_response)
     except ApiException as e:
@@ -671,7 +671,7 @@ Name | Type | Description  | Notes
 # **regenerate_license_pool**
 > object regenerate_license_pool(pool_id)
 
-Regenerate
+Cython Function Or Method
 
 Regenerate the license associated with the pool
 
@@ -717,7 +717,7 @@ with pollination_sdk.ApiClient(configuration) as api_client:
     pool_id = 'pool_id_example' # str | 
 
     try:
-        # Regenerate
+        # Cython Function Or Method
         api_response = api_instance.regenerate_license_pool(pool_id)
         pprint(api_response)
     except ApiException as e:
@@ -764,7 +764,7 @@ with pollination_sdk.ApiClient(configuration) as api_client:
     pool_id = 'pool_id_example' # str | 
 
     try:
-        # Regenerate
+        # Cython Function Or Method
         api_response = api_instance.regenerate_license_pool(pool_id)
         pprint(api_response)
     except ApiException as e:
@@ -801,7 +801,7 @@ Name | Type | Description  | Notes
 # **revoke_access_to_pool**
 > LicensePoolPublic revoke_access_to_pool(pool_id, license_pool_policy_subject_list)
 
-Delete Pool Access
+Cython Function Or Method
 
 Revoke access to the license pool
 
@@ -848,7 +848,7 @@ with pollination_sdk.ApiClient(configuration) as api_client:
 license_pool_policy_subject_list = pollination_sdk.LicensePoolPolicySubjectList() # LicensePoolPolicySubjectList | 
 
     try:
-        # Delete Pool Access
+        # Cython Function Or Method
         api_response = api_instance.revoke_access_to_pool(pool_id, license_pool_policy_subject_list)
         pprint(api_response)
     except ApiException as e:
@@ -896,7 +896,7 @@ with pollination_sdk.ApiClient(configuration) as api_client:
 license_pool_policy_subject_list = pollination_sdk.LicensePoolPolicySubjectList() # LicensePoolPolicySubjectList | 
 
     try:
-        # Delete Pool Access
+        # Cython Function Or Method
         api_response = api_instance.revoke_access_to_pool(pool_id, license_pool_policy_subject_list)
         pprint(api_response)
     except ApiException as e:
@@ -934,7 +934,7 @@ Name | Type | Description  | Notes
 # **update_license_pool**
 > object update_license_pool(pool_id, license_pool_update)
 
-Update Pool
+Cython Function Or Method
 
 Update the license pool
 
@@ -981,7 +981,7 @@ with pollination_sdk.ApiClient(configuration) as api_client:
 license_pool_update = pollination_sdk.LicensePoolUpdate() # LicensePoolUpdate | 
 
     try:
-        # Update Pool
+        # Cython Function Or Method
         api_response = api_instance.update_license_pool(pool_id, license_pool_update)
         pprint(api_response)
     except ApiException as e:
@@ -1029,7 +1029,7 @@ with pollination_sdk.ApiClient(configuration) as api_client:
 license_pool_update = pollination_sdk.LicensePoolUpdate() # LicensePoolUpdate | 
 
     try:
-        # Update Pool
+        # Cython Function Or Method
         api_response = api_instance.update_license_pool(pool_id, license_pool_update)
         pprint(api_response)
     except ApiException as e:
