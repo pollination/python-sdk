@@ -1,4 +1,4 @@
-# BodyPostPluginOwnerPluginsPost
+# BodyCythonFunctionOrMethodOwnerPluginsPost
 
 ## Properties
 Name | Type | Description | Notes
