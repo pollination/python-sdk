@@ -4,20 +4,18 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**delete_activation**](LicensesApi.md#delete_activation) | **DELETE** /licenses/pools/{pool_id}/activations/{activation_id} | Delete Activation
-[**get_available_pools**](LicensesApi.md#get_available_pools) | **GET** /licenses/pools | Get Available Pools
-[**get_license_activations**](LicensesApi.md#get_license_activations) | **GET** /licenses/pools/{pool_id}/activations | Get Activations
-[**get_pool_license**](LicensesApi.md#get_pool_license) | **GET** /licenses/pools/{pool_id}/license | Get Pool License
-[**grant_access_to_pool**](LicensesApi.md#grant_access_to_pool) | **PATCH** /licenses/pools/{pool_id}/permissions | Grant Pool Access
-[**regenerate_license_pool**](LicensesApi.md#regenerate_license_pool) | **POST** /licenses/pools/{pool_id}/regenerate | Regenerate
-[**revoke_access_to_pool**](LicensesApi.md#revoke_access_to_pool) | **DELETE** /licenses/pools/{pool_id}/permissions | Delete Pool Access
-[**update_license_pool**](LicensesApi.md#update_license_pool) | **PUT** /licenses/pools/{pool_id} | Update Pool
+[**delete_activation**](LicensesApi.md#delete_activation) | **DELETE** /licenses/pools/{pool_id}/activations/{activation_id} | Delete the activation
+[**get_available_pools**](LicensesApi.md#get_available_pools) | **GET** /licenses/pools | Get license pools available to authenticated user
+[**get_license_activations**](LicensesApi.md#get_license_activations) | **GET** /licenses/pools/{pool_id}/activations | Get the activations for the license
+[**get_pool_license**](LicensesApi.md#get_pool_license) | **GET** /licenses/pools/{pool_id}/license | Get the license associated with a pool
+[**grant_access_to_pool**](LicensesApi.md#grant_access_to_pool) | **PATCH** /licenses/pools/{pool_id}/permissions | Grant access to the license pool
+[**regenerate_license_pool**](LicensesApi.md#regenerate_license_pool) | **POST** /licenses/pools/{pool_id}/regenerate | Regenerate the license associated with the pool
+[**revoke_access_to_pool**](LicensesApi.md#revoke_access_to_pool) | **DELETE** /licenses/pools/{pool_id}/permissions | Revoke access to the license pool
+[**update_license_pool**](LicensesApi.md#update_license_pool) | **PUT** /licenses/pools/{pool_id} | Update the license pool
 
 
 # **delete_activation**
 > delete_activation(pool_id, activation_id)
-
-Delete Activation
 
 Delete the activation
 
@@ -64,7 +62,7 @@ with pollination_sdk.ApiClient(configuration) as api_client:
 activation_id = 'activation_id_example' # str | 
 
     try:
-        # Delete Activation
+        # Delete the activation
         api_instance.delete_activation(pool_id, activation_id)
     except ApiException as e:
         print("Exception when calling LicensesApi->delete_activation: %s\n" % e)
@@ -111,7 +109,7 @@ with pollination_sdk.ApiClient(configuration) as api_client:
 activation_id = 'activation_id_example' # str | 
 
     try:
-        # Delete Activation
+        # Delete the activation
         api_instance.delete_activation(pool_id, activation_id)
     except ApiException as e:
         print("Exception when calling LicensesApi->delete_activation: %s\n" % e)
@@ -147,8 +145,6 @@ void (empty response body)
 
 # **get_available_pools**
 > LicensePoolList get_available_pools(owner=owner)
-
-Get Available Pools
 
 Get license pools available to authenticated user
 
@@ -194,7 +190,7 @@ with pollination_sdk.ApiClient(configuration) as api_client:
     owner = ['owner_example'] # list[str] | Owner of the project (optional)
 
     try:
-        # Get Available Pools
+        # Get license pools available to authenticated user
         api_response = api_instance.get_available_pools(owner=owner)
         pprint(api_response)
     except ApiException as e:
@@ -241,7 +237,7 @@ with pollination_sdk.ApiClient(configuration) as api_client:
     owner = ['owner_example'] # list[str] | Owner of the project (optional)
 
     try:
-        # Get Available Pools
+        # Get license pools available to authenticated user
         api_response = api_instance.get_available_pools(owner=owner)
         pprint(api_response)
     except ApiException as e:
@@ -277,8 +273,6 @@ Name | Type | Description  | Notes
 
 # **get_license_activations**
 > ActivationList get_license_activations(pool_id)
-
-Get Activations
 
 Get the activations for the license
 
@@ -324,7 +318,7 @@ with pollination_sdk.ApiClient(configuration) as api_client:
     pool_id = 'pool_id_example' # str | 
 
     try:
-        # Get Activations
+        # Get the activations for the license
         api_response = api_instance.get_license_activations(pool_id)
         pprint(api_response)
     except ApiException as e:
@@ -371,7 +365,7 @@ with pollination_sdk.ApiClient(configuration) as api_client:
     pool_id = 'pool_id_example' # str | 
 
     try:
-        # Get Activations
+        # Get the activations for the license
         api_response = api_instance.get_license_activations(pool_id)
         pprint(api_response)
     except ApiException as e:
@@ -407,8 +401,6 @@ Name | Type | Description  | Notes
 
 # **get_pool_license**
 > LicensePublic get_pool_license(pool_id)
-
-Get Pool License
 
 Get the license associated with a pool
 
@@ -454,7 +446,7 @@ with pollination_sdk.ApiClient(configuration) as api_client:
     pool_id = 'pool_id_example' # str | 
 
     try:
-        # Get Pool License
+        # Get the license associated with a pool
         api_response = api_instance.get_pool_license(pool_id)
         pprint(api_response)
     except ApiException as e:
@@ -501,7 +493,7 @@ with pollination_sdk.ApiClient(configuration) as api_client:
     pool_id = 'pool_id_example' # str | 
 
     try:
-        # Get Pool License
+        # Get the license associated with a pool
         api_response = api_instance.get_pool_license(pool_id)
         pprint(api_response)
     except ApiException as e:
@@ -537,8 +529,6 @@ Name | Type | Description  | Notes
 
 # **grant_access_to_pool**
 > LicensePoolPublic grant_access_to_pool(pool_id, license_pool_access_policy_list)
-
-Grant Pool Access
 
 Grant access to the license pool
 
@@ -585,7 +575,7 @@ with pollination_sdk.ApiClient(configuration) as api_client:
 license_pool_access_policy_list = pollination_sdk.LicensePoolAccessPolicyList() # LicensePoolAccessPolicyList | 
 
     try:
-        # Grant Pool Access
+        # Grant access to the license pool
         api_response = api_instance.grant_access_to_pool(pool_id, license_pool_access_policy_list)
         pprint(api_response)
     except ApiException as e:
@@ -633,7 +623,7 @@ with pollination_sdk.ApiClient(configuration) as api_client:
 license_pool_access_policy_list = pollination_sdk.LicensePoolAccessPolicyList() # LicensePoolAccessPolicyList | 
 
     try:
-        # Grant Pool Access
+        # Grant access to the license pool
         api_response = api_instance.grant_access_to_pool(pool_id, license_pool_access_policy_list)
         pprint(api_response)
     except ApiException as e:
@@ -670,8 +660,6 @@ Name | Type | Description  | Notes
 
 # **regenerate_license_pool**
 > object regenerate_license_pool(pool_id)
-
-Regenerate
 
 Regenerate the license associated with the pool
 
@@ -717,7 +705,7 @@ with pollination_sdk.ApiClient(configuration) as api_client:
     pool_id = 'pool_id_example' # str | 
 
     try:
-        # Regenerate
+        # Regenerate the license associated with the pool
         api_response = api_instance.regenerate_license_pool(pool_id)
         pprint(api_response)
     except ApiException as e:
@@ -764,7 +752,7 @@ with pollination_sdk.ApiClient(configuration) as api_client:
     pool_id = 'pool_id_example' # str | 
 
     try:
-        # Regenerate
+        # Regenerate the license associated with the pool
         api_response = api_instance.regenerate_license_pool(pool_id)
         pprint(api_response)
     except ApiException as e:
@@ -800,8 +788,6 @@ Name | Type | Description  | Notes
 
 # **revoke_access_to_pool**
 > LicensePoolPublic revoke_access_to_pool(pool_id, license_pool_policy_subject_list)
-
-Delete Pool Access
 
 Revoke access to the license pool
 
@@ -848,7 +834,7 @@ with pollination_sdk.ApiClient(configuration) as api_client:
 license_pool_policy_subject_list = pollination_sdk.LicensePoolPolicySubjectList() # LicensePoolPolicySubjectList | 
 
     try:
-        # Delete Pool Access
+        # Revoke access to the license pool
         api_response = api_instance.revoke_access_to_pool(pool_id, license_pool_policy_subject_list)
         pprint(api_response)
     except ApiException as e:
@@ -896,7 +882,7 @@ with pollination_sdk.ApiClient(configuration) as api_client:
 license_pool_policy_subject_list = pollination_sdk.LicensePoolPolicySubjectList() # LicensePoolPolicySubjectList | 
 
     try:
-        # Delete Pool Access
+        # Revoke access to the license pool
         api_response = api_instance.revoke_access_to_pool(pool_id, license_pool_policy_subject_list)
         pprint(api_response)
     except ApiException as e:
@@ -933,8 +919,6 @@ Name | Type | Description  | Notes
 
 # **update_license_pool**
 > object update_license_pool(pool_id, license_pool_update)
-
-Update Pool
 
 Update the license pool
 
@@ -981,7 +965,7 @@ with pollination_sdk.ApiClient(configuration) as api_client:
 license_pool_update = pollination_sdk.LicensePoolUpdate() # LicensePoolUpdate | 
 
     try:
-        # Update Pool
+        # Update the license pool
         api_response = api_instance.update_license_pool(pool_id, license_pool_update)
         pprint(api_response)
     except ApiException as e:
@@ -1029,7 +1013,7 @@ with pollination_sdk.ApiClient(configuration) as api_client:
 license_pool_update = pollination_sdk.LicensePoolUpdate() # LicensePoolUpdate | 
 
     try:
-        # Update Pool
+        # Update the license pool
         api_response = api_instance.update_license_pool(pool_id, license_pool_update)
         pprint(api_response)
     except ApiException as e:
