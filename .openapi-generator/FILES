@@ -30,7 +30,7 @@ docs/ArtifactsApi.md
 docs/BakedRecipe.md
 docs/BillingInfo.md
 docs/BillingOption.md
-docs/BodyPostPluginOwnerPluginsPost.md
+docs/BodyCythonFunctionOrMethodOwnerPluginsPost.md
 docs/BodyPostRecipeOwnerRecipesPost.md
 docs/BuildStatus.md
 docs/BuildStatusEnum.md
@@ -86,6 +86,7 @@ docs/DAGTaskLoop.md
 docs/DailyUsage.md
 docs/Dependency.md
 docs/DependencyKind.md
+docs/DeploymentConfig.md
 docs/DockerConfig.md
 docs/FileMeta.md
 docs/FileReference.md
@@ -203,6 +204,7 @@ docs/RepositorySortKey.md
 docs/RepositoryUpdate.md
 docs/RepositoryUserPermissions.md
 docs/ResourcesDuration.md
+docs/RetryConfig.md
 docs/RoleEnum.md
 docs/Run.md
 docs/RunList.md
@@ -214,6 +216,7 @@ docs/RunStatusEnum.md
 docs/RunsApi.md
 docs/S3.md
 docs/S3UploadRequest.md
+docs/ScriptingLanguages.md
 docs/SortEnum.md
 docs/StatusType.md
 docs/StepArrayInput.md
@@ -325,7 +328,7 @@ pollination_sdk/models/application_version_list.py
 pollination_sdk/models/baked_recipe.py
 pollination_sdk/models/billing_info.py
 pollination_sdk/models/billing_option.py
-pollination_sdk/models/body_post_plugin_owner_plugins_post.py
+pollination_sdk/models/body_cython_function_or_method_owner_plugins_post.py
 pollination_sdk/models/body_post_recipe_owner_recipes_post.py
 pollination_sdk/models/build_status.py
 pollination_sdk/models/build_status_enum.py
@@ -381,6 +384,7 @@ pollination_sdk/models/dagjson_object_output_alias.py
 pollination_sdk/models/daily_usage.py
 pollination_sdk/models/dependency.py
 pollination_sdk/models/dependency_kind.py
+pollination_sdk/models/deployment_config.py
 pollination_sdk/models/docker_config.py
 pollination_sdk/models/file_meta.py
 pollination_sdk/models/file_reference.py
@@ -491,6 +495,7 @@ pollination_sdk/models/repository_sort_key.py
 pollination_sdk/models/repository_update.py
 pollination_sdk/models/repository_user_permissions.py
 pollination_sdk/models/resources_duration.py
+pollination_sdk/models/retry_config.py
 pollination_sdk/models/role_enum.py
 pollination_sdk/models/run.py
 pollination_sdk/models/run_list.py
@@ -501,6 +506,7 @@ pollination_sdk/models/run_status.py
 pollination_sdk/models/run_status_enum.py
 pollination_sdk/models/s3.py
 pollination_sdk/models/s3_upload_request.py
+pollination_sdk/models/scripting_languages.py
 pollination_sdk/models/sort_enum.py
 pollination_sdk/models/status_type.py
 pollination_sdk/models/step_array_input.py
@@ -593,7 +599,7 @@ test/test_artifacts_api.py
 test/test_baked_recipe.py
 test/test_billing_info.py
 test/test_billing_option.py
-test/test_body_post_plugin_owner_plugins_post.py
+test/test_body_cython_function_or_method_owner_plugins_post.py
 test/test_body_post_recipe_owner_recipes_post.py
 test/test_build_status.py
 test/test_build_status_enum.py
@@ -649,6 +655,7 @@ test/test_dagjson_object_output_alias.py
 test/test_daily_usage.py
 test/test_dependency.py
 test/test_dependency_kind.py
+test/test_deployment_config.py
 test/test_docker_config.py
 test/test_file_meta.py
 test/test_file_reference.py
@@ -766,6 +773,7 @@ test/test_repository_sort_key.py
 test/test_repository_update.py
 test/test_repository_user_permissions.py
 test/test_resources_duration.py
+test/test_retry_config.py
 test/test_role_enum.py
 test/test_run.py
 test/test_run_list.py
@@ -777,6 +785,7 @@ test/test_run_status_enum.py
 test/test_runs_api.py
 test/test_s3.py
 test/test_s3_upload_request.py
+test/test_scripting_languages.py
 test/test_sort_enum.py
 test/test_status_type.py
 test/test_step_array_input.py
