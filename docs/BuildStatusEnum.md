@@ -1,6 +1,6 @@
 # BuildStatusEnum
 
-The status of a build.
+     The status of a build.     
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
