@@ -10,11 +10,12 @@ Method | HTTP request | Description
 [**download_job_artifact**](JobsApi.md#download_job_artifact) | **GET** /projects/{owner}/{name}/jobs/{job_id}/artifacts/download | Download an artifact from the job folder
 [**get_job**](JobsApi.md#get_job) | **GET** /projects/{owner}/{name}/jobs/{job_id} | Get a Job
 [**list_jobs**](JobsApi.md#list_jobs) | **GET** /projects/{owner}/{name}/jobs | List Jobs
+[**retry_job**](JobsApi.md#retry_job) | **PUT** /projects/{owner}/{name}/jobs/{job_id}/retry | Retry failed runs for a Job
 [**search_job_folder**](JobsApi.md#search_job_folder) | **GET** /projects/{owner}/{name}/jobs/{job_id}/artifacts | List files/folders in a job folder
 
 
 # **cancel_job**
-> object cancel_job(owner, name, job_id)
+> CloudJob cancel_job(owner, name, job_id)
 
 Cancel a Job
 
@@ -130,7 +131,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+[**CloudJob**](CloudJob.md)
 
 ### Authorization
 
@@ -847,6 +848,145 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Retrieved |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **retry_job**
+> CloudJob retry_job(owner, name, job_id, retry_config)
+
+Retry failed runs for a Job
+
+Retry failed runs for a job.
+
+### Example
+
+* Api Key Authentication (APIKeyAuth):
+```python
+from __future__ import print_function
+import time
+import pollination_sdk
+from pollination_sdk.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: APIKeyAuth
+configuration = pollination_sdk.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'APIKeyAuth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
+
+# Retrieve a temporary Acces Token (JWT) using your API token
+API_TOKEN = 'some-token-string'
+
+auth = pollination_sdk.UserApi()
+api_token = pollination_sdk.LoginDto(
+  api_token=API_TOKEN
+)
+
+auth_response = auth.login(api_token)
+
+# Configure Bearer authorization (JWT): JWTAuth
+configuration = pollination_sdk.Configuration(
+    access_token=auth_response.access_token
+)
+
+# Enter a context with an instance of the API client
+with pollination_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = pollination_sdk.JobsApi(api_client)
+    owner = 'owner_example' # str | 
+name = 'name_example' # str | 
+job_id = 'job_id_example' # str | 
+retry_config = pollination_sdk.RetryConfig() # RetryConfig | 
+
+    try:
+        # Retry failed runs for a Job
+        api_response = api_instance.retry_job(owner, name, job_id, retry_config)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling JobsApi->retry_job: %s\n" % e)
+```
+
+* Bearer (JWT) Authentication (JWTAuth):
+```python
+from __future__ import print_function
+import time
+import pollination_sdk
+from pollination_sdk.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: APIKeyAuth
+configuration = pollination_sdk.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'APIKeyAuth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
+
+# Retrieve a temporary Acces Token (JWT) using your API token
+API_TOKEN = 'some-token-string'
+
+auth = pollination_sdk.UserApi()
+api_token = pollination_sdk.LoginDto(
+  api_token=API_TOKEN
+)
+
+auth_response = auth.login(api_token)
+
+# Configure Bearer authorization (JWT): JWTAuth
+configuration = pollination_sdk.Configuration(
+    access_token=auth_response.access_token
+)
+
+# Enter a context with an instance of the API client
+with pollination_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = pollination_sdk.JobsApi(api_client)
+    owner = 'owner_example' # str | 
+name = 'name_example' # str | 
+job_id = 'job_id_example' # str | 
+retry_config = pollination_sdk.RetryConfig() # RetryConfig | 
+
+    try:
+        # Retry failed runs for a Job
+        api_response = api_instance.retry_job(owner, name, job_id, retry_config)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling JobsApi->retry_job: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **str**|  | 
+ **name** | **str**|  | 
+ **job_id** | **str**|  | 
+ **retry_config** | [**RetryConfig**](RetryConfig.md)|  | 
+
+### Return type
+
+[**CloudJob**](CloudJob.md)
+
+### Authorization
+
+[APIKeyAuth](../README.md#APIKeyAuth), [JWTAuth](../README.md#JWTAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**202** | Accepted |  -  |
 **422** | Validation Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
