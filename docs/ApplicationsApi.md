@@ -1108,7 +1108,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_applications**
-> ApplicationList list_applications(search=search, ids=ids, names=names, owner=owner, public=public, permissions=permissions, keywords=keywords, sort_by=sort_by, sort_order=sort_order, page=page, per_page=per_page)
+> ApplicationList list_applications(search=search, ids=ids, names=names, owner=owner, public=public, deployed=deployed, permissions=permissions, keywords=keywords, sort_by=sort_by, sort_order=sort_order, page=page, per_page=per_page)
 
 List Applications
 
@@ -1156,6 +1156,7 @@ ids = [] # list[str] | The ID of a application to search for (optional) (default
 names = [] # list[str] | The name of the application (optional) (default to [])
 owner = [] # list[str] | Owner of the application (optional) (default to [])
 public = True # bool | Boolean check for public/private applications (optional)
+deployed = True # bool | Filter by deployed applications (optional)
 permissions = [] # list[str] | Filter by permission on given resource (optional) (default to [])
 keywords = [] # list[str] | Filter by keywords on given resource (optional) (default to [])
 sort_by = pollination_sdk.ApplicationSortKey() # ApplicationSortKey | Key to sort the list by (optional)
@@ -1165,7 +1166,7 @@ per_page = 25 # int | Number of items per page (optional) (default to 25)
 
     try:
         # List Applications
-        api_response = api_instance.list_applications(search=search, ids=ids, names=names, owner=owner, public=public, permissions=permissions, keywords=keywords, sort_by=sort_by, sort_order=sort_order, page=page, per_page=per_page)
+        api_response = api_instance.list_applications(search=search, ids=ids, names=names, owner=owner, public=public, deployed=deployed, permissions=permissions, keywords=keywords, sort_by=sort_by, sort_order=sort_order, page=page, per_page=per_page)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ApplicationsApi->list_applications: %s\n" % e)
@@ -1213,6 +1214,7 @@ ids = [] # list[str] | The ID of a application to search for (optional) (default
 names = [] # list[str] | The name of the application (optional) (default to [])
 owner = [] # list[str] | Owner of the application (optional) (default to [])
 public = True # bool | Boolean check for public/private applications (optional)
+deployed = True # bool | Filter by deployed applications (optional)
 permissions = [] # list[str] | Filter by permission on given resource (optional) (default to [])
 keywords = [] # list[str] | Filter by keywords on given resource (optional) (default to [])
 sort_by = pollination_sdk.ApplicationSortKey() # ApplicationSortKey | Key to sort the list by (optional)
@@ -1222,7 +1224,7 @@ per_page = 25 # int | Number of items per page (optional) (default to 25)
 
     try:
         # List Applications
-        api_response = api_instance.list_applications(search=search, ids=ids, names=names, owner=owner, public=public, permissions=permissions, keywords=keywords, sort_by=sort_by, sort_order=sort_order, page=page, per_page=per_page)
+        api_response = api_instance.list_applications(search=search, ids=ids, names=names, owner=owner, public=public, deployed=deployed, permissions=permissions, keywords=keywords, sort_by=sort_by, sort_order=sort_order, page=page, per_page=per_page)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ApplicationsApi->list_applications: %s\n" % e)
@@ -1237,6 +1239,7 @@ Name | Type | Description  | Notes
  **names** | [**list[str]**](str.md)| The name of the application | [optional] [default to []]
  **owner** | [**list[str]**](str.md)| Owner of the application | [optional] [default to []]
  **public** | **bool**| Boolean check for public/private applications | [optional] 
+ **deployed** | **bool**| Filter by deployed applications | [optional] 
  **permissions** | [**list[str]**](str.md)| Filter by permission on given resource | [optional] [default to []]
  **keywords** | [**list[str]**](str.md)| Filter by keywords on given resource | [optional] [default to []]
  **sort_by** | [**ApplicationSortKey**](.md)| Key to sort the list by | [optional] 

@@ -708,7 +708,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_jobs**
-> CloudJobList list_jobs(owner, name, ids=ids, status=status, page=page, per_page=per_page)
+> CloudJobList list_jobs(owner, name, ids=ids, status=status, created_after=created_after, created_before=created_before, page=page, per_page=per_page)
 
 List Jobs
 
@@ -757,12 +757,14 @@ with pollination_sdk.ApiClient(configuration) as api_client:
 name = 'name_example' # str | 
 ids = ['ids_example'] # list[str] |  (optional)
 status = pollination_sdk.JobStatusEnum() # JobStatusEnum |  (optional)
+created_after = '2013-10-20T19:20:30+01:00' # datetime |  (optional)
+created_before = '2013-10-20T19:20:30+01:00' # datetime |  (optional)
 page = 1 # int | Page number starting from 1 (optional) (default to 1)
 per_page = 25 # int | Number of items per page (optional) (default to 25)
 
     try:
         # List Jobs
-        api_response = api_instance.list_jobs(owner, name, ids=ids, status=status, page=page, per_page=per_page)
+        api_response = api_instance.list_jobs(owner, name, ids=ids, status=status, created_after=created_after, created_before=created_before, page=page, per_page=per_page)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling JobsApi->list_jobs: %s\n" % e)
@@ -809,12 +811,14 @@ with pollination_sdk.ApiClient(configuration) as api_client:
 name = 'name_example' # str | 
 ids = ['ids_example'] # list[str] |  (optional)
 status = pollination_sdk.JobStatusEnum() # JobStatusEnum |  (optional)
+created_after = '2013-10-20T19:20:30+01:00' # datetime |  (optional)
+created_before = '2013-10-20T19:20:30+01:00' # datetime |  (optional)
 page = 1 # int | Page number starting from 1 (optional) (default to 1)
 per_page = 25 # int | Number of items per page (optional) (default to 25)
 
     try:
         # List Jobs
-        api_response = api_instance.list_jobs(owner, name, ids=ids, status=status, page=page, per_page=per_page)
+        api_response = api_instance.list_jobs(owner, name, ids=ids, status=status, created_after=created_after, created_before=created_before, page=page, per_page=per_page)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling JobsApi->list_jobs: %s\n" % e)
@@ -828,6 +832,8 @@ Name | Type | Description  | Notes
  **name** | **str**|  | 
  **ids** | [**list[str]**](str.md)|  | [optional] 
  **status** | [**JobStatusEnum**](.md)|  | [optional] 
+ **created_after** | **datetime**|  | [optional] 
+ **created_before** | **datetime**|  | [optional] 
  **page** | **int**| Page number starting from 1 | [optional] [default to 1]
  **per_page** | **int**| Number of items per page | [optional] [default to 25]
 
