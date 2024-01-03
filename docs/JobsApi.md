@@ -998,7 +998,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **search_job_folder**
-> list[FileMeta] search_job_folder(owner, name, job_id, path=path, page=page, per_page=per_page)
+> object search_job_folder(owner, name, job_id, path=path, page=page, per_page=per_page)
 
 List files/folders in a job folder
 
@@ -1123,7 +1123,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[FileMeta]**](FileMeta.md)
+**object**
 
 ### Authorization
 

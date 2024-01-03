@@ -1005,7 +1005,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_run_artifacts**
-> list[FileMeta] list_run_artifacts(owner, name, run_id, path=path, page=page, per_page=per_page)
+> object list_run_artifacts(owner, name, run_id, path=path, page=page, per_page=per_page)
 
 List artifacts in a run folder
 
@@ -1130,7 +1130,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[FileMeta]**](FileMeta.md)
+**object**
 
 ### Authorization
 

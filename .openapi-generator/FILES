@@ -89,6 +89,7 @@ docs/DependencyKind.md
 docs/DeploymentConfig.md
 docs/DockerConfig.md
 docs/FileMeta.md
+docs/FileMetaList.md
 docs/FileReference.md
 docs/FolderReference.md
 docs/Function.md
@@ -388,6 +389,7 @@ pollination_sdk/models/dependency_kind.py
 pollination_sdk/models/deployment_config.py
 pollination_sdk/models/docker_config.py
 pollination_sdk/models/file_meta.py
+pollination_sdk/models/file_meta_list.py
 pollination_sdk/models/file_reference.py
 pollination_sdk/models/folder_reference.py
 pollination_sdk/models/function.py
@@ -660,6 +662,7 @@ test/test_dependency_kind.py
 test/test_deployment_config.py
 test/test_docker_config.py
 test/test_file_meta.py
+test/test_file_meta_list.py
 test/test_file_reference.py
 test/test_folder_reference.py
 test/test_function.py
