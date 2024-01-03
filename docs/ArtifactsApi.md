@@ -421,7 +421,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_artifacts**
-> list[FileMeta] list_artifacts(owner, name, path=path, page=page, per_page=per_page)
+> FileMetaList list_artifacts(owner, name, path=path, page=page, per_page=per_page)
 
 List artifacts in a project folder
 
@@ -541,7 +541,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[FileMeta]**](FileMeta.md)
+[**FileMetaList**](FileMetaList.md)
 
 ### Authorization
 
