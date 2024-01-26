@@ -13,6 +13,7 @@ Method | HTTP request | Description
 [**get_application_deployment**](ApplicationsApi.md#get_application_deployment) | **GET** /applications/{owner}/{slug}/deployment | Get application deployment
 [**get_application_versions**](ApplicationsApi.md#get_application_versions) | **GET** /applications/{owner}/{slug}/versions | Get application versions
 [**list_applications**](ApplicationsApi.md#list_applications) | **GET** /applications | List Applications
+[**restart_application_deployment**](ApplicationsApi.md#restart_application_deployment) | **DELETE** /applications/{owner}/{slug}/deployment | Restart application deployment
 [**update_application**](ApplicationsApi.md#update_application) | **PUT** /applications/{owner}/{slug} | Update a Application
 [**upsert_application_permission**](ApplicationsApi.md#upsert_application_permission) | **PATCH** /applications/{owner}/{slug}/permissions | Upsert a new permission to a application
 [**upsert_application_version**](ApplicationsApi.md#upsert_application_version) | **PATCH** /applications/{owner}/{slug}/versions | Upsert a new version to a application
@@ -1268,6 +1269,137 @@ Name | Type | Description  | Notes
 **403** | Access forbidden |  -  |
 **422** | Validation Error |  -  |
 **500** | Server error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **restart_application_deployment**
+> object restart_application_deployment(owner, slug)
+
+Restart application deployment
+
+### Example
+
+* Api Key Authentication (APIKeyAuth):
+```python
+from __future__ import print_function
+import time
+import pollination_sdk
+from pollination_sdk.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: APIKeyAuth
+configuration = pollination_sdk.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'APIKeyAuth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
+
+# Retrieve a temporary Acces Token (JWT) using your API token
+API_TOKEN = 'some-token-string'
+
+auth = pollination_sdk.UserApi()
+api_token = pollination_sdk.LoginDto(
+  api_token=API_TOKEN
+)
+
+auth_response = auth.login(api_token)
+
+# Configure Bearer authorization (JWT): JWTAuth
+configuration = pollination_sdk.Configuration(
+    access_token=auth_response.access_token
+)
+
+# Enter a context with an instance of the API client
+with pollination_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = pollination_sdk.ApplicationsApi(api_client)
+    owner = 'owner_example' # str | 
+slug = 'slug_example' # str | 
+
+    try:
+        # Restart application deployment
+        api_response = api_instance.restart_application_deployment(owner, slug)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ApplicationsApi->restart_application_deployment: %s\n" % e)
+```
+
+* Bearer (JWT) Authentication (JWTAuth):
+```python
+from __future__ import print_function
+import time
+import pollination_sdk
+from pollination_sdk.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: APIKeyAuth
+configuration = pollination_sdk.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'APIKeyAuth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
+
+# Retrieve a temporary Acces Token (JWT) using your API token
+API_TOKEN = 'some-token-string'
+
+auth = pollination_sdk.UserApi()
+api_token = pollination_sdk.LoginDto(
+  api_token=API_TOKEN
+)
+
+auth_response = auth.login(api_token)
+
+# Configure Bearer authorization (JWT): JWTAuth
+configuration = pollination_sdk.Configuration(
+    access_token=auth_response.access_token
+)
+
+# Enter a context with an instance of the API client
+with pollination_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = pollination_sdk.ApplicationsApi(api_client)
+    owner = 'owner_example' # str | 
+slug = 'slug_example' # str | 
+
+    try:
+        # Restart application deployment
+        api_response = api_instance.restart_application_deployment(owner, slug)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ApplicationsApi->restart_application_deployment: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **str**|  | 
+ **slug** | **str**|  | 
+
+### Return type
+
+**object**
+
+### Authorization
+
+[APIKeyAuth](../README.md#APIKeyAuth), [JWTAuth](../README.md#JWTAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Retrieved |  -  |
+**422** | Validation Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

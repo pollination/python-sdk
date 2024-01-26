@@ -87,6 +87,7 @@ docs/DailyUsage.md
 docs/Dependency.md
 docs/DependencyKind.md
 docs/DeploymentConfig.md
+docs/DeploymentConfigUpdate.md
 docs/DockerConfig.md
 docs/FileMeta.md
 docs/FileMetaList.md
@@ -387,6 +388,7 @@ pollination_sdk/models/daily_usage.py
 pollination_sdk/models/dependency.py
 pollination_sdk/models/dependency_kind.py
 pollination_sdk/models/deployment_config.py
+pollination_sdk/models/deployment_config_update.py
 pollination_sdk/models/docker_config.py
 pollination_sdk/models/file_meta.py
 pollination_sdk/models/file_meta_list.py
@@ -660,6 +662,7 @@ test/test_daily_usage.py
 test/test_dependency.py
 test/test_dependency_kind.py
 test/test_deployment_config.py
+test/test_deployment_config_update.py
 test/test_docker_config.py
 test/test_file_meta.py
 test/test_file_meta_list.py
