@@ -429,7 +429,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **download_job_artifact**
-> object download_job_artifact(owner, name, job_id, path=path)
+> str download_job_artifact(owner, name, job_id, path=path)
 
 Download an artifact from the job folder
 
@@ -548,7 +548,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+**str**
 
 ### Authorization
 
@@ -998,7 +998,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **search_job_folder**
-> object search_job_folder(owner, name, job_id, path=path, page=page, per_page=per_page)
+> FileMetaList search_job_folder(owner, name, job_id, path=path, page=page, per_page=per_page)
 
 List files/folders in a job folder
 
@@ -1123,7 +1123,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+[**FileMetaList**](FileMetaList.md)
 
 ### Authorization
 

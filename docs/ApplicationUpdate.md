@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**deployment_config** | [**DeploymentConfig**](DeploymentConfig.md) | The deployment configuration for the application | [optional] 
+**deployment_config** | [**DeploymentConfigUpdate**](DeploymentConfigUpdate.md) | The deployment configuration for the application | [optional] 
 **description** | **str** | A description of the application | [optional] 
 **is_paid** | **bool** | Whether or not the application is paid | [optional] 
 **keywords** | **list[str]** | A list of keywords associated with the application | [optional] 

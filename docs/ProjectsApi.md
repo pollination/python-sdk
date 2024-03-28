@@ -12,7 +12,8 @@ Method | HTTP request | Description
 [**get_project**](ProjectsApi.md#get_project) | **GET** /projects/{owner}/{name} | Get a project
 [**get_project_access_permissions**](ProjectsApi.md#get_project_access_permissions) | **GET** /projects/{owner}/{name}/permissions | Get project access permissions
 [**get_project_recipe_filters**](ProjectsApi.md#get_project_recipe_filters) | **GET** /projects/{owner}/{name}/recipes/filters | Get project recipe filters
-[**get_project_recipes**](ProjectsApi.md#get_project_recipes) | **GET** /projects/{owner}/{name}/recipes | Get project recipes
+[**get_project_recipe_repositories**](ProjectsApi.md#get_project_recipe_repositories) | **GET** /projects/{owner}/{name}/recipes/repositories | Get project recipe repositories
+[**get_project_recipes**](ProjectsApi.md#get_project_recipes) | **GET** /projects/{owner}/{name}/recipes | Get project recipe versions
 [**list_projects**](ProjectsApi.md#list_projects) | **GET** /projects | List Projects
 [**update**](ProjectsApi.md#update) | **PUT** /projects/{owner}/{name} | Update a Project
 [**upsert_project_permission**](ProjectsApi.md#upsert_project_permission) | **PATCH** /projects/{owner}/{name}/permissions | Upsert a new permission to a project
@@ -1114,10 +1115,10 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_project_recipes**
-> RecipeInterfaceList get_project_recipes(owner, name, search=search, page=page, per_page=per_page)
+# **get_project_recipe_repositories**
+> RepositoryList get_project_recipe_repositories(owner, name, search=search, page=page, per_page=per_page)
 
-Get project recipes
+Get project recipe repositories
 
 ### Example
 
@@ -1165,7 +1166,147 @@ page = 1 # int | Page number starting from 1 (optional) (default to 1)
 per_page = 25 # int | Number of items per page (optional) (default to 25)
 
     try:
-        # Get project recipes
+        # Get project recipe repositories
+        api_response = api_instance.get_project_recipe_repositories(owner, name, search=search, page=page, per_page=per_page)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ProjectsApi->get_project_recipe_repositories: %s\n" % e)
+```
+
+* Bearer (JWT) Authentication (JWTAuth):
+```python
+from __future__ import print_function
+import time
+import pollination_sdk
+from pollination_sdk.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: APIKeyAuth
+configuration = pollination_sdk.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'APIKeyAuth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
+
+# Retrieve a temporary Acces Token (JWT) using your API token
+API_TOKEN = 'some-token-string'
+
+auth = pollination_sdk.UserApi()
+api_token = pollination_sdk.LoginDto(
+  api_token=API_TOKEN
+)
+
+auth_response = auth.login(api_token)
+
+# Configure Bearer authorization (JWT): JWTAuth
+configuration = pollination_sdk.Configuration(
+    access_token=auth_response.access_token
+)
+
+# Enter a context with an instance of the API client
+with pollination_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = pollination_sdk.ProjectsApi(api_client)
+    owner = 'owner_example' # str | 
+name = 'name_example' # str | 
+search = 'search_example' # str | Search string to find recipes (optional)
+page = 1 # int | Page number starting from 1 (optional) (default to 1)
+per_page = 25 # int | Number of items per page (optional) (default to 25)
+
+    try:
+        # Get project recipe repositories
+        api_response = api_instance.get_project_recipe_repositories(owner, name, search=search, page=page, per_page=per_page)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ProjectsApi->get_project_recipe_repositories: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **str**|  | 
+ **name** | **str**|  | 
+ **search** | **str**| Search string to find recipes | [optional] 
+ **page** | **int**| Page number starting from 1 | [optional] [default to 1]
+ **per_page** | **int**| Number of items per page | [optional] [default to 25]
+
+### Return type
+
+[**RepositoryList**](RepositoryList.md)
+
+### Authorization
+
+[APIKeyAuth](../README.md#APIKeyAuth), [JWTAuth](../README.md#JWTAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Retrieved |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_project_recipes**
+> RecipeInterfaceList get_project_recipes(owner, name, search=search, page=page, per_page=per_page)
+
+Get project recipe versions
+
+### Example
+
+* Api Key Authentication (APIKeyAuth):
+```python
+from __future__ import print_function
+import time
+import pollination_sdk
+from pollination_sdk.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: APIKeyAuth
+configuration = pollination_sdk.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'APIKeyAuth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
+
+# Retrieve a temporary Acces Token (JWT) using your API token
+API_TOKEN = 'some-token-string'
+
+auth = pollination_sdk.UserApi()
+api_token = pollination_sdk.LoginDto(
+  api_token=API_TOKEN
+)
+
+auth_response = auth.login(api_token)
+
+# Configure Bearer authorization (JWT): JWTAuth
+configuration = pollination_sdk.Configuration(
+    access_token=auth_response.access_token
+)
+
+# Enter a context with an instance of the API client
+with pollination_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = pollination_sdk.ProjectsApi(api_client)
+    owner = 'owner_example' # str | 
+name = 'name_example' # str | 
+search = 'search_example' # str | Search string to find recipes (optional)
+page = 1 # int | Page number starting from 1 (optional) (default to 1)
+per_page = 25 # int | Number of items per page (optional) (default to 25)
+
+    try:
+        # Get project recipe versions
         api_response = api_instance.get_project_recipes(owner, name, search=search, page=page, per_page=per_page)
         pprint(api_response)
     except ApiException as e:
@@ -1216,7 +1357,7 @@ page = 1 # int | Page number starting from 1 (optional) (default to 1)
 per_page = 25 # int | Number of items per page (optional) (default to 25)
 
     try:
-        # Get project recipes
+        # Get project recipe versions
         api_response = api_instance.get_project_recipes(owner, name, search=search, page=page, per_page=per_page)
         pprint(api_response)
     except ApiException as e:
