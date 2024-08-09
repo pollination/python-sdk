@@ -4,7 +4,7 @@ A Task output that returns a file or a folder output from a function or a DAG.
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**annotations** | **dict(str, str)** | An optional dictionary to add annotations to inputs. These annotations will be used by the client side libraries. | [optional] 
+**annotations** | **Dict[str, str]** | An optional dictionary to add annotations to inputs. These annotations will be used by the client side libraries. | [optional] 
 **description** | **str** | Optional description for output. | [optional] 
 **name** | **str** | Output name. | 
 **path** | **str** | Path to the output artifact relative to where the function command is executed. | 
