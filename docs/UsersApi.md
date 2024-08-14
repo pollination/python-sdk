@@ -124,7 +124,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_users**
-> UserPublicList list_users(search=search, page=page, per_page=per_page)
+> UserPublicList list_users(search=searchpage=pageper_page=per_page)
 
 List Users
 
@@ -147,7 +147,7 @@ per_page = 25 # int | Number of items per page (optional) (default to 25)
 
     try:
         # List Users
-        api_response = api_instance.list_users(search=search, page=page, per_page=per_page)
+        api_response = api_instance.list_users(search=searchpage=pageper_page=per_page)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling UsersApi->list_users: %s\n" % e)
