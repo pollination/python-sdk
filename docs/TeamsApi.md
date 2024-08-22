@@ -15,61 +15,13 @@ Method | HTTP request | Description
 
 
 # **create_team**
-> CreatedContent create_team(org_name, team_create)
+> CreatedContent create_team(org_nameteam_create)
 
 Create a Team
 
 Create a new team (must be parent org member)
 
 ### Example
-
-* Api Key Authentication (APIKeyAuth):
-```python
-from __future__ import print_function
-import time
-import pollination_sdk
-from pollination_sdk.rest import ApiException
-from pprint import pprint
-
-# Configure API key authorization: APIKeyAuth
-configuration = pollination_sdk.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'APIKeyAuth': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
-
-# Retrieve a temporary Acces Token (JWT) using your API token
-API_TOKEN = 'some-token-string'
-
-auth = pollination_sdk.UserApi()
-api_token = pollination_sdk.LoginDto(
-  api_token=API_TOKEN
-)
-
-auth_response = auth.login(api_token)
-
-# Configure Bearer authorization (JWT): JWTAuth
-configuration = pollination_sdk.Configuration(
-    access_token=auth_response.access_token
-)
-
-# Enter a context with an instance of the API client
-with pollination_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = pollination_sdk.TeamsApi(api_client)
-    org_name = 'org_name_example' # str | 
-team_create = pollination_sdk.TeamCreate() # TeamCreate | 
-
-    try:
-        # Create a Team
-        api_response = api_instance.create_team(org_name, team_create)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling TeamsApi->create_team: %s\n" % e)
-```
 
 * Bearer (JWT) Authentication (JWTAuth):
 ```python
@@ -79,6 +31,21 @@ import pollination_sdk
 from pollination_sdk.rest import ApiException
 from pprint import pprint
 
+# Retrieve a temporary Acces Token (JWT) using your API token
+API_TOKEN = 'some-token-string'
+
+auth = pollination_sdk.UserApi()
+api_token = pollination_sdk.LoginDto(
+  api_token=API_TOKEN
+)
+
+auth_response = auth.login(api_token)
+
+# Configure Bearer authorization (JWT): JWTAuth
+configuration = pollination_sdk.Configuration(
+    access_token=auth_response.access_token
+)
+
 # Configure API key authorization: APIKeyAuth
 configuration = pollination_sdk.Configuration(
     host = "http://localhost",
@@ -88,6 +55,29 @@ configuration = pollination_sdk.Configuration(
 )
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with pollination_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = pollination_sdk.TeamsApi(api_client)
+    org_name = 'org_name_example' # str | 
+team_create = pollination_sdk.TeamCreate() # TeamCreate | 
+
+    try:
+        # Create a Team
+        api_response = api_instance.create_team(org_nameteam_create)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling TeamsApi->create_team: %s\n" % e)
+```
+
+* Api Key Authentication (APIKeyAuth):
+```python
+from __future__ import print_function
+import time
+import pollination_sdk
+from pollination_sdk.rest import ApiException
+from pprint import pprint
 
 # Retrieve a temporary Acces Token (JWT) using your API token
 API_TOKEN = 'some-token-string'
@@ -104,6 +94,16 @@ configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
 
+# Configure API key authorization: APIKeyAuth
+configuration = pollination_sdk.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'APIKeyAuth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
+
 # Enter a context with an instance of the API client
 with pollination_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -113,7 +113,7 @@ team_create = pollination_sdk.TeamCreate() # TeamCreate |
 
     try:
         # Create a Team
-        api_response = api_instance.create_team(org_name, team_create)
+        api_response = api_instance.create_team(org_nameteam_create)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling TeamsApi->create_team: %s\n" % e)
@@ -132,7 +132,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[APIKeyAuth](../README.md#APIKeyAuth), [JWTAuth](../README.md#JWTAuth)
+[JWTAuth](../README.md#JWTAuth), [APIKeyAuth](../README.md#APIKeyAuth)
 
 ### HTTP request headers
 
@@ -152,61 +152,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_org_team_member**
-> delete_org_team_member(org_name, team_slug, username)
+> delete_org_team_member(org_nameteam_slugusername)
 
 Remove a team member
 
 Remove a member from the org (must have org `owner` role)
 
 ### Example
-
-* Api Key Authentication (APIKeyAuth):
-```python
-from __future__ import print_function
-import time
-import pollination_sdk
-from pollination_sdk.rest import ApiException
-from pprint import pprint
-
-# Configure API key authorization: APIKeyAuth
-configuration = pollination_sdk.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'APIKeyAuth': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
-
-# Retrieve a temporary Acces Token (JWT) using your API token
-API_TOKEN = 'some-token-string'
-
-auth = pollination_sdk.UserApi()
-api_token = pollination_sdk.LoginDto(
-  api_token=API_TOKEN
-)
-
-auth_response = auth.login(api_token)
-
-# Configure Bearer authorization (JWT): JWTAuth
-configuration = pollination_sdk.Configuration(
-    access_token=auth_response.access_token
-)
-
-# Enter a context with an instance of the API client
-with pollination_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = pollination_sdk.TeamsApi(api_client)
-    org_name = 'org_name_example' # str | 
-team_slug = 'team_slug_example' # str | 
-username = 'username_example' # str | 
-
-    try:
-        # Remove a team member
-        api_instance.delete_org_team_member(org_name, team_slug, username)
-    except ApiException as e:
-        print("Exception when calling TeamsApi->delete_org_team_member: %s\n" % e)
-```
 
 * Bearer (JWT) Authentication (JWTAuth):
 ```python
@@ -216,6 +168,21 @@ import pollination_sdk
 from pollination_sdk.rest import ApiException
 from pprint import pprint
 
+# Retrieve a temporary Acces Token (JWT) using your API token
+API_TOKEN = 'some-token-string'
+
+auth = pollination_sdk.UserApi()
+api_token = pollination_sdk.LoginDto(
+  api_token=API_TOKEN
+)
+
+auth_response = auth.login(api_token)
+
+# Configure Bearer authorization (JWT): JWTAuth
+configuration = pollination_sdk.Configuration(
+    access_token=auth_response.access_token
+)
+
 # Configure API key authorization: APIKeyAuth
 configuration = pollination_sdk.Configuration(
     host = "http://localhost",
@@ -225,6 +192,29 @@ configuration = pollination_sdk.Configuration(
 )
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with pollination_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = pollination_sdk.TeamsApi(api_client)
+    org_name = 'org_name_example' # str | 
+team_slug = 'team_slug_example' # str | 
+username = 'username_example' # str | 
+
+    try:
+        # Remove a team member
+        api_instance.delete_org_team_member(org_nameteam_slugusername)
+    except ApiException as e:
+        print("Exception when calling TeamsApi->delete_org_team_member: %s\n" % e)
+```
+
+* Api Key Authentication (APIKeyAuth):
+```python
+from __future__ import print_function
+import time
+import pollination_sdk
+from pollination_sdk.rest import ApiException
+from pprint import pprint
 
 # Retrieve a temporary Acces Token (JWT) using your API token
 API_TOKEN = 'some-token-string'
@@ -241,6 +231,16 @@ configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
 
+# Configure API key authorization: APIKeyAuth
+configuration = pollination_sdk.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'APIKeyAuth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
+
 # Enter a context with an instance of the API client
 with pollination_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -251,7 +251,7 @@ username = 'username_example' # str |
 
     try:
         # Remove a team member
-        api_instance.delete_org_team_member(org_name, team_slug, username)
+        api_instance.delete_org_team_member(org_nameteam_slugusername)
     except ApiException as e:
         print("Exception when calling TeamsApi->delete_org_team_member: %s\n" % e)
 ```
@@ -270,7 +270,7 @@ void (empty response body)
 
 ### Authorization
 
-[APIKeyAuth](../README.md#APIKeyAuth), [JWTAuth](../README.md#JWTAuth)
+[JWTAuth](../README.md#JWTAuth), [APIKeyAuth](../README.md#APIKeyAuth)
 
 ### HTTP request headers
 
@@ -289,60 +289,13 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_team**
-> delete_team(org_name, team_slug)
+> delete_team(org_nameteam_slug)
 
 Delete a Team
 
 Delete a team (must have team or org `owner` role)
 
 ### Example
-
-* Api Key Authentication (APIKeyAuth):
-```python
-from __future__ import print_function
-import time
-import pollination_sdk
-from pollination_sdk.rest import ApiException
-from pprint import pprint
-
-# Configure API key authorization: APIKeyAuth
-configuration = pollination_sdk.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'APIKeyAuth': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
-
-# Retrieve a temporary Acces Token (JWT) using your API token
-API_TOKEN = 'some-token-string'
-
-auth = pollination_sdk.UserApi()
-api_token = pollination_sdk.LoginDto(
-  api_token=API_TOKEN
-)
-
-auth_response = auth.login(api_token)
-
-# Configure Bearer authorization (JWT): JWTAuth
-configuration = pollination_sdk.Configuration(
-    access_token=auth_response.access_token
-)
-
-# Enter a context with an instance of the API client
-with pollination_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = pollination_sdk.TeamsApi(api_client)
-    org_name = 'org_name_example' # str | 
-team_slug = 'team_slug_example' # str | 
-
-    try:
-        # Delete a Team
-        api_instance.delete_team(org_name, team_slug)
-    except ApiException as e:
-        print("Exception when calling TeamsApi->delete_team: %s\n" % e)
-```
 
 * Bearer (JWT) Authentication (JWTAuth):
 ```python
@@ -352,6 +305,21 @@ import pollination_sdk
 from pollination_sdk.rest import ApiException
 from pprint import pprint
 
+# Retrieve a temporary Acces Token (JWT) using your API token
+API_TOKEN = 'some-token-string'
+
+auth = pollination_sdk.UserApi()
+api_token = pollination_sdk.LoginDto(
+  api_token=API_TOKEN
+)
+
+auth_response = auth.login(api_token)
+
+# Configure Bearer authorization (JWT): JWTAuth
+configuration = pollination_sdk.Configuration(
+    access_token=auth_response.access_token
+)
+
 # Configure API key authorization: APIKeyAuth
 configuration = pollination_sdk.Configuration(
     host = "http://localhost",
@@ -361,6 +329,28 @@ configuration = pollination_sdk.Configuration(
 )
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with pollination_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = pollination_sdk.TeamsApi(api_client)
+    org_name = 'org_name_example' # str | 
+team_slug = 'team_slug_example' # str | 
+
+    try:
+        # Delete a Team
+        api_instance.delete_team(org_nameteam_slug)
+    except ApiException as e:
+        print("Exception when calling TeamsApi->delete_team: %s\n" % e)
+```
+
+* Api Key Authentication (APIKeyAuth):
+```python
+from __future__ import print_function
+import time
+import pollination_sdk
+from pollination_sdk.rest import ApiException
+from pprint import pprint
 
 # Retrieve a temporary Acces Token (JWT) using your API token
 API_TOKEN = 'some-token-string'
@@ -377,6 +367,16 @@ configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
 
+# Configure API key authorization: APIKeyAuth
+configuration = pollination_sdk.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'APIKeyAuth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
+
 # Enter a context with an instance of the API client
 with pollination_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -386,7 +386,7 @@ team_slug = 'team_slug_example' # str |
 
     try:
         # Delete a Team
-        api_instance.delete_team(org_name, team_slug)
+        api_instance.delete_team(org_nameteam_slug)
     except ApiException as e:
         print("Exception when calling TeamsApi->delete_team: %s\n" % e)
 ```
@@ -404,7 +404,7 @@ void (empty response body)
 
 ### Authorization
 
-[APIKeyAuth](../README.md#APIKeyAuth), [JWTAuth](../README.md#JWTAuth)
+[JWTAuth](../README.md#JWTAuth), [APIKeyAuth](../README.md#APIKeyAuth)
 
 ### HTTP request headers
 
@@ -423,61 +423,13 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_org_team_members**
-> TeamMemberList get_org_team_members(org_name, team_slug)
+> TeamMemberList get_org_team_members(org_nameteam_slug)
 
 List team members
 
 Retrieve a tean's members
 
 ### Example
-
-* Api Key Authentication (APIKeyAuth):
-```python
-from __future__ import print_function
-import time
-import pollination_sdk
-from pollination_sdk.rest import ApiException
-from pprint import pprint
-
-# Configure API key authorization: APIKeyAuth
-configuration = pollination_sdk.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'APIKeyAuth': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
-
-# Retrieve a temporary Acces Token (JWT) using your API token
-API_TOKEN = 'some-token-string'
-
-auth = pollination_sdk.UserApi()
-api_token = pollination_sdk.LoginDto(
-  api_token=API_TOKEN
-)
-
-auth_response = auth.login(api_token)
-
-# Configure Bearer authorization (JWT): JWTAuth
-configuration = pollination_sdk.Configuration(
-    access_token=auth_response.access_token
-)
-
-# Enter a context with an instance of the API client
-with pollination_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = pollination_sdk.TeamsApi(api_client)
-    org_name = 'org_name_example' # str | 
-team_slug = 'team_slug_example' # str | 
-
-    try:
-        # List team members
-        api_response = api_instance.get_org_team_members(org_name, team_slug)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling TeamsApi->get_org_team_members: %s\n" % e)
-```
 
 * Bearer (JWT) Authentication (JWTAuth):
 ```python
@@ -487,6 +439,21 @@ import pollination_sdk
 from pollination_sdk.rest import ApiException
 from pprint import pprint
 
+# Retrieve a temporary Acces Token (JWT) using your API token
+API_TOKEN = 'some-token-string'
+
+auth = pollination_sdk.UserApi()
+api_token = pollination_sdk.LoginDto(
+  api_token=API_TOKEN
+)
+
+auth_response = auth.login(api_token)
+
+# Configure Bearer authorization (JWT): JWTAuth
+configuration = pollination_sdk.Configuration(
+    access_token=auth_response.access_token
+)
+
 # Configure API key authorization: APIKeyAuth
 configuration = pollination_sdk.Configuration(
     host = "http://localhost",
@@ -496,6 +463,29 @@ configuration = pollination_sdk.Configuration(
 )
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with pollination_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = pollination_sdk.TeamsApi(api_client)
+    org_name = 'org_name_example' # str | 
+team_slug = 'team_slug_example' # str | 
+
+    try:
+        # List team members
+        api_response = api_instance.get_org_team_members(org_nameteam_slug)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling TeamsApi->get_org_team_members: %s\n" % e)
+```
+
+* Api Key Authentication (APIKeyAuth):
+```python
+from __future__ import print_function
+import time
+import pollination_sdk
+from pollination_sdk.rest import ApiException
+from pprint import pprint
 
 # Retrieve a temporary Acces Token (JWT) using your API token
 API_TOKEN = 'some-token-string'
@@ -512,6 +502,16 @@ configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
 
+# Configure API key authorization: APIKeyAuth
+configuration = pollination_sdk.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'APIKeyAuth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
+
 # Enter a context with an instance of the API client
 with pollination_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -521,7 +521,7 @@ team_slug = 'team_slug_example' # str |
 
     try:
         # List team members
-        api_response = api_instance.get_org_team_members(org_name, team_slug)
+        api_response = api_instance.get_org_team_members(org_nameteam_slug)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling TeamsApi->get_org_team_members: %s\n" % e)
@@ -540,7 +540,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[APIKeyAuth](../README.md#APIKeyAuth), [JWTAuth](../README.md#JWTAuth)
+[JWTAuth](../README.md#JWTAuth), [APIKeyAuth](../README.md#APIKeyAuth)
 
 ### HTTP request headers
 
@@ -556,7 +556,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_team**
-> Team get_team(org_name, team_slug)
+> Team get_team(org_nameteam_slug)
 
 Get a Team
 
@@ -580,7 +580,7 @@ team_slug = 'team_slug_example' # str |
 
     try:
         # Get a Team
-        api_response = api_instance.get_team(org_name, team_slug)
+        api_response = api_instance.get_team(org_nameteam_slug)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling TeamsApi->get_team: %s\n" % e)
@@ -619,7 +619,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_org_teams**
-> TeamList list_org_teams(org_name, search=search, name=name, member=member, page=page, per_page=per_page)
+> TeamList list_org_teams(org_namesearch=searchname=namemember=memberpage=pageper_page=per_page)
 
 List Teams
 
@@ -639,15 +639,15 @@ with pollination_sdk.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = pollination_sdk.TeamsApi(api_client)
     org_name = 'org_name_example' # str | 
-search = [] # list[str] | You know, for search (optional) (default to [])
-name = [] # list[str] | The account name (optional) (default to [])
-member = [] # list[str] | The ID of a user (optional) (default to [])
+search = [] # List[str] | You know, for search (optional) (default to [])
+name = [] # List[str] | The account name (optional) (default to [])
+member = [] # List[str] | The ID of a user (optional) (default to [])
 page = 1 # int | Page number starting from 1 (optional) (default to 1)
 per_page = 25 # int | Number of items per page (optional) (default to 25)
 
     try:
         # List Teams
-        api_response = api_instance.list_org_teams(org_name, search=search, name=name, member=member, page=page, per_page=per_page)
+        api_response = api_instance.list_org_teams(org_namesearch=searchname=namemember=memberpage=pageper_page=per_page)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling TeamsApi->list_org_teams: %s\n" % e)
@@ -658,9 +658,9 @@ per_page = 25 # int | Number of items per page (optional) (default to 25)
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **org_name** | **str**|  | 
- **search** | [**list[str]**](str.md)| You know, for search | [optional] [default to []]
- **name** | [**list[str]**](str.md)| The account name | [optional] [default to []]
- **member** | [**list[str]**](str.md)| The ID of a user | [optional] [default to []]
+ **search** | [**List[str]**](str.md)| You know, for search | [optional] [default to []]
+ **name** | [**List[str]**](str.md)| The account name | [optional] [default to []]
+ **member** | [**List[str]**](str.md)| The ID of a user | [optional] [default to []]
  **page** | **int**| Page number starting from 1 | [optional] [default to 1]
  **per_page** | **int**| Number of items per page | [optional] [default to 25]
 
@@ -686,62 +686,13 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_team**
-> UpdateAccepted update_team(org_name, team_slug, team_update)
+> UpdateAccepted update_team(org_nameteam_slugteam_update)
 
 Update a Team
 
 Update a team (must have team or org `owner` role)
 
 ### Example
-
-* Api Key Authentication (APIKeyAuth):
-```python
-from __future__ import print_function
-import time
-import pollination_sdk
-from pollination_sdk.rest import ApiException
-from pprint import pprint
-
-# Configure API key authorization: APIKeyAuth
-configuration = pollination_sdk.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'APIKeyAuth': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
-
-# Retrieve a temporary Acces Token (JWT) using your API token
-API_TOKEN = 'some-token-string'
-
-auth = pollination_sdk.UserApi()
-api_token = pollination_sdk.LoginDto(
-  api_token=API_TOKEN
-)
-
-auth_response = auth.login(api_token)
-
-# Configure Bearer authorization (JWT): JWTAuth
-configuration = pollination_sdk.Configuration(
-    access_token=auth_response.access_token
-)
-
-# Enter a context with an instance of the API client
-with pollination_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = pollination_sdk.TeamsApi(api_client)
-    org_name = 'org_name_example' # str | 
-team_slug = 'team_slug_example' # str | 
-team_update = pollination_sdk.TeamUpdate() # TeamUpdate | 
-
-    try:
-        # Update a Team
-        api_response = api_instance.update_team(org_name, team_slug, team_update)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling TeamsApi->update_team: %s\n" % e)
-```
 
 * Bearer (JWT) Authentication (JWTAuth):
 ```python
@@ -751,6 +702,21 @@ import pollination_sdk
 from pollination_sdk.rest import ApiException
 from pprint import pprint
 
+# Retrieve a temporary Acces Token (JWT) using your API token
+API_TOKEN = 'some-token-string'
+
+auth = pollination_sdk.UserApi()
+api_token = pollination_sdk.LoginDto(
+  api_token=API_TOKEN
+)
+
+auth_response = auth.login(api_token)
+
+# Configure Bearer authorization (JWT): JWTAuth
+configuration = pollination_sdk.Configuration(
+    access_token=auth_response.access_token
+)
+
 # Configure API key authorization: APIKeyAuth
 configuration = pollination_sdk.Configuration(
     host = "http://localhost",
@@ -760,6 +726,30 @@ configuration = pollination_sdk.Configuration(
 )
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with pollination_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = pollination_sdk.TeamsApi(api_client)
+    org_name = 'org_name_example' # str | 
+team_slug = 'team_slug_example' # str | 
+team_update = pollination_sdk.TeamUpdate() # TeamUpdate | 
+
+    try:
+        # Update a Team
+        api_response = api_instance.update_team(org_nameteam_slugteam_update)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling TeamsApi->update_team: %s\n" % e)
+```
+
+* Api Key Authentication (APIKeyAuth):
+```python
+from __future__ import print_function
+import time
+import pollination_sdk
+from pollination_sdk.rest import ApiException
+from pprint import pprint
 
 # Retrieve a temporary Acces Token (JWT) using your API token
 API_TOKEN = 'some-token-string'
@@ -776,6 +766,16 @@ configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
 
+# Configure API key authorization: APIKeyAuth
+configuration = pollination_sdk.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'APIKeyAuth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
+
 # Enter a context with an instance of the API client
 with pollination_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -786,7 +786,7 @@ team_update = pollination_sdk.TeamUpdate() # TeamUpdate |
 
     try:
         # Update a Team
-        api_response = api_instance.update_team(org_name, team_slug, team_update)
+        api_response = api_instance.update_team(org_nameteam_slugteam_update)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling TeamsApi->update_team: %s\n" % e)
@@ -806,7 +806,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[APIKeyAuth](../README.md#APIKeyAuth), [JWTAuth](../README.md#JWTAuth)
+[JWTAuth](../README.md#JWTAuth), [APIKeyAuth](../README.md#APIKeyAuth)
 
 ### HTTP request headers
 
@@ -826,63 +826,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **upsert_org_team_member**
-> UpdateAccepted upsert_org_team_member(org_name, team_slug, username, role)
+> UpdateAccepted upsert_org_team_member(org_nameteam_slugusernamerole)
 
 Add or update the role of an Team Member
 
 Upsert a member role to the team (must have org or team `owner` role)
 
 ### Example
-
-* Api Key Authentication (APIKeyAuth):
-```python
-from __future__ import print_function
-import time
-import pollination_sdk
-from pollination_sdk.rest import ApiException
-from pprint import pprint
-
-# Configure API key authorization: APIKeyAuth
-configuration = pollination_sdk.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'APIKeyAuth': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
-
-# Retrieve a temporary Acces Token (JWT) using your API token
-API_TOKEN = 'some-token-string'
-
-auth = pollination_sdk.UserApi()
-api_token = pollination_sdk.LoginDto(
-  api_token=API_TOKEN
-)
-
-auth_response = auth.login(api_token)
-
-# Configure Bearer authorization (JWT): JWTAuth
-configuration = pollination_sdk.Configuration(
-    access_token=auth_response.access_token
-)
-
-# Enter a context with an instance of the API client
-with pollination_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = pollination_sdk.TeamsApi(api_client)
-    org_name = 'org_name_example' # str | 
-team_slug = 'team_slug_example' # str | 
-username = 'username_example' # str | 
-role = pollination_sdk.TeamRoleEnum() # TeamRoleEnum | 
-
-    try:
-        # Add or update the role of an Team Member
-        api_response = api_instance.upsert_org_team_member(org_name, team_slug, username, role)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling TeamsApi->upsert_org_team_member: %s\n" % e)
-```
 
 * Bearer (JWT) Authentication (JWTAuth):
 ```python
@@ -892,6 +842,21 @@ import pollination_sdk
 from pollination_sdk.rest import ApiException
 from pprint import pprint
 
+# Retrieve a temporary Acces Token (JWT) using your API token
+API_TOKEN = 'some-token-string'
+
+auth = pollination_sdk.UserApi()
+api_token = pollination_sdk.LoginDto(
+  api_token=API_TOKEN
+)
+
+auth_response = auth.login(api_token)
+
+# Configure Bearer authorization (JWT): JWTAuth
+configuration = pollination_sdk.Configuration(
+    access_token=auth_response.access_token
+)
+
 # Configure API key authorization: APIKeyAuth
 configuration = pollination_sdk.Configuration(
     host = "http://localhost",
@@ -901,6 +866,31 @@ configuration = pollination_sdk.Configuration(
 )
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with pollination_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = pollination_sdk.TeamsApi(api_client)
+    org_name = 'org_name_example' # str | 
+team_slug = 'team_slug_example' # str | 
+username = 'username_example' # str | 
+role = pollination_sdk.TeamRoleEnum() # TeamRoleEnum | 
+
+    try:
+        # Add or update the role of an Team Member
+        api_response = api_instance.upsert_org_team_member(org_nameteam_slugusernamerole)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling TeamsApi->upsert_org_team_member: %s\n" % e)
+```
+
+* Api Key Authentication (APIKeyAuth):
+```python
+from __future__ import print_function
+import time
+import pollination_sdk
+from pollination_sdk.rest import ApiException
+from pprint import pprint
 
 # Retrieve a temporary Acces Token (JWT) using your API token
 API_TOKEN = 'some-token-string'
@@ -917,6 +907,16 @@ configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
 
+# Configure API key authorization: APIKeyAuth
+configuration = pollination_sdk.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'APIKeyAuth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
+
 # Enter a context with an instance of the API client
 with pollination_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -928,7 +928,7 @@ role = pollination_sdk.TeamRoleEnum() # TeamRoleEnum |
 
     try:
         # Add or update the role of an Team Member
-        api_response = api_instance.upsert_org_team_member(org_name, team_slug, username, role)
+        api_response = api_instance.upsert_org_team_member(org_nameteam_slugusernamerole)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling TeamsApi->upsert_org_team_member: %s\n" % e)
@@ -949,7 +949,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[APIKeyAuth](../README.md#APIKeyAuth), [JWTAuth](../README.md#JWTAuth)
+[JWTAuth](../README.md#JWTAuth), [APIKeyAuth](../README.md#APIKeyAuth)
 
 ### HTTP request headers
 

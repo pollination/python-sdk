@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **id** | **str** |  | 
 **key** | **str** | The key used to activate this license. Treat this like a password. | 
 **lease_duration** | **int** |  | 
-**metadata** | [**list[Metadata]**](Metadata.md) |  | 
+**metadata** | [**List[Metadata]**](Metadata.md) |  | 
 **notes** | **str** |  | [optional] 
 **product_id** | **str** |  | 
 **revoked** | **bool** |  | 
@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 **suspended** | **bool** |  | 
 **total_activations** | **int** |  | 
 **total_deactivations** | **int** |  | 
-**type** | [**LicenseType**](LicenseType.md) |  | 
+**type** | [**LicenseType**](LicenseType.md) |  | [readonly] 
 **updated_at** | **datetime** |  | 
 **validity** | **int** |  | 
 
