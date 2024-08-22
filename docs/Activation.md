@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **lease_expires_at** | **datetime** |  | [optional] 
 **license_id** | **str** |  | [optional] 
 **location** | [**Location**](Location.md) |  | 
-**metadata** | [**list[Metadata]**](Metadata.md) |  | [optional] [default to []]
+**metadata** | [**List[Metadata]**](Metadata.md) |  | [optional] [default to []]
 **offline** | **bool** |  | 
 **os** | **str** |  | [optional] 
 **os_version** | **str** |  | [optional] 
