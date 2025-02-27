@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **cpu** | **float** | cpu usage | [optional] [default to 0]
-**date** | **datetime** | The day this usage was aggregated for | 
+**var_date** | **datetime** | The day this usage was aggregated for | 
 **failed** | **int** | failed usage | [optional] [default to 0]
 **memory** | **float** | memory usage | [optional] [default to 0]
 **succeeded** | **int** | succeeded usage | [optional] [default to 0]

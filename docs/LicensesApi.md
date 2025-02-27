@@ -15,58 +15,11 @@ Method | HTTP request | Description
 
 
 # **delete_activation**
-> delete_activation(pool_id, activation_id)
+> delete_activation(pool_idactivation_id)
 
 Delete the activation
 
 ### Example
-
-* Api Key Authentication (APIKeyAuth):
-```python
-from __future__ import print_function
-import time
-import pollination_sdk
-from pollination_sdk.rest import ApiException
-from pprint import pprint
-
-# Configure API key authorization: APIKeyAuth
-configuration = pollination_sdk.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'APIKeyAuth': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
-
-# Retrieve a temporary Acces Token (JWT) using your API token
-API_TOKEN = 'some-token-string'
-
-auth = pollination_sdk.UserApi()
-api_token = pollination_sdk.LoginDto(
-  api_token=API_TOKEN
-)
-
-auth_response = auth.login(api_token)
-
-# Configure Bearer authorization (JWT): JWTAuth
-configuration = pollination_sdk.Configuration(
-    access_token=auth_response.access_token
-)
-
-# Enter a context with an instance of the API client
-with pollination_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = pollination_sdk.LicensesApi(api_client)
-    pool_id = 'pool_id_example' # str | 
-activation_id = 'activation_id_example' # str | 
-
-    try:
-        # Delete the activation
-        api_instance.delete_activation(pool_id, activation_id)
-    except ApiException as e:
-        print("Exception when calling LicensesApi->delete_activation: %s\n" % e)
-```
 
 * Bearer (JWT) Authentication (JWTAuth):
 ```python
@@ -76,6 +29,21 @@ import pollination_sdk
 from pollination_sdk.rest import ApiException
 from pprint import pprint
 
+# Retrieve a temporary Acces Token (JWT) using your API token
+API_TOKEN = 'some-token-string'
+
+auth = pollination_sdk.UserApi()
+api_token = pollination_sdk.LoginDto(
+  api_token=API_TOKEN
+)
+
+auth_response = auth.login(api_token)
+
+# Configure Bearer authorization (JWT): JWTAuth
+configuration = pollination_sdk.Configuration(
+    access_token=auth_response.access_token
+)
+
 # Configure API key authorization: APIKeyAuth
 configuration = pollination_sdk.Configuration(
     host = "http://localhost",
@@ -85,6 +53,28 @@ configuration = pollination_sdk.Configuration(
 )
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with pollination_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = pollination_sdk.LicensesApi(api_client)
+    pool_id = 'pool_id_example' # str | 
+activation_id = 'activation_id_example' # str | 
+
+    try:
+        # Delete the activation
+        api_instance.delete_activation(pool_idactivation_id)
+    except ApiException as e:
+        print("Exception when calling LicensesApi->delete_activation: %s\n" % e)
+```
+
+* Api Key Authentication (APIKeyAuth):
+```python
+from __future__ import print_function
+import time
+import pollination_sdk
+from pollination_sdk.rest import ApiException
+from pprint import pprint
 
 # Retrieve a temporary Acces Token (JWT) using your API token
 API_TOKEN = 'some-token-string'
@@ -101,6 +91,16 @@ configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
 
+# Configure API key authorization: APIKeyAuth
+configuration = pollination_sdk.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'APIKeyAuth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
+
 # Enter a context with an instance of the API client
 with pollination_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -110,7 +110,7 @@ activation_id = 'activation_id_example' # str |
 
     try:
         # Delete the activation
-        api_instance.delete_activation(pool_id, activation_id)
+        api_instance.delete_activation(pool_idactivation_id)
     except ApiException as e:
         print("Exception when calling LicensesApi->delete_activation: %s\n" % e)
 ```
@@ -128,7 +128,7 @@ void (empty response body)
 
 ### Authorization
 
-[APIKeyAuth](../README.md#APIKeyAuth), [JWTAuth](../README.md#JWTAuth)
+[JWTAuth](../README.md#JWTAuth), [APIKeyAuth](../README.md#APIKeyAuth)
 
 ### HTTP request headers
 
@@ -150,23 +150,13 @@ Get license pools available to authenticated user
 
 ### Example
 
-* Api Key Authentication (APIKeyAuth):
+* Bearer (JWT) Authentication (JWTAuth):
 ```python
 from __future__ import print_function
 import time
 import pollination_sdk
 from pollination_sdk.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: APIKeyAuth
-configuration = pollination_sdk.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'APIKeyAuth': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
 
 # Retrieve a temporary Acces Token (JWT) using your API token
 API_TOKEN = 'some-token-string'
@@ -183,11 +173,21 @@ configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
 
+# Configure API key authorization: APIKeyAuth
+configuration = pollination_sdk.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'APIKeyAuth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
+
 # Enter a context with an instance of the API client
 with pollination_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pollination_sdk.LicensesApi(api_client)
-    owner = ['owner_example'] # list[str] | Owner of the project (optional)
+    owner = ['owner_example'] # List[str] | Owner of the project (optional)
 
     try:
         # Get license pools available to authenticated user
@@ -197,23 +197,13 @@ with pollination_sdk.ApiClient(configuration) as api_client:
         print("Exception when calling LicensesApi->get_available_pools: %s\n" % e)
 ```
 
-* Bearer (JWT) Authentication (JWTAuth):
+* Api Key Authentication (APIKeyAuth):
 ```python
 from __future__ import print_function
 import time
 import pollination_sdk
 from pollination_sdk.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: APIKeyAuth
-configuration = pollination_sdk.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'APIKeyAuth': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
 
 # Retrieve a temporary Acces Token (JWT) using your API token
 API_TOKEN = 'some-token-string'
@@ -230,11 +220,21 @@ configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
 
+# Configure API key authorization: APIKeyAuth
+configuration = pollination_sdk.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'APIKeyAuth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
+
 # Enter a context with an instance of the API client
 with pollination_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pollination_sdk.LicensesApi(api_client)
-    owner = ['owner_example'] # list[str] | Owner of the project (optional)
+    owner = ['owner_example'] # List[str] | Owner of the project (optional)
 
     try:
         # Get license pools available to authenticated user
@@ -248,7 +248,7 @@ with pollination_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **owner** | [**list[str]**](str.md)| Owner of the project | [optional] 
+ **owner** | [**List[str]**](str.md)| Owner of the project | [optional] 
 
 ### Return type
 
@@ -256,7 +256,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[APIKeyAuth](../README.md#APIKeyAuth), [JWTAuth](../README.md#JWTAuth)
+[JWTAuth](../README.md#JWTAuth), [APIKeyAuth](../README.md#APIKeyAuth)
 
 ### HTTP request headers
 
@@ -278,23 +278,13 @@ Get the activations for the license
 
 ### Example
 
-* Api Key Authentication (APIKeyAuth):
+* Bearer (JWT) Authentication (JWTAuth):
 ```python
 from __future__ import print_function
 import time
 import pollination_sdk
 from pollination_sdk.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: APIKeyAuth
-configuration = pollination_sdk.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'APIKeyAuth': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
 
 # Retrieve a temporary Acces Token (JWT) using your API token
 API_TOKEN = 'some-token-string'
@@ -310,6 +300,16 @@ auth_response = auth.login(api_token)
 configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
+
+# Configure API key authorization: APIKeyAuth
+configuration = pollination_sdk.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'APIKeyAuth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with pollination_sdk.ApiClient(configuration) as api_client:
@@ -325,23 +325,13 @@ with pollination_sdk.ApiClient(configuration) as api_client:
         print("Exception when calling LicensesApi->get_license_activations: %s\n" % e)
 ```
 
-* Bearer (JWT) Authentication (JWTAuth):
+* Api Key Authentication (APIKeyAuth):
 ```python
 from __future__ import print_function
 import time
 import pollination_sdk
 from pollination_sdk.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: APIKeyAuth
-configuration = pollination_sdk.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'APIKeyAuth': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
 
 # Retrieve a temporary Acces Token (JWT) using your API token
 API_TOKEN = 'some-token-string'
@@ -357,6 +347,16 @@ auth_response = auth.login(api_token)
 configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
+
+# Configure API key authorization: APIKeyAuth
+configuration = pollination_sdk.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'APIKeyAuth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with pollination_sdk.ApiClient(configuration) as api_client:
@@ -384,7 +384,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[APIKeyAuth](../README.md#APIKeyAuth), [JWTAuth](../README.md#JWTAuth)
+[JWTAuth](../README.md#JWTAuth), [APIKeyAuth](../README.md#APIKeyAuth)
 
 ### HTTP request headers
 
@@ -406,23 +406,13 @@ Get the license associated with a pool
 
 ### Example
 
-* Api Key Authentication (APIKeyAuth):
+* Bearer (JWT) Authentication (JWTAuth):
 ```python
 from __future__ import print_function
 import time
 import pollination_sdk
 from pollination_sdk.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: APIKeyAuth
-configuration = pollination_sdk.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'APIKeyAuth': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
 
 # Retrieve a temporary Acces Token (JWT) using your API token
 API_TOKEN = 'some-token-string'
@@ -438,6 +428,16 @@ auth_response = auth.login(api_token)
 configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
+
+# Configure API key authorization: APIKeyAuth
+configuration = pollination_sdk.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'APIKeyAuth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with pollination_sdk.ApiClient(configuration) as api_client:
@@ -453,23 +453,13 @@ with pollination_sdk.ApiClient(configuration) as api_client:
         print("Exception when calling LicensesApi->get_pool_license: %s\n" % e)
 ```
 
-* Bearer (JWT) Authentication (JWTAuth):
+* Api Key Authentication (APIKeyAuth):
 ```python
 from __future__ import print_function
 import time
 import pollination_sdk
 from pollination_sdk.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: APIKeyAuth
-configuration = pollination_sdk.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'APIKeyAuth': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
 
 # Retrieve a temporary Acces Token (JWT) using your API token
 API_TOKEN = 'some-token-string'
@@ -485,6 +475,16 @@ auth_response = auth.login(api_token)
 configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
+
+# Configure API key authorization: APIKeyAuth
+configuration = pollination_sdk.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'APIKeyAuth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with pollination_sdk.ApiClient(configuration) as api_client:
@@ -504,7 +504,7 @@ with pollination_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pool_id** | [**str**](.md)|  | 
+ **pool_id** | **str**|  | 
 
 ### Return type
 
@@ -512,7 +512,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[APIKeyAuth](../README.md#APIKeyAuth), [JWTAuth](../README.md#JWTAuth)
+[JWTAuth](../README.md#JWTAuth), [APIKeyAuth](../README.md#APIKeyAuth)
 
 ### HTTP request headers
 
@@ -528,59 +528,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **grant_access_to_pool**
-> LicensePoolPublic grant_access_to_pool(pool_id, license_pool_access_policy_list)
+> LicensePoolPublic grant_access_to_pool(pool_idlicense_pool_access_policy_list)
 
 Grant access to the license pool
 
 ### Example
-
-* Api Key Authentication (APIKeyAuth):
-```python
-from __future__ import print_function
-import time
-import pollination_sdk
-from pollination_sdk.rest import ApiException
-from pprint import pprint
-
-# Configure API key authorization: APIKeyAuth
-configuration = pollination_sdk.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'APIKeyAuth': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
-
-# Retrieve a temporary Acces Token (JWT) using your API token
-API_TOKEN = 'some-token-string'
-
-auth = pollination_sdk.UserApi()
-api_token = pollination_sdk.LoginDto(
-  api_token=API_TOKEN
-)
-
-auth_response = auth.login(api_token)
-
-# Configure Bearer authorization (JWT): JWTAuth
-configuration = pollination_sdk.Configuration(
-    access_token=auth_response.access_token
-)
-
-# Enter a context with an instance of the API client
-with pollination_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = pollination_sdk.LicensesApi(api_client)
-    pool_id = 'pool_id_example' # str | 
-license_pool_access_policy_list = pollination_sdk.LicensePoolAccessPolicyList() # LicensePoolAccessPolicyList | 
-
-    try:
-        # Grant access to the license pool
-        api_response = api_instance.grant_access_to_pool(pool_id, license_pool_access_policy_list)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling LicensesApi->grant_access_to_pool: %s\n" % e)
-```
 
 * Bearer (JWT) Authentication (JWTAuth):
 ```python
@@ -590,6 +542,21 @@ import pollination_sdk
 from pollination_sdk.rest import ApiException
 from pprint import pprint
 
+# Retrieve a temporary Acces Token (JWT) using your API token
+API_TOKEN = 'some-token-string'
+
+auth = pollination_sdk.UserApi()
+api_token = pollination_sdk.LoginDto(
+  api_token=API_TOKEN
+)
+
+auth_response = auth.login(api_token)
+
+# Configure Bearer authorization (JWT): JWTAuth
+configuration = pollination_sdk.Configuration(
+    access_token=auth_response.access_token
+)
+
 # Configure API key authorization: APIKeyAuth
 configuration = pollination_sdk.Configuration(
     host = "http://localhost",
@@ -599,6 +566,29 @@ configuration = pollination_sdk.Configuration(
 )
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with pollination_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = pollination_sdk.LicensesApi(api_client)
+    pool_id = 'pool_id_example' # str | 
+license_pool_access_policy_list = pollination_sdk.LicensePoolAccessPolicyList() # LicensePoolAccessPolicyList | 
+
+    try:
+        # Grant access to the license pool
+        api_response = api_instance.grant_access_to_pool(pool_idlicense_pool_access_policy_list)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling LicensesApi->grant_access_to_pool: %s\n" % e)
+```
+
+* Api Key Authentication (APIKeyAuth):
+```python
+from __future__ import print_function
+import time
+import pollination_sdk
+from pollination_sdk.rest import ApiException
+from pprint import pprint
 
 # Retrieve a temporary Acces Token (JWT) using your API token
 API_TOKEN = 'some-token-string'
@@ -615,6 +605,16 @@ configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
 
+# Configure API key authorization: APIKeyAuth
+configuration = pollination_sdk.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'APIKeyAuth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
+
 # Enter a context with an instance of the API client
 with pollination_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -624,7 +624,7 @@ license_pool_access_policy_list = pollination_sdk.LicensePoolAccessPolicyList() 
 
     try:
         # Grant access to the license pool
-        api_response = api_instance.grant_access_to_pool(pool_id, license_pool_access_policy_list)
+        api_response = api_instance.grant_access_to_pool(pool_idlicense_pool_access_policy_list)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling LicensesApi->grant_access_to_pool: %s\n" % e)
@@ -634,7 +634,7 @@ license_pool_access_policy_list = pollination_sdk.LicensePoolAccessPolicyList() 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pool_id** | [**str**](.md)|  | 
+ **pool_id** | **str**|  | 
  **license_pool_access_policy_list** | [**LicensePoolAccessPolicyList**](LicensePoolAccessPolicyList.md)|  | 
 
 ### Return type
@@ -643,7 +643,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[APIKeyAuth](../README.md#APIKeyAuth), [JWTAuth](../README.md#JWTAuth)
+[JWTAuth](../README.md#JWTAuth), [APIKeyAuth](../README.md#APIKeyAuth)
 
 ### HTTP request headers
 
@@ -665,23 +665,13 @@ Regenerate the license associated with the pool
 
 ### Example
 
-* Api Key Authentication (APIKeyAuth):
+* Bearer (JWT) Authentication (JWTAuth):
 ```python
 from __future__ import print_function
 import time
 import pollination_sdk
 from pollination_sdk.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: APIKeyAuth
-configuration = pollination_sdk.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'APIKeyAuth': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
 
 # Retrieve a temporary Acces Token (JWT) using your API token
 API_TOKEN = 'some-token-string'
@@ -697,6 +687,16 @@ auth_response = auth.login(api_token)
 configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
+
+# Configure API key authorization: APIKeyAuth
+configuration = pollination_sdk.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'APIKeyAuth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with pollination_sdk.ApiClient(configuration) as api_client:
@@ -712,23 +712,13 @@ with pollination_sdk.ApiClient(configuration) as api_client:
         print("Exception when calling LicensesApi->regenerate_license_pool: %s\n" % e)
 ```
 
-* Bearer (JWT) Authentication (JWTAuth):
+* Api Key Authentication (APIKeyAuth):
 ```python
 from __future__ import print_function
 import time
 import pollination_sdk
 from pollination_sdk.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: APIKeyAuth
-configuration = pollination_sdk.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'APIKeyAuth': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
 
 # Retrieve a temporary Acces Token (JWT) using your API token
 API_TOKEN = 'some-token-string'
@@ -744,6 +734,16 @@ auth_response = auth.login(api_token)
 configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
+
+# Configure API key authorization: APIKeyAuth
+configuration = pollination_sdk.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'APIKeyAuth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with pollination_sdk.ApiClient(configuration) as api_client:
@@ -763,7 +763,7 @@ with pollination_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pool_id** | [**str**](.md)|  | 
+ **pool_id** | **str**|  | 
 
 ### Return type
 
@@ -771,7 +771,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[APIKeyAuth](../README.md#APIKeyAuth), [JWTAuth](../README.md#JWTAuth)
+[JWTAuth](../README.md#JWTAuth), [APIKeyAuth](../README.md#APIKeyAuth)
 
 ### HTTP request headers
 
@@ -787,59 +787,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **revoke_access_to_pool**
-> LicensePoolPublic revoke_access_to_pool(pool_id, license_pool_policy_subject_list)
+> LicensePoolPublic revoke_access_to_pool(pool_idlicense_pool_policy_subject_list)
 
 Revoke access to the license pool
 
 ### Example
-
-* Api Key Authentication (APIKeyAuth):
-```python
-from __future__ import print_function
-import time
-import pollination_sdk
-from pollination_sdk.rest import ApiException
-from pprint import pprint
-
-# Configure API key authorization: APIKeyAuth
-configuration = pollination_sdk.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'APIKeyAuth': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
-
-# Retrieve a temporary Acces Token (JWT) using your API token
-API_TOKEN = 'some-token-string'
-
-auth = pollination_sdk.UserApi()
-api_token = pollination_sdk.LoginDto(
-  api_token=API_TOKEN
-)
-
-auth_response = auth.login(api_token)
-
-# Configure Bearer authorization (JWT): JWTAuth
-configuration = pollination_sdk.Configuration(
-    access_token=auth_response.access_token
-)
-
-# Enter a context with an instance of the API client
-with pollination_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = pollination_sdk.LicensesApi(api_client)
-    pool_id = 'pool_id_example' # str | 
-license_pool_policy_subject_list = pollination_sdk.LicensePoolPolicySubjectList() # LicensePoolPolicySubjectList | 
-
-    try:
-        # Revoke access to the license pool
-        api_response = api_instance.revoke_access_to_pool(pool_id, license_pool_policy_subject_list)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling LicensesApi->revoke_access_to_pool: %s\n" % e)
-```
 
 * Bearer (JWT) Authentication (JWTAuth):
 ```python
@@ -849,6 +801,21 @@ import pollination_sdk
 from pollination_sdk.rest import ApiException
 from pprint import pprint
 
+# Retrieve a temporary Acces Token (JWT) using your API token
+API_TOKEN = 'some-token-string'
+
+auth = pollination_sdk.UserApi()
+api_token = pollination_sdk.LoginDto(
+  api_token=API_TOKEN
+)
+
+auth_response = auth.login(api_token)
+
+# Configure Bearer authorization (JWT): JWTAuth
+configuration = pollination_sdk.Configuration(
+    access_token=auth_response.access_token
+)
+
 # Configure API key authorization: APIKeyAuth
 configuration = pollination_sdk.Configuration(
     host = "http://localhost",
@@ -858,6 +825,29 @@ configuration = pollination_sdk.Configuration(
 )
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with pollination_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = pollination_sdk.LicensesApi(api_client)
+    pool_id = 'pool_id_example' # str | 
+license_pool_policy_subject_list = pollination_sdk.LicensePoolPolicySubjectList() # LicensePoolPolicySubjectList | 
+
+    try:
+        # Revoke access to the license pool
+        api_response = api_instance.revoke_access_to_pool(pool_idlicense_pool_policy_subject_list)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling LicensesApi->revoke_access_to_pool: %s\n" % e)
+```
+
+* Api Key Authentication (APIKeyAuth):
+```python
+from __future__ import print_function
+import time
+import pollination_sdk
+from pollination_sdk.rest import ApiException
+from pprint import pprint
 
 # Retrieve a temporary Acces Token (JWT) using your API token
 API_TOKEN = 'some-token-string'
@@ -874,6 +864,16 @@ configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
 
+# Configure API key authorization: APIKeyAuth
+configuration = pollination_sdk.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'APIKeyAuth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
+
 # Enter a context with an instance of the API client
 with pollination_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -883,7 +883,7 @@ license_pool_policy_subject_list = pollination_sdk.LicensePoolPolicySubjectList(
 
     try:
         # Revoke access to the license pool
-        api_response = api_instance.revoke_access_to_pool(pool_id, license_pool_policy_subject_list)
+        api_response = api_instance.revoke_access_to_pool(pool_idlicense_pool_policy_subject_list)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling LicensesApi->revoke_access_to_pool: %s\n" % e)
@@ -893,7 +893,7 @@ license_pool_policy_subject_list = pollination_sdk.LicensePoolPolicySubjectList(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pool_id** | [**str**](.md)|  | 
+ **pool_id** | **str**|  | 
  **license_pool_policy_subject_list** | [**LicensePoolPolicySubjectList**](LicensePoolPolicySubjectList.md)|  | 
 
 ### Return type
@@ -902,7 +902,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[APIKeyAuth](../README.md#APIKeyAuth), [JWTAuth](../README.md#JWTAuth)
+[JWTAuth](../README.md#JWTAuth), [APIKeyAuth](../README.md#APIKeyAuth)
 
 ### HTTP request headers
 
@@ -918,59 +918,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_license_pool**
-> object update_license_pool(pool_id, license_pool_update)
+> object update_license_pool(pool_idlicense_pool_update)
 
 Update the license pool
 
 ### Example
-
-* Api Key Authentication (APIKeyAuth):
-```python
-from __future__ import print_function
-import time
-import pollination_sdk
-from pollination_sdk.rest import ApiException
-from pprint import pprint
-
-# Configure API key authorization: APIKeyAuth
-configuration = pollination_sdk.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'APIKeyAuth': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
-
-# Retrieve a temporary Acces Token (JWT) using your API token
-API_TOKEN = 'some-token-string'
-
-auth = pollination_sdk.UserApi()
-api_token = pollination_sdk.LoginDto(
-  api_token=API_TOKEN
-)
-
-auth_response = auth.login(api_token)
-
-# Configure Bearer authorization (JWT): JWTAuth
-configuration = pollination_sdk.Configuration(
-    access_token=auth_response.access_token
-)
-
-# Enter a context with an instance of the API client
-with pollination_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = pollination_sdk.LicensesApi(api_client)
-    pool_id = 'pool_id_example' # str | 
-license_pool_update = pollination_sdk.LicensePoolUpdate() # LicensePoolUpdate | 
-
-    try:
-        # Update the license pool
-        api_response = api_instance.update_license_pool(pool_id, license_pool_update)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling LicensesApi->update_license_pool: %s\n" % e)
-```
 
 * Bearer (JWT) Authentication (JWTAuth):
 ```python
@@ -980,6 +932,21 @@ import pollination_sdk
 from pollination_sdk.rest import ApiException
 from pprint import pprint
 
+# Retrieve a temporary Acces Token (JWT) using your API token
+API_TOKEN = 'some-token-string'
+
+auth = pollination_sdk.UserApi()
+api_token = pollination_sdk.LoginDto(
+  api_token=API_TOKEN
+)
+
+auth_response = auth.login(api_token)
+
+# Configure Bearer authorization (JWT): JWTAuth
+configuration = pollination_sdk.Configuration(
+    access_token=auth_response.access_token
+)
+
 # Configure API key authorization: APIKeyAuth
 configuration = pollination_sdk.Configuration(
     host = "http://localhost",
@@ -989,6 +956,29 @@ configuration = pollination_sdk.Configuration(
 )
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with pollination_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = pollination_sdk.LicensesApi(api_client)
+    pool_id = 'pool_id_example' # str | 
+license_pool_update = pollination_sdk.LicensePoolUpdate() # LicensePoolUpdate | 
+
+    try:
+        # Update the license pool
+        api_response = api_instance.update_license_pool(pool_idlicense_pool_update)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling LicensesApi->update_license_pool: %s\n" % e)
+```
+
+* Api Key Authentication (APIKeyAuth):
+```python
+from __future__ import print_function
+import time
+import pollination_sdk
+from pollination_sdk.rest import ApiException
+from pprint import pprint
 
 # Retrieve a temporary Acces Token (JWT) using your API token
 API_TOKEN = 'some-token-string'
@@ -1005,6 +995,16 @@ configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
 
+# Configure API key authorization: APIKeyAuth
+configuration = pollination_sdk.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'APIKeyAuth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
+
 # Enter a context with an instance of the API client
 with pollination_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -1014,7 +1014,7 @@ license_pool_update = pollination_sdk.LicensePoolUpdate() # LicensePoolUpdate |
 
     try:
         # Update the license pool
-        api_response = api_instance.update_license_pool(pool_id, license_pool_update)
+        api_response = api_instance.update_license_pool(pool_idlicense_pool_update)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling LicensesApi->update_license_pool: %s\n" % e)
@@ -1024,7 +1024,7 @@ license_pool_update = pollination_sdk.LicensePoolUpdate() # LicensePoolUpdate |
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pool_id** | [**str**](.md)|  | 
+ **pool_id** | **str**|  | 
  **license_pool_update** | [**LicensePoolUpdate**](LicensePoolUpdate.md)|  | 
 
 ### Return type
@@ -1033,7 +1033,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[APIKeyAuth](../README.md#APIKeyAuth), [JWTAuth](../README.md#JWTAuth)
+[JWTAuth](../README.md#JWTAuth), [APIKeyAuth](../README.md#APIKeyAuth)
 
 ### HTTP request headers
 

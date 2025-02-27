@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **list_subscription_plans**
-> list[SubscriptionPlan] list_subscription_plans(plan_type=plan_type)
+> List[SubscriptionPlan] list_subscription_plans(plan_type=plan_type)
 
 List Subscription Plans
 
@@ -43,7 +43,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[SubscriptionPlan]**](SubscriptionPlan.md)
+[**List[SubscriptionPlan]**](SubscriptionPlan.md)
 
 ### Authorization
 
