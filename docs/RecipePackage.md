@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **description** | **str** | description | [optional] 
 **digest** | **str** | The new package digest | 
 **icon** | **str** | icon | [optional] 
-**keywords** | **list[str]** | keywords | [optional] 
+**keywords** | **List[str]** | keywords | [optional] 
 **manifest** | [**RecipeInterface**](RecipeInterface.md) |  | 
 **readme** | **str** | The Repository Readme | [optional] 
 **tag** | **str** | The new package tag | 
