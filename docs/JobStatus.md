@@ -4,7 +4,7 @@ Parametric Job Status.
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**annotations** | **dict(str, str)** | An optional dictionary to add annotations to inputs. These annotations will be used by the client side libraries. | [optional] 
+**annotations** | **Dict[str, str]** | An optional dictionary to add annotations to inputs. These annotations will be used by the client side libraries. | [optional] 
 **api_version** | **str** |  | [optional] [readonly] [default to 'v1beta1']
 **finished_at** | **datetime** | The time at which the task was completed | [optional] 
 **id** | **str** | The ID of the individual job. | 

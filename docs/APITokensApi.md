@@ -157,7 +157,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_tokens**
-> APITokenList list_tokens(page=page, per_page=per_page)
+> APITokenList list_tokens(page=pageper_page=per_page)
 
 List user API tokens
 
@@ -197,7 +197,7 @@ per_page = 25 # int | Number of items per page (optional) (default to 25)
 
     try:
         # List user API tokens
-        api_response = api_instance.list_tokens(page=page, per_page=per_page)
+        api_response = api_instance.list_tokens(page=pageper_page=per_page)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling APITokensApi->list_tokens: %s\n" % e)
