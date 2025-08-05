@@ -5,7 +5,7 @@ Configuration to fetch a Recipe or Plugin that another Recipe depends on.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **alias** | **str** | An optional alias to refer to this dependency. Useful if the name is already used somewhere else. | [optional] 
-**annotations** | **dict(str, str)** | An optional dictionary to add annotations to inputs. These annotations will be used by the client side libraries. | [optional] 
+**annotations** | **Dict[str, str]** | An optional dictionary to add annotations to inputs. These annotations will be used by the client side libraries. | [optional] 
 **hash** | **str** | The digest hash of the dependency when retrieved from its source. This is locked when the resource dependencies are downloaded. | [optional] 
 **kind** | [**DependencyKind**](DependencyKind.md) | The kind of dependency. It can be a recipe or an plugin. | 
 **name** | **str** | Workflow name. This name should be unique among all the resources in your resource. Use an alias if this is not the case. | 

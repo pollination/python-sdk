@@ -4,10 +4,10 @@ A Queenbee Plugin.  A plugin contains runtime configuration for a Command Line I
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**annotations** | **dict(str, str)** | An optional dictionary to add annotations to inputs. These annotations will be used by the client side libraries. | [optional] 
+**annotations** | **Dict[str, str]** | An optional dictionary to add annotations to inputs. These annotations will be used by the client side libraries. | [optional] 
 **api_version** | **str** |  | [optional] [readonly] [default to 'v1beta1']
 **config** | [**PluginConfig**](PluginConfig.md) | The configuration information to run this plugin | 
-**functions** | [**list[Function]**](Function.md) | List of Plugin functions | 
+**functions** | [**List[Function]**](Function.md) | List of Plugin functions | 
 **metadata** | [**MetaData**](MetaData.md) | The Plugin metadata information | 
 **type** | **str** |  | [optional] [readonly] [default to 'Plugin']
 
