@@ -4,7 +4,7 @@ Function array output.  This output loads the content from a JSON file which mus
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**annotations** | **dict(str, str)** | An optional dictionary to add annotations to inputs. These annotations will be used by the client side libraries. | [optional] 
+**annotations** | **Dict[str, str]** | An optional dictionary to add annotations to inputs. These annotations will be used by the client side libraries. | [optional] 
 **description** | **str** | Optional description for output. | [optional] 
 **items_type** | [**ItemType**](ItemType.md) | Type of items in this array. All the items in an array must be from the same type. | [optional] 
 **name** | **str** | Output name. | 

@@ -7,6 +7,7 @@ from pollination_sdk.api.api_tokens_api import APITokensApi
 from pollination_sdk.api.accounts_api import AccountsApi
 from pollination_sdk.api.applications_api import ApplicationsApi
 from pollination_sdk.api.artifacts_api import ArtifactsApi
+from pollination_sdk.api.billing_api import BillingApi
 from pollination_sdk.api.jobs_api import JobsApi
 from pollination_sdk.api.licenses_api import LicensesApi
 from pollination_sdk.api.orgs_api import OrgsApi
@@ -14,6 +15,7 @@ from pollination_sdk.api.plugins_api import PluginsApi
 from pollination_sdk.api.projects_api import ProjectsApi
 from pollination_sdk.api.recipes_api import RecipesApi
 from pollination_sdk.api.registries_api import RegistriesApi
+from pollination_sdk.api.reports_api import ReportsApi
 from pollination_sdk.api.runs_api import RunsApi
 from pollination_sdk.api.subscription_plans_api import SubscriptionPlansApi
 from pollination_sdk.api.subscriptions_api import SubscriptionsApi

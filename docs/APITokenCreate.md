@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**claims** | **dict(str, str)** | Key value pairs of auth claims the API token is entitled to | [optional] 
+**claims** | **Dict[str, str]** | Key value pairs of auth claims the API token is entitled to | [optional] 
 **name** | **str** | The user friendly name of the API token | 
 **token_id** | **str** | The unique ID of this API token | 
 
