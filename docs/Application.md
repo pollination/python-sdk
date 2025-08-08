@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **id** | **str** | The application ID | 
 **image** | **str** | An image associated with the application | [optional] [default to 'https://picsum.photos/400']
 **is_paid** | **bool** | Whether or not the application is paid | [optional] [default to False]
-**keywords** | **list[str]** | A list of keywords associated with the application | [optional] [default to []]
+**keywords** | **List[str]** | A list of keywords associated with the application | [optional] [default to []]
 **license** | **str** | The license of the application | [optional] 
 **name** | **str** | The name of the application. Must be unique to a given owner | 
 **owner** | [**AccountPublic**](AccountPublic.md) | The application owner | 
