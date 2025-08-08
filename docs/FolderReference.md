@@ -4,7 +4,7 @@ Reference to a folder.
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**annotations** | **dict(str, str)** | An optional dictionary to add annotations to inputs. These annotations will be used by the client side libraries. | [optional] 
+**annotations** | **Dict[str, str]** | An optional dictionary to add annotations to inputs. These annotations will be used by the client side libraries. | [optional] 
 **path** | **str** | Relative path to a folder. | 
 **type** | **str** |  | [optional] [readonly] [default to 'FolderReference']
 
