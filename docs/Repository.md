@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 **description** | **str** | A description of the repository | [optional] 
 **icon** | **str** | An icon to represent this repository | [optional] 
 **id** | **str** | The recipe unique ID | 
-**keywords** | **list[str]** | A list of keywords to index the repository by | [optional] 
+**keywords** | **List[str]** | A list of keywords to index the repository by | [optional] 
 **latest_tag** | **str** | The latest package version to be indexed | 
 **name** | **str** | The name of the repository | 
 **owner** | [**AccountPublic**](AccountPublic.md) | The owner of the repository | 

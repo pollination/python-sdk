@@ -11,60 +11,11 @@ Method | HTTP request | Description
 
 
 # **create_artifact**
-> S3UploadRequest create_artifact(owner, name, key_request)
+> S3UploadRequest create_artifact(ownernamekey_request)
 
 Get an Artifact upload link.
 
 ### Example
-
-* Api Key Authentication (APIKeyAuth):
-```python
-from __future__ import print_function
-import time
-import pollination_sdk
-from pollination_sdk.rest import ApiException
-from pprint import pprint
-
-# Configure API key authorization: APIKeyAuth
-configuration = pollination_sdk.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'APIKeyAuth': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
-
-# Retrieve a temporary Acces Token (JWT) using your API token
-API_TOKEN = 'some-token-string'
-
-auth = pollination_sdk.UserApi()
-api_token = pollination_sdk.LoginDto(
-  api_token=API_TOKEN
-)
-
-auth_response = auth.login(api_token)
-
-# Configure Bearer authorization (JWT): JWTAuth
-configuration = pollination_sdk.Configuration(
-    access_token=auth_response.access_token
-)
-
-# Enter a context with an instance of the API client
-with pollination_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = pollination_sdk.ArtifactsApi(api_client)
-    owner = 'owner_example' # str | 
-name = 'name_example' # str | 
-key_request = pollination_sdk.KeyRequest() # KeyRequest | 
-
-    try:
-        # Get an Artifact upload link.
-        api_response = api_instance.create_artifact(owner, name, key_request)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling ArtifactsApi->create_artifact: %s\n" % e)
-```
 
 * Bearer (JWT) Authentication (JWTAuth):
 ```python
@@ -74,6 +25,21 @@ import pollination_sdk
 from pollination_sdk.rest import ApiException
 from pprint import pprint
 
+# Retrieve a temporary Acces Token (JWT) using your API token
+API_TOKEN = 'some-token-string'
+
+auth = pollination_sdk.UserApi()
+api_token = pollination_sdk.LoginDto(
+  api_token=API_TOKEN
+)
+
+auth_response = auth.login(api_token)
+
+# Configure Bearer authorization (JWT): JWTAuth
+configuration = pollination_sdk.Configuration(
+    access_token=auth_response.access_token
+)
+
 # Configure API key authorization: APIKeyAuth
 configuration = pollination_sdk.Configuration(
     host = "http://localhost",
@@ -83,6 +49,30 @@ configuration = pollination_sdk.Configuration(
 )
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with pollination_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = pollination_sdk.ArtifactsApi(api_client)
+    owner = 'owner_example' # str | 
+name = 'name_example' # str | 
+key_request = pollination_sdk.KeyRequest() # KeyRequest | 
+
+    try:
+        # Get an Artifact upload link.
+        api_response = api_instance.create_artifact(ownernamekey_request)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ArtifactsApi->create_artifact: %s\n" % e)
+```
+
+* Api Key Authentication (APIKeyAuth):
+```python
+from __future__ import print_function
+import time
+import pollination_sdk
+from pollination_sdk.rest import ApiException
+from pprint import pprint
 
 # Retrieve a temporary Acces Token (JWT) using your API token
 API_TOKEN = 'some-token-string'
@@ -99,6 +89,16 @@ configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
 
+# Configure API key authorization: APIKeyAuth
+configuration = pollination_sdk.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'APIKeyAuth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
+
 # Enter a context with an instance of the API client
 with pollination_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -109,7 +109,7 @@ key_request = pollination_sdk.KeyRequest() # KeyRequest |
 
     try:
         # Get an Artifact upload link.
-        api_response = api_instance.create_artifact(owner, name, key_request)
+        api_response = api_instance.create_artifact(ownernamekey_request)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ArtifactsApi->create_artifact: %s\n" % e)
@@ -129,7 +129,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[APIKeyAuth](../README.md#APIKeyAuth), [JWTAuth](../README.md#JWTAuth)
+[JWTAuth](../README.md#JWTAuth), [APIKeyAuth](../README.md#APIKeyAuth)
 
 ### HTTP request headers
 
@@ -145,61 +145,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_artifact**
-> delete_artifact(owner, name, path=path, page=page, per_page=per_page)
+> delete_artifact(ownernamepath=pathpage=pageper_page=per_page)
 
 Delete one or many artifacts by key/prefix
 
 ### Example
-
-* Api Key Authentication (APIKeyAuth):
-```python
-from __future__ import print_function
-import time
-import pollination_sdk
-from pollination_sdk.rest import ApiException
-from pprint import pprint
-
-# Configure API key authorization: APIKeyAuth
-configuration = pollination_sdk.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'APIKeyAuth': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
-
-# Retrieve a temporary Acces Token (JWT) using your API token
-API_TOKEN = 'some-token-string'
-
-auth = pollination_sdk.UserApi()
-api_token = pollination_sdk.LoginDto(
-  api_token=API_TOKEN
-)
-
-auth_response = auth.login(api_token)
-
-# Configure Bearer authorization (JWT): JWTAuth
-configuration = pollination_sdk.Configuration(
-    access_token=auth_response.access_token
-)
-
-# Enter a context with an instance of the API client
-with pollination_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = pollination_sdk.ArtifactsApi(api_client)
-    owner = 'owner_example' # str | 
-name = 'name_example' # str | 
-path = ['path_example'] # list[str] | The path to an file within a project folder (optional)
-page = 1 # int | Page number starting from 1 (optional) (default to 1)
-per_page = 25 # int | Number of items per page (optional) (default to 25)
-
-    try:
-        # Delete one or many artifacts by key/prefix
-        api_instance.delete_artifact(owner, name, path=path, page=page, per_page=per_page)
-    except ApiException as e:
-        print("Exception when calling ArtifactsApi->delete_artifact: %s\n" % e)
-```
 
 * Bearer (JWT) Authentication (JWTAuth):
 ```python
@@ -209,6 +159,21 @@ import pollination_sdk
 from pollination_sdk.rest import ApiException
 from pprint import pprint
 
+# Retrieve a temporary Acces Token (JWT) using your API token
+API_TOKEN = 'some-token-string'
+
+auth = pollination_sdk.UserApi()
+api_token = pollination_sdk.LoginDto(
+  api_token=API_TOKEN
+)
+
+auth_response = auth.login(api_token)
+
+# Configure Bearer authorization (JWT): JWTAuth
+configuration = pollination_sdk.Configuration(
+    access_token=auth_response.access_token
+)
+
 # Configure API key authorization: APIKeyAuth
 configuration = pollination_sdk.Configuration(
     host = "http://localhost",
@@ -218,6 +183,31 @@ configuration = pollination_sdk.Configuration(
 )
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with pollination_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = pollination_sdk.ArtifactsApi(api_client)
+    owner = 'owner_example' # str | 
+name = 'name_example' # str | 
+path = ['path_example'] # List[str] | The path to an file within a project folder (optional)
+page = 1 # int | Page number starting from 1 (optional) (default to 1)
+per_page = 25 # int | Number of items per page (optional) (default to 25)
+
+    try:
+        # Delete one or many artifacts by key/prefix
+        api_instance.delete_artifact(ownernamepath=pathpage=pageper_page=per_page)
+    except ApiException as e:
+        print("Exception when calling ArtifactsApi->delete_artifact: %s\n" % e)
+```
+
+* Api Key Authentication (APIKeyAuth):
+```python
+from __future__ import print_function
+import time
+import pollination_sdk
+from pollination_sdk.rest import ApiException
+from pprint import pprint
 
 # Retrieve a temporary Acces Token (JWT) using your API token
 API_TOKEN = 'some-token-string'
@@ -234,19 +224,29 @@ configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
 
+# Configure API key authorization: APIKeyAuth
+configuration = pollination_sdk.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'APIKeyAuth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
+
 # Enter a context with an instance of the API client
 with pollination_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pollination_sdk.ArtifactsApi(api_client)
     owner = 'owner_example' # str | 
 name = 'name_example' # str | 
-path = ['path_example'] # list[str] | The path to an file within a project folder (optional)
+path = ['path_example'] # List[str] | The path to an file within a project folder (optional)
 page = 1 # int | Page number starting from 1 (optional) (default to 1)
 per_page = 25 # int | Number of items per page (optional) (default to 25)
 
     try:
         # Delete one or many artifacts by key/prefix
-        api_instance.delete_artifact(owner, name, path=path, page=page, per_page=per_page)
+        api_instance.delete_artifact(ownernamepath=pathpage=pageper_page=per_page)
     except ApiException as e:
         print("Exception when calling ArtifactsApi->delete_artifact: %s\n" % e)
 ```
@@ -257,7 +257,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **name** | **str**|  | 
- **path** | [**list[str]**](str.md)| The path to an file within a project folder | [optional] 
+ **path** | [**List[str]**](str.md)| The path to an file within a project folder | [optional] 
  **page** | **int**| Page number starting from 1 | [optional] [default to 1]
  **per_page** | **int**| Number of items per page | [optional] [default to 25]
 
@@ -267,7 +267,7 @@ void (empty response body)
 
 ### Authorization
 
-[APIKeyAuth](../README.md#APIKeyAuth), [JWTAuth](../README.md#JWTAuth)
+[JWTAuth](../README.md#JWTAuth), [APIKeyAuth](../README.md#APIKeyAuth)
 
 ### HTTP request headers
 
@@ -283,60 +283,11 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **download_artifact**
-> object download_artifact(owner, name, path=path)
+> object download_artifact(ownernamepath=path)
 
 Download an artifact from the project folder
 
 ### Example
-
-* Api Key Authentication (APIKeyAuth):
-```python
-from __future__ import print_function
-import time
-import pollination_sdk
-from pollination_sdk.rest import ApiException
-from pprint import pprint
-
-# Configure API key authorization: APIKeyAuth
-configuration = pollination_sdk.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'APIKeyAuth': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
-
-# Retrieve a temporary Acces Token (JWT) using your API token
-API_TOKEN = 'some-token-string'
-
-auth = pollination_sdk.UserApi()
-api_token = pollination_sdk.LoginDto(
-  api_token=API_TOKEN
-)
-
-auth_response = auth.login(api_token)
-
-# Configure Bearer authorization (JWT): JWTAuth
-configuration = pollination_sdk.Configuration(
-    access_token=auth_response.access_token
-)
-
-# Enter a context with an instance of the API client
-with pollination_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = pollination_sdk.ArtifactsApi(api_client)
-    owner = 'owner_example' # str | 
-name = 'name_example' # str | 
-path = 'path_example' # str | The path to an file within a project folder (optional)
-
-    try:
-        # Download an artifact from the project folder
-        api_response = api_instance.download_artifact(owner, name, path=path)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling ArtifactsApi->download_artifact: %s\n" % e)
-```
 
 * Bearer (JWT) Authentication (JWTAuth):
 ```python
@@ -346,6 +297,21 @@ import pollination_sdk
 from pollination_sdk.rest import ApiException
 from pprint import pprint
 
+# Retrieve a temporary Acces Token (JWT) using your API token
+API_TOKEN = 'some-token-string'
+
+auth = pollination_sdk.UserApi()
+api_token = pollination_sdk.LoginDto(
+  api_token=API_TOKEN
+)
+
+auth_response = auth.login(api_token)
+
+# Configure Bearer authorization (JWT): JWTAuth
+configuration = pollination_sdk.Configuration(
+    access_token=auth_response.access_token
+)
+
 # Configure API key authorization: APIKeyAuth
 configuration = pollination_sdk.Configuration(
     host = "http://localhost",
@@ -355,6 +321,30 @@ configuration = pollination_sdk.Configuration(
 )
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with pollination_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = pollination_sdk.ArtifactsApi(api_client)
+    owner = 'owner_example' # str | 
+name = 'name_example' # str | 
+path = 'path_example' # str | The path to an file within a project folder (optional)
+
+    try:
+        # Download an artifact from the project folder
+        api_response = api_instance.download_artifact(ownernamepath=path)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ArtifactsApi->download_artifact: %s\n" % e)
+```
+
+* Api Key Authentication (APIKeyAuth):
+```python
+from __future__ import print_function
+import time
+import pollination_sdk
+from pollination_sdk.rest import ApiException
+from pprint import pprint
 
 # Retrieve a temporary Acces Token (JWT) using your API token
 API_TOKEN = 'some-token-string'
@@ -371,6 +361,16 @@ configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
 
+# Configure API key authorization: APIKeyAuth
+configuration = pollination_sdk.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'APIKeyAuth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
+
 # Enter a context with an instance of the API client
 with pollination_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -381,7 +381,7 @@ path = 'path_example' # str | The path to an file within a project folder (optio
 
     try:
         # Download an artifact from the project folder
-        api_response = api_instance.download_artifact(owner, name, path=path)
+        api_response = api_instance.download_artifact(ownernamepath=path)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ArtifactsApi->download_artifact: %s\n" % e)
@@ -401,7 +401,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[APIKeyAuth](../README.md#APIKeyAuth), [JWTAuth](../README.md#JWTAuth)
+[JWTAuth](../README.md#JWTAuth), [APIKeyAuth](../README.md#APIKeyAuth)
 
 ### HTTP request headers
 
@@ -421,62 +421,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_artifacts**
-> FileMetaList list_artifacts(owner, name, path=path, page=page, per_page=per_page)
+> FileMetaList list_artifacts(ownernamepath=pathpage=pageper_page=per_page)
 
 List artifacts in a project folder
 
 ### Example
-
-* Api Key Authentication (APIKeyAuth):
-```python
-from __future__ import print_function
-import time
-import pollination_sdk
-from pollination_sdk.rest import ApiException
-from pprint import pprint
-
-# Configure API key authorization: APIKeyAuth
-configuration = pollination_sdk.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'APIKeyAuth': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
-
-# Retrieve a temporary Acces Token (JWT) using your API token
-API_TOKEN = 'some-token-string'
-
-auth = pollination_sdk.UserApi()
-api_token = pollination_sdk.LoginDto(
-  api_token=API_TOKEN
-)
-
-auth_response = auth.login(api_token)
-
-# Configure Bearer authorization (JWT): JWTAuth
-configuration = pollination_sdk.Configuration(
-    access_token=auth_response.access_token
-)
-
-# Enter a context with an instance of the API client
-with pollination_sdk.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = pollination_sdk.ArtifactsApi(api_client)
-    owner = 'owner_example' # str | 
-name = 'name_example' # str | 
-path = ['path_example'] # list[str] | The path to an file within a project folder (optional)
-page = 1 # int | Page number starting from 1 (optional) (default to 1)
-per_page = 25 # int | Number of items per page (optional) (default to 25)
-
-    try:
-        # List artifacts in a project folder
-        api_response = api_instance.list_artifacts(owner, name, path=path, page=page, per_page=per_page)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling ArtifactsApi->list_artifacts: %s\n" % e)
-```
 
 * Bearer (JWT) Authentication (JWTAuth):
 ```python
@@ -486,6 +435,21 @@ import pollination_sdk
 from pollination_sdk.rest import ApiException
 from pprint import pprint
 
+# Retrieve a temporary Acces Token (JWT) using your API token
+API_TOKEN = 'some-token-string'
+
+auth = pollination_sdk.UserApi()
+api_token = pollination_sdk.LoginDto(
+  api_token=API_TOKEN
+)
+
+auth_response = auth.login(api_token)
+
+# Configure Bearer authorization (JWT): JWTAuth
+configuration = pollination_sdk.Configuration(
+    access_token=auth_response.access_token
+)
+
 # Configure API key authorization: APIKeyAuth
 configuration = pollination_sdk.Configuration(
     host = "http://localhost",
@@ -495,6 +459,32 @@ configuration = pollination_sdk.Configuration(
 )
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with pollination_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = pollination_sdk.ArtifactsApi(api_client)
+    owner = 'owner_example' # str | 
+name = 'name_example' # str | 
+path = ['path_example'] # List[str] | The path to an file within a project folder (optional)
+page = 1 # int | Page number starting from 1 (optional) (default to 1)
+per_page = 25 # int | Number of items per page (optional) (default to 25)
+
+    try:
+        # List artifacts in a project folder
+        api_response = api_instance.list_artifacts(ownernamepath=pathpage=pageper_page=per_page)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ArtifactsApi->list_artifacts: %s\n" % e)
+```
+
+* Api Key Authentication (APIKeyAuth):
+```python
+from __future__ import print_function
+import time
+import pollination_sdk
+from pollination_sdk.rest import ApiException
+from pprint import pprint
 
 # Retrieve a temporary Acces Token (JWT) using your API token
 API_TOKEN = 'some-token-string'
@@ -511,19 +501,29 @@ configuration = pollination_sdk.Configuration(
     access_token=auth_response.access_token
 )
 
+# Configure API key authorization: APIKeyAuth
+configuration = pollination_sdk.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'APIKeyAuth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['APIKeyAuth'] = 'Bearer'
+
 # Enter a context with an instance of the API client
 with pollination_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pollination_sdk.ArtifactsApi(api_client)
     owner = 'owner_example' # str | 
 name = 'name_example' # str | 
-path = ['path_example'] # list[str] | The path to an file within a project folder (optional)
+path = ['path_example'] # List[str] | The path to an file within a project folder (optional)
 page = 1 # int | Page number starting from 1 (optional) (default to 1)
 per_page = 25 # int | Number of items per page (optional) (default to 25)
 
     try:
         # List artifacts in a project folder
-        api_response = api_instance.list_artifacts(owner, name, path=path, page=page, per_page=per_page)
+        api_response = api_instance.list_artifacts(ownernamepath=pathpage=pageper_page=per_page)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ArtifactsApi->list_artifacts: %s\n" % e)
@@ -535,7 +535,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**|  | 
  **name** | **str**|  | 
- **path** | [**list[str]**](str.md)| The path to an file within a project folder | [optional] 
+ **path** | [**List[str]**](str.md)| The path to an file within a project folder | [optional] 
  **page** | **int**| Page number starting from 1 | [optional] [default to 1]
  **per_page** | **int**| Number of items per page | [optional] [default to 25]
 
@@ -545,7 +545,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[APIKeyAuth](../README.md#APIKeyAuth), [JWTAuth](../README.md#JWTAuth)
+[JWTAuth](../README.md#JWTAuth), [APIKeyAuth](../README.md#APIKeyAuth)
 
 ### HTTP request headers
 
