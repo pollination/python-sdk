@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **cpu** | **float** | cpu usage | [optional] [default to 0]
-**daily_usage** | [**list[DailyUsage]**](DailyUsage.md) | daily breakdown of usage | [optional] [default to []]
+**daily_usage** | [**List[DailyUsage]**](DailyUsage.md) | daily breakdown of usage | [optional] [default to []]
 **end** | **datetime** | The end date for this usage aggregation | 
 **failed** | **int** | failed usage | [optional] [default to 0]
 **memory** | **float** | memory usage | [optional] [default to 0]

@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**accessors** | [**list[Accessor]**](Accessor.md) | The entities that can access the license though the pool | [optional] [default to []]
+**accessors** | [**List[Accessor]**](Accessor.md) | The entities that can access the license though the pool | [optional] [default to []]
 **allowed_activations** | **int** | The number of allowable activations for this license | 
 **description** | **str** | The description of the pool | [optional] 
 **id** | **str** | The ID of the pool | 
