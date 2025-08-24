@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**loc** | **list[str]** |  | 
+**loc** | [**List[ValidationErrorLocInner]**](ValidationErrorLocInner.md) |  | 
 **msg** | **str** |  | 
 **type** | **str** |  | [readonly] 
 
