@@ -4,7 +4,7 @@ An input file or folder reference
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**annotations** | **dict(str, str)** | An optional dictionary to add annotations to inputs. These annotations will be used by the client side libraries. | [optional] 
+**annotations** | **Dict[str, str]** | An optional dictionary to add annotations to inputs. These annotations will be used by the client side libraries. | [optional] 
 **type** | **str** |  | [optional] [readonly] [default to 'InputPathReference']
 **variable** | **str** | The name of the DAG input variable | 
 
