@@ -4,7 +4,7 @@ Project Folder Source  This is the path to a folder where files and folders can 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**annotations** | **dict(str, str)** | An optional dictionary to add annotations to inputs. These annotations will be used by the client side libraries. | [optional] 
+**annotations** | **Dict[str, str]** | An optional dictionary to add annotations to inputs. These annotations will be used by the client side libraries. | [optional] 
 **path** | **str** | The path to a folder where files and folders can be sourced. For a local filesystem this can be \&quot;C:\\Users\\me\\jobs\\test\&quot;. | [optional] 
 **type** | **str** |  | [optional] [readonly] [default to 'ProjectFolder']
 

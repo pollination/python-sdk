@@ -4,7 +4,7 @@ Plugin Configuration to run in a Docker container
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**annotations** | **dict(str, str)** | An optional dictionary to add annotations to inputs. These annotations will be used by the client side libraries. | [optional] 
+**annotations** | **Dict[str, str]** | An optional dictionary to add annotations to inputs. These annotations will be used by the client side libraries. | [optional] 
 **image** | **str** | Docker image name. Must include tag. | 
 **registry** | **str** | The container registry URLs that this container should be pulled from. Will default to Dockerhub if none is specified. | [optional] 
 **type** | **str** |  | [optional] [readonly] [default to 'DockerConfig']
